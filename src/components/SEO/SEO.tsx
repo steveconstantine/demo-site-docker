@@ -37,7 +37,7 @@ interface HelmetProps {
   readingTime?: string
 }
 
-const seoURL = path => `https://narative.co${path}`
+const seoURL = path => `https://cawderyco${path}`
 
 // Twitter requires https to prepend any paths.
 const addHttps = path => {
@@ -136,7 +136,7 @@ const SEO = ({
           rel: 'canonical',
           href: canonical
             ? canonical
-            : `https://www.narative.co/${pathname.replace(/^\/+/g, '')}`,
+            : `https://www.giftingwild.co/${pathname.replace(/^\/+/g, '')}`,
         },
       ]}
       meta={getMetaTags({

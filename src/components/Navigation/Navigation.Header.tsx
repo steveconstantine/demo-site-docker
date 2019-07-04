@@ -8,11 +8,18 @@ import { Section, Logo } from '@components'
 import mediaqueries from '@styles/media'
 import { ContactContext } from '@components/Contact/Contact.Context'
 
+import Cart from '../../components-ecommerce/Cart'
+
+import InterfaceContext, {
+  defaultInterfaceContext
+} from '../../context/InterfaceContext'
+
 import shortcuts, { constants, keyToSymbol } from '@shortcuts'
 
 const navLinks = [
   { to: '/careers', text: 'Careers' },
   { to: '/labs', text: 'Labs' },
+  { to: '/collection', text: 'Artists & Collections' },
   { to: '/articles', text: 'Articles' },
   { to: '/contact', text: 'Contact' },
 ]
@@ -43,7 +50,7 @@ const animateOut = [
 
 const themes = {
   light: {
-    color: '#fff',
+    color: '#08080b',
     pseudo: 'transparent',
     symbol: {
       color: '#000',
@@ -51,8 +58,8 @@ const themes = {
     },
   },
   dark: {
-    color: '#000',
-    pseudo: '#fafafa',
+    color: '#fafafa',
+    pseudo: 'transparent',
     symbol: {
       color: '#1D2128',
       background: '#dbdbdc',
@@ -177,7 +184,7 @@ class Navigation extends Component<{}, NavigationState> {
   render() {
     const { active, previousPath, showPreviousPath } = this.state
     const { nav } = this.props
-    const fill = nav.theme === 'dark' ? '#000' : '#fff'
+    const fill = nav.theme === 'dark' ? '#fafafa' : '#08080b'
     const theme = themes[nav.theme]
 
     return (
@@ -194,60 +201,85 @@ class Navigation extends Component<{}, NavigationState> {
                     <BackChevron />
                   </LogoBack>
                 )}
-                <LogoMask>
-                  <LogoContainer
-                    to="/"
-                    onClick={this.handleShortcutReset}
-                    aria-label="Back home"
-                    data-a11y="false"
-                  >
-                    <Logo fill={fill} />
-                  </LogoContainer>
-                </LogoMask>
-                <Right>
-                  <ToggleContainer
-                    onClick={this.handleToggleClick}
-                    aria-label="Mobile Navigation Button"
-                    air-expanded={active}
-                    aria-haspopup="true"
-                    aria-controls="menu-list"
-                    data-a11y="false"
-                  >
-                    <LeftToggle
-                      active={active}
-                      ref={this.leftToggle}
-                      aria-hidden="true"
-                    />
-                    <RightToggle active={active} aria-hidden="true" />
-                  </ToggleContainer>
-                  <Nav>
-                    <DesktopNavList id="menu-list">
-                      <NavItems
-                        active={active}
-                        handleClick={this.navigateOut}
-                        handleOutsideClick={this.handleOutsideClick}
-                      />
-                    </DesktopNavList>
-                  </Nav>
-                  <CommandLineItem key={nav.to}>
-                    <NavSymbols
-                      active={active ? active : undefined}
-                      tabIndex={-1}
-                      delay={active ? 366 : 0}
-                      as="button"
-                      tabIndex={active ? 0 : -1}
-                      onClick={() =>
-                        shortcuts.handleShortcutFeature({
-                          name: constants.COMMAND_LINE_DEFAULT,
-                        })
-                      }
+                  <LogoMask>
+                    <LogoContainer
+                      to="/"
+                      onClick={this.handleShortcutReset}
+                      aria-label="Back home"
                       data-a11y="false"
                     >
-                      <Symbol>{keyToSymbol('meta')}</Symbol>
-                      <Symbol>K</Symbol>
-                    </NavSymbols>
-                  </CommandLineItem>
-                </Right>
+                      <Logo fill={fill} />
+                    </LogoContainer>
+                  </LogoMask>
+                  <Right>
+                    <ToggleContainer
+                      onClick={this.handleToggleClick}
+                      aria-label="Mobile Navigation Button"
+                      air-expanded={active}
+                      aria-haspopup="true"
+                      aria-controls="menu-list"
+                      data-a11y="false"
+                    >
+                      <LeftToggle
+                        active={active}
+                        ref={this.leftToggle}
+                        aria-hidden="true"
+                      />
+                      <RightToggle active={active} aria-hidden="true" />
+                    </ToggleContainer>
+                    <Nav>
+                      <DesktopNavList id="menunav.theme-list">
+                        <NavItems
+                          active={active}
+                          handleClick={this.navigateOut}
+                          handleOutsideClick={this.handleOutsideClick}
+                        />
+                      </DesktopNavList>
+                    </Nav>
+                    <CommandLineItem key={nav.to}>
+                      <NavSymbols
+                        active={active ? active : undefined}
+                        tabIndex={-1}
+                        delay={active ? 366 : 0}
+                        as="button"
+                        tabIndex={active ? 0 : -1}
+                        onClick={() =>
+                          shortcuts.handleShortcutFeature({
+                            name: constants.COMMAND_LINE_DEFAULT,
+                          })
+                        }
+                        data-a11y="false"
+                      >
+                        <Symbol>{keyToSymbol('meta')}</Symbol>
+                        <Symbol>K</Symbol>
+                      </NavSymbols>
+                    </CommandLineItem>
+                    <CartItem>
+                      <InterfaceContext.Consumer>
+                        {({
+                          isDesktopViewport,
+                          cartStatus,
+                          toggleCart,
+                          contributorAreaStatus,
+                          toggleContributorArea,
+                          productImagesBrowserStatus,
+                          currentProductImages,
+                          featureProductImage,
+                          productImageFeatured,
+                          toggleProductImagesBrowser
+                        }) => (
+                         <Cart
+                              theme={nav.theme}
+                              isDesktopViewport={isDesktopViewport}
+                              status={cartStatus}
+                              toggle={toggleCart}
+                              contributorAreaStatus={contributorAreaStatus}
+                              productImagesBrowserStatus={productImagesBrowserStatus}
+                            />
+                        )}
+                      </InterfaceContext.Consumer>
+                    </CartItem>
+                  </Right>
               </NavContainer>
             </Section>
           </NavFixedContainer>
@@ -259,7 +291,7 @@ class Navigation extends Component<{}, NavigationState> {
 
 export default Navigation
 
-const NavItems = ({ active, handleClick, handleOutsideClick }) => {
+const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
   const { toggleContact } = useContext(ContactContext)
 
   return navLinks.map((nav, index) => {
@@ -446,10 +478,6 @@ const Toggle = styled.span`
   background: ${p => p.theme.color};
   transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
     width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-  ${mediaqueries.tablet`
-      display: none;
-    `}
 `
 
 const LeftToggle = styled(Toggle)`
@@ -545,7 +573,7 @@ const NavItem = styled.li`
 `
 
 const CommandLineItem = styled.li`
-  right: -80px;
+  right: -120px;
   position: absolute;
   display: inline-block;
 
@@ -554,6 +582,17 @@ const CommandLineItem = styled.li`
   `};
 `
 
+const CartItem = styled.li`
+  right: -40px;
+  position: absolute;
+  display: inline-block;
+
+  ${mediaqueries.desktop_up`
+    right: -36.6px;
+  `};
+`
+
+CartItem
 const NavAnchor = styled.a`
   display: flex;
   height: 40px;

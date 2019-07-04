@@ -94,7 +94,7 @@ const Frame = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 200px 0 80px;
+  padding: 115px 0 55px;
 
   ${mediaqueries.tablet`
     justify-content: center;

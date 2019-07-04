@@ -28,6 +28,8 @@ import ArticleMicrodata from '../../sections/article/Article.Microdata'
 import ArticleShare from '../../sections/article/Article.Share'
 import ArticleHighlight from '../../sections/article/Article.Highlight'
 
+import ProductListingByTag from '../../components-ecommerce/ProductListingByTag'
+
 import { IDetailPage } from '@typings'
 
 interface PostState {
@@ -91,9 +93,9 @@ class Article extends Component<ArticleProps, PostState> {
       })
 
       // Handle embedded tweets
-      twttr.ready(twttr => {
+        window.twttr.ready(twttr => {
         twttr.events.bind('rendered', this.calculateBodySize)
-      })
+      }) 
 
       // Prevent rerun of the listener attachment
       this.hasCalculatedHeightBefore = true
@@ -116,10 +118,9 @@ class Article extends Component<ArticleProps, PostState> {
     const next = this.next
 
     const navConfig = {
+      offset: true,
+      fixed: true,
       theme: 'dark',
-      offset: false,
-      fixed: false,
-      low: true,
     }
 
     return (
@@ -155,6 +156,7 @@ class Article extends Component<ArticleProps, PostState> {
               {author.title && ` , ${author.title}`}
             </div>
           </Meta>
+          <ProductListingByTag tag={article.productTag} />
           <NextArticle narrow>
             <FooterNext>Next article from Narative</FooterNext>
             <ArticlePreview articles={next} />

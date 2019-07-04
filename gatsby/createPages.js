@@ -14,7 +14,6 @@ const {
   _groupByAuthor,
 } = require('./queries/contentful/contentful.selectors')
 const gql = require('./queries/contentful/contentful.queries')
-
 const settings = require('../src/settings')
 
 // Speedy logging function to print progress to terminal
@@ -27,6 +26,9 @@ const templates = {
   articles: path.resolve(templatesDir, 'pages/articles.template.tsx'),
   article: path.resolve(templatesDir, 'posts/article.template.tsx'),
   author: path.resolve(templatesDir, 'posts/author.template.tsx'),
+  products: path.resolve(templatesDir, 'pages/products.template.js'),
+  product: path.resolve(templatesDir, 'posts/product.template.js'),
+  collections: path.resolve(templatesDir, 'pages/collections.template.js'),
 }
 
 // Some useful variables
@@ -62,6 +64,23 @@ function* takeRelated(postId, postCategories, posts) {
   }
 }
 
+function* takeRelatedCollection(collection, collectionHandles, collections) {
+  let numberTaken = 0
+  for (const { node, handle } of collections) {
+    // If we've hit the limit then return
+    if (numberTaken === relatedLimit) return
+    // Otherwise test if there is intersection between
+    // this post's categories and the loop post's categories,
+    // and that we're not making a post a related of itself.
+    if (intersection(collectionHandles, handle).length && collection.node.id !== node.id) {
+      // Increment the number taken
+      numberTaken++
+      // Yield that node back
+      yield node
+    }
+  }
+}
+
 function buildPaginatedPath(index, pathPrefix) {
   return index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`
 }
@@ -73,7 +92,7 @@ module.exports = async ({ actions: { createPage }, graphql }) => {
    * take place inside of the Graphql not after the fact. That way a page can decide if it cares
    * about the distinction between featured and not-featured.
    *
-   * List pages, for example, do really care about the featured/not-featured paradigm.
+   * List pages, for checkQueryIntegrityexample, do really care about the featured/not-featured paradigm.
    * The design is "featured" at the top and "not-featured" at the bottom.
    *
    * Splitting them up, is a little bit of a tricky dance. There is a maximum number of featured
@@ -88,7 +107,348 @@ module.exports = async ({ actions: { createPage }, graphql }) => {
    * /articles/
    * Article model and LegacyArticle model where type == Article
    */
-  log('Querying', 'articles')
+  log('Querying', 'collections')
+
+/**
+ * Preface
+ * N.B. Gatsby doesn't really support Graphql fragments because the
+ * data is splintered across many many types. I'm going to use
+ * template string interpolation which is bad practice,
+ * but I can't think of a better way that maintains DRY
+ *
+ * Also Contentful returns us every locale ever, even if they're null.
+ * Since title is a required field on all of our content,
+ * I'm doing a not null check on that as part of each filter.
+ * If there's a better way, I'm open to it!
+ */
+
+/**
+ * Basic node data shared by every node whether it's an article, press link or legacy article.
+ * If you add to this fragment you have to be sure that every single node has that field
+ */
+const basicNode = `
+  id
+  title
+  description
+  descriptionHtml
+  handle
+`
+
+/**
+ * We cant use the GatsbyContentfulFixed_withWebp etc. fragments on a non-page query so
+ * I'm redoing them with template literals here. I'm using the root package as reference:
+ *
+ * https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-contentful/src/fragments.js
+ */
+const GatsbyShopifyFixed_withWebp = `
+  width
+  height
+  src
+  srcSet
+  srcWebp
+  srcSetWebp
+`
+
+const GatsbyShopifyFluid_withWebp = `
+  aspectRatio
+  src
+  srcSet
+  srcWebp
+  srcSetWebp
+  sizes
+`
+
+/**
+ * basicNode + any field that a post like node (modern or legacy) has on it
+ */
+const productNode = `
+    ${basicNode}
+    id
+    productType
+    tags
+    variants {
+      shopifyId
+      title
+      price
+      availableForSale
+    }
+    images {
+      id
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 910, maxHeight: 910) {
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+          }
+        }
+      }
+    }
+`
+
+const collectionNode = `
+    ${basicNode}
+    updatedAt
+    products {
+     id
+     tags
+     images {
+      id
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 910, maxHeight: 910) {
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+          }
+        }
+      }
+    }
+    }
+`
+
+/**
+ * Get products
+ *
+ * @param {number} limit Number of posts you want to return
+ * @param {boolean} featured Do you want featured posts or not. Undefined will return featured AND unfeatured
+ *
+ * @returns {object} Gatsby style GraphQL query with a key of posts {data: { posts: {edges: [ ... ]}}}
+ */
+const productQuery = `
+  {
+    allShopifyProduct(
+      sort: {fields: [publishedAt], order: DESC}
+    ) {
+      edges {
+        node {
+          ${productNode}
+        }
+      }
+    }
+  }
+`
+
+const collectionQuery = `
+{
+  allShopifyCollection(
+      sort: {fields: [updatedAt], order: DESC}
+    ) {
+      edges {
+        node {
+          ${collectionNode}
+        }
+      }
+    }
+  }
+`
+
+  const qCollections = await graphql(collectionQuery, opts)
+
+  const qProducts = await graphql(productQuery, opts)
+
+  console.log(qCollections);
+  console.log(qProducts);
+
+  /**
+   * Prefix is just any slug stripped from any path (assumes all have same path root)
+   * This seems like a complicated way to do this when pathPrefix could just be a parameter,
+   * but I don't really want to fuck with URLs in createPages. That's the responsibility of
+   * the data so happens at the Contentful-Enhance plugin.
+   */
+  const pathPrefixCollections = 'collection'
+
+
+
+  let collections = qCollections.data ? qCollections.data.allShopifyCollection.edges : null
+  let products = qProducts.data ? qProducts.data.allShopifyProduct.edges : null
+
+  log('Creating', 'collections')
+
+  createPage({
+      path: `/collection`,
+      component: templates.collections,
+      context: {
+        collections,
+        slug: `/collection`,
+        // Add it to our created page. Topups might well be empty if we found enough relateds
+        // relateds: [...relateds, ...topups],
+    //    next,
+      },
+    })
+
+  log('Creating', 'collection')
+
+if (collections && collections !== null) {
+  collections.forEach((collection, index) => {
+      /**
+       * We need to find related posts for this node.
+       * A related post for this node is any post that intersects with it's categories.
+       */
+      let relateds = []
+
+      const collectionsArr = []
+
+      collections.forEach((collection, index) => {
+        collectionsArr.push(collection)
+      })
+
+
+      // Not every node has a category, so don't waste time on those that don't
+        /**
+         * We want to take the first n articles that are in the same category regardless of model.
+         *
+         * Categories are objects {name: 'Austin', id: 'austin-category'}.
+         * To make testing intersection of categories perform better we're not going
+         * to test object to object but string to string. That means we map categories
+         * down from an array of objects to an array of category IDs.
+         */
+      /**
+      if (collectionsArr.length) {
+        const collectionHandles = pluck('handle', collectionsArr)
+        console.log(collectionHandles);
+        const generator = takeRelatedCollection(collectionsArr[0], collectionHandles, collectionsArr)
+
+        // Exhaust the generator in to the relateds array
+        for (const related of generator) {
+          relateds.push(related)
+        }
+      }
+      **/
+      /**
+       * There are a few scenarios where we only find a few related articles,
+       * less than the number we expect (relatedLimit).
+       * For example, the post itself might not have it's own categories OR
+       * the post might have a category but there are few others in that categories.
+       *
+       * We will grab the latest nodes from the same model as our node to "top up" our relateds
+       */
+
+       /**
+      let topups = []
+      if (relateds.length < relatedLimit) {
+        const required = relatedLimit - relateds.length
+        topups = products
+          // Slice one more topup than you need
+          .slice(0, required + 1)
+          // Filter out the node itself (which might have been taken as a related)
+          .filter(related => related.id !== product.id)
+          // Now limit the topups to what you actually need
+          .slice(0, required)
+      }
+
+      // Grab the two next articles in the list
+      let next = products.slice(index + 1, index + 3)
+
+      // If it's the last item in the list, there will be no articles. So grab the first 2
+      if (next.length === 0) next = products.slice(0, 2)
+
+      // If there's 1 item in the list, grab the first article
+      if (next.length === 1) next = [...next, products[0]]
+**/
+      // Create the page for this post
+      createPage({
+      path: `/collection/${collection.node.handle}`,
+      component: templates.products,
+      context: {
+        products,
+        slug: `/collection/${collection.node.handle}`,
+        id: collection.node.id,
+        title: collection.node.title,
+        handle: collection.node.handle,
+        // Add it to our created page. Topups might well be empty if we found enough relateds
+        // relateds: [...relateds, ...topups],
+    //    next,
+      },
+    })
+    })
+  }
+
+    log('Creating', 'product')
+
+if (products) {
+ products.forEach((product, index) => {
+    /**
+     * We need to find related posts for this node.
+     * A related post for this node is any post that intersects with it's categories.
+     */
+
+    let relateds = []
+
+    const tags = [product.node.tags] || []
+    // Not every node has a category, so don't waste time on those that don't
+      /**
+       * We want to take the first n articles that are in the same category regardless of model.
+       *
+       * Categories are objects {name: 'Austin', id: 'austin-category'}.
+       * To make testing intersection of categories perform better we're not going
+       * to test object to object but string to string. That means we map categories
+       * down from an array of objects to an array of category IDs.
+       */
+
+    /**
+    if (tags.length) {
+      const productTags = pluck('tags', tags)
+      const generator = takeRelatedProduct(product.id, productTags, products)
+
+      // Exhaust the generator in to the relateds array
+      for (const related of generator) {
+        relateds.push(related)
+      }
+    } **/
+
+    /**
+     * There are a few scenarios where we only find a few related articles,
+     * less than the number we expect (relatedLimit).
+     * For example, the post itself might not have it's own categories OR
+     * the post might have a category but there are few others in that categories.
+     *
+     * We will grab the latest nodes from the same model as our node to "top up" our relateds
+     *//**
+    let topups = []
+    if (relateds.length < relatedLimit) {
+      const required = relatedLimit - relateds.length
+      topups = products
+        // Slice one more topup than you need
+        .slice(0, required + 1)
+        // Filter out the node itself (which might have been taken as a related)
+        .filter(related => related.id !== product.id)
+        // Now limit the topups to what you actually need
+        .slice(0, required)
+    }
+
+    // Grab the two next articles in the list
+    let next = products.slice(index + 1, index + 3)
+
+    // If it's the last item in the list, there will be no articles. So grab the first 2
+    if (next.length === 0) next = products.slice(0, 2)
+
+    // If there's 1 item in the list, grab the first article
+    if (next.length === 1) next = [...next, products[0]]
+    **/
+    // Create the page for this post
+    createPage({
+      path: `/product/${product.node.handle}`,
+      component: templates.product,
+      context: {
+        product,
+        slug: `/product/${product.node.handle}`,
+        id: product.node.id,
+        title: product.node.title,
+        handle: product.node.handle,
+        // Add it to our created page. Topups might well be empty if we found enough relateds
+        // relateds: [...relateds, ...topups],
+        //  next,
+      },
+    })
+  })
+  }
 
   const qArticles = await graphql(gql.articles, opts)
 
@@ -260,6 +620,7 @@ module.exports = async ({ actions: { createPage }, graphql }) => {
         slug: article.path,
         id: article.id,
         title: article.title,
+        productTag: article.productTag,
         // Add it to our created page. Topups might well be empty if we found enough relateds
         // relateds: [...relateds, ...topups],
         next,

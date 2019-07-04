@@ -5,6 +5,8 @@
 module.exports.urls = {
   authors: 'authors',
   articles: 'articles',
+  collections: 'collections',
+  products: 'products',
   netlify: {
     preview: '/.netlify/functions/preview',
   },

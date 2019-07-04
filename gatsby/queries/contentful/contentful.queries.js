@@ -145,6 +145,7 @@ const articleNode = `
   shortUrl
   canonical
   featured
+  productTag
   publicationDate(formatString: "MMM. D, YYYY")
   updatedAt(formatString: "MMM. D, YYYY")
   ${heroImageryField}

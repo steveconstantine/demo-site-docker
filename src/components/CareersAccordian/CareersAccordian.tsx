@@ -29,10 +29,10 @@ function CareersAccordian() {
           allContentfulCareer(filter: { active: { eq: true } }) {
             edges {
               node {
-                childContentfulCareerDescriptionTextNode {
-                  childMarkdownRemark {
-                    html
-                  }
+                description {
+                    childRichTextHtml {
+                      html
+                    }
                 }
                 title
                 location
@@ -137,8 +137,8 @@ const CareersAccordianItem = ({
           <AccordianListDescription
             dangerouslySetInnerHTML={{
               __html:
-                career.childContentfulCareerDescriptionTextNode
-                  .childMarkdownRemark.html,
+                career.description
+                  .childRichTextHtml.html,
             }}
           />
           <AccordianMailTo href={mailTo} target="_blank">
@@ -315,7 +315,7 @@ const AccordianCareersEmail = styled.p`
 
 const HideOnMobile = styled.span`
   ${mediaqueries.tablet`
-    display: none; 
+    display: none;
   `}
 `
 

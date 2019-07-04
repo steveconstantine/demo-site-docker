@@ -29,7 +29,7 @@ function ArticlesPage({ data, location, pageContext }) {
   const navConfig = {
     offset: true,
     fixed: true,
-    theme: 'light',
+    theme: 'dark',
   }
 
   const footerConfig = {
@@ -46,14 +46,12 @@ function ArticlesPage({ data, location, pageContext }) {
           pathname={location.pathname}
         />
         <ArticlesHero />
-        <WhiteBackground>
-          <Section narrow>
-            <ArticlesFeatured article={featured} />
-            <ArticlesGrid articles={articles} />
-            <ArticlesPagination pageContext={pageContext} />
-          </Section>
-          <Footer mode="light" />
-        </WhiteBackground>
+        <Section narrow>
+          <ArticlesFeatured article={featured} />
+          <ArticlesGrid articles={articles} />
+          <ArticlesPagination pageContext={pageContext} />
+        </Section>
+        <Footer mode="dark" />
       </>
     </Layout>
   )

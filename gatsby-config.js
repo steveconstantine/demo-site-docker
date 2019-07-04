@@ -3,8 +3,8 @@ require('dotenv').config()
 const proxy = require('http-proxy-middleware')
 
 exports.siteMetadata = {
-  title: 'Narative',
-  siteUrl: 'https://narative.co',
+  title: 'Cawdery Digital Consultant Agency',
+  siteUrl: 'https://cawdery.co',
   pathPrefix: `/`,
 }
 
@@ -38,7 +38,19 @@ exports.plugins = [
       environment: process.env.CONTENTFUL_ENVIRONMENT,
     },
   },
-
+  {
+    resolve: 'gatsby-source-shopify',
+    options: {
+      shopName: 'vancity87',
+      accessToken: process.env.SHOPIFY_ACCESS_TOKEN
+    }
+  },
+  {
+    resolve: `gatsby-plugin-emotion`,
+    options: {
+      // Accepts all options defined by `babel-plugin-emotion` plugin.
+    },
+  },
   {
     resolve: 'gatsby-plugin-manifest',
     options: {
@@ -54,8 +66,8 @@ exports.plugins = [
   {
     resolve: 'gatsby-plugin-robots-txt',
     options: {
-      host: 'https://narative.co',
-      sitemap: 'https://narative.co/sitemap.xml',
+      host: 'https://cawdery.co',
+      sitemap: 'https://cawdery.co/sitemap.xml',
       policy: [
         { userAgent: '*', disallow: ['/.netlify/', '/articles/preview/'] },
       ],

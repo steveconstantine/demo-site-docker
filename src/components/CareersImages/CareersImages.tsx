@@ -2,8 +2,13 @@ import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
+
 import { HorizontalScroll, IntersectionObserver } from '@components'
 import mediaqueries from '@styles/media'
+
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+
 
 class CareersImages extends Component {
   state = {
@@ -70,6 +75,11 @@ class CareersImages extends Component {
   render() {
     const { activeIndex } = this.state
     const offset = activeIndex * 72 * -1
+      const responsive = {
+      0: { items: 2 },
+      1024: { items: 3 },
+    }
+
 
     return (
       <Fragment>
@@ -84,44 +94,27 @@ class CareersImages extends Component {
               }
 
               return (
-                <GalleryContainer
-                  style={{ transform: `translateX(${offset}rem)` }}
-                >
+                 <AliceCarousel
+                        dotsDisabled={true}
+                        buttonsDisabled={false}
+                        responsive={responsive}
+                        autoPlayInterval={4800}
+                        autoPlay={true}
+                        fadeOutAnimation={true}
+                        mouseDragEnabled={true}
+                        disableAutoPlayOnAction={true}>
                   {this.props.images.map((image, index) => (
-                    <ImageContainer
-                      key={image.node.childImageSharp.fluid.src}
-                      index={index}
-                      activeIndex={activeIndex}
-                      inView={this.state.inView}
-                      viewed={this.state.viewed}
-                      style={{ left: `${index * 36}rem` }}
-                    >
-                      <Img
-                        fluid={image.node.childImageSharp.fluid}
-                        alt={this.props.descriptions[index]}
-                      />
-                    </ImageContainer>
+                        <GalleryImageContainer>
+                          <Img
+                            fluid={image.node.childImageSharp.fluid}
+                            alt={this.props.descriptions[index]}
+                          />
+                        </GalleryImageContainer>
                   ))}
-                </GalleryContainer>
+                  </AliceCarousel>
               )
             }}
           />
-          <GalleryControl
-            disabled={activeIndex === 0}
-            onClick={this.handlePrevClick}
-            data-a11y="false"
-            left
-          >
-            <ChevronLeft />
-          </GalleryControl>
-          <GalleryControl
-            disabled={activeIndex === this.props.images.length / 2 - 1}
-            onClick={this.handleNextClick}
-            data-a11y="false"
-            right
-          >
-            <ChevronRight />
-          </GalleryControl>
         </CareersImagesContainer>
         <CareersImagesContainerMobile>
           <HorizontalScroll
@@ -163,9 +156,13 @@ const CareersImagesContainerMobile = styled.div`
   `};
 `
 
+const GalleryImageContainer = styled.div`
+  padding: 5px;
+`
+
 const GalleryContainer = styled.div`
   position: relative;
-  height: 24rem;
+  max-height: 44rem;
   transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1);
 `
 

@@ -38,7 +38,7 @@ function LabsPage({ data, location }) {
   const pageBackground = 'linear-gradient(180deg, #08080b 50%, #191D23 100%)'
   const navConfig = {
     fixed: true,
-    theme: 'light',
+    theme: 'dark',
     offset: true,
   }
   const footerConfig = {

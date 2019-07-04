@@ -18,7 +18,7 @@ function IndexPage({ data, location }) {
   const navConfig = {
     offset: true,
     fixed: true,
-    theme: 'light',
+    theme: 'dark',
   }
 
   return (
