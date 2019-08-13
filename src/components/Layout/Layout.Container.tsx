@@ -280,6 +280,7 @@ const SiteContainer = styled.div`
   min-height: 100vh;
   padding-bottom: ${p => p.paddingBottom};
   background-size: cover;
+  overflow-x: hidden;
 
   ${p =>
     p.navOffset &&

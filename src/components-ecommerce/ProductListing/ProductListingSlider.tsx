@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 import { HorizontalScroll, IntersectionObserver } from '@components'
 import mediaqueries from '@styles/media'
 
-class ProductSlider extends Component {
+class ProductListingSlider extends Component {
   state = {
     activeIndex: 0,
     disabled: false,
@@ -138,7 +138,7 @@ class ProductSlider extends Component {
   }
 }
 
-export default ProductSlider
+export default ProductListingSlider
 
 const CareersImagesContainer = styled.div`
   position: relative;

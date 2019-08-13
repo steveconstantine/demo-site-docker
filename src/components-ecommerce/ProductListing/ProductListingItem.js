@@ -31,6 +31,7 @@ const ProductListingItemLink = styled(Link)`
   margin-bottom: ${spacing.lg}px;
   overflow: hidden;
   text-decoration: none;
+  width: 40vw;
   transition: all ${TRANSITION_DURATION};
 
   @media (min-width: ${breakpoints.tablet}px) {
@@ -40,9 +41,9 @@ const ProductListingItemLink = styled(Link)`
   }
 
   @media (min-width: ${breakpoints.desktop}px) {
-    flex-basis: 300px;
+    flex-basis: 400px;
     justify-content: center;
-    margin: ${spacing.md * 1.25}px;
+    margin: 5px;
   }
 
   @media (hover: hover) {

@@ -21,6 +21,7 @@ import LabsPreviewMobile from '../../sections/labs/Labs.Preview.Mobile'
 
 import ProductListingHeader from './ProductListingHeader'
 import ProductListingItem from './ProductListingItem'
+import ProductListingSlider from './ProductListingSlider'
 
 const ProductListing = () => (
     <StaticQuery
@@ -222,9 +223,11 @@ const ProductListing = () => (
             </HeroImageMobile>
             <Section narrow>
               <ProductListingContainer>
-                {allShopifyProduct.edges.map(({ node: product }) => (
-                  <ProductListingItem key={product.id} product={product} />
-                ))}
+                <ProductListingSlider>
+                  {allShopifyProduct.edges.map(({ node: product }) => (
+                    <ProductListingItem key={product.id} product={product} />
+                  ))}
+                </ProductListingSlider>
               </ProductListingContainer>
             </Section>
             <Section narrow>

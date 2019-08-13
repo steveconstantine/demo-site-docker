@@ -41,9 +41,9 @@ const ProductListingByTagItemLink = styled(Link)`
   }
 
   @media (min-width: ${breakpoints.desktop}px) {
-    flex-basis: 300px;
+    flex-basis: 400px;
     justify-content: center;
-    margin: ${spacing.md * 1.25}px;
+    margin: 5px;
   }
 
   @media (hover: hover) {
