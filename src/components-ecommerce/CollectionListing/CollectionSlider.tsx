@@ -104,7 +104,9 @@ class CareersImages extends Component {
               )
             }}
           />
-          <GalleryControl
+          { this.props.children.length > 2 ?
+            <>
+            <GalleryControl
             disabled={activeIndex === 0}
             onClick={this.handlePrevClick}
             data-a11y="false"
@@ -120,6 +122,7 @@ class CareersImages extends Component {
           >
             <ChevronRight />
           </GalleryControl>
+          </> : null }
         </CareersImagesContainer>
         <CareersImagesContainerMobile>
           <HorizontalScroll

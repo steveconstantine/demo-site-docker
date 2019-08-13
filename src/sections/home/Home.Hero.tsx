@@ -55,6 +55,7 @@ function HomeHero() {
 export default HomeHero
 
 const HomeHeroContainer = styled.div`
+  overflow-x: hidden;
   ${mediaqueries.desktop`
     #mirror-mask {
       display: none;

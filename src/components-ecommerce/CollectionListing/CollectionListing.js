@@ -19,7 +19,8 @@ import { keyToSymbol } from '@shortcuts'
 import LabsPreview from '../../sections/labs/Labs.Preview'
 import LabsPreviewMobile from '../../sections/labs/Labs.Preview.Mobile'
 
-import CollectionListingItem from './CollectionListingItem';
+import CollectionListingItem from './CollectionListingItem'
+import CollectionSlider from './CollectionSlider'
 
 const CollectionListing = (nav) => (
     <StaticQuery
@@ -219,9 +220,11 @@ const CollectionListing = (nav) => (
             </HeroImageMobile>
             <Section narrow>
               <CollectionListingContainer>
-                {allShopifyCollection.edges.map(({ node: collection }) => (
-                  <CollectionListingItem theme={nav.theme} key={collection.id} collection={collection} />
-                ))}
+                <CollectionSlider>
+                  {allShopifyCollection.edges.map(({ node: collection }) => (
+                    <CollectionListingItem theme={nav.theme} key={collection.id} collection={collection} />
+                  ))}
+                </CollectionSlider>
               </CollectionListingContainer>
             </Section>
             <Section narrow>

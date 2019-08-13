@@ -31,6 +31,7 @@ const ProductListingByTagItemLink = styled(Link)`
   margin-bottom: ${spacing.lg}px;
   overflow: hidden;
   text-decoration: none;
+  width: 40vw;
   transition: all ${TRANSITION_DURATION};
 
   @media (min-width: ${breakpoints.tablet}px) {

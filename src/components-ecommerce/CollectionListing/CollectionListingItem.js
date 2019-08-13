@@ -32,6 +32,7 @@ const CollectionListingItemLink = styled(Link)`
   overflow: hidden;
   text-decoration: none;
   transition: all ${TRANSITION_DURATION};
+  width: 50vw;
 
   @media (min-width: ${breakpoints.tablet}px) {
     margin-left: auto;
@@ -236,7 +237,7 @@ const CollectionListingItem = props => {
   } = firstProduct.images[0];
 
   const freeWith = null;
-  
+
   return (
     <UserContext.Consumer>
       {({ contributor }) => {
@@ -265,19 +266,6 @@ const CollectionListingItem = props => {
                   DESCRIPTION_LIMIT
                 )}
               </Description>
-              <PriceRow>
-               <Price>
-                </Price>
-                <Incentive>
-                  <span>
-                    view details
-                    <br />& buy <MdArrowForward />
-                  </span>
-                  <CartIcon>
-                    <MdShoppingCart />
-                  </CartIcon>
-                </Incentive>
-              </PriceRow>
             </Item>
           </CollectionListingItemLink>
         );
