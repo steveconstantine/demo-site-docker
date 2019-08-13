@@ -25,8 +25,10 @@ function ProductsPageTemplate({ data, location, pageContext }) {
     visible: false,
   }
 
+  const bgImage = data.allShopifyProduct.edges[Math.floor(Math.random() * Math.floor(data.allShopifyProduct.edges.length))].node.images[0].localFile.childImageSharp.fluid.src;
+
   return (
-    <Layout nav={navConfig} footer={footerConfig} background={'#FFFFFF'}>
+    <Layout nav={navConfig} footer={footerConfig} background={'url(' + bgImage + ')'}>
       <>
         <SEO
           title={seo.title}
@@ -83,6 +85,5 @@ export const query = graphql`
 
 const WhiteBackground = styled.div`
   position: relative;
-  background: #fafafa;
+  background: #fafafa77;
 `
-

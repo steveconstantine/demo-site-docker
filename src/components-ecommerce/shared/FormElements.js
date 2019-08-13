@@ -5,14 +5,15 @@ import { PrimaryButton } from './Buttons';
 import { colors, radius, spacing } from '../../utils/styles';
 
 export const Input = styled(`input`)`
-  background-color: ${colors.lightest};
+  background-color: #FFFFFF88;
   border: 1px solid ${colors.brandBright};
   border-radius: ${radius.default}px;
   color: ${colors.text};
+  font-size: 20px !important;
   display: block;
   font-size: 1.1rem;
   padding: ${spacing.sm}px ${spacing.md}px;
-  width: 100%;
+  width: 100% !important;
 
   :focus {
     box-shadow: 0 0 0 3px ${colors.accent};
@@ -31,6 +32,7 @@ export const Select = styled(Input.withComponent('select'))`
   background-position: right 0.5rem center;
   background-repeat: no-repeat;
   background-size: 8px 10px;
+  font-size: 20px !important;
   padding-right: ${spacing.xl}px !important;
 `;
 

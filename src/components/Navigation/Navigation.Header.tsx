@@ -190,7 +190,7 @@ class Navigation extends Component<{}, NavigationState> {
     return (
       <ThemeProvider theme={theme}>
         <OutsideClickHandler onOutsideClick={this.handleOutsideClick}>
-          <NavFixedContainer navFixed={nav.fixed}>
+          <NavFixedContainer theme={nav.theme} navFixed={nav.fixed}>
             <Section>
               <NavContainer>
                 {previousPath && showPreviousPath && (
@@ -346,12 +346,13 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
 }
 
 const NavFixedContainer = styled.div`
-  position: absolute;
-  height: 90px;
+  position: fixed;
+  height: 60px;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 10;
+  background: ${p => (p.theme == 'light' ? '#FAFAFA99' : '#08080b99')};
 
   ${mediaqueries.tablet`
     position: ${p => (p.navFixed ? 'fixed' : 'absolute')};
@@ -361,12 +362,12 @@ const NavFixedContainer = styled.div`
 const NavContainer = styled.div`
   position: relative;
   z-index: 100;
-  padding-top: 100px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
 
   ${mediaqueries.desktop_medium`
-    padding-top: 50px;
+    padding-top: 10px;
   `};
 
   @media screen and (max-height: 800px) {

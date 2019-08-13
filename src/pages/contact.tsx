@@ -164,7 +164,7 @@ const SlideInContainer = styled.div`
   will-change: transform;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  background: #fff;
+  background: url('https://cdn.shopify.com/s/files/1/0708/4517/t/7/assets/photo-gallery-1492-Raven-Magic_1024x1024.jpg?6282936110242184875');
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   filter: blur(0);
@@ -173,9 +173,9 @@ const SlideInContainer = styled.div`
     width: 100%;
     position: relative;
     top: 310px;
-    height: calc(100vh - 340px);
+    height: calc(100vh - 240px);
     box-shadow: none;
-    padding-top: 7rem;
+    padding-top: 0;
     overflow: initial;
 
     &::before {
@@ -229,7 +229,11 @@ const FormContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   width: 100%;
-  background: #fff;
+  padding-top: 7rem;
+  background: -moz-linear-gradient(top,  rgba(55,55,55,0.55) 0%, rgba(41,137,216,0.4) 49%, rgba(41,137,216,0.28) 90%, rgba(125,185,232,0.25) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(55,55,55,0.55) 0%,rgba(41,137,216,0.4) 49%,rgba(41,137,216,0.28) 90%,rgba(125,185,232,0.25) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(55,55,55,0.55) 0%,rgba(41,137,216,0.4) 49%,rgba(41,137,216,0.28) 90%,rgba(125,185,232,0.25) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c373737', endColorstr='#407db9e8',GradientType=0 ); /* IE6-9 */
   z-index: 99999;
 `
 

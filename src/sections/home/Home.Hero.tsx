@@ -34,9 +34,9 @@ function HomeHero() {
                       your business take the next step.
                     </MainText>
                     <ButtonArrow onClick={toggleContact} text="Get in touch" />
+                    <ButtonArrow onClick={toggleContact} text="Browse our Art" />
                   </Transitions.CSS.FadeIn>
                 </TextContainer>
-                <ShapeShifter />
               </ContentContainer>
             )}
           />

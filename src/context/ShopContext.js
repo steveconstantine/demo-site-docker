@@ -2,8 +2,8 @@ import React from 'react';
 import Client from 'shopify-buy';
 
 const client = Client.buildClient({
-  domain: 'vancity87.myshopify.com',
-  storefrontAccessToken: 'd9955d67f9b2fd457e4d028d4ee429f2'
+  domain: 'cleantheocean.myshopify.com',
+  storefrontAccessToken: 'a9a42c18fa97c45dcdc66a50743c633f'
 });
 
 export const defaultShopContext = {

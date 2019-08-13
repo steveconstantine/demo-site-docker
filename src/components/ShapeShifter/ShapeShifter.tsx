@@ -170,10 +170,10 @@ function ShapeShifter() {
     mask.id = 'mirror-mask'
     mask.style.cssText = `
       position: absolute;
-      top: ${offsetTop + 30}px;
+      top: 90vh;
       left: 0;
       width: 100%;
-      height: 800px;
+      height: 10vh;
       background: linear-gradient(to bottom, rgba(8, 8, 11, 0.05), rgb(8, 8, 11) 20%);
       pointer-events: none;
       z-index: 1;

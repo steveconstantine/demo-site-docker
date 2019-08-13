@@ -25,7 +25,8 @@ function IndexPage({ data, location }) {
     <Layout
       nav={navConfig}
       location={location}
-      background="#08080b"
+      paddingBottom={true}
+      background={"url('http://images.squarespace-cdn.com/content/v1/5b2ffc2a3c3a53bd6c829957/1535414006445-FZH3Q7Q4737BVCCSM66M/ke17ZwdGBToddI8pDm48kCMHgdKvgBtjr1p_wxI79hl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UXH1NgUy1J3SPXoAXSU1NLlEwQ1-mdcAYBUwEkYv-BbgQK7PAiDfWd0Koy0MH7DUzQ/whalesong8x32.jpg')"}
       withFooter={false}
     >
       <>
@@ -36,10 +37,6 @@ function IndexPage({ data, location }) {
           pathname={location.pathname}
         />
         <HomeHero />
-        <HomeAbout />
-        <HomeServices />
-        <HomeTestimonial />
-        <HomeCallToAction />
       </>
     </Layout>
   )

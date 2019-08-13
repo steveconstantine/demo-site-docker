@@ -194,7 +194,7 @@ class LayoutContainer extends Component<LayoutProps, LayoutState> {
   }
 
   render() {
-    const { background, children, nav, footer } = this.props
+    const { background, children, nav, footer, paddingBottom } = this.props
     const {
       active,
       mask,
@@ -219,6 +219,7 @@ class LayoutContainer extends Component<LayoutProps, LayoutState> {
             onClick={active ? this.closeMobileNav : () => {}}
             theme={navTheme}
             ref={this.container}
+            paddingBottom={paddingBottom == true ? '400%' : '0'}
           >
             <main>
               {/*
@@ -277,17 +278,18 @@ const SiteContainer = styled.div`
     p.background ||
     `linear-gradient(180deg, #08080b 0%, #0b0b0e 44.18%, #111216 100%)`};
   min-height: 100vh;
+  padding-bottom: ${p => p.paddingBottom};
   background-size: cover;
 
   ${p =>
     p.navOffset &&
-    ` padding-top: 140px; 
+    ` padding-top: 60px;
   `};
 
   ${p =>
     p.navOffset &&
     mediaqueries.tablet`
-      padding-top: 0; 
+      padding-top: 60px;
   `};
 
   ${mediaqueries.tablet`
@@ -386,7 +388,7 @@ const MaskMobile = styled.div`
     left: 0;
     width: 100%;
     background: ${p => (p.theme !== 'dark' ? '#08080b' : '#fff')};
-    z-index: 9; 
+    z-index: 9;
   `}
 `
 

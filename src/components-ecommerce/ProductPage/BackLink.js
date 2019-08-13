@@ -8,19 +8,7 @@ import { Button } from '../shared/Buttons';
 import { breakpoints, colors, fonts, spacing } from '../../utils/styles';
 
 const BackLinkRoot = styled(`div`)`
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 76%,
-    rgba(255, 255, 255, 0.75) 76%,
-    rgba(255, 255, 255, 0.75) 82%,
-    rgba(255, 255, 255, 0.5) 82%,
-    rgba(255, 255, 255, 0.5) 88%,
-    rgba(255, 255, 255, 0.25) 88%,
-    rgba(255, 255, 255, 0.25) 94%,
-    rgba(255, 255, 255, 0) 94%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: transparent;
   bottom: 0;
   left: 0;
   padding: ${spacing.md}px;
@@ -38,6 +26,7 @@ const BackLinkRoot = styled(`div`)`
 
 const BackToListing = styled(Button)`
   width: 100%;
+  background: #FFFFFFBB !important;
 
   @media (min-width: ${breakpoints.desktop}px) {
     width: auto;

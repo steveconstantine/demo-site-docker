@@ -41,7 +41,7 @@ exports.plugins = [
   {
     resolve: 'gatsby-source-shopify',
     options: {
-      shopName: 'vancity87',
+      shopName: 'cleantheocean',
       accessToken: process.env.SHOPIFY_ACCESS_TOKEN
     }
   },

@@ -21,7 +21,7 @@ const validate = values => {
   let errors = {}
 
   if (!values.name) {
-    errors.name = "Hi, we're Narative. What's your name?"
+    errors.name = "Hi, we're Gifting Wild. What's your name?"
   }
 
   if (!values.email) {
@@ -154,7 +154,7 @@ class ContactForm extends Component<
                   >
                     <ButtonArrow
                       isSubmitting={props.isSubmitting}
-                      color="black"
+                      color="white"
                       text="Submit"
                       type="submit"
                     />
@@ -180,19 +180,19 @@ const ContactByEmail = ({ animation }) => (
     <ContactWithEmail animation={animation} delay={1240}>
       <ContactWithEmailText>
         <CopyToClipboard
-          copyOnClick="contact@narative.co"
-          iconFill="rgba(0,0,0,0.3)"
+          copyOnClick="contact@giftingwild.com"
+          iconFill="rgba(255,255,255,0.3)"
         >
           Prefer to send us an email instead?{' '}
           <button>
-            contact@narative.co{' '}
-            <Hidden>Copy contact@narative.co go clipboard.</Hidden>
+            contact@giftingwild.com{' '}
+            <Hidden>Copy contact@giftinwild.com go clipboard.</Hidden>
           </button>
         </CopyToClipboard>
       </ContactWithEmailText>
     </ContactWithEmail>
-    <MobileContactWithEmail href="mailto:contact@narative.co">
-      Prefer to send us an email instead? <span>contact@narative.co</span>
+    <MobileContactWithEmail href="mailto:contact@giftingwild.com">
+      Prefer to send us an email instead? <span>contact@giftingwild.com</span>
     </MobileContactWithEmail>
   </>
 )
@@ -203,7 +203,7 @@ const fadeIn = keyframes`
 `
 
 const FormHeader = styled(Heading.h2)`
-  color: #000;
+  color: #FFF;
   width: 265px;
   padding-right: ${p => (p.morePadding ? '100px' : '76px')};
 
@@ -211,7 +211,7 @@ const FormHeader = styled(Heading.h2)`
     width: 100%;
     padding: 0;
     margin-bottom: 5px;
-    color: ${p => p.theme.colors.grey};
+    color: #FFF;
   `};
 `
 
@@ -233,7 +233,7 @@ const FormSection = styled.div`
 const ContactWithEmailText = styled.div`
   padding-top: 55px;
   font-size: 18px;
-  color: rgba(0, 0, 0, 0.33);
+  color: rgba(255, 255, 255, 0.88);
 
   button {
     text-decoration: underline;
@@ -248,7 +248,7 @@ const ContactWithEmailText = styled.div`
 const MobileContactWithEmail = styled.a`
   display: none;
   text-align: center;
-  color: rgba(0, 0, 0, 0.33);
+  color: rgba(255, 255, 255, 0.88);
   margin-top: 40px;
 
   ${mediaqueries.tablet`
@@ -301,7 +301,7 @@ const StyledFormikForm = styled(FormikForm)`
   position: relative;
   padding-bottom: 10rem;
   margin: 0 auto;
-  background: #fff;
+  background: transparent;
   z-index: 99999;
 
   ${mediaqueries.desktop_large`
@@ -348,7 +348,7 @@ const SubmittedScreen = styled.div`
 
 const SubmittedHeader = styled(Heading.h2)`
   margin-bottom: 3rem;
-  color: #000;
+  color: #FFF;
 `
 
 const SubmittedText = styled.p`

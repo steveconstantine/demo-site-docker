@@ -343,15 +343,18 @@ const CartToggle = styled(Button)`
 `;
 
 const CheckOut = styled(PrimaryButton)`
-  font-size: 1.25rem;
+  font-size: 20px;
   margin: ${spacing.lg}px 0 ${spacing.md}px;
   width: 100%;
+  background: black !important;
 `;
 
 const BackLink = styled(Button)`
-  font-size: 1.25rem;
+  font-size: 20px;
   margin-bottom: ${spacing.sm}px;
   width: 100%;
+  color: black !important;
+  border: 1px solid black !important;
 `;
 
 class Cart extends Component {

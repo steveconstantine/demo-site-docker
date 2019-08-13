@@ -311,11 +311,11 @@ const StyledInput = styled.input`
   caret-color: ${p => p.theme.colors.purple};
 
   ::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
     font-weight: 200;
   }
   ::placeholder {
-    color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
     font-weight: 200;
   }
 `

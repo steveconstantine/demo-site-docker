@@ -281,11 +281,12 @@ const CallToAction = styled.div`
   bottom: calc(-50vh + 75px);
   width: 100%;
   height: 50vh;
-  background: #fff;
+  background: url('http://images.squarespace-cdn.com/content/v1/5b2ffc2a3c3a53bd6c829957/1535414006445-FZH3Q7Q4737BVCCSM66M/ke17ZwdGBToddI8pDm48kCMHgdKvgBtjr1p_wxI79hl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UXH1NgUy1J3SPXoAXSU1NLlEwQ1-mdcAYBUwEkYv-BbgQK7PAiDfWd0Koy0MH7DUzQ/whalesong8x32.jpg');
+  background-size: cover;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   text-align: center;
-  color: #000;
+  color: #FFF;
   cursor: pointer;
 
   ${mediaqueries.tablet`

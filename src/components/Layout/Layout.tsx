@@ -240,7 +240,7 @@ interface LayoutProps {
                   }) => (
                     <>
                       <GlobalStyles />
-                      <Container nav={this.props.nav} background={this.props.background}>
+                      <Container paddingBottom={this.props.paddingBottom} nav={this.props.nav} background={this.props.background}>
                         {this.props.children}
                       </Container>
                       <ContactSlideIn />

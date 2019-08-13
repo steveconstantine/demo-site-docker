@@ -52,7 +52,7 @@ const CollectionListing = (nav) => (
                           srcSet
                           srcWebp
                           srcSetWebp
-                          sizes                      
+                          sizes
                         }
                       }
                     }
@@ -188,7 +188,7 @@ const CollectionListing = (nav) => (
                         Whether with our clients or all by ourselves, we're always
                         busy building something new.
                       </Heading.h2>
-                      <MainText>
+                      <MainText color={nav.theme}>
                         Take a peek at the products we're creating in-house at
                         Narative.
                       </MainText>
@@ -320,7 +320,7 @@ const TextContainer = styled.div`
 const MainText = styled.p`
   font-size: 3.2rem;
   font-weight: 400;
-  color: ${p => p.theme.colors.grey};
+  color: ${p => (p.color == 'light' ? '#08080b' : '#FAFAFA')};
   line-height: 1.3;
 
   ${mediaqueries.phablet`
@@ -614,4 +614,3 @@ const FigmaIcon = () => (
 
 
 export default CollectionListing;
-

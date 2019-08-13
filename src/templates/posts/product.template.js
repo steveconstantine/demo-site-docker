@@ -35,7 +35,7 @@ function ProductPageTemplate({ data, location, pageContext }) {
 
   return (
 
-    <Layout nav={navConfig} footer={footerConfig} background={'#FFFFFF'}>
+    <Layout nav={navConfig} footer={footerConfig} background={'url(' + image + ')'}>
       <>
        <InterfaceContext.Consumer>
           {({
@@ -52,17 +52,18 @@ function ProductPageTemplate({ data, location, pageContext }) {
                 image={seo.images[0].localFile.childImageSharp.fluid.src}
                 pathname={location.pathname}
               />
-              <Section narrow>
-                <ProductPage
-                        product={product}
-                        isDesktopViewport={isDesktopViewport}
-                        productImagesBrowserStatus={productImagesBrowserStatus}
-                        productImageFeatured={productImageFeatured}
-                        toggleProductImagesBrowser={toggleProductImagesBrowser}
-                        setCurrentProductImages={setCurrentProductImages}
-                 />
-              </Section>
-              <Footer mode="light" />
+              <WhiteBackground>
+                <Section narrow>
+                  <ProductPage
+                          product={product}
+                          isDesktopViewport={isDesktopViewport}
+                          productImagesBrowserStatus={productImagesBrowserStatus}
+                          productImageFeatured={productImageFeatured}
+                          toggleProductImagesBrowser={toggleProductImagesBrowser}
+                          setCurrentProductImages={setCurrentProductImages}
+                   />
+                </Section>
+              </WhiteBackground>
             </>
             )}
        </InterfaceContext.Consumer>
@@ -105,5 +106,6 @@ export const query = graphql`
 
 const WhiteBackground = styled.div`
   position: relative;
-  background: #fafafa;
+  background: #fafafa77;
+  min-height: calc(100vh - 60px);
 `

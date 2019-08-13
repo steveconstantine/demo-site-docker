@@ -81,7 +81,7 @@ const CopyIconContainer = styled.div`
 const CopyIconText = styled.p`
   display: flex;
   align-items: center;
-  color: #3f7871;
+  color: #FAFAFA;
   opacity: 0;
   animation: fadein 1s linear forwards;
 
@@ -121,7 +121,7 @@ const CopyIcon = ({ fill = 'white' }) => (
   </svg>
 )
 
-const CopiedIcon = ({ fill = '#3F7871' }) => (
+const CopiedIcon = ({ fill = 'white' }) => (
   <svg
     width="15"
     height="15"

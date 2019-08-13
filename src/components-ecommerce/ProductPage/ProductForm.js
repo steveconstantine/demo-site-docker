@@ -99,6 +99,8 @@ const InfoLinks = styled(`div`)`
 const AddToCartButton = styled(Submit)`
   align-self: flex-end;
   flex-grow: 1;
+  font-size: 20px !important;
+  background: black !important;
   height: ${props => (props.fullWidth ? 'auto' : '')};
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
 `;
@@ -204,10 +206,6 @@ class ProductForm extends Component {
               <SizeFieldset>
                 <Label htmlFor="variant">
                   Size{' '}
-                  <Link to="/product-details">
-                    <MdInfoOutline />
-                    <span>Size Chart</span>
-                  </Link>
                 </Label>
                 <Select
                   id="variant"
@@ -238,15 +236,6 @@ class ProductForm extends Component {
               {isOutOfStock ? 'Out of Stock' : 'Add to Cart'}
               {isOutOfStock ? <MdSentimentDissatisfied /> : <MdShoppingCart />}
             </AddToCartButton>
-            <InfoLinks>
-              <Link to="/product-details?fromProduct#materials-fit">
-                <span>Materials &amp; Fit</span>
-              </Link>
-              &nbsp; • &nbsp;
-              <Link to="/product-details?fromProduct#care-instructions">
-                <span>Care instructions</span>
-              </Link>
-            </InfoLinks>
           </Form>
         )}
       </ShopContext.Consumer>

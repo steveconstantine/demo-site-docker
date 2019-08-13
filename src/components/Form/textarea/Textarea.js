@@ -111,7 +111,7 @@ const InputBorderActive = styled.div`
     bottom: -1px;
     width: 100%;
     height: 1px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #FFF;
     transform-origin: left;
     transform: scale(0);
     transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -123,13 +123,13 @@ const InputBorderActive = styled.div`
 const StyledLabel = styled.label`
   display: block;
   font-size: 3.2rem;
-  color: ${p => (p.hasError ? p.theme.colors.red : 'rgba(0,0,0,0.33)')};
+  color: ${p => (p.hasError ? p.theme.colors.red : 'rgba(255,255,255,0.88)')};
   border: none;
   pointer-events: none;
 
   ${mediaqueries.tablet`
     font-size: 1.6rem;
-    color: ${p => (p.hasError ? p.theme.colors.red : 'rgba(0,0,0,0.33)')};
+    color: ${p => (p.hasError ? p.theme.colors.red : 'rgba(255,255,255,0.88)')};
   `};
 `
 
@@ -153,7 +153,7 @@ const LabelAnimation = styled.span`
     p.hasValue &&
     `
     label {
-      color: #000;
+      color: #FFF;
     }
 
     font-weight: 500;
@@ -184,14 +184,14 @@ const StyledInput = styled.textarea`
   height: 4.8rem;
   border: none;
   background: transparent;
-  color: ${p => p.theme.colors.grey};
-  -webkit-text-fill-color: ${p => p.theme.colors.grey};
+  color: white;
+  -webkit-text-fill-color: white;
   resize: none;
 
   ${mediaqueries.tablet`
     font-size: 1.6rem;
     height: 1.8rem;
-    color: #000;
+    color: #FFF;
   `};
 
   &:active,
@@ -201,7 +201,7 @@ const StyledInput = styled.textarea`
 
   &[value]:not([value='']) ~ ${LabelAnimation} {
     label {
-      color: #000;
+      color: #FFF;
     }
 
     font-weight: 500;
@@ -218,7 +218,7 @@ const StyledInput = styled.textarea`
 
   &:active ~ ${LabelAnimation}, &:focus ~ ${LabelAnimation} {
     label {
-      color: #000;
+      color: #FFF;
     }
 
     font-weight: 500;
