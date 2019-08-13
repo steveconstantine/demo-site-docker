@@ -142,7 +142,7 @@ export default ProductListingSlider
 
 const CareersImagesContainer = styled.div`
   position: relative;
-  width: 50vw;
+  width: 100vw;
   max-width: 70rem;
   margin-top: 7rem;
   ${mediaqueries.phablet`
@@ -267,20 +267,20 @@ const GalleryControl = styled.button`
   ${mediaqueries.desktop`
     ${p => {
       if (p.left) {
-        return `left: -26.3rem;`
+        return `left: 1rem;`
       }
       if (p.right) {
-        return `right: 2rem;`
+        return `right: 1rem;`
       }
     }};
   `};
   ${mediaqueries.desktop`
     ${p => {
       if (p.left) {
-        return `left: -5rem;`
+        return `left: 1rem;`
       }
       if (p.right) {
-        return `right: 2rem;`
+        return `right: 1rem;`
       }
     }};
   `};

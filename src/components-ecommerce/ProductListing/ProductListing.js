@@ -181,46 +181,6 @@ const ProductListing = () => (
       ];
       return (
           <>
-            <LayoutHeroMobile>
-              <HeroSection>
-                <ContentContainer>
-                  <div />
-                  <Transitions.CSS.FadeIn>
-                    <TextContainer>
-                      <Pill text="Labs" />
-                      <Heading.h2 styles="h1">
-                        Whether with our clients or all by ourselves, we're always
-                        busy building something new.
-                      </Heading.h2>
-                      <MainText color={navConfig.theme}>
-                        Take a peek at the products we're creating in-house at
-                        Narative.
-                      </MainText>
-                    </TextContainer>
-                  </Transitions.CSS.FadeIn>
-                  <ScrollIndicator />
-                </ContentContainer>
-
-                <HeroImage>
-                  <Media
-                    critical
-                    onLoad={() => setShowScreen(true)}
-                    src={heroBody.childImageSharp.fluid}
-                  />
-                  <div
-                    style={{
-                      opacity: showScreen ? 1 : 0,
-                      transition: 'opacity 1s ease 0.5s',
-                    }}
-                  >
-                    <Media critical src={heroScreen.childImageSharp.fluid} />
-                  </div>
-                </HeroImage>
-              </HeroSection>
-            </LayoutHeroMobile>
-            <HeroImageMobile>
-              <Media critical src={hero.childImageSharp.fluid} />
-            </HeroImageMobile>
             <Section narrow>
               <ProductListingContainer>
                 <ProductListingSlider>
