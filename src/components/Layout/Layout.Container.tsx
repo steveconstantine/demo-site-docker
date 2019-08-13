@@ -240,7 +240,7 @@ class LayoutContainer extends Component<LayoutProps, LayoutState> {
                   aria-label="Mobile Navigation Button"
                 >
                   {showPreviousPath ? (
-                    <ExIconz />
+                    <ExIcon />
                   ) : (
                     <>
                       <LeftToggle active={active} theme={navTheme} />
