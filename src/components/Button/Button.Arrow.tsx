@@ -120,7 +120,7 @@ const ArrowAnimation = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  overflow-x: hidden;
+  overflow-x: initial;
   padding: 0 3rem 0 0;
   height: 25px;
   font-size: 1.8rem;

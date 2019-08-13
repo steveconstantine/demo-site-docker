@@ -11,6 +11,8 @@ import { ContactContext } from '@components/Contact/Contact.Context'
 
 import mediaqueries from '@styles/media'
 
+import ProductListingByTag from '../../components-ecommerce/ProductListingByTag/ProductListingByTag'
+
 function HomeHero() {
   const { toggleContact } = useContext(ContactContext)
 
@@ -37,6 +39,9 @@ function HomeHero() {
                     <ButtonArrow onClick={toggleContact} text="Browse our Art" />
                   </Transitions.CSS.FadeIn>
                 </TextContainer>
+                <ProductContainer>
+                  <ProductListingByTag tag="giftingwild" />
+                </ProductContainer>
               </ContentContainer>
             )}
           />
@@ -59,7 +64,18 @@ const HomeHeroContainer = styled.div`
 const TextContainer = styled.div`
   position: relative;
   z-index: 10;
-  max-width: 570px;
+  max-width: 50vw;
+  top: 10px;
+
+  ${mediaqueries.phablet`
+    position: relative;
+  `}
+`
+
+const ProductContainer = styled.div`
+  position: relative;
+  z-index: 9;
+  max-width: 50vw;
   top: 10px;
 
   ${mediaqueries.phablet`

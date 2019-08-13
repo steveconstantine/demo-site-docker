@@ -244,7 +244,6 @@ interface LayoutProps {
                         {this.props.children}
                       </Container>
                       <ContactSlideIn />
-                      <CommandLine />
                     </>
                   )}
                 </InterfaceContext.Consumer>

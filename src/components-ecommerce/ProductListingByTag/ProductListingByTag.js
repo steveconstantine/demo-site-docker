@@ -21,7 +21,7 @@ import LabsPreviewMobile from '../../sections/labs/Labs.Preview.Mobile'
 
 import ProductListingByTagHeader from './ProductListingByTagHeader'
 import ProductListingByTagItem from './ProductListingByTagItem'
-
+import ProductSlider from './ProductSlider'
 
 const ProductListingByTag = (tag) => (
     <StaticQuery
@@ -113,6 +113,10 @@ const ProductListingByTag = (tag) => (
       const footerConfig = {
         visible: true,
       }
+      const responsive = {
+      0: { items: 2 },
+      1024: { items: 3 },
+      }
 
       // Start the bulb up animation once the image has laoded
       const [showScreen, setShowScreen] = useState(false)
@@ -184,19 +188,18 @@ const ProductListingByTag = (tag) => (
           <>
             <Section narrow>
               <ProductListingByTagContainer>
-                {
-                allShopifyProduct.edges.filter(({ node: product }) => {
-                  return product.tags.find((prodTag) => {
-                    return prodTag == tag.tag;
-                  })
-                }).map(({ node: product }) => (
-                    <ProductListingByTagItem key={product.id} product={product} />
-                  ))
-                }
+                <ProductSlider>
+                  {
+                  allShopifyProduct.edges.filter(({ node: product }) => {
+                    return product.tags.find((prodTag) => {
+                      return prodTag == tag.tag;
+                    })
+                  }).map(({ node: product }) => (
+                      <ProductListingByTagItem key={product.id} product={product} />
+                    ))
+                  }
+                </ProductSlider>
               </ProductListingByTagContainer>
-            </Section>
-            <Section narrow>
-              <LabsPreviewMobile />
             </Section>
           </>
     )}}

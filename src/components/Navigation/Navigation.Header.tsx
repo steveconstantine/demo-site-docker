@@ -236,24 +236,6 @@ class Navigation extends Component<{}, NavigationState> {
                         />
                       </DesktopNavList>
                     </Nav>
-                    <CommandLineItem key={nav.to}>
-                      <NavSymbols
-                        active={active ? active : undefined}
-                        tabIndex={-1}
-                        delay={active ? 366 : 0}
-                        as="button"
-                        tabIndex={active ? 0 : -1}
-                        onClick={() =>
-                          shortcuts.handleShortcutFeature({
-                            name: constants.COMMAND_LINE_DEFAULT,
-                          })
-                        }
-                        data-a11y="false"
-                      >
-                        <Symbol>{keyToSymbol('meta')}</Symbol>
-                        <Symbol>K</Symbol>
-                      </NavSymbols>
-                    </CommandLineItem>
                     <CartItem>
                       <InterfaceContext.Consumer>
                         {({

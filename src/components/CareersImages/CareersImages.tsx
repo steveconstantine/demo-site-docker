@@ -2,13 +2,8 @@ import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
-
 import { HorizontalScroll, IntersectionObserver } from '@components'
 import mediaqueries from '@styles/media'
-
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
-
 
 class CareersImages extends Component {
   state = {
@@ -75,11 +70,6 @@ class CareersImages extends Component {
   render() {
     const { activeIndex } = this.state
     const offset = activeIndex * 72 * -1
-      const responsive = {
-      0: { items: 2 },
-      1024: { items: 3 },
-    }
-
 
     return (
       <Fragment>
@@ -94,27 +84,44 @@ class CareersImages extends Component {
               }
 
               return (
-                 <AliceCarousel
-                        dotsDisabled={true}
-                        buttonsDisabled={false}
-                        responsive={responsive}
-                        autoPlayInterval={4800}
-                        autoPlay={true}
-                        fadeOutAnimation={true}
-                        mouseDragEnabled={true}
-                        disableAutoPlayOnAction={true}>
+                <GalleryContainer
+                  style={{ transform: `translateX(${offset}rem)` }}
+                >
                   {this.props.images.map((image, index) => (
-                        <GalleryImageContainer>
-                          <Img
-                            fluid={image.node.childImageSharp.fluid}
-                            alt={this.props.descriptions[index]}
-                          />
-                        </GalleryImageContainer>
+                    <ImageContainer
+                      key={image.node.childImageSharp.fluid.src}
+                      index={index}
+                      activeIndex={activeIndex}
+                      inView={this.state.inView}
+                      viewed={this.state.viewed}
+                      style={{ left: `${index * 36}rem` }}
+                    >
+                      <Img
+                        fluid={image.node.childImageSharp.fluid}
+                        alt={this.props.descriptions[index]}
+                      />
+                    </ImageContainer>
                   ))}
-                  </AliceCarousel>
+                </GalleryContainer>
               )
             }}
           />
+          <GalleryControl
+            disabled={activeIndex === 0}
+            onClick={this.handlePrevClick}
+            data-a11y="false"
+            left
+          >
+            <ChevronLeft />
+          </GalleryControl>
+          <GalleryControl
+            disabled={activeIndex === this.props.images.length / 2 - 1}
+            onClick={this.handleNextClick}
+            data-a11y="false"
+            right
+          >
+            <ChevronRight />
+          </GalleryControl>
         </CareersImagesContainer>
         <CareersImagesContainerMobile>
           <HorizontalScroll
@@ -140,7 +147,6 @@ const CareersImagesContainer = styled.div`
   width: 100%;
   max-width: 70rem;
   margin-top: 7rem;
-
   ${mediaqueries.phablet`
     display: none;
   `};
@@ -148,7 +154,6 @@ const CareersImagesContainer = styled.div`
 
 const CareersImagesContainerMobile = styled.div`
   display: none;
-
   ${mediaqueries.phablet`
     display: block;
     width: 100%;
@@ -156,13 +161,9 @@ const CareersImagesContainerMobile = styled.div`
   `};
 `
 
-const GalleryImageContainer = styled.div`
-  padding: 5px;
-`
-
 const GalleryContainer = styled.div`
   position: relative;
-  max-height: 44rem;
+  height: 24rem;
   transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1);
 `
 
@@ -178,7 +179,6 @@ const ImageContainer = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 10rem;
-
   position: absolute;
   left: 0;
   width: 34rem;
@@ -186,26 +186,22 @@ const ImageContainer = styled.div`
   border-radius: 3px;
   overflow: hidden;
   filter: grayscale(100);
-
   opacity: ${p =>
     p.inView
       ? p.activeIndex * 2 === p.index || p.index === p.activeIndex * 2 + 1
         ? 1
         : 0.2
       : 0};
-
   ${p => {
     if (p.viewed) {
       return `transition: opacity 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53),
     filter 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53);`
     }
-
     if (p.inView) {
       return `transition: opacity 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53)
       ${p.index * 180}ms;`
     }
   }};
-
   .gatsby-image-wrapper {
     border-radius: 2px;
     position: absolute;
@@ -214,7 +210,6 @@ const ImageContainer = styled.div`
     object-fit: cover;
     object-position: center center;
   }
-
   &:hover {
     ${p =>
       p.inView
@@ -223,7 +218,6 @@ const ImageContainer = styled.div`
           : ``
         : ``};
   }
-
   ${mediaqueries.phablet`
     width: 28rem;
   `};
@@ -234,7 +228,6 @@ const ImageContainerMobile = styled.div`
   overflow: hidden;
   width: 34rem;
   filter: grayscale(100);
-
   ${mediaqueries.tablet`
     width: 100%;
   `};
@@ -244,7 +237,6 @@ const GalleryControl = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -252,7 +244,6 @@ const GalleryControl = styled.button`
     if (p.left) {
       return `left: -26.3rem;`
     }
-
     if (p.right) {
       return `right: -17.6rem;`
     }
@@ -263,10 +254,8 @@ const GalleryControl = styled.button`
   z-index: 9;
   background: #fff;
   cursor: ${p => (p.disabled ? 'initial' : 'pointer')};
-
   opacity: ${p => (p.disabled ? 0.25 : 1)};
   transition: opacity 600ms cubic-bezier(0.7, 0, 0.2, 1);
-
   &[data-a11y='true']:focus::after {
     content: '';
     position: absolute;
@@ -277,25 +266,21 @@ const GalleryControl = styled.button`
     border: 3px solid ${p => p.theme.colors.purple};
     border-radius: 50%;
   }
-
   ${mediaqueries.desktop`
     ${p => {
       if (p.left) {
         return `left: -26.3rem;`
       }
-
       if (p.right) {
         return `right: -5rem;`
       }
     }};
   `};
-
   ${mediaqueries.desktop`
     ${p => {
       if (p.left) {
         return `left: -5rem;`
       }
-
       if (p.right) {
         return `right: -5rem;`
       }
