@@ -93,9 +93,9 @@ class Article extends Component<ArticleProps, PostState> {
       })
 
       // Handle embedded tweets
-        window.twttr.ready(twttr => {
+      /*  window.twttr.ready(twttr => {
         twttr.events.bind('rendered', this.calculateBodySize)
-      }) 
+      })*/ 
 
       // Prevent rerun of the listener attachment
       this.hasCalculatedHeightBefore = true
