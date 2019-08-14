@@ -106,6 +106,6 @@ export const query = graphql`
 
 const WhiteBackground = styled.div`
   position: relative;
-  background: #fafafa77;
+  background: #fafafa33;
   min-height: calc(100vh - 60px);
 `
