@@ -5,35 +5,41 @@ import styled from '@emotion/styled';
 import { breakpoints, colors, fonts, spacing } from '../../utils/styles';
 
 const ProductSpecsRoot = styled(`div`)`
-  padding: 0 ${spacing.md}px;
+  padding: 20px;
+  border-radius: 45px;
+  background: #00000044;
 
   @media (min-width: ${breakpoints.tablet}px) {
-    padding: ${spacing['2xl']}px ${spacing.xl}px 0;
+    padding: 40px;
+    margin: 4px;
   }
 `;
 
 const Name = styled(`h1`)`
-  color: ${colors.brandDark};
+  color: #FFF;
   font-family: ${fonts.heading};
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   font-weight: 500;
   margin: 0;
+  mix-blend-mode: exclusion;
 `;
 
 const Description = styled(`p`)`
-  color: ${colors.text};
-  font-size: 1rem;
+  color: #FFF;
+  font-size: 2rem;
   line-height: 1.5;
+  mix-blend-mode: exclusion;
 `;
 
 const Price = styled(`div`)`
-  color: ${colors.brand};
-  font-size: 1.8rem;
+  color: #FFF;
+  font-size: 2.8rem;
   font-weight: 500;
   letter-spacing: -0.02em;
+  mix-blend-mode: exclusion;
 
   span {
-    color: ${colors.textLight};
+    color: #FFF;
   }
 `;
 
