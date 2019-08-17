@@ -1,15 +1,15 @@
 {
-  "name": "cawdery.co",
-  "description": "Cawdery's website",
+  "name": "giftingwild.com",
+  "description": "Gifting Wild's website",
   "version": "1.0.0",
-  "author": "Narative Engineer <engineering@narative.co>",
+  "author": "Gifting Wild Engineer <engineer@giftingwild.com>",
   "keywords": [
-    "narative",
+    "giftingwild",
     "website"
   ],
   "scripts": {
     "start": "run-p start:**",
-    "start:a": "npm run clean",
+    "start:clean": "del .cache /Q",
     "start:app": "./node_modules/.bin/gatsby develop --prefix-paths",
     "start:lambda": "netlify-lambda serve src/functions",
     "build": "run-p build:**",

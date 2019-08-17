@@ -3,8 +3,8 @@ require('dotenv').config()
 const proxy = require('http-proxy-middleware')
 
 exports.siteMetadata = {
-  title: 'Cawdery Digital Consultant Agency',
-  siteUrl: 'https://cawdery.co',
+  title: 'Gifting Wild - A Wild Way of Gifting',
+  siteUrl: 'https://www.giftingwild.com',
   pathPrefix: `/`,
 }
 
@@ -54,8 +54,8 @@ exports.plugins = [
   {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      name: 'Narative',
-      short_name: 'Narative',
+      name: 'Gifting Wild',
+      short_name: 'Gifting Wild',
       start_url: '/',
       background_color: '#111216',
       theme_color: '#111216',
@@ -66,8 +66,8 @@ exports.plugins = [
   {
     resolve: 'gatsby-plugin-robots-txt',
     options: {
-      host: 'https://cawdery.co',
-      sitemap: 'https://cawdery.co/sitemap.xml',
+      host: 'https://www.giftingwild.com',
+      sitemap: 'https://www.giftingwild.com/sitemap.xml',
       policy: [
         { userAgent: '*', disallow: ['/.netlify/', '/articles/preview/'] },
       ],

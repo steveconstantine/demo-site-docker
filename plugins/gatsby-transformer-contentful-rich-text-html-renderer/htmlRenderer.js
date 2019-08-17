@@ -7,7 +7,7 @@ const icons = require('./icons')
 // Options used in the documentToHtmlString renderer
 const highlightCode = require('./prism/highlight-code.js')
 var Prism = require('prismjs')
-require('prismjs/plugins/keep-markup/prism-keep-markup.js')
+// require('prismjs/plugins/keep-markup/prism-keep-markup.js')
 
 function htmlEntities(str) {
   if (typeof str !== 'string') return str
