@@ -202,7 +202,7 @@ const CollectionListing = (nav) => (
             <HeroImageMobile>
               <Media critical src={hero.childImageSharp.fluid} />
             </HeroImageMobile>
-            <Section narrow>
+            <>
               <CollectionListingContainer>
                 <CollectionSlider>
                   {allShopifyCollection.edges.map(({ node: collection }) => (
@@ -210,7 +210,7 @@ const CollectionListing = (nav) => (
                   ))}
                 </CollectionSlider>
               </CollectionListingContainer>
-            </Section>
+            </>
             <Section narrow>
               {products.map(product => (
                 <LabsPreview key={product.excerpt} product={product} />
@@ -317,7 +317,7 @@ const MainText = styled.p`
 
 const ContentContainer = styled.div`
   height: calc(100vh - 140px);
-  min-height: 440px;
+  min-height: 600px;
 
   position: relative;
   display: flex;

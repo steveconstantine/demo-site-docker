@@ -7,12 +7,13 @@ const Section = styled.section<{
   hideOnDesktop?: boolean
   hideOverflow?: boolean
   narrow?: boolean
+  wide?: boolean
 }>`
   position: ${p => (p.relative ? 'relative' : 'static')};
   width: 100%;
   max-width: 1220px;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: ${p => (p.wide ? '0' : '0 4rem')};
   background: ${p =>
     p.background === 'dark' ? p.theme.colors.bg : 'transparent'};
   display: ${p => (p.hideOnDesktop ? 'none' : 'block')};
@@ -24,7 +25,7 @@ const Section = styled.section<{
 
   ${mediaqueries.tablet`
     display: block;
-    padding: ${p => (p.narrow ? '0 2rem' : '0 4rem')};
+    padding: ${p => (p.wide ? '0' : '0 4rem')};
   `};
 
   ${mediaqueries.phablet`

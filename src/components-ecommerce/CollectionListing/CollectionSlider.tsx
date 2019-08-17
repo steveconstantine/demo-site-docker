@@ -95,7 +95,7 @@ class CareersImages extends Component {
                       activeIndex={activeIndex}
                       inView={this.state.inView}
                       viewed={this.state.viewed}
-                      style={{ left: `${index * 36}rem` }}
+                      style={{ left: `${index * 50}vw` }}
                     >
                       {child}
                     </ImageContainer>
@@ -145,8 +145,8 @@ export default CareersImages
 
 const CareersImagesContainer = styled.div`
   position: relative;
-  width: 50vw;
-  max-width: 70rem;
+  width: 100vw;
+  max-width: 100vw;
   margin-top: 7rem;
   ${mediaqueries.phablet`
     display: none;
@@ -164,7 +164,7 @@ const CareersImagesContainerMobile = styled.div`
 
 const GalleryContainer = styled.div`
   position: relative;
-  height: 440px;
+  height: 100vh;
   transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1);
 `
 
@@ -182,7 +182,7 @@ const ImageContainer = styled.div`
   font-size: 10rem;
   position: absolute;
   left: 0;
-  width: 34rem;
+  width: 50vw;
   height: 100%;
   border-radius: 3px;
   overflow: hidden;

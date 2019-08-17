@@ -421,7 +421,7 @@ const LogoContainer = styled(Link)`
 
 const LogoMask = styled.div`
   display: inline-block;
-  max-width: 114px;
+  max-width: 100%;
 
   ${mediaqueries.tablet`
     overflow: hidden;

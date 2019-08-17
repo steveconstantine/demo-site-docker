@@ -35,9 +35,9 @@ function CollectionsPageTemplate({ data, location, pageContext }) {
           image={'https://cdn.shopify.com/s/files/1/0734/4117/t/6/assets/logo.png'}
           pathname={location.pathname}
         />
-        <Section narrow>
+        <>
           <CollectionListing nav={navConfig} collections={collections}/>
-        </Section>
+        </>
         <Footer mode="dark" />
       </>
     </Layout>
@@ -84,4 +84,3 @@ const WhiteBackground = styled.div`
   position: relative;
   background: #fafafa;
 `
-

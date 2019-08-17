@@ -4,6 +4,8 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 
+import mediaqueries from '@styles/media'
+
 import { MdShoppingCart, MdArrowForward } from 'react-icons/md';
 import UserContext from '../../context/UserContext';
 
@@ -29,21 +31,20 @@ const CollectionListingItemLink = styled(Link)`
   border-radius: ${radius.large}px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: ${spacing.lg}px;
-  overflow: hidden;
+  overflow: initial;
   text-decoration: none;
-  transition: all ${TRANSITION_DURATION};
   width: 50vw;
+  transition: all ${TRANSITION_DURATION};
 
   @media (min-width: ${breakpoints.tablet}px) {
     margin-left: auto;
     margin-right: auto;
-    max-width: 500px;
   }
 
   @media (min-width: ${breakpoints.desktop}px) {
-    flex-basis: 300px;
+    flex-basis: 50vw;
     justify-content: center;
-    margin: ${spacing.md * 1.25}px;
+    margin: 0;
   }
 
   @media (hover: hover) {
@@ -120,10 +121,15 @@ const CodeEligibility = styled(`div`)`
 
 const Name = styled(`h1`)`
   color: ${p => (p.theme == 'dark' ? '#08080b' : '#fafafa')};
-  font-family: ${fonts.heading};
-  font-size: 1.6rem;
+  font-family: 'Impact';
   line-height: 1.2;
   margin: 0;
+  font-size: 2.22rem;
+
+  ${mediaqueries.desktop_up`
+    font-size: 3.41rem;
+  `};
+
 `;
 
 const Description = styled(`p`)`

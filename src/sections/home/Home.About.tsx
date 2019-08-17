@@ -9,12 +9,12 @@ import Media from '@components/Media/Media.Img'
 
 import mediaqueries from '@styles/media'
 
-const aboutGifting-WildText = [
+const aboutText = [
   `Even the most brilliant companies hit points where their focus is
   spread thin by the many challenges that growing businesses face,
   blocking them from reaching their full potential. That's where we
   come in.`,
-  `Gifting-Wild brings focus through the lens of a team that’s faced it
+  `Gifting Wild brings focus through the lens of a team that’s faced it
   all before, at scrappy startups and established enterprises alike.
   That’s why we don’t do big pitches or presentations — it’s just
   not in our DNA.`,
@@ -63,10 +63,10 @@ const HomeAbout = () => {
             height="682px"
             top={140}
             disableOnMobile
-            render={() => <AboutHeading>The Gifting-Wild Approach</AboutHeading>}
+            render={() => <AboutHeading>The Gifting Wild Approach</AboutHeading>}
           />
           <div>
-            {aboutGifting-WildText.map(text => (
+            {aboutText.map(text => (
               <TextContainer data-scroll-fade={true}>
                 <Text dangerouslySetInnerHTML={{ __html: text }} />
               </TextContainer>
