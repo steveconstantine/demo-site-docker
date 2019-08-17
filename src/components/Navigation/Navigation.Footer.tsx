@@ -35,7 +35,7 @@ const Footer = ({ mode = 'dark' }: { mode?: string }) => {
   return (
     <Section narrow>
       <Frame color={color}>
-        <CopyRight>© {new Date().getFullYear()} Narative Studio Inc.</CopyRight>
+        <CopyRight>© {new Date().getFullYear()} Gifting-Wild Studio Inc.</CopyRight>
         <Left color={color}>
           <LogoContainer to="/" data-a11y="false">
             <Logo fill={color} onlySymbol />

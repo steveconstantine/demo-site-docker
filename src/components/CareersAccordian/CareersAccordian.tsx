@@ -57,8 +57,8 @@ function CareersAccordian() {
                   There are currently no available positions. But if you believe
                   you have something unique to bring to the team, get in touch
                   at{' '}
-                  <Anchor href="mailto:careers@narative.co">
-                    careers@narative.co
+                  <Anchor href="mailto:careers@giftingwild.com">
+                    careers@giftingwild.com
                   </Anchor>
                   .<HideOnMobile> We love meeting new people!</HideOnMobile>
                 </span>
@@ -66,7 +66,7 @@ function CareersAccordian() {
                   onClick={() => setCopied(true)}
                   style={{ justifySelf: 'flex-end' }}
                 >
-                  <CopyToClipboard copyOnClick="careers@narative.co" />
+                  <CopyToClipboard copyOnClick="careers@giftingwild.com" />
                 </div>
               </AccordianCareersEmail>
             </AccordianContainer>
@@ -89,15 +89,15 @@ function CareersAccordian() {
             <AccordianCareersEmail copied={copied}>
               <span style={{ display: copied ? 'none' : 'inline' }}>
                 Don't see a position you're looking for? Send us a message to{' '}
-                <Anchor href="mailto:careers@narative.co">
-                  careers@narative.co
+                <Anchor href="mailto:careers@giftingwild.com">
+                  careers@giftingwild.com
                 </Anchor>
               </span>
               <div
                 onClick={() => setCopied(true)}
                 style={{ justifySelf: 'flex-end' }}
               >
-                <CopyToClipboard copyOnClick="careers@narative.co" />
+                <CopyToClipboard copyOnClick="careers@giftingwild.com" />
               </div>
             </AccordianCareersEmail>
           </AccordianContainer>
@@ -120,7 +120,7 @@ const CareersAccordianItem = ({
   index: number
   isOpen: boolean
 }) => {
-  const mailTo = `mailTo:careers@narative.co?subject=${career.title} @ Narative`
+  const mailTo = `mailTo:careers@giftingwild.com?subject=${career.title} @ Gifting-Wild`
 
   return (
     <AccordianListItem isOpen={isOpen} onClick={() => handleIndexOpen(index)}>

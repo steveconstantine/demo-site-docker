@@ -158,7 +158,7 @@ class Article extends Component<ArticleProps, PostState> {
           </Meta>
           <ProductListingByTag tag={article.productTag} />
           <NextArticle narrow>
-            <FooterNext>Next article from Narative</FooterNext>
+            <FooterNext>Next article from Gifting-Wild</FooterNext>
             <ArticlePreview articles={next} />
             <FooterSpacer />
           </NextArticle>

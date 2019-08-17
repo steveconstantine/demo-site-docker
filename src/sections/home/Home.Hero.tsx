@@ -28,7 +28,7 @@ function HomeHero() {
                 <TextContainer>
                   <Transitions.CSS.FadeIn>
                     <Heading.h1>
-                      Narative brands, builds and markets products on behalf of
+                      Gifting-Wild brands, builds and markets products on behalf of
                       growth-minded companies.
                     </Heading.h1>
                     <MainText>

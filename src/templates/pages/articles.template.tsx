@@ -14,7 +14,7 @@ import ArticlesFeatured from '../../sections/articles/Articles.Featured'
 import ArticlesPagination from '../../sections/articles/Articles.Pagination'
 
 /**
- * Narative.co/articles
+ * giftingwild.com/articles
  *
  * This template is used to present our wonderful articles that we pull
  * from Contentful. This is not located in the /pages folder because we're

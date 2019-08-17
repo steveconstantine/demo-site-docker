@@ -48,7 +48,7 @@ const ArticlesGrid = ({ articles }: { articles: IArticleNode[] }) => {
           <Testimonial />
 
           <HorizontalRule>
-            <h2>More from Narative</h2>
+            <h2>More from Gifting-Wild</h2>
           </HorizontalRule>
           <Grid>
             <GridItem article={articles[4]} />
@@ -98,7 +98,7 @@ const Testimonial = () => {
       <HopperLogo aria-hidden="true" />
       <div>
         <Blockquote to="/articles/building-the-new-hopper-com">
-          “Working with Narative on the new Hopper.com has been an absolute
+          “Working with Gifting-Wild on the new Hopper.com has been an absolute
           pleasure. Not only is the team insanely smart and efficient, they’re
           incredible human beings who truly care about the work they touch.”
         </Blockquote>

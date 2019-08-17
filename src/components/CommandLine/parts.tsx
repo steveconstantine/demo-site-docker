@@ -51,16 +51,16 @@ function createReadingList(articles) {
 function createOpenSourceList() {
   return [
     {
-      name: constants.GO_TO_NARATIVE_GITHUB,
+      name: constants.GO_TO_GIFTINGWILD_GITHUB,
       keys: [],
-      label: ['Narative.co code'],
+      label: ['giftingwild.com code'],
       icon: ViewIcon,
       external: true,
     },
     {
-      name: constants.GO_TO_NARATIVE,
+      name: constants.GO_TO_GIFTINGWILD,
       keys: [],
-      label: ['Narative.co design'],
+      label: ['giftingwild.com design'],
       icon: ViewIcon,
       external: true,
     },
@@ -132,7 +132,7 @@ function Default() {
   return (
     <>
       <Logo />
-      <Heading>Narative Command</Heading>
+      <Heading>Gifting-Wild Command</Heading>
     </>
   )
 }

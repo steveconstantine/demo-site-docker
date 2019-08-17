@@ -40,8 +40,8 @@ function CareersGraph() {
   return (
     <>
       <Hidden>
-        A Graph showing the relationship of growth between Narative Labs and
-        Narative Studio.
+        A Graph showing the relationship of growth between Gifting-Wild Labs and
+        Gifting-Wild Studio.
       </Hidden>
       <IntersectionObserver
         render={({ visiblePercentage }) => {

@@ -11,7 +11,7 @@ import HomeTestimonial from '../sections/home/Home.Testimonial'
 import HomeServices from '../sections/home/Home.Services'
 
 /**
- * The home page of Narative.co!
+ * The home page of giftingwild.com!
  */
 function IndexPage({ data, location }) {
   const contentful = data.allContentfulPage.edges[0].node

@@ -20,7 +20,7 @@ const HomeTestimonial = () => (
       <HopperLogo aria-label="hopper" />
       <div>
         <Blockquote>
-          “Working with Narative on the new{' '}
+          “Working with Gifting-Wild on the new{' '}
           <HighlightLink
             href="https://hopper.com"
             target="_blank"

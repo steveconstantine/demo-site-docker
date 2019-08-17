@@ -64,7 +64,7 @@ function ArticlesHero() {
                   <Pill text="Articles" />
                   <Heading.h2 styles="h1">
                     Perspectives on technology, design and business from the
-                    team at Narative.
+                    team at Gifting Wild.
                   </Heading.h2>
                   <MainText>
                     Because the only thing we love more than doing what we do is
@@ -81,7 +81,7 @@ function ArticlesHero() {
                 onLoad={() => setImageLoaded(true)}
               />
               <HeroImageText imageLoaded={imageLoaded}>
-                Narative builds brands, websites and products for growth-minded
+                Gifting-Wild builds brands, websites and products for growth-minded
                 companies. We're a team with senior startup experience here to
                 <Caret ref={text} />
               </HeroImageText>

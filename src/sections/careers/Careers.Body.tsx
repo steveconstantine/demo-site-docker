@@ -31,20 +31,20 @@ const galleryQuery = graphql`
 `
 
 const galleryDescriptions = [
-  'Narative team members looking at new tech products',
+  'Gifting-Wild team members looking at new tech products',
   'Mack telling a funny story at a team dinner',
-  'Narative directing an onsite photoshoot',
+  'Gifting-Wild directing an onsite photoshoot',
   'Soya, our beloved cat',
-  'Narative team working together at a Cafe',
-  'Narative team out for dinner',
-  'Narative working on the assets for Hopper.com',
-  'Narative team visits the Hopper office',
+  'Gifting-Wild team working together at a Cafe',
+  'Gifting-Wild team out for dinner',
+  'Gifting-Wild working on the assets for Hopper.com',
+  'Gifting-Wild team visits the Hopper office',
 ]
 
 /**
  * Careers Body
- * - Why Narative
- * - Working at Narative
+ * - Why Gifting-Wild
+ * - Working at Gifting-Wild
  * - Rail/Horizontal Scroll of Gallery images
  * - Building our future (Labs/Studio)
  * - Careers
@@ -54,15 +54,15 @@ function CareersBody() {
 
   return (
     <>
-      <CareersRow header="Why Narative">
+      <CareersRow header="Why Gifting-Wild">
         <SectionCopy maxWidth="69rem">
-          At Narative, nobody has a "boss". Instead, we hold a common goal,
+          At Gifting-Wild, nobody has a "boss". Instead, we hold a common goal,
           where everyone owns executive level decision, regardless of position.
           We teach and learn from each other everyday, with growth based on
           trust and relationships.
         </SectionCopy>
       </CareersRow>
-      <CareersRow header="Working at Narative">
+      <CareersRow header="Working at Gifting-Wild">
         <FlexColumn>
           <WhatWeDoContent>
             <SectionCopy maxWidth="42rem">
@@ -97,12 +97,12 @@ function CareersBody() {
         <SectionCopy maxWidth="67rem">
           We engage with exceptional clients to fund our own ideas. Displaying
           our core beliefs through the development of our own products. We call
-          this <LabsLink to="/labs">Narative Labs</LabsLink>.
+          this <LabsLink to="/labs">Gifting-Wild Labs</LabsLink>.
         </SectionCopy>
       </CareersRow>
       <CareersGraph />
 
-      {/* Get a job at Narative */}
+      {/* Get a job at Gifting-Wild */}
       <CareersRow header="Say hello">
         <SectionCopy maxWidth="67rem">
           If you have the devotion, the curiosity and the desire to build great

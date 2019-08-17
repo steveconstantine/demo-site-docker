@@ -11,7 +11,7 @@ giftingwild.com is powered by [Gatsby](gatsbyjs.org) that pulls data from [Conte
 
 ```sh
 # Go to your favourite directory and clone
-git clone git@github.com:narative/giftingwild.com.git && cd giftingwild.com
+git clone git@github.com:giftingwild/giftingwild.git && cd giftingwild.com
 
 # Install all depedencies
 yarn

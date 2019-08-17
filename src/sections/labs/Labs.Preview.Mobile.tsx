@@ -60,16 +60,7 @@ function LabsPreviewMobile() {
           Visit website
         </Anchor>
       </PreviewCard>
-
-      <PreviewCard style={{ background: '#222838' }}>
-        <Heading>Narative Command</Heading>
-        <Media src={commandlineBackground.childImageSharp.fluid} />
-        <Border style={{ background: 'rgba(0,0,0,0.06)' }} />
-        <Anchor as="div" style={{ background: '#161C24', color: '#444750' }}>
-          Check on desktop 😏
-        </Anchor>
-      </PreviewCard>
-
+      
       <PreviewCard style={{ background: '#EFF0F4' }}>
         <Heading style={{ color: '#000' }}>Project Needle</Heading>
         <Media src={needlBackground.childImageSharp.fluid} />

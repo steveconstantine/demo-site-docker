@@ -98,7 +98,7 @@ class ContactForm extends Component<
               <SocialLinks fill="black" />
             </SocialLinksContainer>
             <CopyRightContainer>
-              © {new Date().getFullYear()} Narative Studio Inc.
+              © {new Date().getFullYear()} Gifting-Wild Studio Inc.
             </CopyRightContainer>
           </SubmittedScreen>
         ) : (

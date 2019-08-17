@@ -13,7 +13,7 @@ import * as constants from './constants'
 import { controlOrMetaKey } from './utils'
 
 /**
- * All Narative shortcuts are defined here. This is the master document
+ * All Gifting-Wild shortcuts are defined here. This is the master document
  * that controls what keys are listened for on the keydown event listener
  */
 const shortcuts = [

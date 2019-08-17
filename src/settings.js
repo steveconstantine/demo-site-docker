@@ -10,10 +10,10 @@ module.exports.urls = {
   netlify: {
     preview: '/.netlify/functions/preview',
   },
-  linkedin: 'https://www.linkedin.com/company/narative',
-  instagram: 'http://instagram.com/narative.co',
-  twitter: 'https://twitter.com/narative',
-  facebook: 'https://www.facebook.com/narative.co',
+  linkedin: 'https://www.linkedin.com/company/giftingwild',
+  instagram: 'http://instagram.com/giftingwild.com',
+  twitter: 'https://twitter.com/giftingwild',
+  facebook: 'https://www.facebook.com/giftingwild.com',
 }
 
 module.exports.imageQuality = 100

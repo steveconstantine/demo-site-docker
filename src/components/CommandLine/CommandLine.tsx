@@ -20,7 +20,7 @@ import mediaqueries from '@styles/media'
  *  / /___ | (_) || | | | | || | | | | || (_| || | | || (_| | / /___ | || | | ||  __/
  *  \____/  \___/ |_| |_| |_||_| |_| |_| \__,_||_| |_| \__,_| \____/ |_||_| |_| \___|
  *
- * Respsible for the ['meta', 'k] shortcut on narative.co
+ * Respsible for the ['meta', 'k] shortcut on giftingwild.com
  *
  * How it works:
  * - Create a modal shell that can be summond via a command

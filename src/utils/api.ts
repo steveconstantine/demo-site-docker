@@ -6,7 +6,7 @@
 
 const baseUrl =
   process.env.NODE_ENV === 'production'
-    ? 'https://narative-pastoral.herokuapp.com/api'
+    ? 'https://giftingwild.herokuapp.com/api'
     : 'http://localhost:8080/api'
 
 export function buildUrl(url) {

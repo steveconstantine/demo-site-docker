@@ -48,7 +48,7 @@ function CareersHero() {
                       <TextContainer>
                         <Pill text="Careers" />
                         <Heading.h2 styles="h1">
-                          Narative is a tight-knit team from across the world
+                          Gifting-Wild is a tight-knit team from across the world
                           building great things.
                         </Heading.h2>
                         <MainText>

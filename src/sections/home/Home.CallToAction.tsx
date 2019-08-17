@@ -109,7 +109,7 @@ function HomeCallToAction() {
                 Contact Us <ChevronDownIcon aria-hidden="true" />
               </CTAText>
             </CallToAction>
-            <MobileCopy>More about Narative</MobileCopy>
+            <MobileCopy>More about Gifting-Wild</MobileCopy>
           </Frame>
         )}
       />
@@ -415,7 +415,7 @@ const MobileLogo = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <title>Narative</title>
+    <title>Gifting-Wild</title>
     <path
       fillRule="evenodd"
       clipRule="evenodd"

@@ -23,7 +23,7 @@ let customKeys: string[] = []
 // Modified from Storybook
 export const eventToShortcut = (e: KeyboardEvent): Shortcut | null => {
   /**
-   * Within Narative we use other modifier keys beyond the classic ⌘, meta, and ⌥.
+   * Within Gifting-Wild we use other modifier keys beyond the classic ⌘, meta, and ⌥.
    * They must be defined within the list of customModifierKeys otherwise we
    * don't know when to listen to multiple keys
    */

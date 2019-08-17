@@ -139,27 +139,11 @@ const ProductListing = () => (
                 <LinkToProduct
                   target="_blank"
                   data-a11y="false"
-                  href="https://narative.co/design/open/fey"
+                  href="https://www.giftingwild.com/design/open/fey"
                 >
                   <FigmaIcon aria-hidden="true" /> View in Figma
                 </LinkToProduct>
               </div>
-            </>
-          ),
-        },
-        {
-          logo: CommandlineLogo,
-          background: commandlineBackground.publicURL,
-          backgroundColor: '#222838',
-          excerpt:
-            'Computers have plenty of buttons, so we wondered: why explore the web with just one? Narative Command lets you instantly access any page on Narative.co with simple keyboard shortcuts.',
-          children: (
-            <>
-              <HorizontalRule />
-              <LinkToProduct dark as="div">
-                Try it out! Just press <Symbol>{keyToSymbol('meta')}</Symbol>{' '}
-                <Symbol>K</Symbol>
-              </LinkToProduct>
             </>
           ),
         },

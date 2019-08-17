@@ -241,7 +241,7 @@ function HomeServices() {
                     style={calcOpacity(entering, boundingClientRect.top)}
                   >
                     <LargeHeading ref={heading}>
-                      Narative helps you brand, build and grow.
+                      Gifting-Wild helps you brand, build and grow.
                     </LargeHeading>
                   </HeadingBackground>
                 </animated.div>
