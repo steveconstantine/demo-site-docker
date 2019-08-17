@@ -115,7 +115,7 @@ export default ContactPage
 
 export const pageQuery = graphql`
   query ContactPageQuery {
-    contactMeta: file(name: { regex: "/giftingwild-meta/" }) {
+    contactMeta: file(name: { regex: "/narative-meta/" }) {
       childImageSharp {
         fixed(width: 1200, quality: 100) {
           ...GatsbyImageSharpFixed_noBase64
