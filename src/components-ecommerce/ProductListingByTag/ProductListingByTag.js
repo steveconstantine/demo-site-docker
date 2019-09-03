@@ -119,7 +119,6 @@ const ProductListingByTag = (tag) => (
       }
 
       // Start the bulb up animation once the image has laoded
-      const [showScreen, setShowScreen] = useState(false)
 
       // Inlining our products to get the right variables we need in scope!
       const products = [

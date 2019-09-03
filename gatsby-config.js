@@ -41,7 +41,7 @@ exports.plugins = [
   {
     resolve: 'gatsby-source-shopify',
     options: {
-      shopName: 'cleantheocean',
+      shopName: 'gatsby-swag',
       accessToken: process.env.SHOPIFY_ACCESS_TOKEN
     }
   },
@@ -85,7 +85,7 @@ exports.plugins = [
       pixelId: '2183075648607369',
     },
   },
-
+  "gatsby-plugin-layout",
   // These are our local plugins that can be found within ./plugins
   'gatsby-transformer-enhance-contentful',
   'gatsby-transformer-contentful-rich-text-html-renderer',

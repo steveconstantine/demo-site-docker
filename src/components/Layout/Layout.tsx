@@ -219,6 +219,8 @@ interface LayoutProps {
   }
 
   render() {
+  const { location } = this.props;
+
     return (
       <StoreContext.Provider value={store}>
         <ThemeProvider theme={theme}>
