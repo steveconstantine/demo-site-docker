@@ -11,7 +11,7 @@ import { ContactContext } from '@components/Contact/Contact.Context'
 
 import mediaqueries from '@styles/media'
 
-import ProductListing from '../../components-ecommerce/ProductListing/ProductListing'
+import ProductListingHero from '../../components-ecommerce/ProductListing/ProductListingHero'
 
 function HomeHero() {
   const { toggleContact } = useContext(ContactContext)
@@ -40,7 +40,7 @@ function HomeHero() {
                   </Transitions.CSS.FadeIn>
                 </TextContainer>
                 <ProductContainer>
-                  <ProductListing />
+                  <ProductListingHero />
                 </ProductContainer>
               </ContentContainer>
             )}
