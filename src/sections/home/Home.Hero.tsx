@@ -11,7 +11,7 @@ import { ContactContext } from '@components/Contact/Contact.Context'
 
 import mediaqueries from '@styles/media'
 
-import ProductListingByTag from '../../components-ecommerce/ProductListingByTag/ProductListingByTag'
+import ProductListing from '../../components-ecommerce/ProductListing/ProductListing'
 
 function HomeHero() {
   const { toggleContact } = useContext(ContactContext)
@@ -40,7 +40,7 @@ function HomeHero() {
                   </Transitions.CSS.FadeIn>
                 </TextContainer>
                 <ProductContainer>
-                  <ProductListingByTag tag="giftingwild" />
+                  <ProductListing />
                 </ProductContainer>
               </ContentContainer>
             )}
