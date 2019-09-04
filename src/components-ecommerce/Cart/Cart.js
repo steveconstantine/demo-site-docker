@@ -107,6 +107,20 @@ const Heading = styled(`header`)`
   height: ${dimensions.headerHeight};
   justify-content: flex-start;
   color: ${colors.lightest};
+  transform: ${p => (p.transform == true ? 'translateY(60px)' : 'translateY(0)')};
+`;
+
+const HeadingBottom = styled(`header`)`
+  align-items: center;
+  display: none;
+  height: ${dimensions.headerHeight};
+  justify-content: flex-end;
+  align-self: bottom;
+  color: ${colors.lightest};
+  @media (min-height: 800px) {
+    transform: translateY(calc(100vh - 60px));
+    display: flex;
+  }
 `;
 
 const Title = styled(`h2`)`
@@ -132,6 +146,7 @@ const Content = styled(`div`)`
   bottom: 0;
   overflow-y: auto;
   padding: ${spacing.lg}px;
+  padding-bottom: 200px;
   position: absolute;
   top: ${dimensions.headerHeight};
   width: 100%;
@@ -402,7 +417,7 @@ class Cart extends Component {
 
   render() {
     const { status, toggle, theme } = this.props;
-    const { className } = this.state;
+    const { className, shortenCart } = this.state;
     const gatsbyStickerPackID =
       'Z2lkOi8vc2hvcGlmeS9DaGVja291dExpbmVJdGVtL2I1ZGY0NjRmMWQxYWQxM2MzMzJjYmQ0MjMyZDczZGE3P2NoZWNrb3V0PTY1NjU3NDMxMjk2MTRiMmRjZjc4MDIzYmRlYzA4MTM2';
 
@@ -456,7 +471,7 @@ class Cart extends Component {
                 this.state.isLoading ? 'loading' : ''
               }`}
             >
-              <Heading className={'headroom headroom--pinned'}>
+              <Heading cartTransform={shortenCart}>
                 {status === 'open' ? (
                   <CartToggleClose
                     aria-label={`Shopping cart with ${itemsInCart} items`}
@@ -480,6 +495,7 @@ class Cart extends Component {
                 </ItemsInCart>
               </Heading>
               {checkout.lineItems.length > 0 ? (
+              <>
                 <Content>
                   <CartList
                     items={checkout.lineItems}
@@ -518,6 +534,30 @@ class Cart extends Component {
 
                   <ShippingInfo />
                 </Content>
+                <HeadingBottom cartTransform={shortenCart}>
+                {status === 'open' ? (
+                  <CartToggleClose
+                    aria-label={`Shopping cart with ${itemsInCart} items`}
+                    onClick={toggle}
+                  >
+                    <>
+                      <MdClose />
+                   </>
+                  </CartToggleClose>
+                ) : (
+                <>
+                </>
+                )}
+                <CartIndicator itemsInCart={itemsInCart} adding={adding} />
+                <Title>Your Cart</Title>
+                <ItemsInCart>
+                  items
+                  <br />
+                  in cart
+                  <ItemsNumber>{itemsInCart}</ItemsNumber>
+                </ItemsInCart>
+              </HeadingBottom>
+              </>
               ) : (
                 <EmptyCart />
               )}

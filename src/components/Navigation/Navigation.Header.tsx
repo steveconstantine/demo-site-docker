@@ -82,6 +82,7 @@ class Navigation extends Component<{}, NavigationState> {
     active: false,
     previousPath: '',
     showPreviousPath: false,
+    shortenCart: false,
   }
 
   componentDidMount() {
@@ -183,15 +184,25 @@ class Navigation extends Component<{}, NavigationState> {
     }, 250)
   }
 
+  shortenCart = () => {
+    this.setState({ shortenCart: true });
+  }
+
+
+  lengthenCart = () => {
+    this.setState({ lengthenCart: false });
+  }
+
+
   render() {
-    const { active, previousPath, showPreviousPath } = this.state
+    const { active, previousPath, showPreviousPath, shortenCart } = this.state
     const { nav } = this.props
     const fill = nav.theme === 'dark' ? '#fafafa' : '#08080b'
     const theme = themes[nav.theme]
 
     return (
       <ThemeProvider theme={theme}>
-        <Headroom>
+        <Headroom onUnpin={this.shortenCart} onPin={this.lengthenCart} onUnfix={this.lengthenCart}>
           <OutsideClickHandler onOutsideClick={this.handleOutsideClick}>
             <NavFixedContainer theme={nav.theme} navFixed={nav.fixed}>
               <Section>
@@ -258,6 +269,7 @@ class Navigation extends Component<{}, NavigationState> {
                                 isDesktopViewport={isDesktopViewport}
                                 status={cartStatus}
                                 toggle={toggleCart}
+                                shortenCart={shortenCart}
                                 contributorAreaStatus={contributorAreaStatus}
                                 productImagesBrowserStatus={productImagesBrowserStatus}
                               />
@@ -402,7 +414,7 @@ const LogoBack = styled.button`
 const LogoContainer = styled(Link)`
   position: relative;
   transition: opacity 0.3s var(--ease-out-quad);
-  max-width: 114px;
+  max-width: 414px;
   display: flex;
   padding-bottom: 10px;
 
@@ -424,8 +436,12 @@ const LogoContainer = styled(Link)`
 `
 
 const LogoMask = styled.div`
+  display: flex !important;
+  align-items: center;
+  flex-direction: row-reverse;
   display: inline-block;
   max-width: 100%;
+  padding-right: 32px;
 
   ${mediaqueries.tablet`
     overflow: hidden;

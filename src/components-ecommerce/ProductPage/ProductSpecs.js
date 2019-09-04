@@ -21,14 +21,14 @@ const Name = styled(`h1`)`
   font-size: 2.8rem;
   font-weight: 500;
   margin: 0;
-  mix-blend-mode: exclusion;
+  mix-blend-mode: hard-light;
 `;
 
 const Description = styled(`p`)`
   color: #FFF;
   font-size: 2rem;
   line-height: 1.5;
-  mix-blend-mode: exclusion;
+  mix-blend-mode: hard-light;
 `;
 
 const Price = styled(`div`)`
@@ -36,7 +36,7 @@ const Price = styled(`div`)`
   font-size: 2.8rem;
   font-weight: 500;
   letter-spacing: -0.02em;
-  mix-blend-mode: exclusion;
+  mix-blend-mode: hard-light;
 
   span {
     color: #FFF;

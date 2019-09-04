@@ -35,7 +35,10 @@ function HomeHero() {
                       We're a team with senior startup experience here to help
                       your business take the next step.
                     </MainText>
-                    <ButtonArrow onClick={toggleContact} text="Get in touch" />
+                    <ButtonArrow onClick={() => {
+                                event.preventDefault()
+                                toggleContact()
+                              }} text="Get in touch" />
                     <ButtonArrow onClick={toggleContact} text="Browse our Art" />
                   </Transitions.CSS.FadeIn>
                 </TextContainer>

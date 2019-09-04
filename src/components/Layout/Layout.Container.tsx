@@ -244,7 +244,7 @@ class LayoutContainer extends Component<LayoutProps, LayoutState> {
                   ) : (
                     <>
                       <LeftToggle active={active} theme={navTheme} />
-                      <RightToggle theme={navTheme} />
+                      <RightToggle active={active} theme={navTheme} />
                     </>
                   )}
                 </MobileHamburger>
