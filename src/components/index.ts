@@ -15,6 +15,7 @@ import Navigation from '@components/Navigation'
 import Perks from '@components/Perks'
 import Section from '@components/Section'
 import SocialLinks from '@components/SocialLinks'
+import SocialLinksOL from '@components/SocialLinksOL'
 import Transitions from '@components/Transitions'
 import Video from '@components/Video'
 
@@ -38,6 +39,7 @@ export {
   Navigation,
   Perks,
   SocialLinks,
+  SocialLinksOL,
   Transitions,
   Video,
 }

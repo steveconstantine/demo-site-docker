@@ -14,6 +14,11 @@ module.exports.urls = {
   instagram: 'http://instagram.com/giftingwild.com',
   twitter: 'https://twitter.com/giftingwild',
   facebook: 'https://www.facebook.com/giftingwild.com',
+  ol: {
+    instagram: 'https://instagram.com/theoceanlegacy',
+    twitter: 'https://twitter.com/OceanLegacy_ca',
+    facebook: 'https://facebook.com/oceanlegacy',
+  }
 }
 
 module.exports.imageQuality = 100

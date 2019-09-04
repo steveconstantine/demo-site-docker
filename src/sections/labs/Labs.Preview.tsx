@@ -5,7 +5,12 @@ import Media from '@components/Media/Media.Img'
 import mediaqueries from '@styles/media'
 
 const ArticlePreview = ({ product }) => (
-  <Card background={product.backgroundColor}>
+  <Card background={product.backgroundColor} 
+        backgroundMoz={product.backgroundMoz ? product.backgroundMoz : product.backgroundColor} 
+        backgroundWebkit={product.backgroundWebkit ? product.backgroundWebkit : product.backgroundColor}
+        backgroundW3C={product.backgroundW3C ? product.backgroundW3C : product.backgroundColor}
+        backgroundIE={product.backgroundW ? product.backgroundIE : product.backgroundColor}
+        >
     <Content>
       <Icon>{product.logo()}</Icon>
       <Excerpt>{product.excerpt}</Excerpt>
@@ -25,6 +30,11 @@ const Card = styled.div`
   height: 380px;
   padding: 80px 70px;
   background: ${p => p.background};
+  background:  ${p => p.backgroundMoz}; /* FF3.6-15 */
+  background:  ${p => p.backgroundWebkit};
+  background:  ${p => p.backgroundW3C};
+  filter:  ${p => p.backgroundIE};
+
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin: 0 auto;
@@ -68,7 +78,7 @@ const Content = styled.div`
 `
 
 const Icon = styled.div`
-  height: 25px;
+  height: 88px;
   margin-bottom: 25px;
 `
 
