@@ -100,6 +100,7 @@ const ContentContainer = styled.div`
   height: calc(100vh - 230px);
   min-height: 600px;
   padding-top: 10px;
+  z-index: 0;
 
   position: relative;
   display: flex;

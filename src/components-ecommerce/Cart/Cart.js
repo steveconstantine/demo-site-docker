@@ -61,7 +61,7 @@ const CartRoot = styled(`div`)`
   transition: transform 0.75s;
   width: 100%;
   will-change: transform;
-  z-index: 1000;
+  z-index: 1001s;
 
   &.open {
     transform: translateX(0%);
@@ -456,7 +456,7 @@ class Cart extends Component {
                 this.state.isLoading ? 'loading' : ''
               }`}
             >
-              <Heading>
+              <Heading className={'headroom headroom--pinned'}>
                 {status === 'open' ? (
                   <CartToggleClose
                     aria-label={`Shopping cart with ${itemsInCart} items`}

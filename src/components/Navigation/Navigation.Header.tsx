@@ -191,8 +191,8 @@ class Navigation extends Component<{}, NavigationState> {
 
     return (
       <ThemeProvider theme={theme}>
-        <OutsideClickHandler onOutsideClick={this.handleOutsideClick}>
-         <Headroom>
+        <Headroom>
+          <OutsideClickHandler onOutsideClick={this.handleOutsideClick}>
             <NavFixedContainer theme={nav.theme} navFixed={nav.fixed}>
               <Section>
                 <NavContainer>
@@ -268,8 +268,8 @@ class Navigation extends Component<{}, NavigationState> {
                 </NavContainer>
               </Section>
             </NavFixedContainer>
-          </Headroom>
-        </OutsideClickHandler>
+          </OutsideClickHandler>
+        </Headroom>
       </ThemeProvider>
     )
   }
@@ -355,7 +355,7 @@ const NavContainer = styled.div`
   `};
 
   @media screen and (max-height: 800px) {
-    padding-top: 60px;
+    padding-top: 10px;
   }
 `
 
