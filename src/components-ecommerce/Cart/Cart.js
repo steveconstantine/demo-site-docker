@@ -398,8 +398,6 @@ class Cart extends Component {
     const gatsbyStickerPackID =
       'Z2lkOi8vc2hvcGlmeS9DaGVja291dExpbmVJdGVtL2I1ZGY0NjRmMWQxYWQxM2MzMzJjYmQ0MjMyZDczZGE3P2NoZWNrb3V0PTY1NjU3NDMxMjk2MTRiMmRjZjc4MDIzYmRlYzA4MTM2';
 
-    console.log(theme);
-
     return (
       <ShopContext.Consumer>
         {({ client, checkout, removeLineItem, updateLineItem, adding }) => {

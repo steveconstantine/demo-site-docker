@@ -23,7 +23,7 @@ export const colors = {
   textLighter: '#aaaaaa',
   lilac: `#8c65b3`,
   accent: `#ffb238`,
-  error: `#ec1818`,
+  error: `#dcf3ff`,
   lemon: `#ffdf37`
 };
 

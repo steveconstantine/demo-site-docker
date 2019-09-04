@@ -235,7 +235,6 @@ const CollectionListingItem = props => {
     theme,
   } = props;
 
-  console.log(theme);
 
   const {
     localFile: {
