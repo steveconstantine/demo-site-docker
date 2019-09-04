@@ -30,7 +30,7 @@ function ProductPageTemplate({ data, location, pageContext }) {
   }
 
   const footerConfig = {
-    visible: false,
+    visible: true,
   }
 
   return (
@@ -64,6 +64,7 @@ function ProductPageTemplate({ data, location, pageContext }) {
                    />
                 </Section>
               </WhiteBackground>
+              <Footer mode="dark" height="minimal" />
             </>
             )}
        </InterfaceContext.Consumer>

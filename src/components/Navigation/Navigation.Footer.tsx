@@ -26,15 +26,16 @@ function handleShortcutReset() {
  * dark backgrounds. Therefore, if you pass in dark or light mode it will
  * render accordinly!
  */
-const Footer = ({ mode = 'dark' }: { mode?: string }) => {
+const Footer = ({ mode = 'dark' }: { mode?: string }, { height = 'normal' }: { height?: string }) => {
   const { toggleContact } = useContext(ContactContext)
   const color = mode === 'dark' ? '#fff' : '#000'
   const transparentColor =
     mode === 'dark' ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)'
+  const sectionHeight = height === 'minimal' ? true : false
 
   return (
-    <Section narrow>
-      <Frame color={color}>
+    <Section wide minimal>
+      <Frame color={color} sectionHeight transparentColor={transparentColor}>
         <CopyRight>© {new Date().getFullYear()} Gifting-Wild Studio Inc.</CopyRight>
         <Left color={color}>
           <LogoContainer to="/" data-a11y="false">
@@ -94,12 +95,12 @@ const Frame = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 115px 0 55px;
-
+  background: ${p => (p.transparentColor === 'rgba(255,255,255,0.3)' ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.3)')}; 
+  padding: 10px 22.2% 20px 22.2%;
   ${mediaqueries.tablet`
     justify-content: center;
     flex-direction: column-reverse;
-    padding: 80px 0;
+    padding: 80px 20px;
     margin-top: 65px;
 
     &::after {

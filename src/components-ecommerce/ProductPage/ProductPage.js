@@ -21,6 +21,7 @@ const ProductPageRoot = styled('div')`
     min-height: calc(100vh - 480px);
     padding: ${spacing.xl}px;
     width: 100%;
+    max-height: 100vh !important;
   }
 `;
 

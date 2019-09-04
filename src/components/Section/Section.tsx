@@ -8,10 +8,12 @@ const Section = styled.section<{
   hideOverflow?: boolean
   narrow?: boolean
   wide?: boolean
+  minimal?: boolean
 }>`
   position: ${p => (p.relative ? 'relative' : 'static')};
   width: 100%;
   max-width: 1220px;
+  max-width: ${p => (p.minimal === true ? '100vw' : '1220px')};
   margin: 0 auto;
   padding: ${p => (p.wide ? '0' : '0 4rem')};
   background: ${p =>
