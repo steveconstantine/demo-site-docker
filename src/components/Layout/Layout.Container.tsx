@@ -284,13 +284,13 @@ const SiteContainer = styled.div`
 
   ${p =>
     p.navOffset &&
-    ` padding-top: 60px;
+    ` padding-top: 0;
   `};
 
   ${p =>
     p.navOffset &&
     mediaqueries.tablet`
-      padding-top: 60px;
+      padding-top: 0;
   `};
 
   ${mediaqueries.tablet`

@@ -4,6 +4,8 @@ import { Link, navigate } from 'gatsby'
 import OutsideClickHandler from 'react-outside-click-handler'
 import { isMobileOnly } from 'react-device-detect'
 
+import Headroom from 'react-headroom'
+
 import { Section, Logo } from '@components'
 import mediaqueries from '@styles/media'
 import { ContactContext } from '@components/Contact/Contact.Context'
@@ -190,81 +192,83 @@ class Navigation extends Component<{}, NavigationState> {
     return (
       <ThemeProvider theme={theme}>
         <OutsideClickHandler onOutsideClick={this.handleOutsideClick}>
-          <NavFixedContainer theme={nav.theme} navFixed={nav.fixed}>
-            <Section>
-              <NavContainer>
-                {previousPath && showPreviousPath && (
-                  <LogoBack
-                    onClick={() => window.history.back()}
-                    data-a11y="false"
-                  >
-                    <BackChevron />
-                  </LogoBack>
-                )}
-                  <LogoMask>
-                    <LogoContainer
-                      to="/"
-                      onClick={this.handleShortcutReset}
-                      aria-label="Back home"
+         <Headroom>
+            <NavFixedContainer theme={nav.theme} navFixed={nav.fixed}>
+              <Section>
+                <NavContainer>
+                  {previousPath && showPreviousPath && (
+                    <LogoBack
+                      onClick={() => window.history.back()}
                       data-a11y="false"
                     >
-                      <Logo fill={fill} />
-                    </LogoContainer>
-                  </LogoMask>
-                  <Right>
-                    <ToggleContainer
-                      onClick={this.handleToggleClick}
-                      aria-label="Mobile Navigation Button"
-                      air-expanded={active}
-                      aria-haspopup="true"
-                      aria-controls="menu-list"
-                      data-a11y="false"
-                    >
-                      <LeftToggle
-                        active={active}
-                        ref={this.leftToggle}
-                        aria-hidden="true"
-                      />
-                      <RightToggle active={active} aria-hidden="true" />
-                    </ToggleContainer>
-                    <Nav>
-                      <DesktopNavList id="menunav.theme-list">
-                        <NavItems
+                      <BackChevron />
+                    </LogoBack>
+                  )}
+                    <LogoMask>
+                      <LogoContainer
+                        to="/"
+                        onClick={this.handleShortcutReset}
+                        aria-label="Back home"
+                        data-a11y="false"
+                      >
+                        <Logo fill={fill} />
+                      </LogoContainer>
+                    </LogoMask>
+                    <Right>
+                      <ToggleContainer
+                        onClick={this.handleToggleClick}
+                        aria-label="Mobile Navigation Button"
+                        air-expanded={active}
+                        aria-haspopup="true"
+                        aria-controls="menu-list"
+                        data-a11y="false"
+                      >
+                        <LeftToggle
                           active={active}
-                          handleClick={this.navigateOut}
-                          handleOutsideClick={this.handleOutsideClick}
+                          ref={this.leftToggle}
+                          aria-hidden="true"
                         />
-                      </DesktopNavList>
-                    </Nav>
-                    <CartItem>
-                      <InterfaceContext.Consumer>
-                        {({
-                          isDesktopViewport,
-                          cartStatus,
-                          toggleCart,
-                          contributorAreaStatus,
-                          toggleContributorArea,
-                          productImagesBrowserStatus,
-                          currentProductImages,
-                          featureProductImage,
-                          productImageFeatured,
-                          toggleProductImagesBrowser
-                        }) => (
-                         <Cart
-                              theme={nav.theme}
-                              isDesktopViewport={isDesktopViewport}
-                              status={cartStatus}
-                              toggle={toggleCart}
-                              contributorAreaStatus={contributorAreaStatus}
-                              productImagesBrowserStatus={productImagesBrowserStatus}
-                            />
-                        )}
-                      </InterfaceContext.Consumer>
-                    </CartItem>
-                  </Right>
-              </NavContainer>
-            </Section>
-          </NavFixedContainer>
+                        <RightToggle active={active} aria-hidden="true" />
+                      </ToggleContainer>
+                      <Nav>
+                        <DesktopNavList id="menunav.theme-list">
+                          <NavItems
+                            active={active}
+                            handleClick={this.navigateOut}
+                            handleOutsideClick={this.handleOutsideClick}
+                          />
+                        </DesktopNavList>
+                      </Nav>
+                      <CartItem>
+                        <InterfaceContext.Consumer>
+                          {({
+                            isDesktopViewport,
+                            cartStatus,
+                            toggleCart,
+                            contributorAreaStatus,
+                            toggleContributorArea,
+                            productImagesBrowserStatus,
+                            currentProductImages,
+                            featureProductImage,
+                            productImageFeatured,
+                            toggleProductImagesBrowser
+                          }) => (
+                           <Cart
+                                theme={nav.theme}
+                                isDesktopViewport={isDesktopViewport}
+                                status={cartStatus}
+                                toggle={toggleCart}
+                                contributorAreaStatus={contributorAreaStatus}
+                                productImagesBrowserStatus={productImagesBrowserStatus}
+                              />
+                          )}
+                        </InterfaceContext.Consumer>
+                      </CartItem>
+                    </Right>
+                </NavContainer>
+              </Section>
+            </NavFixedContainer>
+          </Headroom>
         </OutsideClickHandler>
       </ThemeProvider>
     )
@@ -328,8 +332,6 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
 }
 
 const NavFixedContainer = styled.div`
-  position: fixed;
-  height: 60px;
   width: 100%;
   top: 0;
   left: 0;
@@ -401,6 +403,8 @@ const LogoContainer = styled(Link)`
   position: relative;
   transition: opacity 0.3s var(--ease-out-quad);
   max-width: 114px;
+  display: flex;
+  padding-bottom: 10px;
 
   &:hover {
     opacity: 0.6;

@@ -48,7 +48,7 @@ const themes = {
 }
 
 const CartRoot = styled(`div`)`
-  background: ${colors.lightest};
+  background: url('https://cdn.shopify.com/s/files/1/0708/4517/t/7/assets/photo-gallery-1492-Skye-Whales_1024x1024.jpg?7446335225893618956');
   bottom: 0;
   position: fixed;
   right: 0;
@@ -69,6 +69,7 @@ const CartRoot = styled(`div`)`
 
   ::after {
     background-color: ${colors.lightest};
+    background-position: center center;
     bottom: 0;
     content: '';
     left: 0;
@@ -101,6 +102,7 @@ const Heading = styled(`header`)`
   display: flex;
   height: ${dimensions.headerHeight};
   justify-content: flex-start;
+  color: ${colors.lightest};
 `;
 
 const Title = styled(`h2`)`
@@ -111,6 +113,7 @@ const Title = styled(`h2`)`
   margin: 0;
   margin-left: ${spacing.md}px;
   position: relative;
+  color: ${colors.lightest};
 
   .open & {
     margin-left: calc(${dimensions.headerHeight} + ${spacing.md}px);
@@ -128,6 +131,7 @@ const Content = styled(`div`)`
   position: absolute;
   top: ${dimensions.headerHeight};
   width: 100%;
+  color: ${colors.lightest};
 
   @media (min-width: ${breakpoints.desktop}px) {
     ::-webkit-scrollbar {
@@ -148,9 +152,9 @@ const Content = styled(`div`)`
 
 const ItemsNumber = styled(`span`)`
   align-items: center;
-  background: ${colors.lemon};
+  background: ${colors.error};
   border-radius: 50%;
-  color: ${colors.brandDark};
+  color: #000;
   display: flex;
   font-size: 1.3rem;
   font-weight: bold;
@@ -187,14 +191,14 @@ const Cost = styled(`div`)`
   }
 
   span {
-    color: ${colors.textMild};
+    color: ${colors.lightest};
     flex-basis: 60%;
     font-size: 0.9rem;
     text-align: right;
   }
 
   strong {
-    color: ${colors.lilac};
+    color: ${colors.error};
     flex-basis: 40%;
     text-align: right;
   }
@@ -202,7 +206,7 @@ const Cost = styled(`div`)`
 
 const Total = styled(Cost)`
   border-top: 1px solid ${colors.brandBright};
-  color: ${colors.brandDark};
+  color: ${colors.lightest};
   margin-top: ${spacing.xs}px;
   padding-top: ${spacing.sm}px;
 
