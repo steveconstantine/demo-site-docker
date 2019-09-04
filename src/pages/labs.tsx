@@ -10,6 +10,7 @@ import LayoutHeroMobile from '@components/Layout/Layout.Hero.Mobile'
 import Media from '@components/Media/Media.Img'
 import ScrollIndicator from '@components/ScrollIndicator'
 import Pill from '@components/Pill'
+import SocialLinksOL from '@components/SocialLinksOL'
 import Transitions from '@components/Transitions'
 
 import mediaqueries from '@styles/media'
@@ -19,6 +20,7 @@ import LabsPreview from '../sections/labs/Labs.Preview'
 import LabsPreviewMobile from '../sections/labs/Labs.Preview.Mobile'
 
 import OceanLegacyLogo from '../assets/labs/oceanlegacy/oceanlegacy_logo_2019.png'
+import plasticBG from '../assets/labs/oceanlegacy/plasticc.jpg'
 
 /**
  * The labs page is a bit of a mess with the inlined Product Array but it
@@ -55,7 +57,7 @@ function LabsPage({ data, location }) {
   const products = [
     {
       logo: OLLogo,
-      background: '',
+      background: plasticBG,
       backgroundColor: '#b1dbe1',
       backgroundMoz: "-moz-linear-gradient(top,  #b1dbe1 0%, #ffffff 66%, #4aabba 100%)",
       backgroundWebkit: "-webkit-linear-gradient(top,  #b1dbe1 0%,#ffffff 66%,#4aabba 100%)",
@@ -82,6 +84,7 @@ function LabsPage({ data, location }) {
             >
               <FigmaIcon aria-hidden="true" /> Donate
             </LinkToProduct>
+            <SocialLinksOL />
           </div>
         </>
       ),

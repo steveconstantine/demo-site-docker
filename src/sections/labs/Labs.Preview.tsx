@@ -69,7 +69,7 @@ const Card = styled.div`
 const Content = styled.div`
   position: relative;
   z-index: 1;
-  max-width: 371px;
+  max-width: 80%;
 
   ${mediaqueries.phablet`
     text-align: center;

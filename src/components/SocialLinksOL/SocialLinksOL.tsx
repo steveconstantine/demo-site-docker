@@ -2,9 +2,7 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import settings from '../../settings'
 
-import { SocialIcon } from 'react-social-icons'
-
-
+import * as SocialIcons from '../../icons/social'
 import mediaqueries from '@styles/media'
 
 const SocialLinksOL = ({ fill = 'white' }: { fill: string }) => (
@@ -16,7 +14,7 @@ const SocialLinksOL = ({ fill = 'white' }: { fill: string }) => (
       aria-label="Link to Facebook"
       href={settings.urls.ol.facebook}
     >
-      <SocialIcon network="facebook" style={{ height: 50, width: 50 }} />
+      <SocialIcons.FacebookIcon fill={fill} />
     </SocialIconContainer>
     <SocialIconContainer
       target="_blank"
@@ -25,7 +23,7 @@ const SocialLinksOL = ({ fill = 'white' }: { fill: string }) => (
       aria-label="Link to Twitter"
       href={settings.urls.ol.twitter}
     >
-      <SocialIcon network="twitter" style={{ height: 50, width: 50 }} />
+      <SocialIcons.TwitterIcon fill={fill} />
     </SocialIconContainer>
     <SocialIconContainer
       target="_blank"
@@ -34,7 +32,7 @@ const SocialLinksOL = ({ fill = 'white' }: { fill: string }) => (
       aria-label="Link to Instagram"
       href={settings.urls.ol.instagram}
     >
-      <SocialIcon network="instagram" style={{ height: 50, width: 50 }} />
+      <SocialIcons.InstagramIcon fill={fill} />
     </SocialIconContainer>
   </Fragment>
 )
@@ -43,7 +41,7 @@ export default SocialLinksOL
 
 const SocialIconContainer = styled.a`
   position: relative;
-  margin-left: 3.2rem;
+  margin-left: 2.12rem;
   text-decoration: none;
 
   &:first-child {
@@ -51,7 +49,7 @@ const SocialIconContainer = styled.a`
   }
 
   &:last-child {
-    margin-right: 0;
+    margin-right: 5.55rem;
   }
 
   &[data-a11y='true']:focus::after {
@@ -67,6 +65,8 @@ const SocialIconContainer = styled.a`
   }
 
   ${mediaqueries.tablet`
-    margin: 0 2.2rem;
+    margin: 3.5rem;
+    display: flex;
+    align-self: center;
   `};
 `
