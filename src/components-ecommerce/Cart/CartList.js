@@ -16,7 +16,7 @@ const Headers = styled(`div`)`
   justify-content: space-between;
 
   span {
-    color: ${colors.textLight};
+    color: ${colors.lightest};
     flex-basis: 60px;
     flex-grow: 0;
     font-size: 0.8rem;

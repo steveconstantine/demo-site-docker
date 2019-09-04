@@ -48,9 +48,13 @@ const themes = {
 }
 
 const CartRoot = styled(`div`)`
-  background: url('https://cdn.shopify.com/s/files/1/0708/4517/t/7/assets/photo-gallery-1492-Skye-Whales_1024x1024.jpg?7446335225893618956');
+  background: url(https://cdn.shopify.com/s/files/1/0708/4517/t/7/assets/photo-gallery-1492-Skye-Whales_1024x1024.jpg?7446335225893618956);
+  background-size: cover;
+  background-position: center center;
   bottom: 0;
+  height: calc(100vh + 60px);
   position: fixed;
+  overflow: hidden;
   right: 0;
   top: -1px;
   transform: translateX(100%);
@@ -257,7 +261,7 @@ const CartToggleClose = styled(Button)`
   padding: 0;
   position: relative;
   top: 0;
-  transform: translateX(-100%);
+  transform: translateX(0);
   transition: all 0.5s ease;
   width: ${dimensions.headerHeight};
 
@@ -273,7 +277,7 @@ const CartToggleClose = styled(Button)`
 
   @media (min-width: ${breakpoints.desktop}px) {
     .open & {
-      transform: translateX(-100%);
+      transform: translateX(0);
     }
   }
 

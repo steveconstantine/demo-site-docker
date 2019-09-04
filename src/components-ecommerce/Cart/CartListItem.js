@@ -54,15 +54,17 @@ const Quantity = styled(Input)`
 `;
 
 const Remove = styled(Button)`
-  border: 1px dotted ${colors.textLighter};
+  border: 1px dotted ${colors.lightest};
   display: flex;
   height: 44px;
   justify-content: center;
   margin-right: ${spacing['2xs']}px;
   padding: 0;
   width: 44px;
+  background: transparent;
 
   svg {
+    color: white;
     height: 24px;
     margin: 0;
     width: 24px;
