@@ -28,21 +28,27 @@ function CareersGraph() {
 
   useEffect(() => {
   
-  let handleResize, subractor;
+  let handleResize, subractor, offsetHeight;
 
     handleResize = throttle(() => {
-    if (graphRef && graphRef.current) {
+      if (graphRef && graphRef.current) {
         subractor = graphRef.current.offsetHeight > 250 ? 13 : 9
-      } else {
-        subractor = 9
-      }
-
-      if (!!containerRef) {
-      containerRef.current.style.height = `${graphRef.current.offsetHeight -
-        subractor}px`
-      }
-    }, 16)
-
+        offsetHeight = graphRef.current.offsetHeight
+          let height = offsetHeight - subractor
+          // containerRef.current.style.height = height.toString() + 'px'
+        } else {
+          subractor = 9
+          offsetHeight = 9
+          let containerRef = {
+          current: {
+            style: {
+              height: '0px'
+            }
+          }
+          }
+        }
+        }, 16)
+    
     window.addEventListener('resize', handleResize)
     return () => window.addEventListener('resize', handleResize)
   }, [])
