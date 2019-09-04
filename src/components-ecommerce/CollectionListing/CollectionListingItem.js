@@ -34,6 +34,7 @@ const CollectionListingItemLink = styled(Link)`
   overflow: initial;
   text-decoration: none;
   width: 50vw;
+  padding: 5px;
   transition: all ${TRANSITION_DURATION};
 
   @media (min-width: ${breakpoints.tablet}px) {
@@ -42,7 +43,7 @@ const CollectionListingItemLink = styled(Link)`
   }
 
   @media (min-width: ${breakpoints.desktop}px) {
-    flex-basis: 50vw;
+    flex-basis: calc(50vw - 10px);
     justify-content: center;
     margin: 0;
   }
