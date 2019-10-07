@@ -125,7 +125,7 @@ class ProductListingSlider extends Component {
           <HorizontalScroll
             narrow
             list={this.props.children}
-            name="image"
+            name="child"
             render={({ child }) => (
               <ImageContainerMobile>
                 { child }
@@ -189,7 +189,7 @@ const ImageContainer = styled.div`
       ? p.activeIndex * 2 === p.index || p.index === p.activeIndex * 2 + 1
         ? 1
         : 0.2
-      : 0};
+      : 1};
   ${p => {
     if (p.viewed) {
       return `transition: opacity 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53),

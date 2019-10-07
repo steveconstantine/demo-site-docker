@@ -64,7 +64,6 @@ function ProductPageTemplate({ data, location, pageContext }) {
                    />
                 </Section>
               </WhiteBackground>
-              <Footer mode="dark" height="minimal" />
             </>
             )}
        </InterfaceContext.Consumer>

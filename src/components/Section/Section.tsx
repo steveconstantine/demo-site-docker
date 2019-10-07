@@ -15,7 +15,7 @@ const Section = styled.section<{
   max-width: 1220px;
   max-width: ${p => (p.minimal === true ? '100vw' : '1220px')};
   margin: 0 auto;
-  padding: ${p => (p.wide ? '0' : '0 4rem')};
+  padding: ${p => (p.wide ? '0' : '0 1rem')};
   background: ${p =>
     p.background === 'dark' ? p.theme.colors.bg : 'transparent'};
   display: ${p => (p.hideOnDesktop ? 'none' : 'block')};
@@ -27,7 +27,7 @@ const Section = styled.section<{
 
   ${mediaqueries.tablet`
     display: block;
-    padding: ${p => (p.wide ? '0' : '0 4rem')};
+    padding: ${p => (p.wide ? '0' : '0 1rem')};
   `};
 
   ${mediaqueries.phablet`

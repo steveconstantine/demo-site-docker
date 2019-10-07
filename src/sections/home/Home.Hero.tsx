@@ -73,6 +73,7 @@ const TextContainer = styled.div`
 
   ${mediaqueries.phablet`
     position: relative;
+    max-width: 100vw;
   `}
 `
 
@@ -84,6 +85,7 @@ const ProductContainer = styled.div`
 
   ${mediaqueries.phablet`
     position: relative;
+    max-width: 100vw;
   `}
 `
 
@@ -115,6 +117,7 @@ const ContentContainer = styled.div`
     min-height: 100%;
     padding: 0;
     top: -40px;
+    display: block !important;
   `};
 
   ${mediaqueries.desktop_medium`

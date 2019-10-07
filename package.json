@@ -42,6 +42,7 @@
     "gatsby-plugin-manifest": "latest",
     "gatsby-plugin-netlify": "^2.0.9",
     "gatsby-plugin-netlify-cache": "^1.0.0",
+    "gatsby-plugin-portal": "^1.0.7",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-robots-txt": "^1.4.0",
     "gatsby-plugin-sharp": "latest",

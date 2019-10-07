@@ -52,6 +52,13 @@ exports.plugins = [
     },
   },
   {
+    resolve: `gatsby-plugin-portal`,
+    options: {
+      key: 'portal',
+      id: 'portal',        
+    },
+  },
+  {
     resolve: 'gatsby-plugin-manifest',
     options: {
       name: 'Gifting Wild',

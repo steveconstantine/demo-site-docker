@@ -25,6 +25,7 @@ import '../../fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css';
 import '../../fonts/impact/stylesheet.css';
 import gql from 'graphql-tag';
 
+
 const globalStyles = css`
   html {
     box-sizing: border-box;
@@ -53,6 +54,12 @@ const Viewport = styled(`div`)`
 
 export default class Layout extends React.Component {
   desktopMediaQuery;
+
+  constructor() {
+    super()
+    // Use a ternary operator to make sure that the document object is defined
+    this.el = typeof document !== `undefined` ? document.createElement('div') : null
+  }
 
   state = {
     interface: {

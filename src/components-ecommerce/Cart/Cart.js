@@ -19,6 +19,7 @@ import EmptyCart from './EmptyCart';
 import FreeBonus from './FreeBonus';
 import ShippingInfo from './ShippingInfo';
 import { Button, PrimaryButton } from '../shared/Buttons';
+import Portal from './Portal';
 
 import {
   breakpoints,
@@ -48,11 +49,11 @@ const themes = {
 }
 
 const CartRoot = styled(`div`)`
-  background: url(https://cdn.shopify.com/s/files/1/0708/4517/t/7/assets/photo-gallery-1492-Skye-Whales_1024x1024.jpg?7446335225893618956);
+  background: url(https://images.squarespace-cdn.com/content/v1/5b2ffc2a3c3a53bd6c829957/1535414006445-FZH3Q7Q4737BVCCSM66M/ke17ZwdGBToddI8pDm48kCMHgdKvgBtjr1p_wxI79hl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UXH1NgUy1J3SPXoAXSU1NLlEwQ1-mdcAYBUwEkYv-BbgQK7PAiDfWd0Koy0MH7DUzQ/whalesong8x32.jpg);
   background-size: cover;
   background-position: center center;
   bottom: 0;
-  height: calc(100vh + 60px);
+  height: 101vh;
   position: fixed;
   overflow: hidden;
   right: 0;
@@ -466,6 +467,7 @@ class Cart extends Component {
                     </>
                   )}
             </CartToggle>
+            <Portal>
             <CartRoot
               className={`${className} ${
                 this.state.isLoading ? 'loading' : ''
@@ -534,34 +536,12 @@ class Cart extends Component {
 
                   <ShippingInfo />
                 </Content>
-                <HeadingBottom cartTransform={shortenCart}>
-                {status === 'open' ? (
-                  <CartToggleClose
-                    aria-label={`Shopping cart with ${itemsInCart} items`}
-                    onClick={toggle}
-                  >
-                    <>
-                      <MdClose />
-                   </>
-                  </CartToggleClose>
-                ) : (
-                <>
-                </>
-                )}
-                <CartIndicator itemsInCart={itemsInCart} adding={adding} />
-                <Title>Your Cart</Title>
-                <ItemsInCart>
-                  items
-                  <br />
-                  in cart
-                  <ItemsNumber>{itemsInCart}</ItemsNumber>
-                </ItemsInCart>
-              </HeadingBottom>
               </>
               ) : (
                 <EmptyCart />
               )}
             </CartRoot>
+            </Portal>
           </>
           );
         }}
