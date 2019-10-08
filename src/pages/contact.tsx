@@ -65,7 +65,7 @@ class ContactPage extends Component<{}, { animation: string }> {
       offset: true,
       fixed: true,
       isContactPage: true,
-      theme: 'light',
+      theme: 'dark',
     }
 
     return (

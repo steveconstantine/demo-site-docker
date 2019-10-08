@@ -7,7 +7,7 @@ import mediaqueries from '@styles/media'
 
 const footerLinks = [
   { to: '/careers', text: 'Careers' },
-  { to: '/labs', text: 'Labs' },
+  { to: '/collection', text: 'Artists & Collections' },
   { to: '/articles', text: 'Articles' },
   { to: '/contact', text: 'Contact' },
 ]
