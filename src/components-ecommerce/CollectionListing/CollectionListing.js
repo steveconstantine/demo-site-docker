@@ -180,13 +180,11 @@ const CollectionListing = (nav) => (
                   </Transitions.CSS.FadeIn>
                   <ScrollIndicator />
                 </ContentContainer>
-
                 <HeroImage>
                 </HeroImage>
               </HeroSection>
             </LayoutHeroMobile>
             <HeroImageMobile>
-              <Media critical src={hero.childImageSharp.fluid} />
             </HeroImageMobile>
             <>
               <CollectionListingContainer>

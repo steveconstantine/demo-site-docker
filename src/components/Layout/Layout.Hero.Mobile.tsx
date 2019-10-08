@@ -35,6 +35,9 @@ function LayoutHeroMobile({ children }) {
 export default LayoutHeroMobile
 
 const Spacer = styled.div`
+  ${mediaqueries.tablet`
+    height: 100vh;
+  `}
 `
 
 const Frame = styled.div`

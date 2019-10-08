@@ -360,6 +360,7 @@ const NavContainer = styled.div`
   z-index: 100;
   padding-top: 10px;
   display: flex;
+  width: 95%;
   justify-content: space-between;
 
   ${mediaqueries.desktop_medium`

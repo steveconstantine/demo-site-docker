@@ -59,8 +59,6 @@ HorizontalScroll.defaultProps = {
 export default HorizontalScroll
 
 const HorizontalScrollContainer = styled.div`
-  margin-right: -${p => (p.narrow ? 2 : 4)}rem !important;
-  margin-left: -${p => (p.narrow ? 2 : 4)}rem !important;
   overflow-y: hidden !important;
   overflow-x: hidden !important;
   -webkit-overflow-scrolling: touch;
