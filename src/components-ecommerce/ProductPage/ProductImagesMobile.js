@@ -31,7 +31,7 @@ const ProductImagesMobileContent = styled(`div`)`
   ${StyledImage} {
     flex-shrink: 0;
     margin-right: ${spacing.md}px;
-    width: 75vw;
+    width: 60vw;
 
     @media (min-width: ${breakpoints.tablet}px) {
       margin-right: ${spacing.xl}px;

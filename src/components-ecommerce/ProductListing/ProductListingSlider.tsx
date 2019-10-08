@@ -228,6 +228,7 @@ const ImageContainerMobile = styled.div`
   filter: grayscale(100);
   ${mediaqueries.tablet`
     width: 100%;
+    filter: grayscale(0) !important;
   `};
 `
 

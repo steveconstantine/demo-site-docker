@@ -7,12 +7,11 @@ import InterfaceContext from '../../context/InterfaceContext';
 
 import { breakpoints, colors, radius, spacing } from '../../utils/styles';
 
-const THUMBNAIL_SIZE = '44px';
+const THUMBNAIL_SIZE = '55px';
 
 const ProductThumbnailsRoot = styled(`div`)`
   height: ${THUMBNAIL_SIZE};
   -webkit-overflow-scrolling: touch;
-  overflow-x: scroll;
   width: 100%;
 
   @media (min-width: ${breakpoints.desktop}px) {

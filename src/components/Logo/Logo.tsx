@@ -6,12 +6,12 @@ import GWLogo from '../../assets/logo/gw_logo.png'
 import mediaqueries from '@styles/media'
 
 const LogoSymbolContainer = styled.div`
-  height: 30px;
-  width: 23px;
+  height: 40px;
+  width: 40px;
 
   ${mediaqueries.phablet`
-    height: 25px;
-    width: 19.09px;
+    height: 40px;
+    width: 40px;
   `};
 `
 /**

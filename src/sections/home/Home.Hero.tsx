@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { navigate } from 'gatsby'
 
 import { ButtonArrow, Section, Heading } from '@components'
 import ScrollIndicator from '@components/ScrollIndicator'
@@ -28,8 +29,9 @@ function HomeHero() {
                 <TextContainer>
                   <Transitions.CSS.FadeIn>
                     <Heading.h1>
-                      Gifting-Wild brands, builds and markets products on behalf of
-                      growth-minded companies.
+                      <br/>
+                      <br/>
+                      Gifting Wild - A Wild Way of Gifting.
                     </Heading.h1>
                     <MainText>
                       We're a team with senior startup experience here to help
@@ -39,7 +41,7 @@ function HomeHero() {
                                 event.preventDefault()
                                 toggleContact()
                               }} text="Get in touch" />
-                    <ButtonArrow onClick={toggleContact} text="Browse our Art" />
+                    <ButtonArrow onClick={() => navigate('/collection')} text="Browse our Art" />
                   </Transitions.CSS.FadeIn>
                 </TextContainer>
                 <ProductContainer>

@@ -222,7 +222,7 @@ class Navigation extends Component<{}, NavigationState> {
                         aria-label="Back home"
                         data-a11y="false"
                       >
-                        <Logo fill={fill} />
+                        <Logo fill={fill} onlySymbol={isMobileOnly} />
                       </LogoContainer>
                     </LogoMask>
                     <Right>

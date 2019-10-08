@@ -290,7 +290,7 @@ const SiteContainer = styled.div`
   ${p =>
     p.navOffset &&
     mediaqueries.tablet`
-      padding-top: 0;
+      padding-top: 60px;
   `};
 
   ${mediaqueries.tablet`
