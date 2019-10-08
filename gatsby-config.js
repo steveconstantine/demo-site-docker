@@ -41,7 +41,7 @@ exports.plugins = [
   {
     resolve: 'gatsby-source-shopify',
     options: {
-      shopName: 'gatsby-swag',
+      shopName: 'geeduu',
       accessToken: process.env.SHOPIFY_ACCESS_TOKEN
     }
   },
