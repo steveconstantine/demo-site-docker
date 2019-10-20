@@ -16,7 +16,11 @@ import { IArticleNode } from '@typings'
  * The top featured item. This displays a single article that has been tagged
  * Featured: true in Contentful. This does not fit in the Grid below.
  */
-const ArticlesFeatured = ({ article }: { article: IArticleNode }) => (
+const ArticlesFeatured = ({ article }: { article: IArticleNode }) => {
+
+const excerpt = JSON.parse(article.excerpt).content[0].content[0].value
+
+return (
   <>
     <Frame>
       <StyledLink to={`/articles/${article.slug}`}>
@@ -25,10 +29,10 @@ const ArticlesFeatured = ({ article }: { article: IArticleNode }) => (
           <FeaturedTitle styles="h2" dark>
             {article.title}
           </FeaturedTitle>
-          <Excerpt>{article.excerpt}</Excerpt>
+          <Excerpt>{excerpt}</Excerpt>
           <ButtonArrow
             text="Read more"
-            color="#000"
+            color="#FAFAFA"
             as="div"
             onClick={() => navigate(`/articles/${article.slug}`)}
           />
@@ -40,7 +44,7 @@ const ArticlesFeatured = ({ article }: { article: IArticleNode }) => (
     </Frame>
     <ArticlesFeaturedMobile article={article} />
   </>
-)
+)}
 
 export default ArticlesFeatured
 

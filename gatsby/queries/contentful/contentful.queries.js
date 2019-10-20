@@ -24,6 +24,11 @@ const basicNode = `
   excerpt {
     excerpt
   }
+  excerptHtml {
+    childRichTextHtml {
+      html
+    }
+  }
   fields {
     postDate(formatString: "MMM. D, YYYY")
     pathPrefix
@@ -71,7 +76,7 @@ const heroImageryField = `
     ${settings.heroImageDimensions.reduce(
       (acc, [name, x, y]) => `
         ${acc}
-        ${name}: fluid(maxWidth:${x}, maxHeight: ${y}, quality: ${
+        ${name}: fluid(maxWidth:${x}, quality: ${
         settings.imageQuality
       }) {
           ${GatsbyContentfulFluid_withWebp}
@@ -161,6 +166,8 @@ const articleNode = `
       html
     }
   }
+  disqusShortName
+  buyMeACoffeeId
   ${articlePreview}
 `
 

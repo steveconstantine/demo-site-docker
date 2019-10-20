@@ -24,26 +24,43 @@ import {
 const DESCRIPTION_LIMIT = 90;
 const TRANSITION_DURATION = '250ms';
 
-const ProductListingByTagItemLink = styled(Link)`
+const ProductListingItemLink = styled(Link)`
   background: ${colors.lightest};
   border-radius: ${radius.large}px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: ${spacing.lg}px;
   overflow: hidden;
   text-decoration: none;
-  width: 40vw;
+  width: 400px;
+  height: 555px;
   transition: all ${TRANSITION_DURATION};
+  background: #fafafa;
+  margin-left: 3px;
+  margin-right: 3px;
+  opacity: 0.777;
 
   @media (min-width: ${breakpoints.tablet}px) {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 500px;
+    margin-left: 4px;
+    margin-right: 4px;
+    max-width: 400px;
   }
 
   @media (min-width: ${breakpoints.desktop}px) {
     flex-basis: 400px;
     justify-content: center;
     margin: 5px;
+  }
+
+   @media (max-width: ${breakpoints.phablet}px) {
+    height: 400px;
+    opacity: 0.777;
+    filter: grayscale(0);
+  }
+
+  &:hover {
+      filter: grayscale(0);
+      opacity: 1;
+      filter: contatrast(105);
   }
 
   @media (hover: hover) {
@@ -56,8 +73,8 @@ const ProductListingByTagItemLink = styled(Link)`
 const Item = styled(`article`)`
   display: flex;
   flex-direction: column;
-  height: 100%;
-  padding: ${spacing.lg}px;
+  height: 555px;
+  padding: 20px;
 `;
 
 const Preview = styled(`div`)`
@@ -73,7 +90,7 @@ const Preview = styled(`div`)`
   }
 
   @media (hover: hover) {
-    ${ProductListingByTagItemLink}:hover & {
+    ${ProductListingItemLink}:hover & {
       .gatsby-image-wrapper {
         transform: scale(1.1);
       }
@@ -162,7 +179,7 @@ const Incentive = styled('div')`
   transition: all ${TRANSITION_DURATION};
 
   @media (hover: hover) {
-    ${ProductListingByTagItemLink}:hover & {
+    ${ProductListingItemLink}:hover & {
       transform: translateX(-40px);
     }
   }
@@ -190,7 +207,7 @@ const CartIcon = styled(`span`)`
   width: 40px;
 
   @media (hover: hover) {
-    ${ProductListingByTagItemLink}:hover & {
+    ${ProductListingItemLink}:hover & {
       margin-left: ${spacing.xs}px;
     }
   }
@@ -242,10 +259,11 @@ const ProductListingByTagItem = props => {
     <UserContext.Consumer>
       {({ contributor }) => {
         return (
-          <ProductListingByTagItemLink to={`/product/${handle}`}>
+          <ProductListingItemLink to={`/product/${handle}`}>
             <Item>
               <Preview>
                 <Image fluid={fluid} />
+                
                 {checkEligibility({
                   freeWith,
                   contributor
@@ -281,7 +299,7 @@ const ProductListingByTagItem = props => {
                 </Incentive>
               </PriceRow>
             </Item>
-          </ProductListingByTagItemLink>
+          </ProductListingItemLink>
         );
       }}
     </UserContext.Consumer>

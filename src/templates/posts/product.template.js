@@ -34,40 +34,37 @@ function ProductPageTemplate({ data, location, pageContext }) {
   }
 
   return (
-
     <Layout nav={navConfig} footer={footerConfig} background={'url(' + image + ')'}>
       <>
-       <InterfaceContext.Consumer>
-          {({
-            isDesktopViewport,
-            productImagesBrowserStatus,
-            productImageFeatured,
-            toggleProductImagesBrowser,
-            setCurrentProductImages
-          }) => (
-            <>
-              <SEO
-                title={seo.title}
-                description={seo.description}
-                image={seo.images[0].localFile.childImageSharp.fluid.src}
-                pathname={location.pathname}
-              />
-              <WhiteBackground>
-                <Section narrow>
-                  <ProductPage
-                          product={product}
-                          isDesktopViewport={isDesktopViewport}
-                          productImagesBrowserStatus={productImagesBrowserStatus}
-                          productImageFeatured={productImageFeatured}
-                          toggleProductImagesBrowser={toggleProductImagesBrowser}
-                          setCurrentProductImages={setCurrentProductImages}
-                   />
-                </Section>
-              </WhiteBackground>
-            </>
-            )}
-       </InterfaceContext.Consumer>
-      </>
+          <SEO
+            title={seo.title}
+            description={seo.description}
+            image={seo.images[0].localFile.childImageSharp.fluid.src}
+            pathname={location.pathname}
+          />
+          <WhiteBackground>
+            <Section narrow>
+              <InterfaceContext.Consumer>
+                {({
+                  isDesktopViewport,
+                  productImagesBrowserStatus,
+                  productImageFeatured,
+                  toggleProductImagesBrowser,
+                  setCurrentProductImages
+                }) => (
+                <ProductPage
+                        product={product}
+                        isDesktopViewport={isDesktopViewport}
+                        productImagesBrowserStatus={productImagesBrowserStatus}
+                        productImageFeatured={productImageFeatured}
+                        toggleProductImagesBrowser={toggleProductImagesBrowser}
+                        setCurrentProductImages={setCurrentProductImages}
+                 />
+                )}
+               </InterfaceContext.Consumer>
+            </Section>
+          </WhiteBackground>
+        </>
     </Layout>
   )
 }

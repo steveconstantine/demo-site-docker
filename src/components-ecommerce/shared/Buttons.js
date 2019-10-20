@@ -21,7 +21,7 @@ export const ButtonBase = styled(`button`)`
   transition: 0.5s;
 
   :focus {
-    box-shadow: 0 0 0 3px ${colors.accent};
+    box-shadow: 0 0 0 3px white;
     outline: 0;
     transition: box-shadow 0.15s ease-in-out;
   }

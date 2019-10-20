@@ -10,6 +10,7 @@
  */
 
 import React, { Component } from 'react'
+import { isMobile } from 'react-device-detect'
 
 interface IntersectionObserverProps {
   element?: HTMLElement
@@ -106,11 +107,20 @@ class IntersectionObserver extends Component<
   }
 
   render() {
+  if(isMobile)
     return (
+        <div>
+          {this.props.render(this.state)}
+        </div>
+      )
+
+  return (
       <div data-component="intersection-observer" ref={this.element}>
         {this.props.render(this.state)}
       </div>
     )
+
+
   }
 }
 

@@ -19,9 +19,7 @@ import InterfaceContext, {
 import shortcuts, { constants, keyToSymbol } from '@shortcuts'
 
 const navLinks = [
-  { to: '/careers', text: 'Careers' },
-  { to: '/labs', text: 'Labs' },
-  { to: '/collection', text: 'Artists & Collections' },
+  { to: '/', text: 'Home' },
   { to: '/articles', text: 'Articles' },
   { to: '/contact', text: 'Contact' },
 ]
@@ -366,6 +364,10 @@ const NavContainer = styled.div`
   ${mediaqueries.desktop_medium`
     padding-top: 10px;
   `};
+
+  ${mediaqueries.tablet`
+    width: 85%;
+  `}
 
   @media screen and (max-height: 800px) {
     padding-top: 10px;

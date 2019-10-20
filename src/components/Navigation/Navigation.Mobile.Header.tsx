@@ -6,8 +6,6 @@ import SocialLinks from '@components/SocialLinks'
 import mediaqueries from '@styles/media'
 
 const footerLinks = [
-  { to: '/careers', text: 'Careers' },
-  { to: '/collection', text: 'Artists & Collections' },
   { to: '/articles', text: 'Articles' },
   { to: '/contact', text: 'Contact' },
 ]

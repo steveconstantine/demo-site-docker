@@ -31,7 +31,7 @@ const makeHeading = key =>
 
 const constants = {
   blockquote: {
-    fontsize: '3.2rem',
+    fontsize: '4.71rem',
     fontFamily: "'ff-meta-serif-web-pro', serif",
     fontsizeMobile: '2.2rem',
     lineheight: 1.1,
@@ -41,6 +41,7 @@ const constants = {
     fontsizeMobile: '2.2rem',
     lineheight: 1.3,
     lineheightMobile: 1.4,
+    fontWeight: 800,
   },
   h2: {
     fontsize: '3.2rem',

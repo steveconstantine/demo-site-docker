@@ -11,6 +11,7 @@ import mediaqueries, { media } from '@styles/media'
 import { IArticleNode } from '@typings'
 
 const ArticlesFeaturedMobile = ({ article }: { article: IArticleNode }) => {
+
   return (
     <Grid>
       <GridItem article={article} />
@@ -25,6 +26,8 @@ const GridItem = ({ article }) => {
 
   const hasOverflow = narrow && article.title.length > 35
 
+  const excerpt = JSON.parse(article.excerpt).content[0].content[0].value
+
   return (
     <ArticleLink to={`/articles/${article.slug}`}>
       <Item>
@@ -36,7 +39,7 @@ const GridItem = ({ article }) => {
           {article.title}
         </Title>
         <Excerpt narrow={narrow} hasOverflow={hasOverflow}>
-          {article.excerpt}
+          {excerpt}
         </Excerpt>
         <TimeToRead>{article.readingTime.text}</TimeToRead>
       </Item>
@@ -149,7 +152,7 @@ const Excerpt = styled.p`
   ${limitToTwoLines};
   font-size: 18px;
   margin-bottom: 10px;
-  color: ${p => p.theme.colors.grey};
+  color: #FAFAFA;
   display: ${p => (p.hasOverflow ? 'none' : 'box')};
   max-width: ${p => (p.narrow ? '415px' : '515px')};
 

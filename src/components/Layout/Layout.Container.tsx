@@ -338,7 +338,7 @@ const MobileHamburger = styled.button`
   width: 30px;
   height: 30px;
   top: 15px;
-  right: 8px;
+  right: 55px;
   opacity: ${p => (p.active ? 0.5 : 1)};
   transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 

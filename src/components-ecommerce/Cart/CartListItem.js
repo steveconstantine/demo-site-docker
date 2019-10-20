@@ -34,7 +34,7 @@ const Name = styled('span')`
 `;
 
 const Meta = styled('span')`
-  color: ${colors.textLight};
+  color: #FAFAFA;
   display: block;
   font-size: 0.95rem;
   font-style: normal;

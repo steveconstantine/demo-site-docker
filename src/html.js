@@ -8,7 +8,7 @@ export default props => (
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta
         name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=2"
       />
       <link rel="stylesheet" href="https://use.typekit.net/huf6cwu.css" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.1/web-animations-next.min.js" />

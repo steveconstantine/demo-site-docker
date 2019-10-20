@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import { navigate } from 'gatsby'
 
 import { ButtonArrow, Section, Heading } from '@components'
-import ScrollIndicator from '@components/ScrollIndicator'
 import ShapeShifter from '@components/ShapeShifter'
-import IntersectionObserver from '@components/IntersectionObserver'
 import Transitions from '@components/Transitions'
 import LayoutHeroMobile from '@components/Layout/Layout.Hero.Mobile'
 import { ContactContext } from '@components/Contact/Contact.Context'
@@ -20,37 +18,29 @@ function HomeHero() {
   return (
     <LayoutHeroMobile>
       <HomeHeroContainer id="home-hero">
-        <Section>
-          <IntersectionObserver
-            render={({ intersectionRatio: ir }) => (
-              <ContentContainer
-                style={ir ? { opacity: ir * ir } : { opacity: 1 }}
-              >
-                <TextContainer>
-                  <Transitions.CSS.FadeIn>
-                    <Heading.h1>
-                      <br/>
-                      <br/>
-                      Gifting Wild - A Wild Way of Gifting.
-                    </Heading.h1>
-                    <MainText>
-                      We're a team with senior startup experience here to help
-                      your business take the next step.
-                    </MainText>
-                    <ButtonArrow onClick={() => {
-                                event.preventDefault()
-                                toggleContact()
-                              }} text="Get in touch" />
-                    <ButtonArrow onClick={() => navigate('/collection')} text="Browse our Art" />
-                  </Transitions.CSS.FadeIn>
-                </TextContainer>
-                <ProductContainer>
-                  <ProductListingHero />
-                </ProductContainer>
-              </ContentContainer>
-            )}
-          />
-          <ScrollIndicator />
+        <Section fullwidth wide>
+          <ContentContainer>
+            <ProductContainer>
+              <TextContainer>
+                <Transitions.CSS.FadeIn>
+                  <Heading.h1>
+                    Gifting Wild - A Wild Way of Gifting.
+                  </Heading.h1>
+                </Transitions.CSS.FadeIn>
+              </TextContainer>
+              <ProductListingHero />
+               <Transitions.CSS.FadeIn>
+                <MainText>
+                  We're Getting Ready Now.
+                </MainText>
+                <ButtonArrow onClick={() => {
+                            event.preventDefault()
+                            toggleContact()
+                          }} text="Get in touch" />
+                <ButtonArrow onClick={() => navigate('/collection')} text="Browse our Art" />
+              </Transitions.CSS.FadeIn>
+            </ProductContainer>
+          </ContentContainer>
         </Section>
       </HomeHeroContainer>
     </LayoutHeroMobile>
@@ -60,7 +50,6 @@ function HomeHero() {
 export default HomeHero
 
 const HomeHeroContainer = styled.div`
-  overflow-x: hidden;
   ${mediaqueries.desktop`
     #mirror-mask {
       display: none;
@@ -68,21 +57,22 @@ const HomeHeroContainer = styled.div`
 `
 
 const TextContainer = styled.div`
-  position: relative;
+  position: absolute;
   z-index: 10;
-  max-width: 50vw;
+  max-width: 100vw;
   top: 10px;
 
-  ${mediaqueries.phablet`
+  ${mediaqueries.tablet`
     position: relative;
     max-width: 100vw;
+    top: 50px;
   `}
 `
 
 const ProductContainer = styled.div`
   position: relative;
   z-index: 9;
-  max-width: 50vw;
+  max-width: 100vw;
   top: 10px;
 
   ${mediaqueries.phablet`
@@ -94,7 +84,7 @@ const ProductContainer = styled.div`
 const MainText = styled.p`
   font-size: 3.2rem;
   font-weight: 400;
-  color: ${p => p.theme.colors.grey};
+  color: #FEFEFE;
   line-height: 1.3;
   margin-bottom: 50px;
 
@@ -104,9 +94,8 @@ const MainText = styled.p`
 `
 
 const ContentContainer = styled.div`
-  height: calc(100vh - 230px);
   min-height: 600px;
-  padding-top: 10px;
+  padding-top: 35px;
   z-index: 0;
 
   position: relative;
@@ -131,6 +120,6 @@ const ContentContainer = styled.div`
   }
 
   @media screen and (max-height: 648px) {
-    top: -60px;
+    top: 0;
   }
 `

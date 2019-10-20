@@ -20,10 +20,10 @@ const Form = styled(`form`)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0 16px 0 16px;
+  padding: 0 16px 24px 16px;
 
   @media (min-width: ${breakpoints.tablet}px) {
-    padding: ${spacing['2xl']}px ${spacing.xl}px 0;
+    padding: ${spacing['2xl']}px ${spacing.xl}px 32px;
   }
 
   @media (min-width: ${breakpoints.desktop}px) {

@@ -2,8 +2,8 @@ import React from 'react';
 import Client from 'shopify-buy';
 
 const client = Client.buildClient({
-  domain: 'geeduu.myshopify.com',
-  storefrontAccessToken: 'a792ca225d9eba4b44a2b59643fbc803'
+  domain: 'contactgiftingwild.myshopify.com',
+  storefrontAccessToken: '9f3b22d5cec1ebe0aff7ce914ea8b505'
 });
 
 export const defaultShopContext = {

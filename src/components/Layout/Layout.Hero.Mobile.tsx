@@ -48,6 +48,7 @@ const Frame = styled.div`
     position: fixed;
     z-index: 0;
     padding-bottom: 400%;
+    width: 100vw;
 
     @media screen and (max-height: 600px) {
       padding-top: 60px;

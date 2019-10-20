@@ -176,7 +176,7 @@ const productNode = `
       id
       localFile {
         childImageSharp {
-          fluid(maxWidth: 910, maxHeight: 910) {
+          fluid(maxHeight: 910) {
             aspectRatio
             src
             srcSet
@@ -199,7 +199,7 @@ const collectionNode = `
       id
       localFile {
         childImageSharp {
-          fluid(maxWidth: 910, maxHeight: 910) {
+          fluid(maxHeight: 910) {
             aspectRatio
             src
             srcSet

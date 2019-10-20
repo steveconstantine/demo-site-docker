@@ -4,6 +4,26 @@ import Img from 'gatsby-image'
 
 import { HorizontalScroll, IntersectionObserver } from '@components'
 import mediaqueries from '@styles/media'
+import Flickity from 'react-flickity-component'
+
+const flickityOptions = {
+    initialIndex: 2,
+    freeScroll: true,
+    freeScrollFriction: 0.03,
+    contain: true,
+    prevNextButtons: false,
+    cellAlign: 'right',
+    lazyLoad: 5,
+    imagesLoaded: true,
+    selectedAttraction: 0.2,
+    friction: 0.8,
+    dragThreshold: 150,
+    adaptiveHeight: true,
+    fullscreen: true,
+    wrapAround: true,
+    groupCells: true,
+    isDraggable: false
+}
 
 class ProductSlider extends Component {
   state = {
@@ -74,65 +94,31 @@ class ProductSlider extends Component {
 
     return (
       <Fragment>
-        <CareersImagesContainer>
-          <IntersectionObserver
-            render={({ visiblePercentage }) => {
-              if (visiblePercentage > 80 && !this.state.inView) {
-                this.setState({ inView: true })
-                setTimeout(() => {
-                  this.setState({ viewed: true })
-                }, 1000)
-              }
-
-              return (
-                <GalleryContainer
-                  style={{ transform: `translateX(${offset}rem)` }}
+        {!!children.length && (
+          <CareersImagesContainer>
+            <Flickity
+                className={'carousel'} // default ''
+                elementType={'div'} // default 'div'
+                options={flickityOptions} // takes flickity options {}
+                disableImagesLoaded={false} // default false
+                reloadOnUpdate // default false
+            >
+              {this.props.children.map((child, index) => (
+                <ImageContainer
+                  key={index}
+                  index={index}
+                  activeIndex={activeIndex}
+                  inView={this.state.inView}
+                  viewed={this.state.viewed}
+                  style={{ left: `${index * 36}rem` }}
+                  static
                 >
-                  {this.props.children.map((child, index) => (
-                    <ImageContainer
-                      key={index}
-                      index={index}
-                      activeIndex={activeIndex}
-                      inView={this.state.inView}
-                      viewed={this.state.viewed}
-                      style={{ left: `${index * 36}rem` }}
-                    >
-                      {child}
-                    </ImageContainer>
-                  ))}
-                </GalleryContainer>
-              )
-            }}
-          />
-          <GalleryControl
-            disabled={activeIndex === 0}
-            onClick={this.handlePrevClick}
-            data-a11y="false"
-            left
-          >
-            <ChevronLeft />
-          </GalleryControl>
-          <GalleryControl
-            disabled={activeIndex === this.props.children.length / 2 - 1}
-            onClick={this.handleNextClick}
-            data-a11y="false"
-            right
-          >
-            <ChevronRight />
-          </GalleryControl>
-        </CareersImagesContainer>
-        <CareersImagesContainerMobile>
-          <HorizontalScroll
-            narrow
-            list={this.props.children}
-            name="image"
-            render={({ child }) => (
-              <ImageContainerMobile>
-                { child }
-              </ImageContainerMobile>
-            )}
-          />
-        </CareersImagesContainerMobile>
+                  {child}
+                </ImageContainer>
+              ))}
+            </Flickity>
+          </CareersImagesContainer>
+        )}
       </Fragment>
     )
   }
@@ -142,11 +128,14 @@ export default ProductSlider
 
 const CareersImagesContainer = styled.div`
   position: relative;
-  width: 50vw;
-  max-width: 70rem;
+  width: 100vw;
+  max-width: 100vw;
   margin-top: 7rem;
+  height: 555px;
+  margin-bottom: 7rem;
+  
   ${mediaqueries.phablet`
-    display: none;
+      margin-top: 0;
   `};
 `
 
@@ -158,13 +147,6 @@ const CareersImagesContainerMobile = styled.div`
     margin: 3rem 0;
   `};
 `
-
-const GalleryContainer = styled.div`
-  position: relative;
-  height: 440px;
-  transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1);
-`
-
 /**
  * 0 ==> 0 1
  * 1 ==> 2 3
@@ -179,27 +161,10 @@ const ImageContainer = styled.div`
   font-size: 10rem;
   position: absolute;
   left: 0;
-  width: 34rem;
   height: 100%;
   border-radius: 3px;
-  overflow: hidden;
-  filter: grayscale(100);
-  opacity: ${p =>
-    p.inView
-      ? p.activeIndex * 2 === p.index || p.index === p.activeIndex * 2 + 1
-        ? 1
-        : 0.2
-      : 0};
-  ${p => {
-    if (p.viewed) {
-      return `transition: opacity 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53),
-    filter 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53);`
-    }
-    if (p.inView) {
-      return `transition: opacity 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-      ${p.index * 180}ms;`
-    }
-  }};
+  overflow: hidden; 
+
   .gatsby-image-wrapper {
     border-radius: 2px;
     position: absolute;
@@ -208,16 +173,9 @@ const ImageContainer = styled.div`
     object-fit: cover;
     object-position: center center;
   }
-  &:hover {
-    ${p =>
-      p.inView
-        ? p.activeIndex * 2 === p.index || p.index === p.activeIndex * 2 + 1
-          ? `filter: grayscale(0);`
-          : ``
-        : ``};
-  }
+
   ${mediaqueries.phablet`
-    width: 28rem;
+    width: 25.5rem;
   `};
 `
 
@@ -228,84 +186,6 @@ const ImageContainerMobile = styled.div`
   filter: grayscale(100);
   ${mediaqueries.tablet`
     width: 100%;
+    filter: grayscale(0) !important;
   `};
 `
-
-const GalleryControl = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  ${p => {
-    if (p.left) {
-      return `left: -2.6rem;`
-    }
-    if (p.right) {
-      return `right: -2.6rem;`
-    }
-  }};
-  height: 4rem;
-  width: 4rem;
-  border-radius: 50%;
-  z-index: 9;
-  background: #fff;
-  cursor: ${p => (p.disabled ? 'initial' : 'pointer')};
-  opacity: ${p => (p.disabled ? 0.25 : 1)};
-  transition: opacity 600ms cubic-bezier(0.7, 0, 0.2, 1);
-  &[data-a11y='true']:focus::after {
-    content: '';
-    position: absolute;
-    left: -12%;
-    top: -12%;
-    width: 124%;
-    height: 124%;
-    border: 3px solid ${p => p.theme.colors.purple};
-    border-radius: 50%;
-  }
-  ${mediaqueries.desktop`
-    ${p => {
-      if (p.left) {
-        return `left: -26.3rem;`
-      }
-      if (p.right) {
-        return `right: 2rem;`
-      }
-    }};
-  `};
-  ${mediaqueries.desktop`
-    ${p => {
-      if (p.left) {
-        return `left: -5rem;`
-      }
-      if (p.right) {
-        return `right: 2rem;`
-      }
-    }};
-  `};
-`
-
-const ChevronRight = ({ fill = '#090a0c' }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-  >
-    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill={fill} />
-    <path d="M0 0h24v24H0z" fill="none" />
-  </svg>
-)
-
-const ChevronLeft = ({ fill = '#090a0c' }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-  >
-    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill={fill} />
-    <path d="M0 0h24v24H0z" fill="none" />
-  </svg>
-)

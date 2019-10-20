@@ -40,7 +40,7 @@ const Details = styled(`div`)`
     flex-direction: column;
     justify-content: space-between;
     margin-right: -${spacing.xl}px;
-    max-width: 400px;
+    max-width: 600px;
     min-height: 490px;
   }
 `;
@@ -52,7 +52,7 @@ const BackLinkContainer = styled(`div`)`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    max-width: 400px;
+    max-width: 555px;
   }
 `;
 
@@ -91,7 +91,7 @@ class ProductPage extends Component {
           )}
           <Details>
             <BackLinkContainer>
-              <BackLink vendor={"collection"}>Back to Vendors</BackLink>
+              <BackLink vendor={""}>Back to Home</BackLink>
             </BackLinkContainer>
             <ProductSpecs product={product} />
             <ProductForm id={id} variants={variants} />
@@ -105,7 +105,7 @@ class ProductPage extends Component {
 ProductPage.propTypes = {
   product: PropTypes.object.isRequired,
   productImagesBrowserStatus: PropTypes.string.isRequired,
-  togglePrisMobileoductImagesBrowser: PropTypes.func.isRequired,
+  toggleProductImagesBrowser: PropTypes.func.isRequired,
   setCurrentProductImages: PropTypes.func.isRequired,
   productImageFeatured: PropTypes.object,
   isDesktopViewport: PropTypes.bool

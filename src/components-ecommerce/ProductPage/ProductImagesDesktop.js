@@ -10,8 +10,10 @@ import { spacing } from '../../utils/styles';
 const THUMBNAIL_SIZE = '54px';
 
 const ProductImagesDesktopRoot = styled(`div`)`
-  margin-right: 0px;
-  width: 440px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 40vw;
+  min-width: 280px;
 `;
 
 const Thumbnails = styled(ProductThumbnails)`

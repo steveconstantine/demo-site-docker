@@ -164,7 +164,7 @@ const ProductListingHero = () => (
       ];
       return (
           <>
-            <Section narrow>
+            <Section fullwidth narrow>
               <ProductListingContainer>
                 <ProductListingSlider>
                   {allShopifyProduct.edges.map(({ node: product }) => (
@@ -270,7 +270,6 @@ const MainText = styled.p`
 `
 
 const ContentContainer = styled.div`
-  height: calc(100vh - 140px);
   min-height: 440px;
 
   position: relative;
@@ -279,7 +278,6 @@ const ContentContainer = styled.div`
   justify-content: space-between;
 
   ${mediaqueries.tablet`
-    height: calc(100vh - 90px);
     padding: 0;
     user-select: none;
     pointer-events: none;

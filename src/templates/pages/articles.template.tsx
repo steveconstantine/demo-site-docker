@@ -36,6 +36,8 @@ function ArticlesPage({ data, location, pageContext }) {
     visible: false,
   }
 
+  console.log(JSON.parse(articles[0].excerpt))
+
   return (
     <Layout nav={navConfig} footer={footerConfig}>
       <>

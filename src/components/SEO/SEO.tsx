@@ -37,7 +37,7 @@ interface HelmetProps {
   readingTime?: string
 }
 
-const seoURL = path => `https://cawderyco${path}`
+const seoURL = path => `https://www.giftingwild.com${path}`
 
 // Twitter requires https to prepend any paths.
 const addHttps = path => {
@@ -80,10 +80,11 @@ const getMetaTags = ({
     { itemprop: 'image', content: addHttps(image) },
     { name: 'description', content: description },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:site', content: 'Gifting-Wild' },
+    { name: 'twitter:site', content: 'Gifting Wild' },
     { name: 'twitter:title', content: title },
-    { name: 'twitter:description', content: description },
-    { name: 'twitter:creator', content: twitter || 'Gifting-Wild' },
+    { name: 
+    'twitter:description', content: description },
+    { name: 'twitter:creator', content: twitter || 'Gifting Wild' },
 
     {
       name: 'twitter:image',
@@ -92,9 +93,9 @@ const getMetaTags = ({
     { property: 'og:title', content: title },
     { property: 'og:type', content: contentType },
     { property: 'og:url', content: url },
-    { property: 'og:image', content: image },
+    { property: 'og:image', content: addHttps(image) },
     { property: 'og:description', content: description },
-    { property: 'og:site_name', content: 'Gifting-Wild' },
+    { property: 'og:site_name', content: 'Gifting Wild' },
   ]
 
   if (published)

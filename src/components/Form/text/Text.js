@@ -5,6 +5,10 @@ import { isMobile } from 'react-device-detect'
 
 import mediaqueries from '@styles/media'
 
+import {
+  colors
+} from '../../../utils/styles';
+
 class Text extends Component {
   input = React.createRef()
 
@@ -81,7 +85,7 @@ const InputContainer = styled.div`
 const InputError = styled.div`
   position: absolute;
   bottom: 0.1rem;
-  color: ${p => p.theme.colors.red};
+  color: ${p => colors.error};
   font-size: 1.2rem;
 
   ${mediaqueries.tablet`
@@ -96,7 +100,7 @@ const InputBorder = styled.div`
     padding: 0.35em 0 0.4rem;
   ${p =>
     p.hasError
-      ? `border-bottom: 1px solid ${p.theme.colors.red}`
+      ? `border-bottom: 1px solid ${colors.error}`
       : `border-bottom: 1px solid #b9bbbe`};
     `};
 `
@@ -121,13 +125,13 @@ const InputBorderActive = styled.div`
 const StyledLabel = styled.label`
   display: block;
   font-size: 3.2rem;
-  color: ${p => (p.hasError ? p.theme.colors.red : 'rgba(255,255,255,0.75)')};
+  color: ${p => (p.hasError ? colors.error : 'rgba(255,255,255,0.75)')};
   border: none;
   pointer-events: none;
 
   ${mediaqueries.tablet`
     font-size: 1.6rem;
-    color: ${p => (p.hasError ? p.theme.colors.red : 'rgba(255,255,255,0.75)')};
+    color: ${p => (p.hasError ? colors.error : 'rgba(255,255,255,0.75)')};
   `};
 `
 

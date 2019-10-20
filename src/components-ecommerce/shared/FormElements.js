@@ -5,18 +5,18 @@ import { PrimaryButton } from './Buttons';
 import { colors, radius, spacing } from '../../utils/styles';
 
 export const Input = styled(`input`)`
-  background-color: #FFFFFF88;
+  background-color: #000000CC;
   border: 1px solid ${colors.brandBright};
   border-radius: ${radius.default}px;
-  color: ${colors.text};
+  color: white;
   font-size: 20px !important;
   display: block;
-  font-size: 1.1rem;
   padding: ${spacing.sm}px ${spacing.md}px;
   width: 100% !important;
+  font-weight: 900; 
 
   :focus {
-    box-shadow: 0 0 0 3px ${colors.accent};
+    box-shadow: 0 0 0 3px white;
     outline: 0;
     transition: box-shadow 0.15s ease-in-out;
   }

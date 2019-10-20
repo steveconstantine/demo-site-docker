@@ -167,9 +167,10 @@ const ProductListingByTag = (tag) => (
           ),
         },
       ];
+
       return (
           <>
-            <Section narrow>
+            <Section>
               <ProductListingByTagContainer>
                 <ProductSlider>
                   {

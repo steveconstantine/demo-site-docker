@@ -74,17 +74,19 @@ const GridItem = ({ article, narrow }) => {
 
   const hasOverflow = narrow && article.title.length > 35
 
+  const excerpt = JSON.parse(article.excerpt).content[0].content[0].value
+
   return (
     <ArticleLink to={`/articles/${article.slug}`} data-a11y="false">
       <Item>
         <Image background={article.backgroundColor} narrow={narrow}>
           <Media src={article.backgroundImage.fluid} />
         </Image>
-        <Title dark hasOverflow={hasOverflow}>
+        <Title light hasOverflow={hasOverflow}>
           {article.title}
         </Title>
         <Excerpt narrow={narrow} hasOverflow={hasOverflow}>
-          {article.excerpt}
+          {excerpt}
         </Excerpt>
         <TimeToRead>{article.readingTime.text}</TimeToRead>
       </Item>
@@ -104,7 +106,7 @@ const Testimonial = () => {
         </Blockquote>
         <ButtonArrow
           text="Read more"
-          color="#000"
+          color="#FFF"
           as={Link}
           to="/articles/building-the-new-hopper-com"
         />

@@ -47,6 +47,8 @@ const GridItem = ({
 
   const hasOverflow = narrow && article.title.length > 35
 
+  const excerpt = JSON.parse(article.excerpt).content[0].content[0].value
+
   return (
     <ArticleLink to={`/articles/${article.slug}`} data-a11y="false">
       <Item>
@@ -57,7 +59,7 @@ const GridItem = ({
           {article.title}
         </Title>
         <Excerpt narrow={narrow} hasOverflow={hasOverflow}>
-          {article.excerpt}
+          {excerpt}
         </Excerpt>
         <TimeToRead>{article.readingTime.text}</TimeToRead>
       </Item>

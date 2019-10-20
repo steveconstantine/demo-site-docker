@@ -5,13 +5,13 @@ import styled from '@emotion/styled';
 import { breakpoints, colors, fonts, spacing } from '../../utils/styles';
 
 const ProductSpecsRoot = styled(`div`)`
-  padding: 20px;
-  border-radius: 45px;
+  padding: 40px 32px 32px;
+  border-radius: 5px;
   background: #00000044;
 
   @media (min-width: ${breakpoints.tablet}px) {
-    padding: 40px;
-    margin: 4px;
+    padding: 40px 32px 32px;
+    margin: 40px 36px 0px 32px;
   }
 `;
 

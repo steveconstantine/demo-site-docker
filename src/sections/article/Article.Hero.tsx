@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { isMobile } from 'react-device-detect'
 
 import Heading from '@components/Heading'
-import IntersectionObserver from '@components/IntersectionObserver'
 import Section from '@components/Section'
 import ScrollIndicator from '@components/ScrollIndicator'
 import Media from '@components/Media/Media.Img'
@@ -18,27 +17,11 @@ const inlineAnimate = (cond: boolean) => (obj: any) => (cond ? obj : {})
 const ArticleHero = ({ article }: { article: IArticleNode }) => {
   const author = article.author
 
-  return (
-    <IntersectionObserver
-      render={({
-        boundingClientRect: { height },
-        visiblePercentage,
-      }: {
-        boundingClientRect: { height: number }
-        visiblePercentage: number
-      }) => {
-        // If it's mobile don't animate since it's janky and doesn't add much value
-        const canAnimate = inlineAnimate(height > 540 && !isMobile)
-        const headerOffset = canAnimate({
-          transform: `translateY(${(100 - visiblePercentage) * 1.33}px)`,
-          opacity: 1 - ((100 - visiblePercentage) / 100) * 1.66,
-        })
-
         return (
           <Hero>
             <HeroContent>
               <Section>
-                <Header style={headerOffset}>
+                <Header>
                   <HeroTitle>{article.title}</HeroTitle>
                   <HeroSubtitle>
                     By {author.name}
@@ -56,9 +39,6 @@ const ArticleHero = ({ article }: { article: IArticleNode }) => {
             </Image>
           </Hero>
         )
-      }}
-    />
-  )
 }
 
 export default ArticleHero

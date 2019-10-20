@@ -9,12 +9,12 @@ const Section = styled.section<{
   narrow?: boolean
   wide?: boolean
   minimal?: boolean
+  fullwidth? : boolean
 }>`
   position: ${p => (p.relative ? 'relative' : 'static')};
   width: 100%;
-  max-width: 1220px;
-  max-width: ${p => (p.minimal === true ? '100vw' : '1220px')};
-  margin: 0 auto;
+  max-width: ${p => (p.fullwidth ? '100vw !important' : '1220px')};
+    margin: 0 auto;
   padding: ${p => (p.wide ? '0' : '0 1rem')};
   background: ${p =>
     p.background === 'dark' ? p.theme.colors.bg : 'transparent'};
@@ -27,7 +27,7 @@ const Section = styled.section<{
 
   ${mediaqueries.tablet`
     display: block;
-    padding: ${p => (p.wide ? '0' : '0 1rem')};
+    padding: 0;
   `};
 
   ${mediaqueries.phablet`

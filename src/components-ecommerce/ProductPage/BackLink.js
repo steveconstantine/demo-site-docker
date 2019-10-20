@@ -11,10 +11,13 @@ const BackLinkRoot = styled(`div`)`
   background: transparent;
   bottom: 0;
   left: 0;
-  padding: ${spacing.md}px;
+  padding: 0 0;
   padding-top: ${spacing.lg}px;
   position: fixed;
   width: 100%;
+  border-radius-top: 5px;
+  border-radius-bottom: 5px;
+  z-index: 1000;
 
   @media (min-width: ${breakpoints.desktop}px) {
     padding: 0 ${spacing.xl}px;
@@ -26,7 +29,9 @@ const BackLinkRoot = styled(`div`)`
 
 const BackToListing = styled(Button)`
   width: 100%;
-  background: #FFFFFFBB !important;
+  background: #000000BB !important;
+  color: white !important;
+  border-radius: 4px;
 
   @media (min-width: ${breakpoints.desktop}px) {
     width: auto;

@@ -114,6 +114,7 @@ const Frame = styled.div`
   transition: transform 300ms var(--ease-out-quad), opacity 120ms;
   transform: translateY(-100%);
   opacity: 0;
+  height: 60px;
 
   ${p =>
     p.stuck &&

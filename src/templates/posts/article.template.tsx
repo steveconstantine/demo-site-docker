@@ -16,6 +16,8 @@ import Progress from '@components/Progress'
 import ProgressMobile from '@components/Progress/Progress.Mobile'
 import Section from '@components/Section'
 import NavigationFooter from '@components/Navigation/Navigation.Footer'
+import { SponsorButton } from '../../components-blog/sponsor-button'
+import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 
 import mediaqueries from '@styles/media'
 import { debounce } from '@utils'
@@ -123,6 +125,15 @@ class Article extends Component<ArticleProps, PostState> {
       theme: 'dark',
     }
 
+    const disqusConfig = {
+      url: article.shortUrl,
+      identifier: article.id,
+      title: article.title,
+    }
+
+    console.log('article.shortUrl')
+    console.log(article.shortUrl)
+
     return (
       <Layout nav={navConfig}>
         <ArticleMicrodata article={article} location={location} />
@@ -156,7 +167,18 @@ class Article extends Component<ArticleProps, PostState> {
               {author.title && ` , ${author.title}`}
             </div>
           </Meta>
+          <Section narrow>
+          {!!article.buyMeACoffeeId && (
+            <SponsorButton sponsorId={article.buyMeACoffeeId} />
+          )}
           <ProductListingByTag tag={article.productTag} />
+          {!!article.disqusShortName && (
+            <div style={{'background': '#FFF'}}>
+              <CommentCount config={disqusConfig} placeholder={''} />
+              <Disqus config={disqusConfig} />
+            </div>
+          )}
+          </Section>
           <NextArticle narrow>
             <FooterNext>Next article from Gifting-Wild</FooterNext>
             <ArticlePreview articles={next} />
@@ -195,7 +217,7 @@ const Content = styled(RichText).attrs<{ textHighlightColor: string }>({})`
   transition: background 0.2s linear;
 
   ${mediaqueries.tablet`
-    padding: 60px 0 0;
+    padding: 60px 0 60px 0;
   `}
 `
 

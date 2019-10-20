@@ -34,7 +34,7 @@ const Footer = ({ mode = 'dark' }: { mode?: string }, { height = 'normal' }: { h
   const sectionHeight = height === 'minimal' ? true : false
 
   return (
-    <Section wide minimal>
+    <Section fullwidth minimal>
       <Frame color={color} sectionHeight transparentColor={transparentColor}>
         <CopyRight>© {new Date().getFullYear()} Gifting-Wild Studio Inc.</CopyRight>
         <Left color={color}>

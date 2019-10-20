@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
    * Thanks to Benjamin De Cock
    * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
    */
-  :root {
+  :root {-
     --ease-in-quad: cubic-bezier(.55, .085, .68, .53);
     --ease-in-cubic: cubic-bezier(.550, .055, .675, .19);
     --ease-in-quart: cubic-bezier(.895, .03, .685, .22);
@@ -241,9 +241,61 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  @media screen and (max-width: 768px) {
+  .flickity-slider {
+    height: 555px;
+  }
+  
+  .flickity-viewport {
+    width: 100vw;
+    outline: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .flickity-page-dots {
+    display: none;
+  }
+
+  .is-selected {
+    opacity: 1 !important;
+    filter: grayscale(0) !important;
+    transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1);
+  }
+
+  .flickity-enabled {
+    outline: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+
+  @media screen and (max-width: 767px) {
     .hide-on-mobile {
       visibility: hidden;
     }
+    .flickity-slider {
+      height: 400px;
+    }
+  }
+
+  section > div.guest {
+    display: none !important;
+  }
+ 
+  #disqus_thread  {
+    padding: 10px !important;
+  }
+
+  .disqus-comment-count {
+    padding: 0 10px !important;
+    text-align: center !important;
+  }
+
+  #variant > option {
+    color: white;
   }
 `

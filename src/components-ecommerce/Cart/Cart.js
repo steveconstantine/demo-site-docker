@@ -172,7 +172,7 @@ const Content = styled(`div`)`
 
 const ItemsNumber = styled(`span`)`
   align-items: center;
-  background: ${colors.error};
+  background: ${colors.cart};
   border-radius: 50%;
   color: #000;
   display: flex;
@@ -218,7 +218,7 @@ const Cost = styled(`div`)`
   }
 
   strong {
-    color: ${colors.error};
+    color: ${colors.cart};
     flex-basis: 40%;
     text-align: right;
   }
@@ -266,7 +266,7 @@ const numberEntry = keyframes`
 `;
 
 const CartToggleClose = styled(Button)`
-  background: ${p => (p.theme !== 'dark' ? '#08080bcc' : '#fafafa')};
+  background: ${p => (p.theme !== 'dark' ? '#08080bcc' : '#fafafabb')};
   color: ${p => (p.theme !== 'dark' ? '#fafafa' : '#08080b')};
   border: none;
   border-radius: 0;
@@ -286,8 +286,8 @@ const CartToggleClose = styled(Button)`
   }
 
   .open & {
-    background: ${p => (p.theme !== 'dark' ? '#fafafa' : '#08080b')};
-    color: ${p => (p.theme !== 'dark' ? '#08080b' : '#fafafa')};
+    background: ${p => (p.theme !== 'dark' ? '#fafafabb' : '#08080b')};
+    color: ${p => (p.theme !== 'dark' ? 'white' : '#fafafa')};
     transform: translateX(0);
   }
 
@@ -344,11 +344,6 @@ const CartToggle = styled(Button)`
       transform: translateX(-100%);
     }
   }
-
-  @media (max-width: ${breakpoints.desktop}px) {
-    left: -40px;
-  }
-
 
   svg {
     animation: ${iconEntry} 0.75s ease forwards;

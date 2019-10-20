@@ -233,7 +233,7 @@ const FormSection = styled.div`
 const ContactWithEmailText = styled.div`
   padding-top: 55px;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.95);
 
   button {
     text-decoration: underline;

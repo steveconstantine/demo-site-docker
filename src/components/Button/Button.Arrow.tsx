@@ -135,7 +135,7 @@ const ArrowAnimation = styled.div`
     position: absolute;
     left: 0;
     top: 13px;
-    height: 1px;
+    height: 0;
     width: 0;
     background: ${p => p.color};
     opacity: 0;

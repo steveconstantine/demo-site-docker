@@ -14,9 +14,30 @@ exports.plugins = [
   `gatsby-plugin-typescript`,
   `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,
-  `gatsby-transformer-remark`,
-  'gatsby-plugin-netlify',
-  'gatsby-plugin-netlify-cache',
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 590,
+              linkImagesToOriginal: false,
+          },
+        },
+        {
+          resolve: `gatsby-remark-images-medium-zoom`,
+            options: {
+              margin: 36,
+              scrollOffset: 0,
+          },
+        },
+        'gatsby-plugin-catch-links',
+      ],
+    },
+  },
+  `gatsby-plugin-netlify`,
+  `gatsby-plugin-netlify-cache`,
   {
     resolve: `gatsby-plugin-styled-components`,
     options: {
@@ -31,6 +52,27 @@ exports.plugins = [
     },
   },
   {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `ecommerce`,
+      path: `${__dirname}/src/components-ecommerce/`,
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `blog`,
+      path: `${__dirname}/src/components-blog/`,
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `site-components`,
+      path: `${__dirname}/src/components/`,
+    },
+  },
+  {
     resolve: `gatsby-source-contentful`,
     options: {
       spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -41,7 +83,7 @@ exports.plugins = [
   {
     resolve: 'gatsby-source-shopify',
     options: {
-      shopName: 'geeduu',
+      shopName: 'contactgiftingwild',
       accessToken: process.env.SHOPIFY_ACCESS_TOKEN
     }
   },
@@ -51,6 +93,9 @@ exports.plugins = [
       // Accepts all options defined by `babel-plugin-emotion` plugin.
     },
   },
+  `gatsby-remark-smartypants`,
+  `gatsby-remark-copy-linked-files`,
+  `gatsby-remark-emoji`,
   {
     resolve: `gatsby-plugin-portal`,
     options: {
@@ -92,10 +137,16 @@ exports.plugins = [
       pixelId: '2183075648607369',
     },
   },
-  "gatsby-plugin-layout",
+ {
+    resolve: `gatsby-plugin-disqus`,
+    options: {
+      shortname: `giftingwild`
+    }
+  },
+  `gatsby-plugin-layout`,
   // These are our local plugins that can be found within ./plugins
-  'gatsby-transformer-enhance-contentful',
-  'gatsby-transformer-contentful-rich-text-html-renderer',
+  `gatsby-transformer-enhance-contentful`,
+  `gatsby-transformer-contentful-rich-text-html-renderer`,
   `gatsby-plugin-twitter`,
 ]
 

@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import MaskedInput from 'react-text-mask'
 
+import {
+  colors
+} from '../../../utils/styles';
+
 const phoneNumberMasker = [
   '(',
   /[1-9]/,
@@ -46,7 +50,7 @@ const StyledLabel = styled.label`
   display: block;
   font-size: 1.6rem;
   color: ${props =>
-    props.hasError ? props.theme.colors.red : props.theme.colors.grey};
+    props.hasError ? colors.error : props.theme.colors.grey};
   border: none;
   pointer-events: none;
 `
@@ -54,7 +58,7 @@ const StyledLabel = styled.label`
 const InputError = styled.div`
   position: absolute;
   bottom: 0.5rem;
-  color: ${props => props.theme.colors.red};
+  color: ${props => colors.error};
   font-size: 1.2rem;
 `
 
@@ -99,7 +103,7 @@ const PlusOne = styled.div`
   position: absolute;
   left: 2.4rem;
   top: 0.6rem;
-  color: ${props => (props.hasError ? props.theme.colors.red : '#fff')};
+  color: ${props => (props.hasError ? colors.error : '#fff')};
 `
 
 const StyledButton = styled.button`
@@ -129,7 +133,7 @@ const PhoneIcon = ({ hasError }) => (
           clipRule="evenodd"
           d="M 3.01667 6.49167C 4.21667 8.85 6.15 10.775 8.50833 11.9833L 10.3417 10.15C 10.5667 9.925 10.9 9.85 11.1917 9.95C 12.125 10.2583 13.1333 10.425 14.1667 10.425C 14.625 10.425 15 10.8 15 11.2583L 15 14.1667C 15 14.625 14.625 15 14.1667 15C 6.34167 15 0 8.65833 0 0.833333C 0 0.375 0.375 0 0.833333 0L 3.75 0C 4.20833 0 4.58333 0.375 4.58333 0.833333C 4.58333 1.875 4.75 2.875 5.05833 3.80833C 5.15 4.1 5.08333 4.425 4.85 4.65833L 3.01667 6.49167Z"
           transform="translate(4 4)"
-          fill={hasError ? '#f44336' : '#fff'}
+          fill={hasError ? colors.error : '#fff'}
         />
       </g>
     </g>
