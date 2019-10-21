@@ -242,22 +242,6 @@ class LayoutContainer extends Component<LayoutProps, LayoutState> {
                       <RightToggle active={active} theme={navTheme} />
                     </>
                 </MobileMenu>
-                {showPreviousPath ? (
-                <MobileHamburger
-                  fixed={nav.fixed}
-                  active={active}
-                  onClick={() => navigate(`/articles`)}
-                  aria-label="Mobile Navigation Button"
-                >
-                  
-                    <BackIconX>
-                      <BackChevron fill="white"/>
-                      Visit our <strong>Blog</strong>
-                    </BackIconX>
-                </MobileHamburger>
-                ) : (
-                    null
-                  )}
                 {/* The desktop navigation also sits in the SiteContainer */}
                 <NavigationDesktop nav={nav} theme={navTheme} />
               </MobileScroll>
@@ -294,10 +278,11 @@ const SiteContainer = styled.div`
   background: ${p =>
     p.background ||
     `linear-gradient(180deg, #08080b 0%, #0b0b0e 44.18%, #111216 100%)`};
-  min-height: 100vh;
-  padding-bottom: ${p => p.paddingBottom};
+  height: 100vh;
   background-size: cover;
   overflow-x: hidden;
+  padding-bottom: 400%;
+  overflow-y: hidden;
 
   ${p =>
     p.navOffset &&
