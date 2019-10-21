@@ -281,7 +281,7 @@ const SiteContainer = styled.div`
   height: 100vh;
   background-size: cover;
   overflow-x: hidden;
-  padding-bottom: 400%;
+  padding-bottom: ${p => p.paddingBottom};
   overflow-y: hidden;
 
   ${p =>
