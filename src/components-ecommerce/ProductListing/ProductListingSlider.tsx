@@ -133,6 +133,7 @@ const CareersImagesContainer = styled.div`
   
   ${mediaqueries.phablet`
       margin-top: 0;
+      height: 400px;
   `};
 `
 

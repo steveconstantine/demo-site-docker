@@ -12,7 +12,7 @@ export const SponsorButton = ({ sponsorId }) => (
     >
       <img
         src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
-        alt="Contribue to a Legit Cause"
+        alt="Contribute to a Legit Cause"
       />
       <span>Donate toward Ocean Clean-up</span>
     </a>

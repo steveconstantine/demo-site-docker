@@ -8,6 +8,7 @@ import mediaqueries from '@styles/media'
 const LogoSymbolContainer = styled.div`
   height: 40px;
   width: 40px;
+  margin-left: 20px;
 
   ${mediaqueries.phablet`
     height: 40px;
