@@ -368,7 +368,7 @@ const SiteContainer = styled.div`
 const MobileMenu = styled.button`
   position: ${p => (p.fixed ? 'fixed' : 'absolute')};
   z-index: 999;
-  width: 128px;
+  width: 30px;
   height: 30px;
   top: 15px;
   right: 55px;
@@ -384,6 +384,14 @@ const MobileMenu = styled.button`
     top: -50%;
   }
 
+  ${mediaqueries.tablet`
+    right: 13.5vw;
+  `}
+
+  ${mediaqueries.phablet`
+    right: 55px;
+  `}
+
   ${mediaqueries.desktop_up`
     display: none;
     visibility: hidden;
@@ -393,7 +401,7 @@ const MobileMenu = styled.button`
 const MobileHamburger = styled.button`
   position: ${p => (p.fixed ? 'fixed' : 'absolute')};
   z-index: 999;
-  width: 30px;
+  width: 128px;
   height: 30px;
   top: 46px;
   right: calc(69px + 12vw);
