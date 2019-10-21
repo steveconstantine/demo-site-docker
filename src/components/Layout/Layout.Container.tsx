@@ -404,7 +404,7 @@ const MobileHamburger = styled.button`
   width: 128px;
   height: 30px;
   top: 46px;
-  right: calc(69px + 12vw);
+  right: calc(12vw - 28px);
   padding-bottom: 5px;
   opacity: ${p => (p.active ? 0.5 : 1)};
   transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
