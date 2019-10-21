@@ -437,13 +437,13 @@ const LogoBack = styled.button`
 
 const LogoContainer = styled(Link)`
   position: relative;
-  transition: opacity 0.3s var(--ease-out-quad);
+  transition: filter 0.3s var(--ease-out-quad);
   max-width: 414px;
   display: flex;
   padding-bottom: 10px;
 
   &:hover {
-    opacity: 0.6;
+    filter: brightness(120%);
   }
 
   &[data-a11y='true']:focus::after {

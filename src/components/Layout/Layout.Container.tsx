@@ -9,7 +9,7 @@ import NavigationMobile from '@components/Navigation/Navigation.Mobile.Header'
 import Footer from '@components/Navigation/Navigation.Footer'
 
 import { calculateStyles } from './Layout.Hero.Mobile'
-import { ExIcon } from '../../icons/ui'
+import { GoToIcon } from '../../icons/ui'
 
 import mediaqueries from '@styles/media'
 
@@ -231,26 +231,48 @@ class LayoutContainer extends Component<LayoutProps, LayoutState> {
                */}
 
               <MobileScroll fixed={nav.fixed} style={calculateStyles(position)}>
-                <MobileHamburger
+                <MobileMenu
                   fixed={nav.fixed}
                   active={active}
-                  onClick={
-                    showPreviousPath
-                      ? () => navigate(`/${previousPath.split('/')[1]}`)
-                      : this.openMobileNav
-                  }
+                  onClick={() => this.openMobileNav() }
                   aria-label="Mobile Navigation Button"
                 >
-                  {showPreviousPath ? (
-                    <ExIcon />
-                  ) : (
                     <>
                       <LeftToggle active={active} theme={navTheme} />
                       <RightToggle active={active} theme={navTheme} />
                     </>
-                  )}
+                </MobileMenu>
+                {showPreviousPath ? (
+                <MobileHamburger
+                  fixed={nav.fixed}
+                  active={active}
+                  onClick={() => navigate(`/articles`)}
+                  aria-label="Mobile Navigation Button"
+                >
+                  
+                    <BackIconX>
+                      <BackChevron fill="white"/>
+                      Visit our <strong>Blog</strong>
+                    </BackIconX>
                 </MobileHamburger>
-
+                ) : (
+                    null
+                  )}
+                {showPreviousPath ? (
+                <MobileShop
+                  fixed={nav.fixed}
+                  active={active}
+                  onClick={() => navigate(`/`)}
+                  aria-label="Mobile Navigation Button"
+                  >
+                    <BackIconX>
+                      <BackChevron fill="white"/>
+                      Visit our <strong>Shop</strong>
+                    </BackIconX>
+                </MobileShop>
+                ) : (
+                    null
+                )}
                 {/* The desktop navigation also sits in the SiteContainer */}
                 <NavigationDesktop nav={nav} theme={navTheme} />
               </MobileScroll>
@@ -273,6 +295,14 @@ class LayoutContainer extends Component<LayoutProps, LayoutState> {
 }
 
 export default LayoutContainer
+
+const BackIconX = styled.div`
+  display: block;
+  position: relative;
+  width: 128px;
+  color: white;
+`
+
 
 const SiteContainer = styled.div`
   position: ${p => (p.active || p.mask ? 'fixed' : 'relative')};
@@ -334,10 +364,11 @@ const SiteContainer = styled.div`
   }
 `
 
-const MobileHamburger = styled.button`
+
+const MobileMenu = styled.button`
   position: ${p => (p.fixed ? 'fixed' : 'absolute')};
   z-index: 999;
-  width: 30px;
+  width: 128px;
   height: 30px;
   top: 15px;
   right: 55px;
@@ -358,6 +389,59 @@ const MobileHamburger = styled.button`
     visibility: hidden;
   `}
 `
+
+const MobileHamburger = styled.button`
+  position: ${p => (p.fixed ? 'fixed' : 'absolute')};
+  z-index: 999;
+  width: 30px;
+  height: 30px;
+  top: 46px;
+  right: calc(69px + 12vw);
+  padding-bottom: 5px;
+  opacity: ${p => (p.active ? 0.5 : 1)};
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: -80%;
+    top: -50%;
+  }
+
+  ${mediaqueries.desktop_up`
+    display: none;
+    visibility: hidden;
+  `}
+`
+
+const MobileShop = styled.button`
+  position: ${p => (p.fixed ? 'fixed' : 'absolute')};
+  z-index: 999;
+  width: 128px;
+  height: 30px;
+  top: 46px;
+  right: calc(88px + 12vw);
+  padding-bottom: 5px;
+  opacity: ${p => (p.active ? 0.5 : 1)};
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: -80%;
+    top: -50%;
+  }
+
+  ${mediaqueries.desktop_up`
+    display: none;
+    visibility: hidden;
+  `}
+`
+
 
 const Toggle = styled.span`
   position: absolute;
@@ -405,3 +489,18 @@ const MobileScroll = styled.div`
     z-index: 10;
   `}
 `
+
+const BackChevron = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15.41 16.09L10.83 11.5L15.41 6.91L14 5.5L8 11.5L14 17.5L15.41 16.09Z"
+      fill="white"
+    />
+  </svg>
+)
