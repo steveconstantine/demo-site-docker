@@ -258,21 +258,6 @@ class LayoutContainer extends Component<LayoutProps, LayoutState> {
                 ) : (
                     null
                   )}
-                {showPreviousPath ? (
-                <MobileShop
-                  fixed={nav.fixed}
-                  active={active}
-                  onClick={() => navigate(`/`)}
-                  aria-label="Mobile Navigation Button"
-                  >
-                    <BackIconX>
-                      <BackChevron fill="white"/>
-                      Visit our <strong>Shop</strong>
-                    </BackIconX>
-                </MobileShop>
-                ) : (
-                    null
-                )}
                 {/* The desktop navigation also sits in the SiteContainer */}
                 <NavigationDesktop nav={nav} theme={navTheme} />
               </MobileScroll>

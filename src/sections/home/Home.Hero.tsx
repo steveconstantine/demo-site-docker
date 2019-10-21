@@ -37,7 +37,7 @@ function HomeHero() {
                             event.preventDefault()
                             toggleContact()
                           }} text="Get in touch" />
-                <ButtonArrow onClick={() => navigate('/articles')} text="Read Our Articles" />
+                <ButtonArrow onClick={() => navigate('/articles')} text="Read our Articles" />
               </Transitions.CSS.FadeIn>
             </ProductContainer>
           </ContentContainer>

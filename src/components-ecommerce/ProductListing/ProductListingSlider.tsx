@@ -40,6 +40,8 @@ class ProductListingSlider extends Component {
     if (typeof window !== 'undefined') {
       window.removeEventListener('keydown', this.handleKeyPress)
     }
+
+    
   }
 
   handleKeyPress = ({ keyCode }) => {
@@ -100,7 +102,6 @@ class ProductListingSlider extends Component {
               elementType={'div'} // default 'div'
               options={flickityOptions} // takes flickity options {}
               disableImagesLoaded={false} // default false
-              reloadOnUpdate // default false
           >
             {this.props.children.map((child, index) => (
               <ImageContainer
