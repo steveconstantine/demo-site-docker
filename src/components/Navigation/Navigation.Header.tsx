@@ -11,7 +11,6 @@ import mediaqueries from '@styles/media'
 import { ContactContext } from '@components/Contact/Contact.Context'
 
 import Cart from '../../components-ecommerce/Cart'
-import HeaderBG from '../../assets/mobile/header-bg.png'
 
 import InterfaceContext, {
   defaultInterfaceContext
