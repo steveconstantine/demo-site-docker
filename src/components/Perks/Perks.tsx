@@ -43,37 +43,28 @@ class Perks extends Component<{}, { animate: boolean }> {
   render() {
     const { animate } = this.state
 
-    return (
-      <IntersectionObserver
-        render={({ visiblePercentage }) => {
-          if (visiblePercentage > 66 && !animate) {
-            this.setState({ animate: true })
-          }
-
-          return (
-            <PerksContainer>
-              <PerksList>
-                {perks.map((perk, index) => (
-                  <PerksItemContainer key={perk.heading}>
-                    <PerksItem animate={animate} index={index}>
-                      <PerksItemHighlight>
-                        {perk.heading}{' '}
-                        <PerksItemDash>&nbsp;-&nbsp;</PerksItemDash>
-                      </PerksItemHighlight>
-                      {perk.text}
-                    </PerksItem>
-                    {index !== perks.length - 1 && (
-                      <PerksItemLineContainer>
-                        <PerksItemLine animate={animate} index={index} />
-                      </PerksItemLineContainer>
-                    )}
-                  </PerksItemContainer>
-                ))}
-              </PerksList>
-            </PerksContainer>
-          )
-        }}
-      />
+    // To-do: reintroduce intersection observer IntersectionObserver
+    return (       
+        <PerksContainer>
+          <PerksList>
+            {perks.map((perk, index) => (
+              <PerksItemContainer key={perk.heading}>
+                <PerksItem animate={animate} index={index}>
+                  <PerksItemHighlight>
+                    {perk.heading}{' '}
+                    <PerksItemDash>&nbsp;-&nbsp;</PerksItemDash>
+                  </PerksItemHighlight>
+                  {perk.text}
+                </PerksItem>
+                {index !== perks.length - 1 && (
+                  <PerksItemLineContainer>
+                    <PerksItemLine animate={animate} index={index} />
+                  </PerksItemLineContainer>
+                )}
+              </PerksItemContainer>
+            ))}
+          </PerksList>
+        </PerksContainer>
     )
   }
 }

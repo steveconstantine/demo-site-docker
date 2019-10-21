@@ -74,16 +74,6 @@ class CareersImages extends Component {
     return (
       <Fragment>
         <CareersImagesContainer>
-          <IntersectionObserver
-            render={({ visiblePercentage }) => {
-              if (visiblePercentage > 60 && !this.state.inView) {
-                this.setState({ inView: true })
-                setTimeout(() => {
-                  this.setState({ viewed: true })
-                }, 1000)
-              }
-
-              return (
                 <GalleryContainer
                   style={{ transform: `translateX(${offset}rem)` }}
                 >
@@ -92,8 +82,8 @@ class CareersImages extends Component {
                       key={image.node.childImageSharp.fluid.src}
                       index={index}
                       activeIndex={activeIndex}
-                      inView={this.state.inView}
-                      viewed={this.state.viewed}
+                      inView={true}
+                      viewed={true}
                       style={{ left: `${index * 36}rem` }}
                     >
                       <Img
@@ -103,9 +93,6 @@ class CareersImages extends Component {
                     </ImageContainer>
                   ))}
                 </GalleryContainer>
-              )
-            }}
-          />
           <GalleryControl
             disabled={activeIndex === 0}
             onClick={this.handlePrevClick}

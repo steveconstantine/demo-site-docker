@@ -291,7 +291,7 @@ const AccordianMailTo = styled.a`
   animation: 1.4s ease-out ${fadein} forwards;
 `
 
-const AccordianCareersEmail = styled.p`
+const AccordianCareersEmail = styled.div`
   display: flex;
   justify-content: ${p => (p.copied ? 'flex-end' : 'space-between')};
   align-items: center;

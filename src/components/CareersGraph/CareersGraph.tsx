@@ -56,21 +56,16 @@ function CareersGraph() {
   return (
     <>
       <Hidden>
-        A Graph showing the relationship of growth between Gifting-Wild Labs and
-        Gifting-Wild Studio.
+        A Graph showing the relationship of growth between Gifting Wild Labs and
+        Gifting Wild Studio.
       </Hidden>
-      <IntersectionObserver
-        render={({ visiblePercentage }) => {
-          if (!animate) handlePercentage(visiblePercentage)
-
-          return (
             <CareersGraphContainer aria-hidden="true" data-scroll-fade={true}>
               <CareersGraphGrid ref={containerRref}>
                 <CareersGraphGridRowContainer>
                   {rows.map((_, index) => (
                     <CareersGraphGridRow
                       key={index}
-                      animate={animate}
+                      animate={true}
                       index={rows.length - index + 1}
                       style={{ top: `${index * 10}%` }}
                     />
@@ -105,9 +100,6 @@ function CareersGraph() {
                 </LabelsContainer>
               </CareersGraphGrid>
             </CareersGraphContainer>
-          )
-        }}
-      />
     </>
   )
 }

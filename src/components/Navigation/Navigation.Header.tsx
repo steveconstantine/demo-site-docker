@@ -177,6 +177,11 @@ class Navigation extends Component<{}, NavigationState> {
 
     if (path === '#') return
 
+    if (path === '/') { 
+      setTimeout(() => { navigate('/') }, 250)
+      return
+    }
+
     setTimeout(() => {
       navigate(path)
     }, 250)
@@ -293,15 +298,32 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
   return navLinks.map((nav, index) => {
     const delay = active ? 30 * (navLinks.length - index) : 30 * index
 
+    if (nav.to === '/') {
+     return (
+        <NavItem key={nav.to}>
+          <NavAnchor
+            active={active && nav.to === '/' ? active : undefined}
+            disabled={nav.disabled}
+            to={nav.to}
+            delay={delay}
+            tabIndex={active ? 0 : -1}
+            onClick={event => handleClick(event, nav.to)}
+            data-a11y="false"
+          >
+            {nav.text}
+          </NavAnchor>
+        </NavItem>
+      )
+    }
+
     if (nav.to === '/contact') {
       return (
         <NavItem key={nav.to}>
           <NavAnchor
-            active={active ? active : undefined}
+            active={active && nav.to !== '/' ? active : undefined}
             disabled={nav.disabled}
             to={nav.to}
             delay={delay}
-            as={Link}
             tabIndex={active ? 0 : -1}
             onClick={event => {
               event.preventDefault()
@@ -310,7 +332,7 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
             }}
             data-a11y="false"
             getProps={({ isPartiallyCurrent }) =>
-              isPartiallyCurrent ? { ['data-active']: 'true' } : null
+              isPartiallyCurrent && nav.to !== "/" ? { ['data-active']: 'true' } : null
             }
           >
             {nav.text}
@@ -322,16 +344,15 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
     return (
       <NavItem key={nav.to}>
         <NavAnchor
-          active={active ? active : undefined}
+          active={active && nav.to !== '/' ? active : undefined}
           disabled={nav.disabled}
           to={nav.to}
           delay={delay}
-          as={Link}
           tabIndex={active ? 0 : -1}
           onClick={event => handleClick(event, nav.to)}
           data-a11y="false"
           getProps={({ isPartiallyCurrent }) =>
-            isPartiallyCurrent ? { ['data-active']: 'true' } : null
+            isPartiallyCurrent && nav.to !== "/" ? { ['data-active']: 'true' } : null
           }
         >
           {nav.text}
@@ -598,8 +619,7 @@ const CartItem = styled.li`
   `};
 `
 
-CartItem
-const NavAnchor = styled.a`
+const NavAnchor = styled(Link)`
   display: flex;
   height: 40px;
   align-items: center;

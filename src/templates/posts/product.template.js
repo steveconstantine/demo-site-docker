@@ -21,7 +21,7 @@ function ProductPageTemplate({ data, location, pageContext }) {
   const product = data.shopifyProduct
 
   const description = product.description
-  const image = product.images[0].localFile.childImageSharp.fluid.src
+  const image = product.images[0].localFile.childImageSharp.fixed.src
 
   const navConfig = {
     offset: true,
@@ -93,6 +93,9 @@ export const query = graphql`
           childImageSharp {
             fluid(maxWidth: 910, maxHeight: 910) {
               ...GatsbyImageSharpFluid_withWebp
+            }
+            fixed {
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
         }

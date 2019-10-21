@@ -6,6 +6,7 @@ import SocialLinks from '@components/SocialLinks'
 import mediaqueries from '@styles/media'
 
 const footerLinks = [
+  { to: '/', text: 'Home' },
   { to: '/articles', text: 'Articles' },
   { to: '/contact', text: 'Contact' },
 ]
@@ -33,24 +34,40 @@ const NavigationMobile = ({
       </SocialIconsHeader>
       <HorizontalRule active={isActive} />
       <MobileLinks active={isActive}>
-        {footerLinks.map((link, index) => (
-          <StyledLink
-            active={isActive}
-            key={link.to}
-            index={index}
-            to={link.to}
-            onClick={event => navigateOut(event, link.to)}
-            getProps={({ isPartiallyCurrent }) =>
-              isPartiallyCurrent ? { ['data-active']: 'true' } : null
-            }
-          >
-            {link.text}
-          </StyledLink>
-        ))}
+        {footerLinks.map((link, index) => {
+        if (link.to === "/") {
+          return (
+            <StyledLink
+                active={ link.to === "/" ? isActive : undefined }
+                key={link.to}
+                index={index}
+                to={link.to}
+                onClick={event => navigateOut(event, link.to)}
+                getProps={({ isPartiallyCurrent }) =>
+                  isPartiallyCurrent ? { ['data-active']: 'false' } : null
+                }
+              >{link.text}
+            </StyledLink>
+          )
+        }
+          return (
+            <StyledLink
+                active={ isActive ? isActive : undefined}
+                key={link.to}
+                index={index}
+                to={link.to}
+                onClick={event => navigateOut(event, link.to)}
+                getProps={({ isPartiallyCurrent }) =>
+                  isPartiallyCurrent ? { ['data-active']: 'true' } : null
+                }
+              >{link.text}
+            </StyledLink>
+        )})}
       </MobileLinks>
     </Frame>
   )
 }
+
 export default NavigationMobile
 
 const Frame = styled.nav`
@@ -61,7 +78,7 @@ const Frame = styled.nav`
   z-index: 0;
   padding: 80px 0;
   height: 100vh;
-  background: ${p => (p.active ? '#1d2128' : '#08080b')};
+  background: ${p => (p.active ? '#424a46' : '#08080b')};
   transition: background 0s ${p => (p.active ? '0' : '0.5s')};
 
   @media screen and (max-height: 700px) {

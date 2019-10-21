@@ -177,14 +177,16 @@ class LayoutContainer extends Component<LayoutProps, LayoutState> {
   navigateOut = (event, path) => {
     event.preventDefault()
     const pathname = window.location.pathname
+    console.log('path');
+    console.log(path);
     const isNavigatingToNewPage =
-      !pathname.includes(path) || pathname.split('/')[2]
+    !pathname.includes(path) || pathname.split('/')[2]
 
     // Nav closes
     this.closeMobileNav()
 
     // If it's a newly selected page, apply the mask and then wait wait a few ms
-    if (isNavigatingToNewPage) {
+    if (isNavigatingToNewPage || path == '/') {
       this.setState({ mask: true })
 
       setTimeout(() => {

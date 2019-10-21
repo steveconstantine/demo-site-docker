@@ -37,7 +37,7 @@ function HomeHero() {
                             event.preventDefault()
                             toggleContact()
                           }} text="Get in touch" />
-                <ButtonArrow onClick={() => navigate('/collection')} text="Browse our Art" />
+                <ButtonArrow onClick={() => navigate('/articles')} text="Read Our Articles" />
               </Transitions.CSS.FadeIn>
             </ProductContainer>
           </ContentContainer>
@@ -60,12 +60,12 @@ const TextContainer = styled.div`
   position: absolute;
   z-index: 10;
   max-width: 100vw;
-  top: 10px;
+  top: -44px;
 
   ${mediaqueries.tablet`
     position: relative;
     max-width: 100vw;
-    top: 50px;
+    top: 0;
   `}
 `
 

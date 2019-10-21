@@ -29,7 +29,7 @@ const Container = styled(`div`)`
   @media (min-width: ${breakpoints.desktop}px) {
     align-items: flex-start;
     display: flex;
-  }
+  }-
 `;
 
 const Details = styled(`div`)`
@@ -73,6 +73,9 @@ class ProductPage extends Component {
       productImageFeatured,
       toggleProductImagesBrowser
     } = this.props;
+
+    console.log('Product Page Images');
+    console.log(images);
 
     return (
       <ProductPageRoot>

@@ -87,6 +87,9 @@ class ProductImage extends Component {
       imageFeatured = null
     } = this.props;
 
+    console.log('this.props.image');
+    console.log(this.props.image.localFile.childImageSharp.fluid);
+
     return (
       <ProductImageLink
         ref={el => {
@@ -95,7 +98,7 @@ class ProductImage extends Component {
         href={fluid.src}
         onClick={this.handleClick(onClick)}
       >
-        <StyledImage fluid={imageFeatured ? fluid : fluid} alt="" />
+        <StyledImage fluid={ imageFeatured ? fluid : fluid } alt="" />
         <ZoomHelper>
           <MdZoomIn />
         </ZoomHelper>

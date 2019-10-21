@@ -17,7 +17,6 @@ import ProgressMobile from '@components/Progress/Progress.Mobile'
 import Section from '@components/Section'
 import NavigationFooter from '@components/Navigation/Navigation.Footer'
 import { SponsorButton } from '../../components-blog/sponsor-button'
-import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 
 import mediaqueries from '@styles/media'
 import { debounce } from '@utils'
@@ -172,12 +171,6 @@ class Article extends Component<ArticleProps, PostState> {
             <SponsorButton sponsorId={article.buyMeACoffeeId} />
           )}
           <ProductListingByTag tag={article.productTag} />
-          {!!article.disqusShortName && (
-            <div style={{'background': '#FFF'}}>
-              <CommentCount config={disqusConfig} placeholder={''} />
-              <Disqus config={disqusConfig} />
-            </div>
-          )}
           </Section>
           <NextArticle narrow>
             <FooterNext>Next article from Gifting-Wild</FooterNext>

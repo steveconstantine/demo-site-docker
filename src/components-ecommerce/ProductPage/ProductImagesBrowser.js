@@ -100,7 +100,7 @@ const ZoomArea = styled(`div`)`
   -webkit-overflow-scrolling: touch;
   overflow-x: scroll;
   overflow-y: scroll;
-  width: 100%;
+  margin: 0 auto;
 
   &.change {
     animation: ${change} ${IMAGE_CHANGE_ANIM_DURATION}ms ease-out forwards;
@@ -120,28 +120,12 @@ const ZoomArea = styled(`div`)`
 
 const ImageBox = styled(`a`)`
   display: block;
-  height: 100%;
   position: relative;
-  width: 100%;
-
-  .gatsby-image-wrapper {
-    height: auto;
-    width: ${props => (props.superZoom ? props.width * 2 : props.width)}px;
-  }
-
-  @media (orientation: landscape) {
-    .gatsby-image-wrapper {
-      width: ${props => (props.superZoom ? '200' : '100')}%;
-    }
-  }
+  overflow: hidden;
 
   @media (min-width: ${breakpoints.desktop}px) {
     cursor: ${props => (props.superZoom ? 'zoom-out' : 'zoom-in')};
     width: ${props => (props.superZoom ? '100%' : 'auto')};
-
-    .gatsby-image-wrapper {
-      width: ${props => (props.superZoom ? '100%' : '100vh')};
-    }
   }
 `;
 
@@ -272,7 +256,7 @@ class ProductImagesBrowser extends Component {
   toggleZoomRatio = event => {
     event.preventDefault();
 
-    this.setState(state => ({ superZoom: !state.superZoom }));
+    this.setState(state => ({ superZoom: state.superZoom }));
   };
 
   render() {
@@ -285,6 +269,7 @@ class ProductImagesBrowser extends Component {
         childImageSharp: { fluid }
       }
     } = image;
+    const fixedImage = image.localFile.childImageSharp.fixed;
 
     const { imageBoxHeight, superZoom } = this.state;
 
@@ -305,20 +290,19 @@ class ProductImagesBrowser extends Component {
         >
           <ImageBox
             onClick={this.toggleZoomRatio}
-            href={fluid.src}
+            href={fixedImage.src}
             superZoom={superZoom}
             width={imageBoxHeight}
-            ref={image => {
-              this.imageBox = image;
+            ref={fixedImage => {
+              this.imageBox = fixedImage;
             }}
           >
-            <Image fluid={fluid} />
+            <Image fixed={fixedImage} />
           </ImageBox>
           {altText && (
             <CommunityCaption caption={altText} superZoom={superZoom} />
           )}
         </ZoomArea>
-        <ZoomHelper>{superZoom ? <MdZoomOut /> : <MdZoomIn />}</ZoomHelper>
       </ProductImagesBrowserRoot>
     );
   }

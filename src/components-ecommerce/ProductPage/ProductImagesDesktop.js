@@ -13,7 +13,6 @@ const ProductImagesDesktopRoot = styled(`div`)`
   margin-right: auto;
   margin-left: auto;
   width: 40vw;
-  min-width: 280px;
 `;
 
 const Thumbnails = styled(ProductThumbnails)`
