@@ -45,51 +45,43 @@ function ProductPageTemplate({ data, location, pageContext }) {
           <WhiteBackground>
             <Section narrow>
               <InterfaceContext.Consumer>
-                {({
-                  isDesktopViewport,
-                  productImagesBrowserStatus,
-                  productImageFeatured,
-                  toggleProductImagesBrowser,
-                  setCurrentProductImages
-                }) => (
-                <ProductPage
-                        product={product}
-                        prevUrl={location.state.prevUrl}
-                        isDesktopViewport={isDesktopViewport}
-                        productImagesBrowserStatus={productImagesBrowserStatus}
-                        productImageFeatured={productImageFeatured}
-                        toggleProductImagesBrowser={toggleProductImagesBrowser}
-                        setCurrentProductImages={setCurrentProductImages}
-                 />
-                )}
-               </InterfaceContext.Consumer>
-                <InterfaceContext.Consumer>
-                          {({
-                            isDesktopViewport,
-                            cartStatus,
-                            toggleCart,
-                            contributorAreaStatus,
-                            toggleContributorArea,
-                            productImagesBrowserStatus,
-                            currentProductImages,
-                            featureProductImage,
-                            productImageFeatured,
-                            toggleProductImagesBrowser
-                          }) => {
-                          <>
-                            {currentProductImages.length > 0 && (
-                              <ProductImagesBrowser
-                                featureProductImage={featureProductImage}
-                                images={currentProductImages}
-                                position={productImagesBrowserStatus}
-                                imageFeatured={productImageFeatured}
-                                toggle={toggleProductImagesBrowser}
-                                isDesktopViewport={isDesktopViewport}
-                              />
-                            )}
-                          </>
-                        }}
-                </InterfaceContext.Consumer>
+                      {({
+                        isDesktopViewport,
+                        cartStatus,
+                        toggleCart,
+                        contributorAreaStatus,
+                        toggleContributorArea,
+                        productImagesBrowserStatus,
+                        currentProductImages,
+                        featureProductImage,
+                        productImageFeatured,
+                        setCurrentProductImages,
+                        toggleProductImagesBrowser
+                      }) => {
+                        return (
+                <>
+                  <ProductPage
+                          product={product}
+                          prevUrl={location.state.prevUrl}
+                          isDesktopViewport={isDesktopViewport}
+                          productImagesBrowserStatus={productImagesBrowserStatus}
+                          productImageFeatured={productImageFeatured}
+                          toggleProductImagesBrowser={toggleProductImagesBrowser}
+                          setCurrentProductImages={setCurrentProductImages}
+                   />
+                  {currentProductImages.length > 0 && (
+                    <ProductImagesBrowser
+                      featureProductImage={featureProductImage}
+                      images={currentProductImages}
+                      position={productImagesBrowserStatus}
+                      imageFeatured={productImageFeatured}
+                      toggle={toggleProductImagesBrowser}
+                      isDesktopViewport={isDesktopViewport}
+                    />
+                  )}
+                </>
+                )}}
+              </InterfaceContext.Consumer>
             </Section>
           </WhiteBackground>
         </>
