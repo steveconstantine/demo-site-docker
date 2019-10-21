@@ -278,11 +278,10 @@ const SiteContainer = styled.div`
   background: ${p =>
     p.background ||
     `linear-gradient(180deg, #08080b 0%, #0b0b0e 44.18%, #111216 100%)`};
-  height: 100vh;
   background-size: cover;
   overflow-x: hidden;
   padding-bottom: ${p => p.paddingBottom};
-  overflow-y: hidden;
+  min-height: 100vh;
 
   ${p =>
     p.navOffset &&

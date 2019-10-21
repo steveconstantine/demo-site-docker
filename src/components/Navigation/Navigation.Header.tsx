@@ -11,6 +11,7 @@ import mediaqueries from '@styles/media'
 import { ContactContext } from '@components/Contact/Contact.Context'
 
 import Cart from '../../components-ecommerce/Cart'
+import HeaderBG from '../../assets/mobile/header-bg.png'
 
 import InterfaceContext, {
   defaultInterfaceContext
@@ -367,8 +368,7 @@ const NavFixedContainer = styled.div`
   top: 0;
   left: 0;
   z-index: 10;
-  background: ${p => (p.theme == 'light' ? '#FAFAFA99' : '#08080b99')};
-
+  background-color: ${p => (p.theme == 'light' ? '#FAFAFA99' : '#00000066')};
   ${mediaqueries.tablet`
     position: ${p => (p.navFixed ? 'fixed' : 'absolute')};
   `}

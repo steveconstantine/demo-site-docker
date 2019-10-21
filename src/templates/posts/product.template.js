@@ -34,7 +34,7 @@ function ProductPageTemplate({ data, location, pageContext }) {
   }
 
   return (
-    <Layout nav={navConfig} footer={footerConfig} background={'url(' + image + ')'}>
+    <Layout nav={navConfig} footer={footerConfig} background={'url(' + image + ') top center'}>
       <>
           <SEO
             title={seo.title}

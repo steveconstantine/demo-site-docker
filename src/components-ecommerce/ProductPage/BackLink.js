@@ -16,12 +16,16 @@ const BackLinkRoot = styled(`div`)`
   padding: 10px;
   position: fixed;
   width: 100%;
-  border-radius-top: 5px;
-  border-radius-bottom: 5px;
-  z-index: 1000;
+  border-radius: 5px;
+  text-align: center;
+
+  @media (max-width: ${breakpoints.desktop}px) {
+    z-index: 1000;
+  }
 
   @media (min-width: ${breakpoints.desktop}px) {
     padding: 0 ${spacing.xl}px;
+    margin-left: 36px;
     position: relative;
     width: 50%;
     display: grid;

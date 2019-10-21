@@ -11,8 +11,7 @@ import mediaqueries from '@styles/media'
 import shortcuts, { constants } from '@shortcuts'
 
 const footerLinks = [
-  { to: '/careers', text: 'Careers' },
-  { to: '/labs', text: 'Labs' },
+  { to: '/', text: 'Home' },
   { to: '/articles', text: 'Articles' },
   { to: '/contact', text: 'Contact' },
 ]
@@ -47,6 +46,24 @@ const Footer = ({ mode = 'dark' }: { mode?: string }, { height = 'normal' }: { h
         </Left>
         <Right>
           {footerLinks.map(link => {
+                if (link.to === '/') {
+              return (
+                <FooterLink
+                  key={link.to}
+                  color={color}
+                  onClick={handleShortcutReset}
+                  to={link.to}
+                  data-a11y="false"
+                  getProps={({ isPartiallyCurrent }) =>
+                    isPartiallyCurrent ? { ['data-active']: 'false' } : null
+                  }
+                >
+                  {link.text}
+                </FooterLink>
+              )
+            }
+
+
             if (link.to === '/contact') {
               return (
                 <FooterLink
