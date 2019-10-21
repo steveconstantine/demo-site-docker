@@ -57,9 +57,14 @@ const BackLinkContainer = styled(`div`)`
 `;
 
 class ProductPage extends Component {
+
+  constructor(props) {
+    super(props)
+  }
+
   componentDidMount() {
-    const images = this.props.product.images;
-    this.props.setCurrentProductImages(images);
+    const images = this.props.product.images
+    this.props.setCurrentProductImages(images)
   }
 
   render() {
@@ -68,14 +73,15 @@ class ProductPage extends Component {
       product: { id, images, variants }
     } = this.props;
 
+    const prevUrl = this.props.prevUrl
+
     const {
       isDesktopViewport,
       productImageFeatured,
       toggleProductImagesBrowser
     } = this.props;
 
-    console.log('Product Page Images');
-    console.log(images);
+    console.log('Product Page Previous');
 
     return (
       <ProductPageRoot>
@@ -94,7 +100,7 @@ class ProductPage extends Component {
           )}
           <Details>
             <BackLinkContainer>
-              <BackLink vendor={""}>Back to Home</BackLink>
+              <BackLink vendor={prevUrl}>Back / Previous</BackLink>
             </BackLinkContainer>
             <ProductSpecs product={product} />
             <ProductForm id={id} variants={variants} />

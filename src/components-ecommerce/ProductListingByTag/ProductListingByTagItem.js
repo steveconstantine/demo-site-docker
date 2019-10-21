@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { Location } from '@reach/router'
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 
@@ -21,10 +22,21 @@ import {
   animations
 } from '../../utils/styles';
 
+const LinkWithPrevUrl = ({ children, state, ...rest }) => (
+  <Location>
+    {({ location }) => (
+                      //make sure user's state is not overwritten
+      <Link {...rest} state={{ prevUrl: location.pathname, ...state}}>
+        { children }
+      </Link>
+    )}
+  </Location>
+)
+
 const DESCRIPTION_LIMIT = 90;
 const TRANSITION_DURATION = '250ms';
 
-const ProductListingItemLink = styled(Link)`
+const ProductListingItemLink = styled(LinkWithPrevUrl)`
   background: ${colors.lightest};
   border-radius: ${radius.large}px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
@@ -38,7 +50,7 @@ const ProductListingItemLink = styled(Link)`
   margin-left: 3px;
   margin-right: 3px;
   opacity: 0.777;
-
+-
   @media (min-width: ${breakpoints.tablet}px) {
     margin-left: 4px;
     margin-right: 4px;

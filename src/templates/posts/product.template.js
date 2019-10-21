@@ -54,6 +54,7 @@ function ProductPageTemplate({ data, location, pageContext }) {
                 }) => (
                 <ProductPage
                         product={product}
+                        prevUrl={location.state.prevUrl}
                         isDesktopViewport={isDesktopViewport}
                         productImagesBrowserStatus={productImagesBrowserStatus}
                         productImageFeatured={productImageFeatured}

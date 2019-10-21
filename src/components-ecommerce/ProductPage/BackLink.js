@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, navigate } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { MdArrowBack } from 'react-icons/md';
@@ -8,11 +9,11 @@ import { Button } from '../shared/Buttons';
 import { breakpoints, colors, fonts, spacing } from '../../utils/styles';
 
 const BackLinkRoot = styled(`div`)`
-  background: transparent;
+  background: #00000088;
   bottom: 0;
   left: 0;
-  padding: 0 0;
-  padding-top: ${spacing.lg}px;
+  right: 0;
+  padding: 10px;
   position: fixed;
   width: 100%;
   border-radius-top: 5px;
@@ -27,9 +28,8 @@ const BackLinkRoot = styled(`div`)`
   }
 `;
 
-const BackToListing = styled(Button)`
+const BackToListing = styled(Link)`
   width: 100%;
-  background: #000000BB !important;
   color: white !important;
   border-radius: 4px;
 
@@ -40,7 +40,7 @@ const BackToListing = styled(Button)`
 
 const BackLink = ({ vendor, children, className }) => (
   <BackLinkRoot className={className}>
-    <BackToListing to={"/" + vendor}>
+    <BackToListing to={vendor}>
       <MdArrowBack /> {children}
     </BackToListing>
   </BackLinkRoot>
