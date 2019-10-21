@@ -47,7 +47,7 @@ function ArticleHighlight({ article, mode }: MenuFloatProps) {
 
         const tweetLimit = 280
         const otherCharactersInTweet = ' —  ' // 3 spaces, 1 emdash
-        const url = `ntve.co/${shortUrl}`
+        const url = `${shortUrl}`
         const tweet =
           highlight.innerText + author.name + url + otherCharactersInTweet
 
@@ -152,7 +152,7 @@ function ReferralLink({ disabled, share, children }) {
 function generateShare(shareText: string, author: string, shortUrl: string) {
   if (!shareText) return {}
 
-  const url = `ntve.co/${shortUrl}`
+  const url = `${shortUrl}`
 
   return {
     twitter: `https://twitter.com/intent/tweet?text="${shareText}" — ${author} ${url}`,

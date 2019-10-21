@@ -31,7 +31,7 @@ class ShareButton extends Component {
 
     const tempInput = document.createElement('input')
     document.body.appendChild(tempInput)
-    tempInput.setAttribute('value', `ntve.co/${this.props.shortUrl}`)
+    tempInput.setAttribute('value', `${this.props.shortUrl}`)
     tempInput.select()
     document.execCommand('copy')
     document.body.removeChild(tempInput)

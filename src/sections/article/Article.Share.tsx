@@ -121,7 +121,7 @@ function ArticelShare({ article, mode }: MenuFloatProps) {
   useEffect(() => {
     const tweetLimit = 280
     const otherCharactersInTweet = '""—  ' // 2 quotes, 1 emdash, 2 spaces
-    const url = `ntve.co/${shortUrl}`
+    const url = `${shortUrl}`
     const tweet = text + author.name + url + otherCharactersInTweet
 
     setCanTweet(tweet.length <= tweetLimit)
@@ -180,7 +180,7 @@ function ReferralLink({ disabled, share, children }) {
 
 function generateShare(shareText: string, author: string, shortUrl: string) {
   if (!shareText) return {}
-  const url = `ntve.co/${shortUrl}`
+  const url = `${shortUrl}`
 
   return {
     twitter: `https://twitter.com/intent/tweet?text="${shareText}" — ${author} ${url}`,
