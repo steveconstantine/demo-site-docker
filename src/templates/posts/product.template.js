@@ -7,6 +7,7 @@ import Paginator from '@components/Navigation/Navigation.Paginator'
 import Section from '@components/Section'
 import SEO from '@components/SEO'
 import Layout from '@components/Layout'
+import ProductImagesBrowser from '../../components-ecommerce/ProductPage/ProductImagesBrowser';
 
 import InterfaceContext, {
   defaultInterfaceContext
@@ -16,7 +17,6 @@ import ProductPage from '../../components-ecommerce/ProductPage';
 
 
 function ProductPageTemplate({ data, location, pageContext }) {
-  console.log(data);
   const seo = data.shopifyProduct
   const product = data.shopifyProduct
 
@@ -63,6 +63,33 @@ function ProductPageTemplate({ data, location, pageContext }) {
                  />
                 )}
                </InterfaceContext.Consumer>
+                <InterfaceContext.Consumer>
+                          {({
+                            isDesktopViewport,
+                            cartStatus,
+                            toggleCart,
+                            contributorAreaStatus,
+                            toggleContributorArea,
+                            productImagesBrowserStatus,
+                            currentProductImages,
+                            featureProductImage,
+                            productImageFeatured,
+                            toggleProductImagesBrowser
+                          }) => {
+                          <>
+                            {currentProductImages.length > 0 && (
+                              <ProductImagesBrowser
+                                featureProductImage={featureProductImage}
+                                images={currentProductImages}
+                                position={productImagesBrowserStatus}
+                                imageFeatured={productImageFeatured}
+                                toggle={toggleProductImagesBrowser}
+                                isDesktopViewport={isDesktopViewport}
+                              />
+                            )}
+                          </>
+                        }}
+                </InterfaceContext.Consumer>
             </Section>
           </WhiteBackground>
         </>

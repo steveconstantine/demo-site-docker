@@ -7,8 +7,6 @@ import ContactSlideIn from '@components/Contact/Contact.SlideIn'
 import Container from '@components/Layout/Layout.Container'
 import CommandLine from '@components/CommandLine'
 import Cart from '../../components-ecommerce/Cart'
-import ProductImagesBrowser from '../../components-ecommerce/ProductPage/ProductImagesBrowser';
-
 
 import { GlobalStyles, theme } from '@styles'
 import store from '@store'
@@ -237,46 +235,17 @@ interface LayoutProps {
   render() {
   const { location } = this.props;
 
-  console.log(this.state.interface.toggleProductImagesBrowser);
-
     return (
       <StoreContext.Provider value={store}>
         <ThemeProvider theme={theme}>
           <ContactProvider>
             <ShopContext.Provider value={this.state.store}>
              <InterfaceContext.Provider value={this.state.interface}>
-                        <InterfaceContext.Consumer>
-                          {({
-                            isDesktopViewport,
-                            cartStatus,
-                            toggleCart,
-                            contributorAreaStatus,
-                            toggleContributorArea,
-                            productImagesBrowserStatus,
-                            currentProductImages,
-                            featureProductImage,
-                            productImageFeatured,
-                            toggleProductImagesBrowser
-                          }) => (
-                    <>
                       <GlobalStyles />
                       <Container paddingBottom={this.props.paddingBottom} nav={this.props.nav} background={this.props.background}>
                         {this.props.children}
                       </Container>
                       <ContactSlideIn />
-                      {currentProductImages.length > 0 && (
-                        <ProductImagesBrowser
-                          featureProductImage={featureProductImage}
-                          images={currentProductImages}
-                          position={productImagesBrowserStatus}
-                          imageFeatured={productImageFeatured}
-                          toggle={toggleProductImagesBrowser}
-                          isDesktopViewport={isDesktopViewport}
-                        />
-                      )}
-                    </>
-                  )}
-                </InterfaceContext.Consumer>
               </InterfaceContext.Provider>
             </ShopContext.Provider>
           </ContactProvider>
