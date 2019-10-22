@@ -137,13 +137,8 @@ exports.plugins = [
       pixelId: '2183075648607369',
     },
   },
- {
-    resolve: `gatsby-plugin-disqus`,
-    options: {
-      shortname: `giftingwild`
-    }
-  },
-  `gatsby-plugin-layout`,
+  `gatsby-plugin-transition-link`,
+  `gatsby-plugin-transition-link`,
   // These are our local plugins that can be found within ./plugins
   `gatsby-transformer-enhance-contentful`,
   `gatsby-transformer-contentful-rich-text-html-renderer`,

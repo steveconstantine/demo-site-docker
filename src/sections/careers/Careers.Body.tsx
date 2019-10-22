@@ -1,6 +1,7 @@
 import React from 'react'
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import {
   CareersAccordian,
@@ -163,7 +164,7 @@ const WhatWeDoContent = styled.div`
   `};
 `
 
-const LabsLink = styled(Link)`
+const LabsLink = styled(AniLink)`
   text-decoration: underline;
   text-decoration-color: ${p => p.theme.colors.gold};
   color: #fff;

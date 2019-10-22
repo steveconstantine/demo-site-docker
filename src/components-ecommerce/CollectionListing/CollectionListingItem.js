@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Image from 'gatsby-image';
 
 import mediaqueries from '@styles/media'
@@ -26,7 +26,7 @@ import {
 const DESCRIPTION_LIMIT = 90;
 const TRANSITION_DURATION = '250ms';
 
-const CollectionListingItemLink = styled(Link)`
+const CollectionListingItemLink = styled(AniLink)`
   background: ${p => (p.theme == 'dark' ? '#fafafa' : '#08080b')};
   border-radius: ${radius.large}px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
@@ -248,7 +248,7 @@ const CollectionListingItem = props => {
     <UserContext.Consumer>
       {({ contributor }) => {
         return (
-          <CollectionListingItemLink to={`/collection/${handle}`}>
+          <CollectionListingItemLink fade to={`/collection/${handle}`}>
             <Item>
               <Preview>
                 <Image fluid={fluid} />

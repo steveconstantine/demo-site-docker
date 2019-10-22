@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Section from '@components/Section'
 import SocialLinks from '@components/SocialLinks'
@@ -37,7 +37,7 @@ const Footer = ({ mode = 'dark' }: { mode?: string }, { height = 'normal' }: { h
       <Frame color={color} sectionHeight transparentColor={transparentColor}>
         <CopyRight>© {new Date().getFullYear()} Gifting-Wild Studio Inc.</CopyRight>
         <Left color={color}>
-          <LogoContainer to="/" data-a11y="false">
+          <LogoContainer fade to="/" data-a11y="false">
             <Logo fill={color} onlySymbol />
           </LogoContainer>
           <SocialIconsFooter>
@@ -49,6 +49,7 @@ const Footer = ({ mode = 'dark' }: { mode?: string }, { height = 'normal' }: { h
                 if (link.to === '/') {
               return (
                 <FooterLink
+                  fade
                   key={link.to}
                   color={color}
                   onClick={handleShortcutReset}
@@ -67,6 +68,7 @@ const Footer = ({ mode = 'dark' }: { mode?: string }, { height = 'normal' }: { h
             if (link.to === '/contact') {
               return (
                 <FooterLink
+                  fade
                   key={link.to}
                   color={color}
                   onClick={event => {
@@ -86,6 +88,7 @@ const Footer = ({ mode = 'dark' }: { mode?: string }, { height = 'normal' }: { h
 
             return (
               <FooterLink
+                fade
                 key={link.to}
                 color={color}
                 to={link.to}
@@ -169,7 +172,7 @@ const Right = styled.div`
   `}
 `
 
-const LogoContainer = styled(Link)`
+const LogoContainer = styled(AniLink)`
   position: relative;
   opacity: 0.3;
   transition: opacity 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9);
@@ -209,7 +212,7 @@ const SocialIconsFooter = styled.div`
   `}
 `
 
-const FooterLink = styled(Link)`
+const FooterLink = styled(AniLink)`
   position: relative;
   font-weight: 600;
   font-size: 18px;

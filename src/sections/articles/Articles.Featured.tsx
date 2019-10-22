@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Link, navigate } from 'gatsby'
+import { navigate } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Heading from '@components/Heading'
 import ButtonArrow from '@components/Button/Button.Arrow'
@@ -23,7 +24,7 @@ const excerpt = JSON.parse(article.excerpt).content[0].content[0].value
 return (
   <>
     <Frame>
-      <StyledLink to={`/articles/${article.slug}`}>
+      <StyledLink fade to={`/articles/${article.slug}`}>
         <Left>
           <SuperScript>Featured article</SuperScript>
           <FeaturedTitle styles="h2" dark>
@@ -73,7 +74,7 @@ const Frame = styled.div`
   `}
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(AniLink)`
   display: flex;
   align-items: center;
   width: 100%;

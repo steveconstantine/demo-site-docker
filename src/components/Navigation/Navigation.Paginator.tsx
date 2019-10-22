@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled, { css } from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Helmet } from 'react-helmet'
 
 import mediaqueries from '@styles/media'
@@ -134,12 +134,12 @@ class Paginator extends Component<IPaginator, {}> {
           {hasNext && <link rel="next" href={nextPath} />}
         </Helmet>
         <Frame>
-          {hasPrevious && <PageButton to={previousPath}>Prev</PageButton>}
+          {hasPrevious && <PageButton fade to={previousPath}>Prev</PageButton>}
           {this.getPageLinks}
           <MobileReference aria-hidden="true">
             <em>{current}</em>&nbsp;of {count}
           </MobileReference>
-          {hasNext && <PageButton to={nextPath}>Next</PageButton>}
+          {hasNext && <PageButton fade to={nextPath}>Next</PageButton>}
         </Frame>
       </>
     )
@@ -175,7 +175,7 @@ const paginationItemMixin = css`
   `}
 `
 
-const PageButton = styled(Link)`
+const PageButton = styled(AniLink)`
   font-weight: 600;
   font-size: 18px;
   text-decoration: none;

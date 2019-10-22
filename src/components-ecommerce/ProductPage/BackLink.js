@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, navigate } from 'gatsby';
+import { navigate } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { MdArrowBack } from 'react-icons/md';
@@ -32,7 +33,7 @@ const BackLinkRoot = styled(`div`)`
   }
 `;
 
-const BackToListing = styled(Link)`
+const BackToListing = styled(AniLink)`
   width: 100%;
   color: white !important;
   border-radius: 4px;
@@ -44,7 +45,7 @@ const BackToListing = styled(Link)`
 
 const BackLink = ({ vendor, children, className }) => (
   <BackLinkRoot className={className}>
-    <BackToListing to={vendor}>
+    <BackToListing fade to={vendor}>
       <MdArrowBack /> {children}
     </BackToListing>
   </BackLinkRoot>

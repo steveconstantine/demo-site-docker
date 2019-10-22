@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import { colors, fonts, radius } from '../../utils/styles';
 
@@ -46,7 +46,7 @@ const ButtonAsExternalLink = styled(ButtonBase.withComponent(`a`))`
 `;
 
 const ButtonAsInternalLink = ButtonAsExternalLink.withComponent(
-  ({ iconOnLeft, inverse, ...rest }) => <Link {...rest} />
+  ({ iconOnLeft, inverse, ...rest }) => <AniLink fade {...rest} />
 );
 
 export class Button extends Component {

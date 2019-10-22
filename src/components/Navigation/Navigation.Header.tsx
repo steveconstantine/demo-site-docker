@@ -1,6 +1,7 @@
 import React, { Component, useContext } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { Link, navigate } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import OutsideClickHandler from 'react-outside-click-handler'
 import { isMobileOnly } from 'react-device-detect'
 
@@ -220,6 +221,7 @@ class Navigation extends Component<{}, NavigationState> {
                   )}
                     <LogoMask>
                       <LogoContainer
+                        fade
                         to="/"
                         onClick={this.handleShortcutReset}
                         aria-label="Back home"
@@ -302,6 +304,7 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
      return (
         <NavItem key={nav.to}>
           <NavAnchor
+            fade
             active={active && nav.to === '/' ? active : undefined}
             disabled={nav.disabled}
             to={nav.to}
@@ -319,7 +322,7 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
     if (nav.to === '/contact') {
       return (
         <NavItem key={nav.to}>
-          <NavAnchor
+          <ContactNavAnchor
             active={active && nav.to !== '/' ? active : undefined}
             disabled={nav.disabled}
             to={nav.to}
@@ -336,7 +339,7 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
             }
           >
             {nav.text}
-          </NavAnchor>
+          </ContactNavAnchor>
         </NavItem>
       )
     }
@@ -344,6 +347,7 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
     return (
       <NavItem key={nav.to}>
         <NavAnchor
+          fade
           active={active && nav.to !== '/' ? active : undefined}
           disabled={nav.disabled}
           to={nav.to}
@@ -434,7 +438,7 @@ const LogoBack = styled.button`
   `}
 `
 
-const LogoContainer = styled(Link)`
+const LogoContainer = styled(AniLink)`
   position: relative;
   transition: filter 0.3s var(--ease-out-quad);
   max-width: 414px;
@@ -618,7 +622,60 @@ const CartItem = styled.li`
   `};
 `
 
-const NavAnchor = styled(Link)`
+const NavAnchor = styled(AniLink)`
+  display: flex;
+  height: 40px;
+  align-items: center;
+  color: ${p => p.theme.color};
+  font-weight: 600;
+  font-size: 18px;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.9) ${p => p.delay}ms,
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.9) ${p => p.delay}ms;
+
+  pointer-events: ${p => (p.active ? 'initial' : 'none')};
+  opacity: ${p => (p.active ? (p.disabled ? 0.15 : 1) : 0)};
+  transform: ${p => (p.active ? 'translateX(0)' : 'translateX(12px)')};
+
+  &[data-active='true'] {
+    &::after {
+      content: '';
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      bottom: 4px;
+      height: 1px;
+      width: 20px;
+      background: ${p => p.theme.color};
+    }
+  }
+
+  &:hover {
+    opacity: ${p => (p.disabled ? 0.15 : 0.6)};
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &[data-a11y='true']:focus::after {
+    content: '';
+    position: absolute;
+    left: -25%;
+    top: 2%;
+    width: 150%;
+    height: 100%;
+    border: 2px solid ${p => p.theme.colors.purple};
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 5px;
+  }
+
+  ${mediaqueries.phablet`
+    display: none;
+  `};
+`
+
+const ContactNavAnchor = styled(Link)`
   display: flex;
   height: 40px;
   align-items: center;

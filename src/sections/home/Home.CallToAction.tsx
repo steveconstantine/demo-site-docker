@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useRef } from 'react'
 import styled from 'styled-components'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Logo from '@components/Logo'
 import IntersectionObserver from '@components/IntersectionObserver'
@@ -195,7 +196,7 @@ const NavLinks = styled.div`
   `}
 `
 
-const NavLink = styled(Link)`
+const NavLink = styled(AniLink)`
   font-weight: 600;
   font-size: 18px;
   color: #fafafa;
@@ -350,7 +351,7 @@ const ChevronDownIcon = () => (
   </svg>
 )
 
-const MobileAction = styled(Link)`
+const MobileAction = styled(AniLink)`
   display: flex;
   align-items: center;
   justify-content: center;

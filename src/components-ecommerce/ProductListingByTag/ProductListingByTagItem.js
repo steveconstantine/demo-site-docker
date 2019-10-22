@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Location } from '@reach/router'
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Image from 'gatsby-image';
 
 import { MdShoppingCart, MdArrowForward } from 'react-icons/md';
@@ -26,9 +26,9 @@ const LinkWithPrevUrl = ({ children, state, ...rest }) => (
   <Location>
     {({ location }) => (
                       //make sure user's state is not overwritten
-      <Link {...rest} state={{ prevUrl: location.pathname, ...state}}>
+      <AniLink fade {...rest} state={{ prevUrl: location.pathname, ...state}}>
         { children }
-      </Link>
+      </AniLink>
     )}
   </Location>
 )

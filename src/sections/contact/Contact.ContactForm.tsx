@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import styled, { keyframes } from 'styled-components'
 import { Formik, Form as FormikForm, Field } from 'formik'
 
@@ -93,7 +93,7 @@ class ContactForm extends Component<
             <SubmittedText>
               Our business development team will get back to you shortly.
             </SubmittedText>
-            <SubmittedBackButton to="/">Go back</SubmittedBackButton>
+            <SubmittedBackButton fade to="/">Go back</SubmittedBackButton>
             <SocialLinksContainer>
               <SocialLinks fill="black" />
             </SocialLinksContainer>
@@ -358,7 +358,7 @@ const SubmittedText = styled.p`
   margin-bottom: 3rem;
 `
 
-const SubmittedBackButton = styled(Link)`
+const SubmittedBackButton = styled(AniLink)`
   font-size: 18px;
   font-weight: 600;
 `

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Image from 'gatsby-image';
 
 import { MdShoppingCart, MdArrowForward } from 'react-icons/md';
@@ -24,7 +24,7 @@ import {
 const DESCRIPTION_LIMIT = 90;
 const TRANSITION_DURATION = '250ms';
 
-const ProductListingItemLink = styled(Link)`
+const ProductListingItemLink = styled(AniLink)`
   background: ${colors.lightest};
   border-radius: ${radius.large}px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
@@ -259,7 +259,7 @@ const ProductListingItem = props => {
     <UserContext.Consumer>
       {({ contributor }) => {
         return (
-          <ProductListingItemLink to={`/product/${handle}`}>
+          <ProductListingItemLink fade to={`/product/${handle}`}>
             <Item>
               <Preview>
                 <Image fluid={fluid} />

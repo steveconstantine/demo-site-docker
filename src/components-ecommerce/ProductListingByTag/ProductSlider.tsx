@@ -181,6 +181,7 @@ const ImageContainerMobile = styled.div`
     filter: grayscale(0) !important;
   `};
 `
+
 const GalleryControl = styled.button`
   display: flex;
   align-items: center;

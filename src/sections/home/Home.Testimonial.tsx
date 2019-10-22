@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Section from '@components/Section'
 import mediaqueries from '@styles/media'
@@ -86,7 +86,7 @@ const Blockquote = styled.blockquote`
   `}
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(AniLink)`
   position: relative;
   font-weight: 600;
   font-size: 18px;

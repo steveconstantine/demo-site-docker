@@ -28,6 +28,7 @@ export default ({
   isSubmitting,
 }: ButtonArrowProps) => (
   <ArrowButton
+    fade
     as={as}
     to={to}
     onClick={onClick}

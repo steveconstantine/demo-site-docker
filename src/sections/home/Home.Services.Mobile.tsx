@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Link, StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import throttle from 'lodash/throttle'
 
 import Heading from '@components/Heading'
@@ -169,7 +170,7 @@ const Item = styled.li`
   color: #fafafa;
 `
 
-const CardLink = styled(Link)`
+const CardLink = styled(AniLink)`
   position: relative;
   display: inline-block;
   font-size: 18px;

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import SocialLinks from '@components/SocialLinks'
 import mediaqueries from '@styles/media'
@@ -53,6 +53,7 @@ const NavigationMobile = ({
         }
           return (
             <StyledLink
+                fade
                 active={ isActive ? isActive : undefined}
                 key={link.to}
                 index={index}
@@ -130,7 +131,7 @@ const MobileLinks = styled.div`
   flex-direction: column;
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(AniLink)`
   position: relative;
   font-size: 22px;
   color: #fff;

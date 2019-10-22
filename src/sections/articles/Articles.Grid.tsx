@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Heading from '@components/Heading'
 import ButtonArrow from '@components/Button/Button.Arrow'
@@ -99,12 +99,13 @@ const Testimonial = () => {
     <TestimonialGrid>
       <HopperLogo aria-hidden="true" />
       <div>
-        <Blockquote to="/articles/building-the-new-hopper-com">
+        <Blockquote fade to="/articles/building-the-new-hopper-com">
           “Working with Gifting-Wild on the new Hopper.com has been an absolute
           pleasure. Not only is the team insanely smart and efficient, they’re
           incredible human beings who truly care about the work they touch.”
         </Blockquote>
         <ButtonArrow
+          fade
           text="Read more"
           color="#FFF"
           as={Link}
@@ -234,7 +235,7 @@ const TimeToRead = styled.div`
   `}
 `
 
-const ArticleLink = styled(Link)`
+const ArticleLink = styled(AniLink)`
   position: relative;
   display: block;
   width: 100%;
@@ -305,7 +306,7 @@ const TestimonialGrid = styled.div`
   `}
 `
 
-const Blockquote = styled(Link)`
+const Blockquote = styled(AniLink)`
   display: block;
   font-family: ${p => p.theme.fontfamily.serif};
   font-size: 36px;

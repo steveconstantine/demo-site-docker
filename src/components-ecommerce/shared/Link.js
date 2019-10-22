@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Link as GatsbyLink } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import { colors, radius, spacing } from '../../utils/styles';
 
-const LinkRoot = styled(GatsbyLink)`
+const LinkRoot = styled(AniLink)`
   align-items: center;
   border-radius: ${radius.default}px;
   color: ${colors.brand};

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Heading from '@components/Heading'
 import ButtonArrow from '@components/Button/Button.Arrow'
@@ -29,7 +29,7 @@ const GridItem = ({ article }) => {
   const excerpt = JSON.parse(article.excerpt).content[0].content[0].value
 
   return (
-    <ArticleLink to={`/articles/${article.slug}`}>
+    <ArticleLink fade to={`/articles/${article.slug}`}>
       <Item>
         <Image background={article.backgroundColor}>
           <Media src={article.backgroundImage.fluid} />
@@ -180,7 +180,7 @@ const TimeToRead = styled.div`
   `}
 `
 
-const ArticleLink = styled(Link)`
+const ArticleLink = styled(AniLink)`
   display: block;
   width: 100%;
   height: 100%;

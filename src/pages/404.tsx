@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import { Section, Heading, SEO, Layout, SocialLinks } from '@components'
 import mediaqueries from '@styles/media'
@@ -24,8 +25,8 @@ function NotFound({ data, location }) {
                 <div />
                 <WelcomeHeader>
                   Oops, there's nothing here. But don’t worry, you can just go{' '}
-                  <TextLink to="/">back home</TextLink> or{' '}
-                  <TextLink to="/contact">contact us</TextLink>.
+                  <TextLink fade to="/">back home</TextLink> or{' '}
+                  <TextLink fade to="/contact">contact us</TextLink>.
                 </WelcomeHeader>
                 <SocialLinksContainer>
                   <p>Looking for something else?</p> <SocialLinks />
@@ -88,7 +89,7 @@ const WelcomeHeader = styled(Heading.h1)`
   `};
 `
 
-const TextLink = styled(Link)`
+const TextLink = styled(AniLink)`
   color: #fff;
   text-decoration: underline;
   transition: color 0.25s ease;

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { ellipsis } from 'polished'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Section from '@components/Section'
 import mediaqueries from '@styles/media'
@@ -90,7 +90,7 @@ class Progress extends Component<
       <Frame aria-hidden="true" ref={this.frameRef} stuck={isStuck}>
         <Content narrow>
           <Title>{title}</Title>
-          <OnCloser to="/articles">
+          <OnCloser fade to="/articles">
             <ExIcon fill={fill} />
           </OnCloser>
         </Content>
@@ -146,7 +146,7 @@ const Title = styled.span`
   color: ${p => p.theme.mode.text};
 `
 
-const OnCloser = styled(Link)`
+const OnCloser = styled(AniLink)`
   display: flex;
   align-items: center;
   padding-left: 2rem;
