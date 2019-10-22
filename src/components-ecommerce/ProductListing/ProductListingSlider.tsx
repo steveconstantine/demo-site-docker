@@ -218,20 +218,20 @@ const GalleryControl = styled.button`
   ${mediaqueries.desktop`
     ${p => {
       if (p.left) {
-        return `left: -26.3rem;`
+        return `left: 2rem;`
       }
       if (p.right) {
-        return `right: -5rem;`
+        return `right: 2rem;`
       }
     }};
   `};
   ${mediaqueries.desktop`
     ${p => {
       if (p.left) {
-        return `left: -5rem;`
+        return `left: 2rem;`
       }
       if (p.right) {
-        return `right: -5rem;`
+        return `right: 2rem;`
       }
     }};
   `};
