@@ -40,7 +40,7 @@ const Details = styled(`div`)`
     flex-direction: column;
     justify-content: space-between;
     margin-right: -${spacing.xl}px;
-    max-width: 600px;
+    max-width: 800px;
     min-height: 490px;
   }
 `;

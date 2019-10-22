@@ -68,15 +68,12 @@ const ProductImagesBrowserRoot = styled(`div`)`
   width: 100vw;
   will-change: opacity, transform, left;
   z-index: 10000;
-
   &.open {
     animation: ${entry} 300ms ease-out forwards;
   }
-
   &.closed {
     animation: ${exit} 200ms ease-out forwards;
   }
-
   @media (min-width: ${breakpoints.desktop}px) {
     flex-direction: row;
     height: 100vh;
@@ -100,12 +97,10 @@ const ZoomArea = styled(`div`)`
   -webkit-overflow-scrolling: touch;
   overflow-x: scroll;
   overflow-y: scroll;
-  margin: 0 auto;
-
+  width: 100%;
   &.change {
     animation: ${change} ${IMAGE_CHANGE_ANIM_DURATION}ms ease-out forwards;
   }
-
   @media (min-width: ${breakpoints.desktop}px) {
     border-bottom: none;
     border-left: 1px solid ${colors.brandLight};
@@ -120,12 +115,24 @@ const ZoomArea = styled(`div`)`
 
 const ImageBox = styled(`a`)`
   display: block;
+  height: 100%;
   position: relative;
-  overflow: hidden;
-
+  width: 100%;
+  .gatsby-image-wrapper {
+    height: auto;
+    width: ${props => (props.superZoom ? props.width * 2 : props.width)}px;
+  }
+  @media (orientation: landscape) {
+    .gatsby-image-wrapper {
+      width: ${props => (props.superZoom ? '200' : '100')}%;
+    }
+  }
   @media (min-width: ${breakpoints.desktop}px) {
     cursor: ${props => (props.superZoom ? 'zoom-out' : 'zoom-in')};
     width: ${props => (props.superZoom ? '100%' : 'auto')};
+    .gatsby-image-wrapper {
+      width: ${props => (props.superZoom ? '100%' : '100vh')};
+    }
   }
 `;
 
@@ -137,13 +144,11 @@ const ZoomHelper = styled(`span`)`
   padding: ${spacing['xs']}px;
   position: fixed;
   top: ${spacing['xs']}px;
-
   svg {
     fill: ${colors.brand};
     height: 34px;
     width: 34px;
   }
-
   @media (min-width: ${breakpoints.desktop}px) {
     display: none;
   }
@@ -155,7 +160,6 @@ const Actions = styled(`div`)`
   flex-grow: 0;
   height: ${dimensions.pictureBrowserAction.heightMobile};
   padding-left: ${spacing.md}px;
-
   @media (min-width: ${breakpoints.desktop}px) {
     align-items: center;
     flex-direction: column;
@@ -176,7 +180,6 @@ const ActionsThumbnails = styled(ProductThumbnails)`
       align-items: center;
       flex-direction: column;
     }
-
     ${Thumbnail} {
       height: 70px;
       margin-bottom: ${spacing.md}px;
@@ -256,7 +259,7 @@ class ProductImagesBrowser extends Component {
   toggleZoomRatio = event => {
     event.preventDefault();
 
-    this.setState(state => ({ superZoom: state.superZoom }));
+    this.setState(state => ({ superZoom: !state.superZoom }));
   };
 
   render() {
@@ -269,7 +272,8 @@ class ProductImagesBrowser extends Component {
         childImageSharp: { fluid }
       }
     } = image;
-    const fixedImage = image.localFile.childImageSharp.fixed;
+
+    const fixed = image.localFile.childImageSharp.fixed;
 
     const { imageBoxHeight, superZoom } = this.state;
 
@@ -290,19 +294,20 @@ class ProductImagesBrowser extends Component {
         >
           <ImageBox
             onClick={this.toggleZoomRatio}
-            href={fixedImage.src}
+            href={fluid.src}
             superZoom={superZoom}
             width={imageBoxHeight}
-            ref={fixedImage => {
-              this.imageBox = fixedImage;
+            ref={image => {
+              this.imageBox = image;
             }}
           >
-            <Image fixed={fixedImage} />
+            <Image fixed={fixed} />
           </ImageBox>
           {altText && (
             <CommunityCaption caption={altText} superZoom={superZoom} />
           )}
         </ZoomArea>
+        <ZoomHelper>{superZoom ? <MdZoomOut /> : <MdZoomIn />}</ZoomHelper>
       </ProductImagesBrowserRoot>
     );
   }

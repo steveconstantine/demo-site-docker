@@ -36,6 +36,7 @@ const ProductImagesMobileContent = styled(`div`)`
 
     @media (min-width: ${breakpoints.tablet}px) {
       margin-right: ${spacing.xl}px;
+      width: 45vw;
     }
   }
 `;
