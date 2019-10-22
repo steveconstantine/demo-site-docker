@@ -72,11 +72,12 @@ class ProductSlider extends Component {
         {!!children.length && (
           <CareersImagesContainer>
             <Flickity
+                flickityRef={c => this.flkty = c}
                 className={'carousel'} // default ''
                 elementType={'div'} // default 'div'
                 options={flickityOptions} // takes flickity options {}
                 disableImagesLoaded={false} // default false
-                reloadOnUpdate // default false
+                static
             >
               {this.props.children.map((child, index) => (
                 <ImageContainer
