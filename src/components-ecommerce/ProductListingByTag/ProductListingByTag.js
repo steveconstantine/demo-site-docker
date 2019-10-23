@@ -28,8 +28,9 @@ const ProductListingByTag = (tag) => (
       query={graphql`
             query ProductListingByTagQuery {
               allShopifyProduct(
-              sort: { fields: [publishedAt], order: ASC }
-            ) {
+              filter: { 
+                handle: { ne: "donation" } }
+              ) {
               edges {
                 node {
                   id

@@ -28,7 +28,8 @@ const ProductListing = () => (
       query={graphql`
             query ProductListingQuery {
               allShopifyProduct(
-              sort: { fields: [publishedAt], order: ASC }
+              filter: { 
+                handle: { ne: "donation" } }
             ) {
               edges {
                 node {
@@ -162,6 +163,9 @@ const ProductListing = () => (
           ),
         },
       ];
+
+      console.log(allShopifyProduct);
+
       return (
           <>
             <Section narrow>

@@ -21,8 +21,6 @@ function ProductPageTemplate({ data, location, pageContext }) {
   const product = data.allShopifyProduct.edges[0].node
   const donation = pageContext.donation[0].node
 
-  console.log(pageContext.donation[0].node);
-
   const description = product.description
   const image = product.images[0].localFile.childImageSharp.fixed.src
 
