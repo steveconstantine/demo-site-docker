@@ -223,8 +223,18 @@ const collectionNode = `
  */
 const productQuery = `
   {
-    allShopifyProduct(
+    product: allShopifyProduct(
       sort: {fields: [publishedAt], order: DESC}
+    ) {
+      edges {
+        node {
+          ${productNode}
+        }
+      }
+    }
+    donation: allShopifyProduct(filter: { 
+      productType: { in: "Donation" } }
+      sort: { fields: [publishedAt], order: ASC }
     ) {
       edges {
         node {
@@ -267,7 +277,8 @@ const collectionQuery = `
 
 
   let collections = qCollections.data ? qCollections.data.allShopifyCollection.edges : null
-  let products = qProducts.data ? qProducts.data.allShopifyProduct.edges : null
+  let products = qProducts.data ? qProducts.data.product.edges : null
+  let donation = qProducts.data ? qProducts.data.donation.edges : null
 
   log('Creating', 'collections')
 
@@ -370,7 +381,7 @@ if (collections && collections !== null) {
     })
   }
 
-    log('Creating', 'product')
+log('Creating', 'product')
 
 if (products) {
  products.forEach((product, index) => {
@@ -433,20 +444,24 @@ if (products) {
     if (next.length === 1) next = [...next, products[0]]
     **/
     // Create the page for this post
-    createPage({
-      path: `/product/${product.node.handle}`,
-      component: templates.product,
-      context: {
-        product,
-        slug: `/product/${product.node.handle}`,
-        id: product.node.id,
-        title: product.node.title,
-        handle: product.node.handle,
-        // Add it to our created page. Topups might well be empty if we found enough relateds
-        // relateds: [...relateds, ...topups],
-        //  next,
-      },
-    })
+    if (product.node.title != 'Donation') {
+      createPage({
+        path: `/product/${product.node.handle}`,
+        component: templates.product,
+        context: {
+          product,
+          slug: `/product/${product.node.handle}`,
+          id: product.node.id,
+          title: product.node.title,
+          handle: product.node.handle,
+          productType: product.node.productType,
+          donation: donation
+          // Add it to our created page. Topups might well be empty if we found enough relateds
+          // relateds: [...relateds, ...topups],
+          //  next,
+        },
+      })
+    }
   })
   }
 

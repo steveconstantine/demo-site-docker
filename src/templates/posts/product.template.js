@@ -17,8 +17,11 @@ import ProductPage from '../../components-ecommerce/ProductPage';
 
 
 function ProductPageTemplate({ data, location, pageContext }) {
-  const seo = data.shopifyProduct
-  const product = data.shopifyProduct
+  const seo = data.allShopifyProduct.edges[0].node
+  const product = data.allShopifyProduct.edges[0].node
+  const donation = pageContext.donation[0].node
+
+  console.log(pageContext.donation[0].node);
 
   const description = product.description
   const image = product.images[0].localFile.childImageSharp.fixed.src
@@ -60,6 +63,7 @@ function ProductPageTemplate({ data, location, pageContext }) {
                           }) => (
                           <>
                 <ProductPage
+                        donation={donation}
                         product={product}
                         prevUrl={location && location.state && location.state.prevUrl ? location.state.prevUrl : '/'}
                         isDesktopViewport={isDesktopViewport}
@@ -91,36 +95,41 @@ function ProductPageTemplate({ data, location, pageContext }) {
 export default ProductPageTemplate
 
 export const query = graphql`
-  query($handle: String!) {
-    shopifyProduct(handle: { eq: $handle }) {
-      id
-      title
-      handle
-      description
-      productType
-      vendor
-      variants {
-        shopifyId
-        title
-        price
-        availableForSale
-      }
-      images {
-        id
-        altText
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 910, maxHeight: 910) {
-              ...GatsbyImageSharpFluid_withWebp
+  query productQuery($productType: String!) {
+    allShopifyProduct(filter: { 
+      productType: { in: [$productType] } }
+      sort: { fields: [publishedAt], order: ASC }
+    ) {
+      edges {
+        node {
+         id
+            handle
+            title
+            description
+            productType
+            variants {
+              shopifyId
+              title
+              price
+              availableForSale
             }
-            fixed {
-              ...GatsbyImageSharpFixed_withWebp
+            images {
+              id
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 910, maxHeight: 910) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                  fixed {
+                    ...GatsbyImageSharpFixed_withWebp
+                  }
+                }
+              }
             }
           }
         }
       }
     }
-  }
 `;
 
 const WhiteBackground = styled.div`

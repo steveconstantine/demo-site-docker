@@ -12,7 +12,6 @@ import ProductListing from '../../components-ecommerce/ProductListing'
 
 function ProductsPageTemplate({ data, location, pageContext }) {
   const seo = data.allShopifyProduct.edges[0].node
-  console.log(seo);
   const { products } = data.allShopifyProduct.edges
 
   const navConfig = {

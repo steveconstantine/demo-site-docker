@@ -298,4 +298,27 @@ export const GlobalStyles = createGlobalStyle`
   #variant > option {
     color: white;
   }
+
+  .ant-input-number {
+    height: 56px !important;
+    background-color: black !important;
+    border: 1px solid white;
+    width: 170px !important;
+  }
+
+  .ant-input-number-input {
+    height: 54px !important;
+    border-radius: 1px !important;
+    width: 170px;
+    color: white;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    font-family: '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif !important;
+    &:focus {
+      box-shadow: 0 0 0 3px white;
+      outline: 0;
+      -webkit-transition: box-shadow 0.15s ease-in-out;
+      transition: box-shadow 0.15s ease-in-out;
+    }
+  }
 `

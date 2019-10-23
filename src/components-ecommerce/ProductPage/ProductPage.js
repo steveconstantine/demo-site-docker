@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
+import DonationForm from './DonationForm';
 import ProductImagesMobile from './ProductImagesMobile';
 import ProductImagesDesktop from './ProductImagesDesktop';
 import ProductSpecs from './ProductSpecs';
@@ -69,19 +70,19 @@ class ProductPage extends Component {
 
   render() {
     const {
+      donation,
       product,
       product: { id, images, variants }
-    } = this.props;
+    } = this.props
+
+    console.log(donation);
 
     const prevUrl = this.props.prevUrl
-
     const {
       isDesktopViewport,
       productImageFeatured,
       toggleProductImagesBrowser
-    } = this.props;
-
-    console.log('Product Page Previous');
+    } = this.props
 
     return (
       <ProductPageRoot>
@@ -104,6 +105,7 @@ class ProductPage extends Component {
             </BackLinkContainer>
             <ProductSpecs product={product} />
             <ProductForm id={id} variants={variants} />
+            <DonationForm id={donation.id} variants={donation.variants} />
           </Details>
         </Container>
       </ProductPageRoot>
