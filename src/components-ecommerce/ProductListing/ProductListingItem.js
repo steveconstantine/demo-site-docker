@@ -37,7 +37,7 @@ const ProductListingItemLink = styled(AniLink)`
   background: #fafafa;
   margin-left: 3px;
   margin-right: 3px;
-  opacity: 0.777;
+  opacity: 0.9;
 
   @media (min-width: ${breakpoints.tablet}px) {
     margin-left: 4px;
@@ -53,14 +53,14 @@ const ProductListingItemLink = styled(AniLink)`
 
    @media (max-width: ${breakpoints.phablet}px) {
     height: 400px;
-    opacity: 0.777;
+    opacity: 0.9;
     filter: grayscale(0);
   }
 
   &:hover {
       filter: grayscale(0);
       opacity: 1;
-      filter: contatrast(105);
+      filter: brightness(105%);
   }
 
   @media (hover: hover) {

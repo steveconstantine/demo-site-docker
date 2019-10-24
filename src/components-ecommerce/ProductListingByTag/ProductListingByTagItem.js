@@ -49,7 +49,7 @@ const ProductListingItemLink = styled(LinkWithPrevUrl)`
   background: #fafafa;
   margin-left: 3px;
   margin-right: 3px;
-  opacity: 0.777;
+  opacity: 1;
 -
   @media (min-width: ${breakpoints.tablet}px) {
     margin-left: 4px;
@@ -65,14 +65,14 @@ const ProductListingItemLink = styled(LinkWithPrevUrl)`
 
    @media (max-width: ${breakpoints.phablet}px) {
     height: 400px;
-    opacity: 0.777;
+    opacity: 1;
     filter: grayscale(0);
   }
 
   &:hover {
       filter: grayscale(0);
       opacity: 1;
-      filter: contatrast(105);
+      filter: contrast(105);
   }
 
   @media (hover: hover) {

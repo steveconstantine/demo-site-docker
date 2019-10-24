@@ -28,6 +28,8 @@ const ProductListingHero = () => (
       query={graphql`
             query ProductListingHeroQuery {
               allShopifyProduct(
+              filter: { 
+                handle: { ne: "donation" } }
               sort: { fields: [publishedAt], order: ASC }
             ) {
               edges {

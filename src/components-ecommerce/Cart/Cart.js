@@ -436,10 +436,18 @@ class Cart extends Component {
             setCartLoading(false);
           };
 
-          const itemsInCart = checkout.lineItems.reduce(
+
+
+          const donationItemsInCart = checkout.lineItems.find((item) => {
+            return item.title === "Donation"
+          });
+
+          var itemsInCart = checkout.lineItems.reduce(
             (total, item) => total + item.quantity,
             0
           );
+
+          itemsInCart = donationItemsInCart ? itemsInCart - donationItemsInCart.quantity : itemsInCart;
 
           const showFreeBonus = !checkout.lineItems.some(
             ({ id }) => id === gatsbyStickerPackID

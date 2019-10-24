@@ -223,7 +223,8 @@ const collectionNode = `
  */
 const productQuery = `
   {
-    product: allShopifyProduct(
+    product: allShopifyProduct(filter: { 
+      productType: { ne: "Donation" } }
       sort: {fields: [publishedAt], order: DESC}
     ) {
       edges {
@@ -444,7 +445,6 @@ if (products) {
     if (next.length === 1) next = [...next, products[0]]
     **/
     // Create the page for this post
-    if (product.node.title != 'Donation') {
       createPage({
         path: `/product/${product.node.handle}`,
         component: templates.product,
@@ -461,8 +461,7 @@ if (products) {
           //  next,
         },
       })
-    }
-  })
+    })
   }
 
   const qArticles = await graphql(gql.articles, opts)
