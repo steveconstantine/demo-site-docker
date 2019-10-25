@@ -20,10 +20,16 @@ const Form = styled(`form`)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0 16px 24px 16px;
+  padding: 0 16px 12px 16px;
+  margin-top: -22px;
+
+
+  @media (max-width: ${breakpoints.desktop}px) {
+    margin-top: -32px;
+  }
 
   @media (min-width: ${breakpoints.tablet}px) {
-    padding: ${spacing['2xl']}px ${spacing.xl}px 32px;
+    padding: 0 ${spacing.xl}px 32px;
   }
 
   @media (min-width: ${breakpoints.desktop}px) {
@@ -72,6 +78,7 @@ const QtyFieldset = styled(Fieldset)`
 
   ${Label} {
     text-align: center;
+    color: white !important;
   }
 
   ${Input} {
@@ -85,6 +92,7 @@ const SizeFieldset = styled(Fieldset)`
 
   ${Label} {
     justify-content: space-between;
+    color: white !important;
   }
 `;
 

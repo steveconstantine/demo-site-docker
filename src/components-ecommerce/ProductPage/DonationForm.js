@@ -13,6 +13,13 @@ import { Fieldset, Input, Label, Select, Submit } from '../shared/FormElements';
 
 import { breakpoints, colors, spacing, radius } from '../../utils/styles';
 
+import Popover from 'antd/es/popover'
+import Button from 'antd/es/button'
+import InputNumber from 'antd/es/input-number'
+import 'antd/es/input-number/style/css'
+import 'antd/es/popover/style/css'
+import 'antd/es/button/style/css'
+
 import ShopContext from '../../context/ShopContext';
 import Link from '../shared/Link';
 
@@ -20,10 +27,11 @@ const Form = styled(`form`)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0 16px 24px 16px;
+  padding: 32px 16px 16px 16px;
+  max-width: 600px;
 
   @media (min-width: ${breakpoints.tablet}px) {
-    padding: ${spacing['2xl']}px ${spacing.xl}px 32px;
+    padding: 0;
   }
 
   @media (min-width: ${breakpoints.desktop}px) {
@@ -72,6 +80,7 @@ const QtyFieldset = styled(Fieldset)`
 
   ${Label} {
     text-align: center;
+    color: white !important;
   }
 
   ${Input} {
@@ -101,8 +110,39 @@ const AddToCartButton = styled(Submit)`
   flex-grow: 1;
   font-size: 20px !important;
   background: black !important;
+  border: 3px solid white;
   height: ${props => (props.fullWidth ? 'auto' : '')};
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
+`;
+
+const AddDonationButton = styled(Button)`
+  color: white;
+  font-family: default;
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px 16px 2px 8px;
+  text-align: right;
+
+  &:hover {
+    color: #FAFAFA;
+    font-family: default;
+    background: transparent;
+    border: none;
+  }
+
+   &:focus {
+    color: #FAFAFA;
+    font-family: default;
+    background: transparent;
+    border: none;
+  }
+
+  @media (min-width: ${breakpoints.desktop}px) {
+    padding-right: 28px;
+  }
 `;
 
 class DonationForm extends Component {
@@ -110,11 +150,31 @@ class DonationForm extends Component {
     variant:
       this.props.variants.length === 1 ? this.props.variants[0].shopifyId : '',
     quantity: 1,
-    errors: []
+    errors: [],
+    clicked: false,
+    hovered: false,
+  };
+
+  handleValueChange = value => {
+    if (value) {
+      const errors = this.state.errors;
+
+      const errorIdx = errors.findIndex(
+        error => error.field === "quantity"
+      );
+
+      errors.splice(errorIdx, 1);
+
+      if (~errorIdx) {
+        this.setState({ errors: errors });
+      }
+    }
+
+    this.setState({ quantity: value });
   };
 
   handleChange = event => {
-    event.preventDefault();
+      event.preventDefault();
 
     if (event.target.value) {
       const errors = this.state.errors;
@@ -135,7 +195,7 @@ class DonationForm extends Component {
 
   handleSubmit = callback => event => {
     event.preventDefault();
-
+    
     const errors = [];
 
     if (this.state.quantity < 1) {
@@ -157,7 +217,30 @@ class DonationForm extends Component {
       return;
     }
 
+    this.hide();
+
     callback(this.state.variant, this.state.quantity);
+  };
+
+  hide = () => {
+    this.setState({
+      clicked: false,
+      hovered: false,
+    });
+  };
+
+  handleHoverChange = visible => {
+    this.setState({
+      hovered: visible,
+      clicked: false,
+    });
+  };
+
+  handleClickChange = visible => {
+    this.setState({
+      clicked: visible,
+      hovered: false,
+    });
   };
 
   render() {
@@ -173,7 +256,7 @@ class DonationForm extends Component {
      */
     const isOutOfStock = !hasVariants && !variants[0].availableForSale;
 
-    return (
+    const content = (
       <ShopContext.Consumer>
         {({ addVariantToCart }) => (
           <Form onSubmit={this.handleSubmit(addVariantToCart)} noValidate>
@@ -192,14 +275,14 @@ class DonationForm extends Component {
             </Errors>
             <QtyFieldset>
               <Label htmlFor="quantity">Donation Amount</Label>
-              <Input
-                type="number"
+              <InputNumber
                 id="quantity"
                 name="quantity"
                 min="1"
                 step="1"
-                onChange={this.handleChange}
+                onChange={this.handleValueChange}
                 value={this.state.quantity}
+                formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               />
             </QtyFieldset>
             {hasVariants && (
@@ -237,7 +320,30 @@ class DonationForm extends Component {
             </AddToCartButton>
           </Form>
         )}
-      </ShopContext.Consumer>
+      </ShopContext.Consumer>)
+
+    return (
+      <Popover
+        style={{width: 500, background: '#000000BB'}}
+        content={ content }
+        trigger="hover"
+        visible={this.state.hovered}
+        onVisibleChange={this.handleHoverChange}
+        placement="topRight"
+      >
+        <Popover
+          style={{width: 500, background: '#000000BB'}}
+          content={
+            content
+          }
+          trigger="click"
+          visible={this.state.clicked}
+          onVisibleChange={this.handleClickChange}
+          placement="topRight"
+        >
+          <AddDonationButton>Add Donation<AddIcon /></AddDonationButton>
+        </Popover> 
+      </Popover>
     );
   }
 }
@@ -248,3 +354,15 @@ DonationForm.propTypes = {
 };
 
 export default DonationForm;
+
+const AddIcon = ({ fill = '#FFF' }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="16" 
+    height="16" 
+    viewBox="0 0 28 28"
+  >
+    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#FFF" />
+    <path d="M0 0h24v24H0z" fill="none"/>
+  </svg>
+)

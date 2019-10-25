@@ -104,14 +104,15 @@ class ProductPage extends Component {
               <BackLink vendor={prevUrl}>Back / Previous</BackLink>
             </BackLinkContainer>
             <ProductSpecs product={product} />
-            <ProductForm id={id} variants={variants} />
             <DonationForm id={donation.id} variants={donation.variants} />
+            <ProductForm id={id} variants={variants} />
           </Details>
         </Container>
       </ProductPageRoot>
     );
   }
 }
+
 
 ProductPage.propTypes = {
   product: PropTypes.object.isRequired,

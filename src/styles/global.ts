@@ -299,17 +299,36 @@ export const GlobalStyles = createGlobalStyle`
     color: white;
   }
 
+  .ant-popover-inner {
+    background-color: #000000BB !important;
+  }
+
   .ant-input-number {
     height: 56px !important;
     background-color: black !important;
-    border: 1px solid white;
-    width: 170px !important;
+    border: 3px solid #FAFAFA;
+    width: 100% !important;
+  }
+
+  .ant-popover-arrow {
+    background-color: #000000BB !important;
+    border-right-color: #000000BB !important;
+    border-bottom-color: #000000BB !important;
+  }
+
+  .ant-popover {
+    max-width: 500px;
+    width: 100vw;
+  }
+
+   .ant-popover-content {
+    margin: 10px 10px 0 10px !important;
   }
 
   .ant-input-number-input {
     height: 54px !important;
-    border-radius: 1px !important;
-    width: 170px;
+    border-radius: 3px !important;
+    width: 100%;
     color: white;
     font-size: 20px !important;
     font-weight: 900 !important;
