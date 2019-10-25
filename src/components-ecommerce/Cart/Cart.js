@@ -439,6 +439,7 @@ class Cart extends Component {
           };
 
 
+          console.log(checkout.lineItems)
 
           const donationItemsInCart = checkout.lineItems.find((item) => {
             return item.title === "Donation"
@@ -456,7 +457,7 @@ class Cart extends Component {
           );
 
           let checkoutList = []
-          let donationList = {}
+          let donationList
 
           checkout.lineItems.forEach((item) => {
             if (item.title != 'Donation')
@@ -525,7 +526,7 @@ class Cart extends Component {
                   <Costs>
                     <Cost>
                       <span>Donation:</span>{' '}
-                      <strong>{donationList.length > 0 ? <CartListDonationItem 
+                      <strong>{donationList && donationList.title ? <CartListDonationItem 
                                                   item={donationList}
                                                   handleRemove={handleRemove(donationList.id)}
                                                   updateQuantity={handleQuantityChange(donationList.id)}

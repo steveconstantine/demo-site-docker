@@ -87,9 +87,6 @@ class ProductImage extends Component {
       imageFeatured = null
     } = this.props;
 
-    console.log('this.props.image');
-    console.log(this.props.image.localFile.childImageSharp.fluid);
-
     return (
       <ProductImageLink
         ref={el => {
