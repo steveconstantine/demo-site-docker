@@ -14,11 +14,13 @@ import { Fieldset, Input, Label, Select, Submit } from '../shared/FormElements';
 import { breakpoints, colors, spacing, radius } from '../../utils/styles';
 
 import Popover from 'antd/es/popover'
+import 'antd/es/popover/style/css'
 import Button from 'antd/es/button'
+import 'antd/es/button/style/css'
 import InputNumber from 'antd/es/input-number'
 import 'antd/es/input-number/style/css'
-import 'antd/es/popover/style/css'
-import 'antd/es/button/style/css'
+import message from 'antd/es/message'
+import 'antd/es/message/style/css'
 
 import ShopContext from '../../context/ShopContext';
 import Link from '../shared/Link';
@@ -27,7 +29,7 @@ const Form = styled(`form`)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 32px 16px 16px 16px;
+  padding: 4px;
   max-width: 600px;
 
   @media (min-width: ${breakpoints.tablet}px) {
@@ -66,7 +68,7 @@ const ErrorMsgs = styled(`ul`)`
   border-left: none;
   border-radius: 0 ${radius.default}px ${radius.default}px 0;
   color: ${colors.error};
-  flex-grow: 1;
+-  flex-grow: 1;
   margin: 0;
   padding: ${spacing.xs}px;
   padding-left: ${spacing.xl}px;
@@ -145,6 +147,8 @@ const AddDonationButton = styled(Button)`
   }
 `;
 
+const key = 'updatable';
+
 class DonationForm extends Component {
   state = {
     variant:
@@ -217,6 +221,7 @@ class DonationForm extends Component {
       return;
     }
 
+    this.success();
     this.hide();
 
     callback(this.state.variant, this.state.quantity);
@@ -240,6 +245,13 @@ class DonationForm extends Component {
     this.setState({
       clicked: visible,
       hovered: false,
+    });
+  };
+
+  success = () => {
+    message.loading({ content: 'Adding Donation...', key });
+    setTimeout(() => {
+      message.success({ content: 'Donation Added!', key, duration: 2 });
     });
   };
 

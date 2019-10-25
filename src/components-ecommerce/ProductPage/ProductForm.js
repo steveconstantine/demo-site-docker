@@ -16,6 +16,11 @@ import { breakpoints, colors, spacing, radius } from '../../utils/styles';
 import ShopContext from '../../context/ShopContext';
 import Link from '../shared/Link';
 
+import message from 'antd/es/message'
+import 'antd/es/message/style/css'
+
+const key = 'updatableProduct';
+
 const Form = styled(`form`)`
   display: flex;
   flex-wrap: wrap;
@@ -165,7 +170,15 @@ class ProductForm extends Component {
       return;
     }
 
+    this.success();
     callback(this.state.variant, this.state.quantity);
+  };
+
+  success = () => {
+    message.loading({ content: 'Adding Product...', key });
+    setTimeout(() => {
+      message.success({ content: 'Product Added!', key, duration: 2 });
+    });
   };
 
   render() {
