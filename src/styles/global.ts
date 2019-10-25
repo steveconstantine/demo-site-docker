@@ -319,6 +319,7 @@ export const GlobalStyles = createGlobalStyle`
   .ant-popover {
     max-width: 500px;
     width: 100vw;
+    margin-top: 20px;
   }
 
    .ant-popover-content {

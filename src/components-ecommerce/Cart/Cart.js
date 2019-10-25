@@ -14,6 +14,7 @@ import { FiShoppingCart } from 'react-icons/fi';
 
 import ShopContext from '../../context/ShopContext';
 import CartList from './CartList';
+import CartListDonationItem from './CartListDonationItem';
 import CartIndicator from './CartIndicator';
 import EmptyCart from './EmptyCart';
 import FreeBonus from './FreeBonus';
@@ -73,7 +74,7 @@ const CartRoot = styled(`div`)`
   }
 
   ::after {
-    background-color: ${colors.lightest};
+    background-color: #000;
     background-position: center center;
     bottom: 0;
     content: '';
@@ -88,7 +89,7 @@ const CartRoot = styled(`div`)`
 
   &.loading {
     ::after {
-      opacity: 0.9;
+      opacity: 0.555;
       pointer-events: all;
     }
   }
@@ -212,14 +213,14 @@ const Cost = styled(`div`)`
 
   span {
     color: ${colors.lightest};
-    flex-basis: 60%;
+    flex-basis: 25%;
     font-size: 0.9rem;
     text-align: right;
   }
 
   strong {
     color: ${colors.cart};
-    flex-basis: 40%;
+    flex-basis: 75%;
     text-align: right;
   }
 `;
@@ -432,6 +433,7 @@ class Cart extends Component {
             if (!quantity) {
               return;
             }
+
             await updateLineItem(client, checkout.id, lineItemID, quantity);
             setCartLoading(false);
           };
@@ -452,6 +454,16 @@ class Cart extends Component {
           const showFreeBonus = !checkout.lineItems.some(
             ({ id }) => id === gatsbyStickerPackID
           );
+
+          let checkoutList = []
+          let donationList = {}
+
+          checkout.lineItems.forEach((item) => {
+            if (item.title != 'Donation')
+              checkoutList.push(item)
+            else if (item.title == 'Donation')
+              donationList = item
+          });
 
           return (
           <>
@@ -503,7 +515,7 @@ class Cart extends Component {
               <>
                 <Content>
                   <CartList
-                    items={checkout.lineItems}
+                    items={checkoutList}
                     handleRemove={handleRemove}
                     updateQuantity={handleQuantityChange}
                     setCartLoading={setCartLoading}
@@ -512,8 +524,18 @@ class Cart extends Component {
 
                   <Costs>
                     <Cost>
+                      <span>Donation:</span>{' '}
+                      <strong>{donationList.length > 0 ? <CartListDonationItem 
+                                                  item={donationList}
+                                                  handleRemove={handleRemove(donationList.id)}
+                                                  updateQuantity={handleQuantityChange(donationList.id)}
+                                                  setCartLoading={setCartLoading}
+                                                  isCartLoading={this.state.isLoading}
+                                                /> : '$0.00'}</strong>
+                    </Cost>
+                    <Cost>
                       <span>Subtotal:</span>{' '}
-                      <strong>USD ${checkout.subtotalPrice}</strong>
+                      <strong>${checkout.subtotalPrice}</strong>
                     </Cost>
                     <Cost>
                       <span>Taxes:</span> <strong>{checkout.totalTax}</strong>
@@ -523,7 +545,7 @@ class Cart extends Component {
                     </Cost>
                     <Total>
                       <span>Total Price:</span>
-                      <strong>USD ${checkout.totalPrice}</strong>
+                      <strong>CAD ${checkout.totalPrice}</strong>
                     </Total>
                   </Costs>
 

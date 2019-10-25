@@ -121,15 +121,24 @@ const AddDonationButton = styled(Button)`
   color: white;
   font-family: default;
   background: transparent;
-  border: none;
+  border: 1px solid transparent !important;
+  border-radius: 3px;
   font-weight: 600;
   margin: 0 auto;
-  width: 100%;
-  padding: 20px 16px 2px 8px;
+  width: 150px;  
+  padding: 10px 14px 10px 14px;
+  height: 40px;
   text-align: right;
+  margin-left: 14px;
+
+  @media all and (max-width: 1000px) {
+    margin-right: 14px;
+    margin-left: 0;
+  }
 
   &:hover {
     color: #FAFAFA;
+    border: 1px solid transparent !important;
     font-family: default;
     background: transparent;
     border: none;
@@ -137,6 +146,7 @@ const AddDonationButton = styled(Button)`
 
    &:focus {
     color: #FAFAFA;
+    border: 1px solid transparent !important;
     font-family: default;
     background: transparent;
     border: none;

@@ -30,7 +30,20 @@ const Container = styled(`div`)`
   @media (min-width: ${breakpoints.desktop}px) {
     align-items: flex-start;
     display: flex;
-  }-
+  }
+`;
+
+const DonationContainer = styled(`div`)`
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-self: flex-end;
+    display: flex;
+    margin: 0 100% 0;
+    padding-right: 10px;
+
+    @media all and (min-width: 1000px) {
+      margin: 0 0 0 auto;
+    }
 `;
 
 const Details = styled(`div`)`
@@ -104,7 +117,9 @@ class ProductPage extends Component {
               <BackLink vendor={prevUrl}>Back / Previous</BackLink>
             </BackLinkContainer>
             <ProductSpecs product={product} />
-            <DonationForm id={donation.id} variants={donation.variants} />
+            <DonationContainer>
+              <DonationForm id={donation.id} variants={donation.variants} />
+            </DonationContainer>
             <ProductForm id={id} variants={variants} />
           </Details>
         </Container>
