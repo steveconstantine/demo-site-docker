@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { colors, spacing } from '../../utils/styles';
+import { Button } from '../shared/Buttons';
 
 const EmptyCartRoot = styled('div')`
   align-items: center;
@@ -95,7 +96,7 @@ const SadCart = () => (
   </svg>
 );
 
-const EmptyCart = () => (
+const EmptyCart = ({ addVariantToCart }) => (
   <EmptyCartRoot>
     <SadCart />
     <SadCartCopy>
@@ -106,6 +107,11 @@ const EmptyCart = () => (
         </span>
       </p>
       <p style={{'color': 'white'}}>Turn that frown upside down with art!</p>
+      <br/>
+      <br/>
+      <Button onClick={() => addVariantToCart()}>
+           Add a Donation
+      </Button>
     </SadCartCopy>
   </EmptyCartRoot>
 );

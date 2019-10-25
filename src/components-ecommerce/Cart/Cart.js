@@ -415,12 +415,12 @@ class Cart extends Component {
   render() {
     const { status, toggle, theme } = this.props;
     const { className, shortenCart } = this.state;
-    const gatsbyStickerPackID =
-      'Z2lkOi8vc2hvcGlmeS9DaGVja291dExpbmVJdGVtL2I1ZGY0NjRmMWQxYWQxM2MzMzJjYmQ0MjMyZDczZGE3P2NoZWNrb3V0PTY1NjU3NDMxMjk2MTRiMmRjZjc4MDIzYmRlYzA4MTM2';
+    const donationID =
+      'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMDk1NDU4MzE2Mjk1OA==';
 
     return (
       <ShopContext.Consumer>
-        {({ client, checkout, removeLineItem, updateLineItem, adding }) => {
+        {({ client, checkout, removeLineItem, updateLineItem, adding, addVariantToCart }) => {
           const setCartLoading = bool => this.setState({ isLoading: bool });
 
           const handleRemove = itemID => async event => {
@@ -439,8 +439,6 @@ class Cart extends Component {
           };
 
 
-          console.log(checkout.lineItems)
-
           const donationItemsInCart = checkout.lineItems.find((item) => {
             return item.title === "Donation"
           });
@@ -451,10 +449,6 @@ class Cart extends Component {
           );
 
           itemsInCart = donationItemsInCart ? itemsInCart - donationItemsInCart.quantity : itemsInCart;
-
-          const showFreeBonus = !checkout.lineItems.some(
-            ({ id }) => id === gatsbyStickerPackID
-          );
 
           let checkoutList = []
           let donationList
@@ -532,7 +526,10 @@ class Cart extends Component {
                                                   updateQuantity={handleQuantityChange(donationList.id)}
                                                   setCartLoading={setCartLoading}
                                                   isCartLoading={this.state.isLoading}
-                                                /> : '$0.00'}</strong>
+                                                /> : 
+                                                <Button onClick={() => addVariantToCart(donationID, 1)}>
+                                                Add a Donation
+                                                </Button>}</strong>
                     </Cost>
                     <Cost>
                       <span>Subtotal:</span>{' '}
@@ -557,14 +554,11 @@ class Cart extends Component {
                     <MdArrowBack />
                     Back to shopping
                   </BackLink>
-
-                  {showFreeBonus && <FreeBonus />}
-
                   <ShippingInfo />
                 </Content>
               </>
               ) : (
-                <EmptyCart />
+                <EmptyCart addVariantToCart={() => addVariantToCart(donationID, 1)}/>
               )}
             </CartRoot>
             </Portal>
