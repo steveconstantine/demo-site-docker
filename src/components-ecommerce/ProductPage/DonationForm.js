@@ -278,7 +278,7 @@ class DonationForm extends Component {
               <InputNumber
                 id="quantity"
                 name="quantity"
-                min="1"
+                min="0"
                 step="1"
                 onChange={this.handleValueChange}
                 value={this.state.quantity}
