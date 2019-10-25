@@ -525,7 +525,7 @@ class Cart extends Component {
 
                   <Costs>
                     <Cost>
-                      <span>Donation:</span>{' '}
+                      <span style={{'alignSelf': 'center'}}>Donation:</span>{' '}
                       <strong>{donationList && donationList.title ? <CartListDonationItem 
                                                   item={donationList}
                                                   handleRemove={handleRemove(donationList.id)}

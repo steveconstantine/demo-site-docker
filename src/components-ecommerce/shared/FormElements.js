@@ -9,7 +9,7 @@ export const Input = styled(`input`)`
   border: 1px solid ${colors.brandBright};
   border-radius: ${radius.default}px;
   color: white;
-  font-size: 20px !important;
+  font-size: 20px;
   display: block;
   padding: ${spacing.sm}px ${spacing.md}px;
   width: 100% !important;

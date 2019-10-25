@@ -42,11 +42,30 @@ const Meta = styled('span')`
 
 const Quantity = styled(Input)`
   flex-grow: 0;
-  height: 44px;
+  height: 32px;
   margin-right: ${spacing.xs}px;
   padding: 0 ${spacing.xs}px 0;
   text-align: center;
   width: 50px;
+  border: none;
+  background-color: transparent;
+  padding-bottom: 0;
+  border-bottom: 1px solid white;
+
+  font-size: 14px;
+  font-weight: bolder;
+
+  &:hover {
+    border: none;
+    border-bottom: 2px solid white;
+    box-shadow: none;
+  }
+
+  &:focus {
+    border: none;
+    border-bottom: 2px solid white;
+    box-shadow: none;
+  }
 
   @media (min-width: ${breakpoints.desktop}px) {
     width: 70px;
@@ -56,7 +75,7 @@ const Quantity = styled(Input)`
 const Remove = styled(Button)`
   border: 1px dotted ${colors.lightest};
   display: flex;
-  height: 44px;
+  height: 32px;
   justify-content: center;
   margin-right: ${spacing['2xs']}px;
   padding: 0;
