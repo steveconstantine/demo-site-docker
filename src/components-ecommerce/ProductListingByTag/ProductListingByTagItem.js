@@ -37,20 +37,20 @@ const DESCRIPTION_LIMIT = 90;
 const TRANSITION_DURATION = '250ms';
 
 const ProductListingItemLink = styled(LinkWithPrevUrl)`
-  background: #00000066;
+  background: ${colors.lightest};
   border-radius: ${radius.large}px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: ${spacing.lg}px;
   overflow: hidden;
   text-decoration: none;
-  flex-basis: 40vw;
-  width: 40vw;
-  height: 550px;
+  width: 400px;
+  height: 555px;
   transition: all ${TRANSITION_DURATION};
+  background: #fafafa;
   margin-left: 3px;
   margin-right: 3px;
-  opacity: 0.9;
-
+  opacity: 1;
+-
   @media (min-width: ${breakpoints.tablet}px) {
     margin-left: 4px;
     margin-right: 4px;
@@ -72,12 +72,12 @@ const ProductListingItemLink = styled(LinkWithPrevUrl)`
   &:hover {
       filter: grayscale(0);
       opacity: 1;
-      filter: brightness(105%);
+      filter: contrast(105);
   }
 
   @media (hover: hover) {
     :hover {
-      background: #000;
+      background: ${colors.brandLighter};
     }
   }
 `;
@@ -86,21 +86,16 @@ const Item = styled(`article`)`
   display: flex;
   flex-direction: column;
   height: 555px;
-  padding: 32px;
+  padding: 20px;
 `;
 
 const Preview = styled(`div`)`
-  border-bottom: 0px solid ${colors.brandLight};
+  border-bottom: 1px solid ${colors.brandLight};
   border-radius: ${radius.large}px ${radius.large}px 0 0;
   margin: -${spacing.lg}px;
   margin-bottom: ${spacing.lg}px;
   overflow: hidden;
   position: relative;
-
-
-  @media (max-width: ${breakpoints.desktop}px) {
-    padding-top: 10px;
-  }
 
   .gatsby-image-wrapper {
     transition: all ${TRANSITION_DURATION};
@@ -152,7 +147,7 @@ const CodeEligibility = styled(`div`)`
 `;
 
 const Name = styled(`h1`)`
-  color: #dddde2;
+  color: ${colors.brandDark};
   font-family: ${fonts.heading};
   font-size: 1.6rem;
   line-height: 1.2;
@@ -160,7 +155,7 @@ const Name = styled(`h1`)`
 `;
 
 const Description = styled(`p`)`
-  color: #dddde2;
+  color: ${colors.text};
   flex-grow: 1;
   font-size: 1rem;
   line-height: 1.5;
@@ -174,19 +169,19 @@ const PriceRow = styled(`div`)`
 `;
 
 const Price = styled(`div`)`
-  color: #dddde2;
+  color: ${colors.brand};
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: -0.02em;
 
   span {
-    color: #FFF;
+    color: ${colors.textLight};
   }
 `;
 
 const Incentive = styled('div')`
   align-items: center;
-  color: #dddde2;
+  color: ${colors.lilac};
   display: flex;
   font-size: 0.9rem;
   line-height: 1.3;

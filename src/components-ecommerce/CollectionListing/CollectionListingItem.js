@@ -164,14 +164,18 @@ const Incentive = styled('div')`
   display: flex;
   line-height: 1.3;
   margin-bottom: ${spacing['2xs']}px;
-  margin-right: calc(-${spacing.lg}px - 40px);
+  margin-right: calc(-${spacing.lg}px - 60px);
   text-align: right;
   transition: all ${TRANSITION_DURATION};
 
   @media (hover: hover) {
     ${CollectionListingItemLink}:hover & {
-      transform: translateX(-40px);
+      transform: translateX(-80px);
     }
+  }
+
+  &:focus {
+      outline: none !important;
   }
 
   > span {

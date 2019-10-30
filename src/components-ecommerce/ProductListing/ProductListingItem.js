@@ -33,7 +33,7 @@ const ProductListingItemLink = styled(AniLink)`
   text-decoration: none;
   flex-basis: 40vw;
   width: 40vw;
-  height: 550px;
+  max-height: 555px;
   transition: all ${TRANSITION_DURATION};
   margin-left: 3px;
   margin-right: 3px;
@@ -73,8 +73,17 @@ const ProductListingItemLink = styled(AniLink)`
 const Item = styled(`article`)`
   display: flex;
   flex-direction: column;
-  height: 555px;
-  padding: 32px;
+  max-height: 555px;
+  padding: 36px 34px;
+
+  @media (max-width: ${breakpoints.tablet}px) {
+    height: 444px;
+    padding: 12px 10px;
+  }
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    height: 555px;
+  }
 `;
 
 const Preview = styled(`div`)`
@@ -84,11 +93,6 @@ const Preview = styled(`div`)`
   margin-bottom: ${spacing.lg}px;
   overflow: hidden;
   position: relative;
-
-
-  @media (max-width: ${breakpoints.desktop}px) {
-    padding-top: 10px;
-  }
 
   .gatsby-image-wrapper {
     transition: all ${TRANSITION_DURATION};
@@ -150,6 +154,7 @@ const Name = styled(`h1`)`
 const Description = styled(`p`)`
   color: #dddde2;
   flex-grow: 1;
+  max-height: 75px;
   font-size: 1rem;
   line-height: 1.5;
 `;
@@ -179,14 +184,18 @@ const Incentive = styled('div')`
   font-size: 0.9rem;
   line-height: 1.3;
   margin-bottom: ${spacing['2xs']}px;
-  margin-right: calc(-${spacing.lg}px - 40px);
+  margin-right: calc(-${spacing.lg}px - 55px);
   text-align: right;
   transition: all ${TRANSITION_DURATION};
 
   @media (hover: hover) {
     ${ProductListingItemLink}:hover & {
-      transform: translateX(-40px);
+      transform: translateX(-80px);
     }
+  }
+
+    &:focus {
+      outline: none !important;
   }
 
   > span {
@@ -200,7 +209,7 @@ const Incentive = styled('div')`
 
 const CartIcon = styled(`span`)`
   align-items: center;
-  background: ${colors.lilac};
+  background: white;
   border-radius: ${radius.default}px 0 0 ${radius.default}px;
   display: flex;
   height: 40px;
@@ -218,7 +227,7 @@ const CartIcon = styled(`span`)`
   }
 
   svg {
-    color: ${colors.accent};
+    color: black;
     height: 22px;
     position: relative;
     width: 22px;
@@ -291,7 +300,6 @@ const ProductListingItem = props => {
               </Description>
               <PriceRow>
                 <Price>
-                  <span>CAD</span> ${price}
                 </Price>
                 <Incentive>
                   <span>

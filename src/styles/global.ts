@@ -324,21 +324,25 @@ export const GlobalStyles = createGlobalStyle`
   .ant-popover {
     max-width: 500px;
     width: 100vw;
+    height: 0;
     transform-origin: 0 0 !important;
+
+    @media all and (max-width: 540px) {
+      left: 0 !important;
+    }
   }
 
    .ant-popover-content {
-    margin: 0 -70px 0 70px !important;
-    transform: translateY(80px);
 
-    @media screen and (max-width: 767px) {
-      transform: translate(-10vw, 80px);
-      max-width: 400px;
+    transform: translateY(-35px); 
+    max-width: 400px;
+
+    @media all and (min-width: 1025px) {
+      transform: translate(125px, -35px);
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-      transform: translate(80px, 80px);
-      max-width: 400px;
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      transform: translate(100px, -35px);
     }
   }
 

@@ -12,7 +12,7 @@ const THUMBNAIL_SIZE = '54px';
 const ProductImagesDesktopRoot = styled(`div`)`
   margin-right: auto;
   margin-left: auto;
-  width: 40vw;
+  width: 100%;
 `;
 
 const Thumbnails = styled(ProductThumbnails)`

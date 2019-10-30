@@ -22,11 +22,11 @@ const ProductPageRoot = styled('div')`
     min-height: calc(100vh - 480px);
     padding: ${spacing.xl}px;
     width: 100%;
-    max-height: 100vh !important;
   }
 `;
 
 const Container = styled(`div`)`
+  width: 100%;
   @media (min-width: ${breakpoints.desktop}px) {
     align-items: flex-start;
     display: flex;
@@ -55,6 +55,7 @@ const Details = styled(`div`)`
     justify-content: space-between;
     margin-right: -${spacing.xl}px;
     max-width: 800px;
+    min-width: 650px;
     min-height: 490px;
   }
 `;

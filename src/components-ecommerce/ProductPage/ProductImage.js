@@ -54,6 +54,12 @@ const ZoomHelper = styled(`span`)`
 export const StyledImage = styled(Image)`
   border-radius: ${radius.large}px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+  position: static !important;
+  min-height: 40vh !important;
+
+  &.gatsby-image-wrapper {
+      object-fit: contain !important;
+  }
 `;
 
 class ProductImage extends Component {
@@ -95,7 +101,7 @@ class ProductImage extends Component {
         href={fixed.src}
         onClick={this.handleClick(onClick)}
       >
-        <StyledImage fixed={ imageFeatured ? fixed : fixed } alt="" />
+        <StyledImage imgStyle={{'objectFit': 'contain'}} fixed={ imageFeatured ? fixed : fixed } alt="" />
         <ZoomHelper>
           <MdZoomIn />
         </ZoomHelper>

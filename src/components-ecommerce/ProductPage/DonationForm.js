@@ -110,7 +110,7 @@ const InfoLinks = styled(`div`)`
 const AddToCartButton = styled(Submit)`
   align-self: flex-end;
   flex-grow: 1;
-  font-size: 20px !important;
+  font-size: 20px;
   background: black !important;
   border: 3px solid white;
   height: ${props => (props.fullWidth ? 'auto' : '')};
