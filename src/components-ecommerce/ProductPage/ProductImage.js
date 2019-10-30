@@ -80,7 +80,7 @@ class ProductImage extends Component {
     const {
       image: {
         localFile: {
-          childImageSharp: { fluid }
+          childImageSharp: { fixed }
         }
       },
       onClick,
@@ -92,10 +92,10 @@ class ProductImage extends Component {
         ref={el => {
           this.imageLink = el;
         }}
-        href={fluid.src}
+        href={fixed.src}
         onClick={this.handleClick(onClick)}
       >
-        <StyledImage fluid={ imageFeatured ? fluid : fluid } alt="" />
+        <StyledImage fixed={ imageFeatured ? fixed : fixed } alt="" />
         <ZoomHelper>
           <MdZoomIn />
         </ZoomHelper>

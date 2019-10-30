@@ -7,7 +7,7 @@ import mediaqueries from '@styles/media'
 import Flickity from 'react-flickity-component'
 
 const flickityOptions = {
-    initialIndex: 2,
+    initialIndex: 1,
     freeScroll: true,
     freeScrollFriction: 0.03,
     contain: true,
@@ -19,6 +19,7 @@ const flickityOptions = {
     friction: 0.8,
     dragThreshold: 150,
     adaptiveHeight: true,
+    groupCells: 2,
     fullscreen: true,
     wrapAround: true,
     groupCells: true,
@@ -40,6 +41,8 @@ class ProductSlider extends Component {
     if (typeof window !== 'undefined') {
       window.removeEventListener('keydown', this.handleKeyPress)
     }
+
+
   }
 
   handleKeyPress = ({ keyCode }) => {
@@ -69,48 +72,46 @@ class ProductSlider extends Component {
 
     return (
       <Fragment>
-        {!!children.length && (
-          <CareersImagesContainer>
-            <Flickity
-                flickityRef={c => this.flkty = c}
-                className={'carousel'} // default ''
-                elementType={'div'} // default 'div'
-                options={flickityOptions} // takes flickity options {}
-                disableImagesLoaded={false} // default false
+        <CareersImagesContainer>
+          <Flickity
+              flickityRef={c => this.flkty = c}
+              className={'carousel'} // default ''
+              elementType={'div'} // default 'div'
+              options={flickityOptions} // takes flickity options {}
+              disableImagesLoaded={false} // default false
+              static
+          >
+            {this.props.children.map((child, index) => (
+              <ImageContainer
+                key={index}
+                index={index}
+                activeIndex={activeIndex}
+                inView={this.state.inView}
+                viewed={this.state.viewed}
+                style={{ left: `${index * 36}rem` }}
                 static
-            >
-              {this.props.children.map((child, index) => (
-                <ImageContainer
-                  key={index}
-                  index={index}
-                  activeIndex={activeIndex}
-                  inView={this.state.inView}
-                  viewed={this.state.viewed}
-                  style={{ left: `${index * 36}rem` }}
-                  static
-                >
-                  {child}
-                </ImageContainer>
-              ))}
-            </Flickity>
-            <GalleryControl
-              disabled={false}
-              onClick={this.handlePrevClick}
-              data-a11y="false"
-              left
-            >
-              <ChevronLeft />
-            </GalleryControl>
-            <GalleryControl
-              disabled={false}
-              onClick={this.handleNextClick}
-              data-a11y="false"
-              right
-            >
-              <ChevronRight />
-            </GalleryControl>
-          </CareersImagesContainer>
-        )}
+              >
+                {child}
+              </ImageContainer>
+            ))}
+          </Flickity>
+          <GalleryControl
+            disabled={false}
+            onClick={this.handlePrevClick}
+            data-a11y="false"
+            left
+          >
+            <ChevronLeft />
+          </GalleryControl>
+          <GalleryControl
+            disabled={false}
+            onClick={this.handleNextClick}
+            data-a11y="false"
+            right
+          >
+            <ChevronRight />
+          </GalleryControl>
+        </CareersImagesContainer>
       </Fragment>
     )
   }
@@ -122,12 +123,12 @@ const CareersImagesContainer = styled.div`
   position: relative;
   width: 100vw;
   max-width: 100vw;
-  margin-top: 7rem;
   height: 555px;
-  margin-bottom: 7rem;
+  margin-top: 0;
   
   ${mediaqueries.phablet`
       margin-top: 0;
+      height: 400px;
   `};
 `
 
@@ -165,16 +166,12 @@ const ImageContainer = styled.div`
     object-fit: cover;
     object-position: center center;
   }
-
-  ${mediaqueries.phablet`
-    width: 25.5rem;
-  `};
 `
 
 const ImageContainerMobile = styled.div`
   border-radius: 3px;
   overflow: hidden;
-  width: 34rem;
+  width: 50vw;
   filter: grayscale(100);
   ${mediaqueries.tablet`
     width: 100%;

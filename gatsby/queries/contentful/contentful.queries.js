@@ -24,11 +24,6 @@ const basicNode = `
   excerpt {
     excerpt
   }
-  excerptHtml {
-    childRichTextHtml {
-      html
-    }
-  }
   fields {
     postDate(formatString: "MMM. D, YYYY")
     pathPrefix

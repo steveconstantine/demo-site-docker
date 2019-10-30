@@ -116,10 +116,7 @@ class ProductPage extends Component {
             <BackLinkContainer>
               <BackLink vendor={prevUrl}>Back / Previous</BackLink>
             </BackLinkContainer>
-            <ProductSpecs product={product} />
-            <DonationContainer>
-              <DonationForm id={donation.id} variants={donation.variants} />
-            </DonationContainer>
+            <ProductSpecs product={product} id={donation.id} variants={donation.variants} />
             <ProductForm id={id} variants={variants} />
           </Details>
         </Container>

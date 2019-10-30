@@ -25,16 +25,16 @@ const DESCRIPTION_LIMIT = 90;
 const TRANSITION_DURATION = '250ms';
 
 const ProductListingItemLink = styled(AniLink)`
-  background: ${colors.lightest};
+  background: #00000066;
   border-radius: ${radius.large}px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: ${spacing.lg}px;
   overflow: hidden;
   text-decoration: none;
-  width: 400px;
-  height: 555px;
+  flex-basis: 40vw;
+  width: 40vw;
+  height: 550px;
   transition: all ${TRANSITION_DURATION};
-  background: #fafafa;
   margin-left: 3px;
   margin-right: 3px;
   opacity: 0.9;
@@ -53,7 +53,7 @@ const ProductListingItemLink = styled(AniLink)`
 
    @media (max-width: ${breakpoints.phablet}px) {
     height: 400px;
-    opacity: 0.9;
+    opacity: 1;
     filter: grayscale(0);
   }
 
@@ -65,7 +65,7 @@ const ProductListingItemLink = styled(AniLink)`
 
   @media (hover: hover) {
     :hover {
-      background: ${colors.brandLighter};
+      background: #000;
     }
   }
 `;
@@ -74,16 +74,21 @@ const Item = styled(`article`)`
   display: flex;
   flex-direction: column;
   height: 555px;
-  padding: 20px;
+  padding: 32px;
 `;
 
 const Preview = styled(`div`)`
-  border-bottom: 1px solid ${colors.brandLight};
+  border-bottom: 0px solid ${colors.brandLight};
   border-radius: ${radius.large}px ${radius.large}px 0 0;
   margin: -${spacing.lg}px;
   margin-bottom: ${spacing.lg}px;
   overflow: hidden;
   position: relative;
+
+
+  @media (max-width: ${breakpoints.desktop}px) {
+    padding-top: 10px;
+  }
 
   .gatsby-image-wrapper {
     transition: all ${TRANSITION_DURATION};
@@ -135,7 +140,7 @@ const CodeEligibility = styled(`div`)`
 `;
 
 const Name = styled(`h1`)`
-  color: ${colors.brandDark};
+  color: #dddde2;
   font-family: ${fonts.heading};
   font-size: 1.6rem;
   line-height: 1.2;
@@ -143,7 +148,7 @@ const Name = styled(`h1`)`
 `;
 
 const Description = styled(`p`)`
-  color: ${colors.text};
+  color: #dddde2;
   flex-grow: 1;
   font-size: 1rem;
   line-height: 1.5;
@@ -157,19 +162,19 @@ const PriceRow = styled(`div`)`
 `;
 
 const Price = styled(`div`)`
-  color: ${colors.brand};
+  color: #dddde2;
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: -0.02em;
 
   span {
-    color: ${colors.textLight};
+    color: #FFF;
   }
 `;
 
 const Incentive = styled('div')`
   align-items: center;
-  color: ${colors.lilac};
+  color: #dddde2;
   display: flex;
   font-size: 0.9rem;
   line-height: 1.3;
@@ -286,7 +291,7 @@ const ProductListingItem = props => {
               </Description>
               <PriceRow>
                 <Price>
-                  <span>USD</span> ${price}
+                  <span>CAD</span> ${price}
                 </Price>
                 <Incentive>
                   <span>

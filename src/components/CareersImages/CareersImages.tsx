@@ -168,7 +168,7 @@ const ImageContainer = styled.div`
   font-size: 10rem;
   position: absolute;
   left: 0;
-  width: 34rem;
+  width: 33.1vw;
   height: 100%;
   border-radius: 3px;
   overflow: hidden;

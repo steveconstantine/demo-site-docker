@@ -241,6 +241,11 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  .carousel-cell {
+  width: 33.1%; /* full width */
+  margin-right: 10px;
+  }
+
   .flickity-slider {
     height: 555px;
   }
@@ -319,11 +324,26 @@ export const GlobalStyles = createGlobalStyle`
   .ant-popover {
     max-width: 500px;
     width: 100vw;
-    margin-top: 20px;
+    transform-origin: 0 0 !important;
   }
 
    .ant-popover-content {
-    margin: 10px 10px 0 10px !important;
+    margin: 0 -70px 0 70px !important;
+    transform: translateY(80px);
+
+    @media screen and (max-width: 767px) {
+      transform: translate(-10vw, 80px);
+      max-width: 400px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      transform: translate(80px, 80px);
+      max-width: 400px;
+    }
+  }
+
+  .ant-popover-arrow {
+    visibility: hidden;
   }
 
   .ant-input-number-input {

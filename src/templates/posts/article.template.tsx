@@ -130,9 +130,6 @@ class Article extends Component<ArticleProps, PostState> {
       title: article.title,
     }
 
-    console.log('article.shortUrl')
-    console.log(article.shortUrl)
-
     return (
       <Layout nav={navConfig}>
         <ArticleMicrodata article={article} location={location} />

@@ -51,8 +51,8 @@ class Progress extends Component<
     const { height } = this.props
     const allHeadings = Array.from(document.querySelectorAll('h2')).reverse()
 
-    const introduciton = {
-      text: 'Introduction',
+    const introduction = {
+      text: '',
       offset: 0,
       offetPercentage: 0,
     }
@@ -71,7 +71,7 @@ class Progress extends Component<
       })
       .reverse()
 
-    this.setState({ headings: [introduciton, ...headings] })
+    this.setState({ headings: [introduction]} )
   }
 
   onScroll = throttle((event: Event) => {

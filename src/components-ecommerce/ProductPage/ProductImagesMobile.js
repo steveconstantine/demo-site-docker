@@ -18,7 +18,7 @@ const ProductImagesMobileRoot = styled(`div`)`
   overflow-x: scroll;
   padding: ${spacing.md}px;
   padding-bottom: ${spacing.xs}px;
-  max-width: 60vw;
+  max-width: calc(100vw - 12px);
 
   @media (min-width: ${breakpoints.tablet}px) {
     padding: ${spacing.xl}px;

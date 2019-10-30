@@ -126,10 +126,13 @@ const AddDonationButton = styled(Button)`
   font-weight: 600;
   margin: 0 auto;
   width: 150px;  
-  padding: 10px 14px 10px 14px;
+  padding: 10px 28px 10px 14px;
   height: 40px;
   text-align: right;
   margin-left: 14px;
+  margin-right: 30px;
+  font-size: 2.15rem;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 
   @media all and (max-width: 1000px) {
     margin-right: 14px;
@@ -215,7 +218,7 @@ class DonationForm extends Component {
     if (this.state.quantity < 1) {
       errors.push({
         field: 'quantity',
-        msg: 'Choose a <b>quantity</b> of 1 or more.'
+        msg: 'Choose a <b>dollar value</b> of 1 or more.'
       });
     }
 
@@ -352,6 +355,7 @@ class DonationForm extends Component {
         visible={this.state.hovered}
         onVisibleChange={this.handleHoverChange}
         placement="topRight"
+        overlayStyle={{'transformOrigin': '500px 250px'}}
       >
         <Popover
           style={{width: 500, background: '#000000BB'}}
@@ -362,6 +366,7 @@ class DonationForm extends Component {
           visible={this.state.clicked}
           onVisibleChange={this.handleClickChange}
           placement="topRight"
+          overlayStyle={{'transformOrigin': '500px 250px'}}
         >
           <AddDonationButton>Add Donation<AddIcon /></AddDonationButton>
         </Popover> 

@@ -7,7 +7,7 @@ import mediaqueries from '@styles/media'
 import Flickity from 'react-flickity-component'
 
 const flickityOptions = {
-    initialIndex: 2,
+    initialIndex: 1,
     freeScroll: true,
     freeScrollFriction: 0.03,
     contain: true,
@@ -19,6 +19,7 @@ const flickityOptions = {
     friction: 0.8,
     dragThreshold: 150,
     adaptiveHeight: true,
+    groupCells: 2,
     fullscreen: true,
     wrapAround: true,
     groupCells: true,
@@ -165,16 +166,12 @@ const ImageContainer = styled.div`
     object-fit: cover;
     object-position: center center;
   }
-
-  ${mediaqueries.phablet`
-    width: 25.5rem;
-  `};
 `
 
 const ImageContainerMobile = styled.div`
   border-radius: 3px;
   overflow: hidden;
-  width: 34rem;
+  width: 50vw;
   filter: grayscale(100);
   ${mediaqueries.tablet`
     width: 100%;
