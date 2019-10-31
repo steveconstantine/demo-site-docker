@@ -165,6 +165,8 @@ const SlideInContainer = styled.div`
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background: url('https://cdn.shopify.com/s/files/1/0708/4517/t/7/assets/photo-gallery-1492-Raven-Magic_1024x1024.jpg?6282936110242184875');
+  background-size: cover;
+  background-position: center center;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   filter: blur(0);
@@ -173,10 +175,11 @@ const SlideInContainer = styled.div`
     width: 100%;
     position: relative;
     top: 310px;
-    height: calc(100vh - 240px);
+    height: auto;
     box-shadow: none;
     padding-top: 0;
     overflow: initial;
+    overflow-y: scroll;
 
     &::before {
       content: '';

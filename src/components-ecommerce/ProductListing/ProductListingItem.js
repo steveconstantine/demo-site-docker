@@ -149,12 +149,13 @@ const Name = styled(`h1`)`
   font-size: 1.6rem;
   line-height: 1.2;
   margin: 0;
+  height: 60px;
 `;
 
 const Description = styled(`p`)`
   color: #dddde2;
-  flex-grow: 1;
-  max-height: 75px;
+  flex-grow: 0;
+  height: 55px;
   font-size: 1rem;
   line-height: 1.5;
 `;
@@ -184,7 +185,7 @@ const Incentive = styled('div')`
   font-size: 0.9rem;
   line-height: 1.3;
   margin-bottom: ${spacing['2xs']}px;
-  margin-right: calc(-${spacing.lg}px - 55px);
+  margin-right: calc(-${spacing.lg}px - 45px);
   text-align: right;
   transition: all ${TRANSITION_DURATION};
 

@@ -7,7 +7,7 @@ import { breakpoints, colors, fonts, spacing } from '../../utils/styles';
 import DonationForm from './DonationForm';
 
 const ProductSpecsRoot = styled(`div`)`
-  padding: 40px 32px 32px;
+  padding: 26px 18px 18px;
   border-radius: 5px;
   background: #00000044;
 

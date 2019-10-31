@@ -48,15 +48,14 @@ const DonationContainer = styled(`div`)`
 
 const Details = styled(`div`)`
   position: relative;
-
-  @media (min-width: ${breakpoints.desktop}px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-right: -${spacing.xl}px;
-    max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 800px;
+  min-height: 490px;
+  
+  @media (min-width: 1024px) {
     min-width: 650px;
-    min-height: 490px;
   }
 `;
 

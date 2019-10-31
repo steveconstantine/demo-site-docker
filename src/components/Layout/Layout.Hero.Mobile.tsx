@@ -51,7 +51,7 @@ const Frame = styled.div`
     width: 100vw;
 
     @media screen and (max-height: 600px) {
-      padding-top: 60px;
+      padding-top: 4px;
     }
   `}
 `
