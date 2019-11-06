@@ -101,7 +101,7 @@ class ProductImage extends Component {
         href={fixed.src}
         onClick={this.handleClick(onClick)}
       >
-        <StyledImage imgStyle={{'objectFit': 'contain'}} fixed={ imageFeatured ? fixed : fixed } alt="" />
+        <StyledImage loading='auto' imgStyle={{'objectFit': 'contain'}} fixed={ imageFeatured ? fixed : fixed } alt="" />
         <ZoomHelper>
           <MdZoomIn />
         </ZoomHelper>

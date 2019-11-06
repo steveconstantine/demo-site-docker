@@ -85,10 +85,7 @@ class ProductPage extends Component {
     const {
       donation,
       product,
-      product: { id, images, variants }
     } = this.props
-
-    console.log(donation);
 
     const prevUrl = this.props.prevUrl
     const {
@@ -102,12 +99,12 @@ class ProductPage extends Component {
         <Container>
           { isMobile ? (
             <ProductImagesMobile
-              images={images}
+              images={product.images}
               imageOnClick={toggleProductImagesBrowser}
             />
           ) : (
             <ProductImagesDesktop
-              images={images}
+              images={product.images}
               imageOnClick={toggleProductImagesBrowser}
               imageFeatured={productImageFeatured}
             />
@@ -117,7 +114,7 @@ class ProductPage extends Component {
               <BackLink vendor={prevUrl}>Back / Previous</BackLink>
             </BackLinkContainer>
             <ProductSpecs product={product} id={donation.id} variants={donation.variants} />
-            <ProductForm id={id} variants={variants} />
+            <ProductForm id={product.id} variants={product.variants} />
           </Details>
         </Container>
       </ProductPageRoot>

@@ -455,14 +455,21 @@ const Content = styled.article`
 
   p {
     ${articleWidth};
-    margin-bottom: 30px;
+    margin-bottom: 6px;
     line-height: 1.55;
     font-size: 22px;
     color: ${p => p.theme.mode.text};
 
-
     b {
       font-weight: 800;
+    }
+  }
+
+  h6 {
+    font-size: 22px;
+
+    &:first-child {
+      margin-top: 30px;
     }
   }
 
@@ -543,8 +550,8 @@ const Content = styled.article`
   hr {
     width: 250px;
     height: 1px;
-    margin: 30px auto;
-    opacity: 0.33;
+    margin: 15px auto;
+    opacity: 0;
   }
 
   .twitter-tweet {
@@ -558,7 +565,7 @@ const Content = styled.article`
     ${articleWidth};
     position: relative;
     width: 100%;
-    margin: 25px auto 60px;
+    margin: 15px auto 15px;
     border: 0;
     height: 14.36px;
     background-image: url("${p => p.theme.mode.hr}");

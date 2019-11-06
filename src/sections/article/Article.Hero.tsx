@@ -15,7 +15,13 @@ import { IArticleNode } from '@typings'
 const inlineAnimate = (cond: boolean) => (obj: any) => (cond ? obj : {})
 
 const ArticleHero = ({ article }: { article: IArticleNode }) => {
-  const author = article.author
+  const author = article.author[0]
+
+  let readingTime = article.readingTime.text;
+
+  if (readingTime.toString() == '0 minute read') {
+    readingTime = '< 1 minute read'
+  }
 
         return (
           <Hero>
@@ -24,15 +30,14 @@ const ArticleHero = ({ article }: { article: IArticleNode }) => {
                 <Header>
                   <HeroTitle>{article.title}</HeroTitle>
                   <HeroSubtitle>
-                    By {author.name}
-                    {author.title && `, ${author.title}`}
+                    Posted on {article.publicationDate}
                   </HeroSubtitle>
                 </Header>
               </Section>
             </HeroContent>
             <RelativeSection>
               <ScrollIndicator mode="dark" disableScrollAnimation />
-              <ReadingTime>{article.readingTime.text}</ReadingTime>
+              <ReadingTime>{readingTime}</ReadingTime>
             </RelativeSection>
             <Image>
               <Media critical src={article.hero.Article__Hero} />
@@ -89,7 +94,7 @@ const Header = styled.header`
 const HeroTitle = styled(Heading.h1)`
   font-size: 48px;
   color: #000;
-  font-family: ${p => p.theme.fontfamily.serif};
+  font-family: inherit;
   font-weight: 700;
 
   ${mediaqueries.tablet`
@@ -100,8 +105,9 @@ const HeroTitle = styled(Heading.h1)`
 
 const HeroSubtitle = styled.div`
   font-size: 18px;
-  color: rgba(0, 0, 0, 0.3);
-  font-weight: 800;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  font-family: inherit;
 `
 
 const RelativeSection = styled(Section)`
@@ -127,7 +133,7 @@ const Image = styled.div`
   width: 100%;
   height: 100%;
   z-index: -1;
-  right: -40%;
+  opacity: 0.25;
   overflow: visible;
 
   & > div {
@@ -152,6 +158,6 @@ const Image = styled.div`
   }
 
   ${mediaqueries.tablet`
-    display: none;
+    z-index: 1;
   `}
 `

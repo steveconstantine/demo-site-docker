@@ -115,8 +115,10 @@ class Article extends Component<ArticleProps, PostState> {
 
     const scrollInfo = { height: contentHeight, offset: contentOffset }
     const article = this.article
-    const author = this.article.author
+    const author = this.article.author[0]
     const next = this.next
+
+    console.log(author.name);
 
     const navConfig = {
       offset: true,
@@ -124,11 +126,7 @@ class Article extends Component<ArticleProps, PostState> {
       theme: 'dark',
     }
 
-    const disqusConfig = {
-      url: article.shortUrl,
-      identifier: article.id,
-      title: article.title,
-    }
+    console.log(article.body);
 
     return (
       <Layout nav={navConfig}>
@@ -156,17 +154,7 @@ class Article extends Component<ArticleProps, PostState> {
           <ArticleHighlight article={article} mode={mode} />
         </Content>
         <Gradient>
-          <Meta>
-            <div>Posted on {article.publicationDate}</div>
-            <div>
-              By {author.name}
-              {author.title && ` , ${author.title}`}
-            </div>
-          </Meta>
           <Section narrow>
-          {!!article.buyMeACoffeeId && (
-            <SponsorButton sponsorId={article.buyMeACoffeeId} />
-          )}
           <ProductListingByTag tag={article.productTag} />
           </Section>
           <NextArticle narrow>
@@ -215,6 +203,7 @@ const Gradient = styled.div`
   position: relative;
   background: ${p => p.theme.mode.gradient};
   transition: background 0.4s ease-in-out;
+  padding-top: 112px;
 `
 
 const Meta = styled.div`
@@ -224,6 +213,7 @@ const Meta = styled.div`
   font-size: 14px;
   color: ${p => p.theme.mode.text};
   margin-bottom: 80px;
+  background: ${p => p.theme.mode.background};
 
   ${mediaqueries.tablet`
     padding: 0 20px;

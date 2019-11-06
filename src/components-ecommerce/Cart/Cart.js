@@ -415,8 +415,7 @@ class Cart extends Component {
   render() {
     const { status, toggle, theme } = this.props;
     const { className, shortenCart } = this.state;
-    const donationID =
-      'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zMDk1NDU4MzE2Mjk1OA==';
+    let donationID;
 
     return (
       <ShopContext.Consumer>
@@ -456,8 +455,10 @@ class Cart extends Component {
           checkout.lineItems.forEach((item) => {
             if (item.title != 'Donation')
               checkoutList.push(item)
-            else if (item.title == 'Donation')
+            else if (item.title == 'Donation') {
               donationList = item
+              donationID = item.id
+            }
           });
 
           return (

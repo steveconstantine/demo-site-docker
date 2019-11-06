@@ -83,7 +83,7 @@ exports.plugins = [
   {
     resolve: 'gatsby-source-shopify',
     options: {
-      shopName: 'contactgiftingwild',
+      shopName: 'helptheoceansolution',
       accessToken: process.env.SHOPIFY_ACCESS_TOKEN
     }
   },

@@ -53,7 +53,7 @@ const exit = keyframes`
 `;
 
 const ProductImagesBrowserRoot = styled(`div`)`
-  background: white;
+  background: #00880b;
   bottom: 0;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -137,7 +137,7 @@ const ImageBox = styled(`a`)`
 `;
 
 const ZoomHelper = styled(`span`)`
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: ${radius.large}px;
   display: flex;
   left: ${spacing['xs']}px;
