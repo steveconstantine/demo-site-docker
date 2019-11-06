@@ -19,13 +19,16 @@ import ProductPage from '../../components-ecommerce/ProductPage';
 function ProductPageTemplate({ data, location, pageContext }) {
   console.log(data);
   const seo = data.allShopifyProduct.edges[0].node
-  const product = data.allShopifyProduct.edges[0].node
+  const product = data.allShopifyProduct.edges[0].node  
   const donation = pageContext.donation[0].node
 
   console.log(product);
 
   const description = product.description
   const image = product.images[0].localFile.childImageSharp.fixed.src
+
+  console.log('template product data & image');
+  console.log(product);
 
   const navConfig = {
     offset: true,
