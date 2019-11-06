@@ -81,12 +81,15 @@ class ProductPage extends Component {
     this.props.setCurrentProductImages(images)
   }
 
+
   render() {
     const {
       donation,
       product,
       product: { id, images, variants }
     } = this.props
+
+    console.log(product);
 
     console.log(donation);
 
@@ -116,8 +119,8 @@ class ProductPage extends Component {
             <BackLinkContainer>
               <BackLink vendor={prevUrl}>Back / Previous</BackLink>
             </BackLinkContainer>
-            <ProductSpecs product={product} id={donation.id} variants={donation.variants} />
-            <ProductForm id={id} variants={variants} />
+            <ProductSpecs donation={donation} product={product} />
+            <ProductForm id={product.id} variants={product.variants} />
           </Details>
         </Container>
       </ProductPageRoot>

@@ -277,7 +277,7 @@ const ProductListingItem = props => {
           <ProductListingItemLink fade to={`/product/${handle}`}>
             <Item>
               <Preview>
-                <Image fluid={fluid} />
+                <Image fadeIn durationFadeIn={500} fluid={fluid} />
                 
                 {checkEligibility({
                   freeWith,

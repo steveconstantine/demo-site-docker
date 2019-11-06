@@ -53,7 +53,7 @@ const exit = keyframes`
 `;
 
 const ProductImagesBrowserRoot = styled(`div`)`
-  background: white;
+  background: black;
   bottom: 0;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -90,12 +90,10 @@ const change = keyframes`
 `;
 
 const ZoomArea = styled(`div`)`
-  border-bottom: 1px solid ${colors.brandLight};
   flex-grow: 1;
   flex-shrink: 0;
   height: calc(100% - ${dimensions.pictureBrowserAction.widthDesktop});
   -webkit-overflow-scrolling: touch;
-  overflow-x: scroll;
   overflow-y: scroll;
   width: 100%;
   &.change {
@@ -103,7 +101,6 @@ const ZoomArea = styled(`div`)`
   }
   @media (min-width: ${breakpoints.desktop}px) {
     border-bottom: none;
-    border-left: 1px solid ${colors.brandLight};
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -137,7 +134,7 @@ const ImageBox = styled(`a`)`
 `;
 
 const ZoomHelper = styled(`span`)`
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0,0,0, 0.5);
   border-radius: ${radius.large}px;
   display: flex;
   left: ${spacing['xs']}px;
@@ -145,7 +142,7 @@ const ZoomHelper = styled(`span`)`
   position: fixed;
   top: ${spacing['xs']}px;
   svg {
-    fill: ${colors.brand};
+    fill: white;
     height: 34px;
     width: 34px;
   }
@@ -172,6 +169,9 @@ const Actions = styled(`div`)`
 
 const CloseButton = styled(Button)`
   position: relative;
+  color: white;
+  border: 1px solid white;
+  background: transparent;
 `;
 
 const ActionsThumbnails = styled(ProductThumbnails)`
@@ -273,8 +273,6 @@ class ProductImagesBrowser extends Component {
       }
     } = image;
 
-    const fixed = image.localFile.childImageSharp.fixed;
-
     const { imageBoxHeight, superZoom } = this.state;
 
     return (
@@ -296,16 +294,13 @@ class ProductImagesBrowser extends Component {
             onClick={this.toggleZoomRatio}
             href={fluid.src}
             superZoom={superZoom}
-            width={imageBoxHeight}
+            width={'100vw'}
             ref={image => {
               this.imageBox = image;
             }}
           >
-            <Image fixed={fixed} />
+            <Image fluid={fluid} />
           </ImageBox>
-          {altText && (
-            <CommunityCaption caption={altText} superZoom={superZoom} />
-          )}
         </ZoomArea>
         <ZoomHelper>{superZoom ? <MdZoomOut /> : <MdZoomIn />}</ZoomHelper>
       </ProductImagesBrowserRoot>

@@ -14,28 +14,6 @@ exports.plugins = [
   `gatsby-plugin-typescript`,
   `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,
-  {
-    resolve: `gatsby-transformer-remark`,
-    options: {
-      plugins: [
-        {
-          resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 590,
-              linkImagesToOriginal: false,
-          },
-        },
-        {
-          resolve: `gatsby-remark-images-medium-zoom`,
-            options: {
-              margin: 36,
-              scrollOffset: 0,
-          },
-        },
-        'gatsby-plugin-catch-links',
-      ],
-    },
-  },
   `gatsby-plugin-netlify`,
   `gatsby-plugin-netlify-cache`,
   {
@@ -83,7 +61,7 @@ exports.plugins = [
   {
     resolve: 'gatsby-source-shopify',
     options: {
-      shopName: 'contactgiftingwild',
+      shopName: 'helptheoceansolution',
       accessToken: process.env.SHOPIFY_ACCESS_TOKEN
     }
   },

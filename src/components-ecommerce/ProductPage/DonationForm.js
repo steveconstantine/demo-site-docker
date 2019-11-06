@@ -310,32 +310,6 @@ class DonationForm extends Component {
                 formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               />
             </QtyFieldset>
-            {hasVariants && (
-              <SizeFieldset>
-                <Label htmlFor="variant">
-                  Size{' '}
-                </Label>
-                <Select
-                  id="variant"
-                  value={this.state.variant}
-                  name="variant"
-                  onChange={this.handleChange}
-                >
-                  <option disabled value="">
-                    Choose Size
-                  </option>
-                  {variants.map(variant => (
-                    <option
-                      disabled={!variant.availableForSale}
-                      value={variant.shopifyId}
-                      key={variant.shopifyId}
-                    >
-                      {variant.title}
-                    </option>
-                  ))}
-                </Select>
-              </SizeFieldset>
-            )}
             <AddToCartButton
               type="submit"
               disabled={isOutOfStock}

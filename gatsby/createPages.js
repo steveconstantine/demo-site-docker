@@ -163,7 +163,6 @@ const GatsbyShopifyFluid_withWebp = `
  */
 const productNode = `
     ${basicNode}
-    id
     productType
     tags
     variants {
@@ -171,21 +170,6 @@ const productNode = `
       title
       price
       availableForSale
-    }
-    images {
-      id
-      localFile {
-        childImageSharp {
-          fluid(maxHeight: 910) {
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
-          }
-        }
-      }
     }
 `
 
@@ -195,21 +179,6 @@ const collectionNode = `
     products {
      id
      tags
-     images {
-      id
-      localFile {
-        childImageSharp {
-          fluid(maxHeight: 910) {
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
-          }
-        }
-      }
-    }
     }
 `
 

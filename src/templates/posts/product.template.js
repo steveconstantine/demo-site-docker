@@ -17,9 +17,12 @@ import ProductPage from '../../components-ecommerce/ProductPage';
 
 
 function ProductPageTemplate({ data, location, pageContext }) {
+  console.log(data);
   const seo = data.allShopifyProduct.edges[0].node
   const product = data.allShopifyProduct.edges[0].node
   const donation = pageContext.donation[0].node
+
+  console.log(product);
 
   const description = product.description
   const image = product.images[0].localFile.childImageSharp.fixed.src
@@ -93,9 +96,9 @@ function ProductPageTemplate({ data, location, pageContext }) {
 export default ProductPageTemplate
 
 export const query = graphql`
-  query productQuery($productType: String!) {
+  query productQuery($handle: String!) {
     allShopifyProduct(filter: { 
-      productType: { in: [$productType] } }
+      handle: { eq: $handle } }
       sort: { fields: [publishedAt], order: ASC }
     ) {
       edges {
@@ -115,11 +118,21 @@ export const query = graphql`
               id
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 910, maxHeight: 910) {
-                    ...GatsbyImageSharpFluid_withWebp
+                  fluid(maxHeight: 10000) {
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    sizes
                   }
-                  fixed {
-                    ...GatsbyImageSharpFixed_withWebp
+                  fixed(quality: 100) {
+                    width
+                    height
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
                   }
                 }
               }
