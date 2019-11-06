@@ -68,8 +68,7 @@ const ProductSpecs = props => {
       description,
       variants: [variant]
     }, 
-    variants, 
-    id,
+    donation,
   } = props;
 
   const { price } = variant;
@@ -82,7 +81,7 @@ const ProductSpecs = props => {
         <span>USD</span> ${price}
       </Price>
       <DonationContainer>
-        <DonationForm id={id} variants={variants} />
+        <DonationForm id={donation.id} variants={donation.variants} />
       </DonationContainer>
     </ProductSpecsRoot>
   );

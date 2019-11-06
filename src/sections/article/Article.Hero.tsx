@@ -40,7 +40,7 @@ const ArticleHero = ({ article }: { article: IArticleNode }) => {
               <ReadingTime>{readingTime}</ReadingTime>
             </RelativeSection>
             <Image>
-              <Media critical src={article.hero.Article__Hero} />
+              <Media loading='eager' src={article.hero.Article__Hero} />
             </Image>
           </Hero>
         )

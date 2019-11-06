@@ -33,7 +33,6 @@ export const ProductThumbnailsContent = styled(`div`)`
 `;
 
 export const Thumbnail = styled(`a`)`
-  border: 1px solid ${colors.brandBright};
   border-radius: ${radius.default}px;
   height: ${THUMBNAIL_SIZE};
   margin-right: ${spacing.md}px;
@@ -42,6 +41,12 @@ export const Thumbnail = styled(`a`)`
   @media (min-width: ${breakpoints.desktop}px) {
     cursor: pointer;
     margin-right: ${spacing.md}px;
+  }
+
+  .gatsby-image-wrapper {
+    height: ${THUMBNAIL_SIZE};
+    width: ${THUMBNAIL_SIZE};
+    border: 1px solid ${colors.brandBright};
   }
 `;
 
@@ -74,7 +79,7 @@ class ProductThumbnails extends Component {
                     onClick={this.handleClick(image, featureProductImage)}
                     href={fluid.src}
                   >
-                    <Image fluid={fluid} />
+                    <Image objectFit='cover' imgStyle={{'objectFit': 'cover'}} fluid={fluid} />
                   </Thumbnail>
                 );
               })}
