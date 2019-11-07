@@ -23,12 +23,6 @@ const ArticleHero = ({ article }: { article: IArticleNode }) => {
     readingTime = '< 1 minute read'
   }
 
-  let readingTime = article.readingTime.text;
-
-  if (readingTime == '0 minute read') {
-    readingTime = '<1 minute read'
-  }
-
         return (
           <Hero>
             <HeroContent>

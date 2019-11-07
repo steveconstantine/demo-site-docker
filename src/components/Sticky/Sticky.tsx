@@ -82,7 +82,6 @@ export default Sticky
 
 const StickyDuration = styled.div`
   height: ${p => p.height || '100vh'};
-
   ${mediaqueries.tablet`
     height: ${p => (p.isDisabled ? '100%' : p.height)};
   `}
@@ -100,7 +99,6 @@ const StickyItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
   ${mediaqueries.tablet`
     position: ${p => (p.isDisabled ? 'static' : 'sticky')};
     display: ${p => (p.isDisabled ? 'block' : 'flex')};
