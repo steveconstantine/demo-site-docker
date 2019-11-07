@@ -15,7 +15,13 @@ import { IArticleNode } from '@typings'
 const inlineAnimate = (cond: boolean) => (obj: any) => (cond ? obj : {})
 
 const ArticleHero = ({ article }: { article: IArticleNode }) => {
-  const author = article.author
+  const author = article.author[0]
+
+  let readingTime = article.readingTime.text;
+
+  if (readingTime.toString() == '0 minute read') {
+    readingTime = '< 1 minute read'
+  }
 
   let readingTime = article.readingTime.text;
 
@@ -95,6 +101,7 @@ const HeroTitle = styled(Heading.h1)`
   font-size: 48px;
   font-family: inherit;
   color: #000;
+  font-family: inherit;
   font-weight: 700;
 
   ${mediaqueries.tablet`

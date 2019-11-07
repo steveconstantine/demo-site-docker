@@ -86,12 +86,7 @@ class ProductPage extends Component {
     const {
       donation,
       product,
-      product: { id, images, variants }
     } = this.props
-
-    console.log(product);
-
-    console.log(donation);
 
     const prevUrl = this.props.prevUrl
     const {
@@ -105,12 +100,12 @@ class ProductPage extends Component {
         <Container>
           { isMobile ? (
             <ProductImagesMobile
-              images={images}
+              images={product.images}
               imageOnClick={toggleProductImagesBrowser}
             />
           ) : (
             <ProductImagesDesktop
-              images={images}
+              images={product.images}
               imageOnClick={toggleProductImagesBrowser}
               imageFeatured={productImageFeatured}
             />

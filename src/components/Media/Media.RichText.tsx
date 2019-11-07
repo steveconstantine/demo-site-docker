@@ -470,6 +470,14 @@ const Content = styled.article`
     }
   }
 
+  h6 {
+    font-size: 22px;
+
+    &:first-child {
+      margin-top: 30px;
+    }
+  }
+
   img {
     display: block;
     position: relative;
@@ -547,8 +555,8 @@ const Content = styled.article`
   hr {
     width: 250px;
     height: 1px;
-    margin: 30px auto;
-    opacity: 0.33;
+    margin: 15px auto;
+    opacity: 0;
   }
 
   .twitter-tweet {
