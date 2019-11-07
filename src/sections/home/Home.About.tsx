@@ -10,18 +10,17 @@ import Media from '@components/Media/Media.Img'
 import mediaqueries from '@styles/media'
 
 const aboutText = [
-  `Even the most brilliant companies hit points where their focus is
-  spread thin by the many challenges that growing businesses face,
-  blocking them from reaching their full potential. That's where we
-  come in.`,
-  `Gifting Wild brings focus through the lens of a team that’s faced it
-  all before, at scrappy startups and established enterprises alike.
-  That’s why we don’t do big pitches or presentations — it’s just
-  not in our DNA.`,
-  `Instead, we take the time to understand what drives your company
-  and customers as if they were our own, uncovering every problem
-  and opportunity along the way.
-  <strong>Then we get straight to work</strong>.`,
+  `More than 5 trillion pieces of plastic, weighing nearly 269,000 tons, are littering the world's oceans according to a study by the scientific journal PLOS One. The study is the first of its kind to gather data from around the world on floating plastic.<br/>
+  Source: <a style="color:#FAFAFA; text-decoration: underline;" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111913" target="_blank" >https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111913/</a>`,
+  `Coastal land-based human dispersal account for 80% of ocean plastic pollution, globally. Over 6.5 million tons of litter enter the world’s Ocean each year. 50% is long-lasting plastic that will drift for hundreds of years before it is degraded.
+  Source: <a style="color:#FAFAFA; text-decoration: underline;" href="https://www.worldoceannetwork.org/won-part-6/carem-wod-2014-4/thematic-resources-pollution/" target="_blank">
+  https://www.worldoceannetwork.org/won-part-6/carem-wod-2014-4/thematic-resources-pollution/facts-figures-pollution/</a>`,
+  `More than a million seabirds and over 100,000 marine mammals die every year from plastic. Every day, more and more marine creatures are dying and washing ashore full of plastic and trash.   
+  Source: <a style="color:#FAFAFA; text-decoration: underline;" href="http://www.perseus-net.eu/site/content.php?locale=1&sel=517&artid=565" target="_blank">http://www.perseus-net.eu/site/content.php?locale=1&sel=517&artid=565</a>`,
+  `Please view this information and more on <a style="color:#FAFAFA; text-decoration: underline;" href="https://oceanlegacy.ca" target="_blank" >oceanlegacy.ca</a> <br/>
+  We are proud to support Ocean Legacy Foundation in their efforts to solve the global ocean pollution crisis.`,
+  `Thanks for your attention to gifting wild,<br/>
+  Ben and Steve`
 ]
 
 const imageQuery = graphql`
@@ -45,7 +44,7 @@ const imageQuery = graphql`
  * To accomplish this we do two things
  * 1. Using a Padding/Margin trick to get the FadeOut to work nicely
  * 2. Overlaying a fixed gradient to get the FadeIn to work nicely
- */
+- */
 const HomeAbout = () => {
   const { glow } = useStaticQuery(imageQuery)
 
@@ -63,7 +62,7 @@ const HomeAbout = () => {
             height="682px"
             top={140}
             disableOnMobile
-            render={() => <AboutHeading>The Gifting Wild Approach</AboutHeading>}
+            render={() => <AboutHeading>Gifting Wild</AboutHeading>}
           />
           <div>
             {aboutText.map(text => (
@@ -83,12 +82,7 @@ export default HomeAbout
 const Gradient = styled.div`
   position: relative;
   z-index: 1;
-  background: #08080b;
-  background: linear-gradient(#08080b, #101216);
-
-  ${mediaqueries.tablet`
-    background: linear-gradient(transparent, #101216);
-  `};
+  background: transparent;
 `
 
 const Grid = styled(Section)`

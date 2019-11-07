@@ -37,6 +37,7 @@ function IndexPage({ data, location }) {
           pathname={location.pathname}
         />
         <HomeHero />
+        <HomeAbout />
       </>
     </Layout>
   )
