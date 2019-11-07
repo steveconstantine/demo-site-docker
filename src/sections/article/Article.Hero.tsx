@@ -23,6 +23,12 @@ const ArticleHero = ({ article }: { article: IArticleNode }) => {
     readingTime = '< 1 minute read'
   }
 
+  let readingTime = article.readingTime.text;
+
+  if (readingTime == '0 minute read') {
+    readingTime = '<1 minute read'
+  }
+
         return (
           <Hero>
             <HeroContent>
@@ -30,13 +36,12 @@ const ArticleHero = ({ article }: { article: IArticleNode }) => {
                 <Header>
                   <HeroTitle>{article.title}</HeroTitle>
                   <HeroSubtitle>
-                    Posted on {article.publicationDate}
+                    <div>Posted on {article.publicationDate}</div>
                   </HeroSubtitle>
                 </Header>
               </Section>
             </HeroContent>
             <RelativeSection>
-              <ScrollIndicator mode="dark" disableScrollAnimation />
               <ReadingTime>{readingTime}</ReadingTime>
             </RelativeSection>
             <Image>
@@ -50,12 +55,13 @@ export default ArticleHero
 
 const Hero = styled.div`
   position: relative;
-  z-index: 5;
   min-height: 600px;
   height: 100vh;
   background: #fafafa;
   display: flex;
   overflow: hidden;
+  top: -70px;
+  margin-bottom: -70px;
 
   ${mediaqueries.tablet`
     min-height: 100vh;
@@ -93,6 +99,7 @@ const Header = styled.header`
 
 const HeroTitle = styled(Heading.h1)`
   font-size: 48px;
+  font-family: inherit;
   color: #000;
   font-family: inherit;
   font-weight: 700;
@@ -105,16 +112,17 @@ const HeroTitle = styled(Heading.h1)`
 
 const HeroSubtitle = styled.div`
   font-size: 18px;
-  color: rgba(0, 0, 0, 0.5);
-  font-weight: 600;
-  font-family: inherit;
+  font-family: futura-pt, -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;
+  color: rgba(55, 55, 55, 1);
+  font-weight: 400;
 `
 
 const RelativeSection = styled(Section)`
   position: relative;
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: 70px;
+  padding-bottom: 70px;
   margin: 0 auto;
   left: 0;
   right: 0;
@@ -122,19 +130,17 @@ const RelativeSection = styled(Section)`
 
 const ReadingTime = styled.div`
   top: 6px;
-  left: 51px;
   position: absolute;
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.55);
 `
 
 const Image = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  opacity: 0.25;
   overflow: visible;
+  opacity: 0.25;
 
   & > div {
     top: 50%;
@@ -156,8 +162,4 @@ const Image = styled.div`
     transform: translateY(-50%);
     object-position: left center !important;
   }
-
-  ${mediaqueries.tablet`
-    z-index: 1;
-  `}
 `

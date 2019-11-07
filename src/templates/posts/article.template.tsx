@@ -154,8 +154,10 @@ class Article extends Component<ArticleProps, PostState> {
           <ArticleHighlight article={article} mode={mode} />
         </Content>
         <Gradient>
+          <Meta>
+          </Meta>
           <Section narrow>
-          <ProductListingByTag tag={article.productTag} />
+          <ProductListing tag={article.productTag} />
           </Section>
           <NextArticle narrow>
             <FooterNext>Next article from Gifting-Wild</FooterNext>
@@ -188,14 +190,20 @@ const MobileControls = styled.div`
   `}
 `
 
+const ProductListing = styled(ProductListingByTag)`
+  padding-bottom: 40px;
+`
+
 const Content = styled(RichText).attrs<{ textHighlightColor: string }>({})`
   position: relative;
   padding: 160px 0 35px;
   background: ${p => p.theme.mode.background};
   transition: background 0.2s linear;
+  margin-bottom: -80px;
 
   ${mediaqueries.tablet`
     padding: 60px 0 60px 0;
+    margin-bottom: -50px;
   `}
 `
 
@@ -222,6 +230,7 @@ const Meta = styled.div`
 `
 
 const NextArticle = styled(Section)`
+  padding-top: 20px;
   display: block;
 `
 
