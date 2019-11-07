@@ -54,9 +54,7 @@ const HomeAbout = () => {
   return (
     <>
       <MobileContainer>
-        <Slash aria-hidden="true" />
         <MediaContainer>
-          <Media src={glow.childImageSharp.fluid} />
         </MediaContainer>
       </MobileContainer>
       <Gradient>
@@ -149,10 +147,10 @@ const MobileContainer = styled.div`
 `
 
 const MediaContainer = styled.div`
-  position: absolute;
+  position: static;
   left: 0;
   top: -100px;
-  height: 100%;
+  height: 400px;
   width: 100%;
 `
 
