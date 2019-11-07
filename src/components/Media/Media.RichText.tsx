@@ -269,6 +269,11 @@ const Content = styled.article`
     color: ${p => p.theme.mode.text};
   }
 
+  h6 {
+    font-size: 22px;
+    font-family: inherit;
+  }
+
   h1,
   h1 * {
     font-weight: 700;
@@ -455,11 +460,10 @@ const Content = styled.article`
 
   p {
     ${articleWidth};
-    margin-bottom: 30px;
-    line-height: 1.55;
-    font-size: 22px;
-    color: ${p => p.theme.mode.text};
-
+      line-height: 1.55;
+      font-size: 22px;
+      color: ${p => p.theme.mode.text};
+      margin: 0px auto 6px;
 
     b {
       font-weight: 800;
@@ -558,10 +562,9 @@ const Content = styled.article`
     ${articleWidth};
     position: relative;
     width: 100%;
-    margin: 25px auto 60px;
+    margin: 25px auto 35px;
     border: 0;
     height: 14.36px;
-    background-image: url("${p => p.theme.mode.hr}");
     background-repeat: repeat-x;
     box-sizing: border-box;
 

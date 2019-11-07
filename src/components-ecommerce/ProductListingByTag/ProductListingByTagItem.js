@@ -37,20 +37,20 @@ const DESCRIPTION_LIMIT = 90;
 const TRANSITION_DURATION = '250ms';
 
 const ProductListingItemLink = styled(LinkWithPrevUrl)`
-  background: ${colors.lightest};
+  background: #000000CC;
   border-radius: ${radius.large}px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: ${spacing.lg}px;
   overflow: hidden;
   text-decoration: none;
-  width: 400px;
-  height: 555px;
+  flex-basis: 40vw;
+  width: 40vw;
+  max-height: 555px;
   transition: all ${TRANSITION_DURATION};
-  background: #fafafa;
   margin-left: 3px;
   margin-right: 3px;
-  opacity: 1;
--
+  opacity: 0.9;
+
   @media (min-width: ${breakpoints.tablet}px) {
     margin-left: 4px;
     margin-right: 4px;
@@ -72,12 +72,12 @@ const ProductListingItemLink = styled(LinkWithPrevUrl)`
   &:hover {
       filter: grayscale(0);
       opacity: 1;
-      filter: contrast(105);
+      filter: brightness(105%);
   }
 
   @media (hover: hover) {
     :hover {
-      background: ${colors.brandLighter};
+      background: #000;
     }
   }
 `;
@@ -85,12 +85,21 @@ const ProductListingItemLink = styled(LinkWithPrevUrl)`
 const Item = styled(`article`)`
   display: flex;
   flex-direction: column;
-  height: 555px;
-  padding: 20px;
+  max-height: 555px;
+  padding: 36px 34px;
+
+  @media (max-width: ${breakpoints.tablet}px) {
+    height: 444px;
+    padding: 12px 10px;
+  }
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    height: 555px;
+  }
 `;
 
 const Preview = styled(`div`)`
-  border-bottom: 1px solid ${colors.brandLight};
+  border-bottom: 0px solid ${colors.brandLight};
   border-radius: ${radius.large}px ${radius.large}px 0 0;
   margin: -${spacing.lg}px;
   margin-bottom: ${spacing.lg}px;
@@ -147,16 +156,18 @@ const CodeEligibility = styled(`div`)`
 `;
 
 const Name = styled(`h1`)`
-  color: ${colors.brandDark};
+  color: #dddde2;
   font-family: ${fonts.heading};
   font-size: 1.6rem;
   line-height: 1.2;
   margin: 0;
+  height: 60px;
 `;
 
 const Description = styled(`p`)`
-  color: ${colors.text};
-  flex-grow: 1;
+  color: #dddde2;
+  flex-grow: 0;
+  height: 55px;
   font-size: 1rem;
   line-height: 1.5;
 `;
@@ -169,31 +180,35 @@ const PriceRow = styled(`div`)`
 `;
 
 const Price = styled(`div`)`
-  color: ${colors.brand};
+  color: #dddde2;
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: -0.02em;
 
   span {
-    color: ${colors.textLight};
+    color: #FFF;
   }
 `;
 
 const Incentive = styled('div')`
   align-items: center;
-  color: ${colors.lilac};
+  color: #dddde2;
   display: flex;
   font-size: 0.9rem;
   line-height: 1.3;
   margin-bottom: ${spacing['2xs']}px;
-  margin-right: calc(-${spacing.lg}px - 40px);
+  margin-right: calc(-${spacing.lg}px - 45px);
   text-align: right;
   transition: all ${TRANSITION_DURATION};
 
   @media (hover: hover) {
     ${ProductListingItemLink}:hover & {
-      transform: translateX(-40px);
+      transform: translateX(-80px);
     }
+  }
+
+    &:focus {
+      outline: none !important;
   }
 
   > span {
@@ -207,7 +222,7 @@ const Incentive = styled('div')`
 
 const CartIcon = styled(`span`)`
   align-items: center;
-  background: ${colors.lilac};
+  background: white;
   border-radius: ${radius.default}px 0 0 ${radius.default}px;
   display: flex;
   height: 40px;
@@ -225,7 +240,7 @@ const CartIcon = styled(`span`)`
   }
 
   svg {
-    color: ${colors.accent};
+    color: black;
     height: 22px;
     position: relative;
     width: 22px;
