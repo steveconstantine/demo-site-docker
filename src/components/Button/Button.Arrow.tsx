@@ -57,6 +57,7 @@ const ArrowButton = styled.button`
   background: transparent;
   height: 25px;
   max-width: 400px;
+  margin: 16px 0;
 
   ${mediaqueries.tablet`
     flex-direction: column;

@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
+import { ContactContext } from '@components/Contact/Contact.Context'
 
 import Section from '@components/Section'
 import Heading from '@components/Heading'
 import Sticky from '@components/Sticky'
 import Media from '@components/Media/Media.Img'
+import ButtonArrow from '@components/Button/Button.Arrow' 
 
 import mediaqueries from '@styles/media'
 
@@ -47,6 +49,7 @@ const imageQuery = graphql`
 - */
 const HomeAbout = () => {
   const { glow } = useStaticQuery(imageQuery)
+  const { toggleContact } = useContext(ContactContext)
 
   return (
     <>
@@ -70,6 +73,11 @@ const HomeAbout = () => {
                 <Text dangerouslySetInnerHTML={{ __html: text }} />
               </TextContainer>
             ))}
+                <ButtonArrow onClick={() => {
+                            event.preventDefault()
+                            toggleContact()
+                          }} text="Get in touch" />
+                <ButtonArrow onClick={() => navigate('/articles')} text="Read our Articles" />
           </div>
         </Grid>
       </Gradient>
@@ -104,7 +112,7 @@ const Grid = styled(Section)`
 const TextContainer = styled.div`
   position: relative;
   padding-top: 0;
-  margin-bottom: 75px;
+  margin-bottom: 145px;
   will-change: opacity;
 
   ${mediaqueries.tablet`

@@ -21,24 +21,7 @@ function HomeHero() {
         <Section fullwidth wide>
           <ContentContainer>
             <ProductContainer>
-              <TextContainer>
-                <Transitions.CSS.FadeIn>
-                  <Heading.h1>
-                    Gifting Wild - A Wild Way of Gifting.
-                  </Heading.h1>
-                </Transitions.CSS.FadeIn>
-              </TextContainer>
               <ProductListingHero />
-               <Transitions.CSS.FadeIn>
-                <MainText>
-                  We're Getting Ready Now.
-                </MainText>
-                <ButtonArrow onClick={() => {
-                            event.preventDefault()
-                            toggleContact()
-                          }} text="Get in touch" />
-                <ButtonArrow onClick={() => navigate('/articles')} text="Read our Articles" />
-              </Transitions.CSS.FadeIn>
             </ProductContainer>
           </ContentContainer>
         </Section>
