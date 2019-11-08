@@ -156,9 +156,9 @@ class Article extends Component<ArticleProps, PostState> {
         <Gradient>
           <Meta>
           </Meta>
-          <Section narrow>
-          <ProductListing tag={article.productTag} />
-          </Section>
+          <ProductSection fullwidth wide>
+            <ProductListing tag={article.productTag} />
+          </ProductSection>
           <NextArticle narrow>
             <FooterNext>Next article from Gifting-Wild</FooterNext>
             <ArticlePreview articles={next} />
@@ -177,6 +177,10 @@ class Article extends Component<ArticleProps, PostState> {
 }
 
 export default withDarkMode(Article)
+
+const ProductSection = styled(Section)`
+  width: 100vw !important;
+`
 
 const MobileControls = styled.div`
   position: relative;
@@ -208,7 +212,6 @@ const Content = styled(RichText).attrs<{ textHighlightColor: string }>({})`
 `
 
 const Gradient = styled.div`
-  position: relative;
   background: ${p => p.theme.mode.gradient};
   transition: background 0.4s ease-in-out;
   padding-top: 112px;
