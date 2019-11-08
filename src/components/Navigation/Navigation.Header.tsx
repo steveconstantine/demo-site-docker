@@ -211,25 +211,30 @@ class Navigation extends Component<{}, NavigationState> {
             <NavFixedContainer theme={nav.theme} navFixed={nav.fixed}>
               <Section>
                 <NavContainer>
-                  {previousPath && showPreviousPath && (
-                    <LogoBack
-                      onClick={() => window.history.back()}
-                      data-a11y="false"
-                    >
-                      <BackChevron />
-                    </LogoBack>
-                  )}
-                    <LogoMask>
-                      <LogoContainer
-                        fade
-                        to="/"
-                        onClick={this.handleShortcutReset}
-                        aria-label="Back home"
-                        data-a11y="false"
-                      >
-                        <Logo fill={fill} onlySymbol={isMobileOnly} />
-                      </LogoContainer>
-                    </LogoMask>
+                  <Left>
+                      {previousPath && showPreviousPath && (
+                        <LogoBack
+                          onClick={() => window.history.back()}
+                          data-a11y="false"
+                        >
+                          <BackChevron />
+                        </LogoBack>
+                      )}
+                      <LogoMask>
+                        <LogoContainer
+                          fade
+                          to="/"
+                          onClick={this.handleShortcutReset}
+                          aria-label="Back home"
+                          data-a11y="false"
+                        >
+                          <Logo fill={fill} onlySymbol={isMobileOnly} />
+                        </LogoContainer>
+                      </LogoMask>
+                      <MainText>
+                        GIFTING WILD<br/><span>Giving opportunity for a healthy ocean.</span>
+                      </MainText>
+                    </Left>
                     <Right>
                       <ToggleContainer
                         onClick={this.handleToggleClick}
@@ -366,6 +371,30 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
   })
 }
 
+const MainText = styled.h1`
+  font-size: 3rem;
+  font-weight: 700;
+  color: #FEFEFE;
+  line-height: 0.5;
+  text-align: left; 
+  padding-top: 2px; 
+  margin-bottom: 0;
+
+  span {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  ${mediaqueries.phablet`
+    line-height: 0.5;
+    font-size: 2.7rem;
+    padding-top: 6px;
+    span {
+      font-size: 1.11rem;
+    }
+  `};
+`
+
 const NavFixedContainer = styled.div`
   width: 100%;
   top: 0;
@@ -380,13 +409,14 @@ const NavFixedContainer = styled.div`
 const NavContainer = styled.div`
   position: relative;
   z-index: 100;
-  padding-top: 10px;
+  padding-top: 7.5px;
   display: flex;
+  height: 50px;
   width: 95%;
   justify-content: space-between;
 
   ${mediaqueries.desktop_medium`
-    padding-top: 10px;
+    padding-top: 7.5px;
   `};
 
   ${mediaqueries.tablet`
@@ -443,7 +473,7 @@ const LogoContainer = styled(AniLink)`
   transition: filter 0.3s var(--ease-out-quad);
   max-width: 414px;
   display: flex;
-  padding-bottom: 10px;
+  padding: 0 1px;
 
   &:hover {
     filter: brightness(120%);
@@ -468,7 +498,7 @@ const LogoMask = styled.div`
   flex-direction: row-reverse;
   display: inline-block;
   max-width: 100%;
-  padding-right: 32px;
+  padding-right: 2px;
 
   ${mediaqueries.tablet`
     overflow: hidden;
@@ -560,8 +590,16 @@ const Right = styled.div`
   flex-direction: row-reverse;
 `
 
+
+const Left = styled.div`
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+`
+
 const DesktopNavList = styled.ul`
   list-style: none;
+  margin: 0;
 
   ${mediaqueries.tablet`
     display: none;
