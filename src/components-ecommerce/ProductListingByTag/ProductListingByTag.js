@@ -171,21 +171,19 @@ const ProductListingByTag = (tag) => (
 
       return (
           <>
-            <Section>
-              <ProductListingByTagContainer>
-                <ProductSlider>
-                  {
-                  allShopifyProduct.edges.filter(({ node: product }) => {
-                    return product.tags.find((prodTag) => {
-                      return prodTag == tag.tag;
-                    })
-                  }).map(({ node: product }) => (
-                      <ProductListingByTagItem key={product.id} product={product} />
-                    ))
-                  }
-                </ProductSlider>
-              </ProductListingByTagContainer>
-            </Section>
+            <ProductListingByTagContainer>
+              <ProductSlider>
+                {
+                allShopifyProduct.edges.filter(({ node: product }) => {
+                  return product.tags.find((prodTag) => {
+                    return prodTag == tag.tag;
+                  })
+                }).map(({ node: product }) => (
+                    <ProductListingByTagItem key={product.id} product={product} />
+                  ))
+                }
+              </ProductSlider>
+            </ProductListingByTagContainer>
           </>
     )}}
   />
@@ -195,6 +193,7 @@ const ProductListingByTagContainer = styled(`div`)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100vw;
 
   @media (min-width: ${breakpoints.desktop}px) {
     flex-direction: row;
