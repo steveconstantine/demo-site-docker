@@ -106,7 +106,7 @@ const CartRoot = styled(`div`)`
 const Heading = styled(`header`)`
   align-items: center;
   display: flex;
-  height: ${dimensions.headerHeight};
+  height: 50px;
   justify-content: flex-start;
   color: ${colors.lightest};
   transform: ${p => (p.transform == true ? 'translateY(60px)' : 'translateY(0)')};
@@ -272,7 +272,7 @@ const CartToggleClose = styled(Button)`
   border: none;
   border-radius: 0;
   display: flex;
-  height: ${dimensions.headerHeight};
+  height: 50px;
   justify-content: center;
   left: 0;
   padding: 0;
@@ -280,14 +280,15 @@ const CartToggleClose = styled(Button)`
   top: 0;
   transform: translateX(0);
   transition: all 0.5s ease;
-  width: ${dimensions.headerHeight};
+  width: 50px;
 
   :focus {
     box-shadow: none !important;
+    outline: -webkit-focus-ring-color auto 0;
   }
 
   .open & {
-    background: ${p => (p.theme !== 'dark' ? '#fafafabb' : '#08080b')};
+    background: ${p => (p.theme !== 'dark' ? '#08080b88' : '#fafafa')};
     color: ${p => (p.theme !== 'dark' ? 'white' : '#fafafa')};
     transform: translateX(0);
   }
