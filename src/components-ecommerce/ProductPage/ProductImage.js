@@ -32,7 +32,7 @@ const ProductImageLink = styled(`a`)`
 `;
 
 const ZoomHelper = styled(`span`)`
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0,0,0, 0.5);
   border-radius: ${radius.large}px;
   display: flex;
   left: ${spacing['xs']}px;
@@ -41,7 +41,7 @@ const ZoomHelper = styled(`span`)`
   top: ${spacing['xs']}px;
 
   svg {
-    fill: ${colors.brand};
+    fill: white;
     height: 24px;
     width: 24px;
   }
