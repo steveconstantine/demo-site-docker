@@ -221,7 +221,7 @@ class LayoutContainer extends Component<LayoutProps, LayoutState> {
             onClick={active ? this.closeMobileNav : () => {}}
             theme={navTheme}
             ref={this.container}
-            paddingBottom={paddingBottom == true ? '400%' : '0'}
+            paddingBottom={paddingBottom == true ? '285%' : '0'}
           >
             <main>
               {/*
@@ -279,6 +279,7 @@ const SiteContainer = styled.div`
     p.background ||
     `linear-gradient(180deg, #08080b 0%, #0b0b0e 44.18%, #111216 100%)`};
   background-size: cover;
+  background-position: top center;
   overflow-x: hidden;
   padding-bottom: ${p => p.paddingBottom};
   min-height: 100vh;
@@ -301,6 +302,11 @@ const SiteContainer = styled.div`
       60}ms cubic-bezier(0.52, 0.16, 0.24, 1);
     width: 100vw;
     touch-action: ${p => (p.active ? 'none' : 'initial')};
+    padding-bottom: 165%;
+  `}
+
+   ${mediaqueries.phablet`
+    padding-bottom: 0;
   `}
 
   &::after {

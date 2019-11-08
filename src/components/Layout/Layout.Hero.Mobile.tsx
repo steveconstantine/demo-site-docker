@@ -15,7 +15,6 @@ export function calculateStyles(position: number): {} {
 
   const styles = {
     opacity: 1 - position / height / 0.8,
-    transform: `translateY(-${position * 0.22}px)`,
   }
 
   return width > breakpoint || position <= 0 ? {} : styles
@@ -26,7 +25,6 @@ function LayoutHeroMobile({ children }) {
 
   return (
     <>
-      <Spacer />
       <Frame style={calculateStyles(position)}>{children}</Frame>
     </>
   )
@@ -34,21 +32,15 @@ function LayoutHeroMobile({ children }) {
 
 export default LayoutHeroMobile
 
-const Spacer = styled.div`
-  ${mediaqueries.tablet`
-    height: 100vh;
-  `}
-`
-
 const Frame = styled.div`
   ${mediaqueries.tablet`
-    height: 100vh;
+    height: 50vh;
     min-height: 550px;
-    top: 90px;
-    position: fixed;
+    top: 100vh;
+    position: static;
     z-index: 0;
-    padding-bottom: 400%;
     width: 100vw;
+    background-position: center center;
 
     @media screen and (max-height: 600px) {
       padding-top: 4px;
