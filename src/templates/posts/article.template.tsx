@@ -208,7 +208,6 @@ const Content = styled(RichText).attrs<{ textHighlightColor: string }>({})`
 `
 
 const Gradient = styled.div`
-  position: relative;
   background: ${p => p.theme.mode.gradient};
   transition: background 0.4s ease-in-out;
   padding-top: 112px;
