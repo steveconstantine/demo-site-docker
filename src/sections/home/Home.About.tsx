@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql, navigate } from 'gatsby'
-import { ContactContext } from '@components/Contact/Contact.Context'
 
 import Section from '@components/Section'
 import Heading from '@components/Heading'
@@ -48,7 +47,6 @@ const imageQuery = graphql`
 - */
 const HomeAbout = () => {
   const { glow } = useStaticQuery(imageQuery)
-  const { toggleContact } = useContext(ContactContext)
 
   return (
     <>
@@ -61,21 +59,11 @@ const HomeAbout = () => {
           <div>
           </div>
           <div>
-            <MainText>
-              GIFTING WILD<br/><span>Giving opportunity for a healthy ocean.</span>
-            </MainText>
             {aboutText.map(text => (
               <TextContainer data-scroll-fade={true}>
                 <Text dangerouslySetInnerHTML={{ __html: text }} />
               </TextContainer>
             ))}
-            <ButtonContainer data-scroll-fade={true}>
-                <ButtonArrow onClick={() => {
-                            event.preventDefault()
-                            toggleContact()
-                          }} text="Get in touch" />
-                <ButtonArrow onClick={() => navigate('/articles')} text="Read our Articles" />
-            </ButtonContainer>
           </div>
         </Grid>
       </Gradient>
@@ -84,24 +72,6 @@ const HomeAbout = () => {
 }
 
 export default HomeAbout
-
-const MainText = styled.h1`
-  font-size: 5rem;
-  font-weight: 700;
-  color: #FEFEFE;
-  line-height: 1.3;
-  margin-bottom: 50px;
-  text-align: center; 
-  margin-bottom: 65px;
-
-  ${mediaqueries.phablet`
-    font-size: 3.2rem;
-  `};
-
-  span {
-    font-weight: 400;
-  }
-`
 
 const Gradient = styled.div`
   position: relative;
@@ -151,11 +121,6 @@ const TextContainer = styled.div`
     margin: 0;
     padding: 0 0 40px 0;
   `};
-`
-
-const ButtonContainer = styled.div`
-  will-change: opacity;
-  padding: 0 10px;
 `
 
 const Text = styled.p`

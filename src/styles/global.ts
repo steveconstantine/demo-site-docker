@@ -365,4 +365,8 @@ export const GlobalStyles = createGlobalStyle`
       transition: box-shadow 0.15s ease-in-out;
     }
   }
+
+  .headroom-wrapper { 
+    height: 50px !important;
+  }
 `

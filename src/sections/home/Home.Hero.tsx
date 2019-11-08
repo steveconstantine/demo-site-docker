@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { navigate } from 'gatsby'
+import { ContactContext } from '@components/Contact/Contact.Context'
 
 import { ButtonArrow, Section, Heading } from '@components'
 import ShapeShifter from '@components/ShapeShifter'
 import Transitions from '@components/Transitions'
 import LayoutHeroMobile from '@components/Layout/Layout.Hero.Mobile'
-import { ContactContext } from '@components/Contact/Contact.Context'
 
 import mediaqueries from '@styles/media'
 
@@ -23,6 +24,13 @@ function HomeHero() {
               <ProductListingHero />
             </ProductContainer>
           </ContentContainer>
+           <ButtonContainer data-scroll-fade={true}>
+                <ButtonArrow onClick={() => {
+                            event.preventDefault()
+                            toggleContact()
+                          }} text="Get in touch" />
+                <ButtonArrow onClick={() => navigate('/articles')} text="Read our Articles" />
+            </ButtonContainer>
         </Section>
       </HomeHeroContainer>
     </LayoutHeroMobile>
@@ -36,6 +44,10 @@ const HomeHeroContainer = styled.div`
     #mirror-mask {
       display: none;
   `}
+`
+
+const ButtonContainer = styled.div`
+  padding: 0 10px;
 `
 
 const TextContainer = styled.div`
@@ -74,7 +86,6 @@ const ContentContainer = styled.div`
   justify-content: space-between;
 
   ${mediaqueries.phablet`
-    height: calc(100vh - 180px);
     min-height: 100%;
     padding: 0;
     top: -40px;

@@ -8,9 +8,10 @@ import mediaqueries from '@styles/media'
 const LogoSymbolContainer = styled.div`
   height: 40px;
   width: 40px;
-  margin-left: 20px;
+  margin-left: 5px;
+  margin-right: 5px; 
 
-  ${mediaqueries.phablet`
+  ${mediaqueries.tablet`
     height: 40px;
     width: 40px;
   `};
@@ -36,7 +37,7 @@ const Logo = ({
   }
 
   return (
-    <img src={GWLogo} height={'40px'} width={'auto'} alt={"Gifting Wild - A Wild Way of Gifting"} />
+    <img src={GWSymbol} height={'40px'} width={'auto'} alt={"Gifting Wild - A Wild Way of Gifting"} />
   )
 }
 
