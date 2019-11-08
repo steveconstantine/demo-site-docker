@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { navigate } from 'gatsby'
 
 import { ButtonArrow, Section, Heading } from '@components'
 import ShapeShifter from '@components/ShapeShifter'
@@ -62,18 +61,6 @@ const ProductContainer = styled.div`
     position: relative;
     max-width: 100vw;
   `}
-`
-
-const MainText = styled.p`
-  font-size: 3.2rem;
-  font-weight: 400;
-  color: #FEFEFE;
-  line-height: 1.3;
-  margin-bottom: 50px;
-
-  ${mediaqueries.phablet`
-    font-size: 2.2rem;
-  `};
 `
 
 const ContentContainer = styled.div`

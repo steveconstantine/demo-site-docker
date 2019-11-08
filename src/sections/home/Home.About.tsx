@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, navigate } from 'gatsby'
 import { ContactContext } from '@components/Contact/Contact.Context'
 
 import Section from '@components/Section'
@@ -13,14 +13,13 @@ import mediaqueries from '@styles/media'
 
 const aboutText = [
   `More than 5 trillion pieces of plastic, weighing nearly 269,000 tons, are littering the world's oceans according to a study by the scientific journal PLOS One. The study is the first of its kind to gather data from around the world on floating plastic.<br/>
-  Source: <a style="color:#FAFAFA; text-decoration: underline;" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111913" target="_blank" >https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111913/</a>`,
-  `Coastal land-based human dispersal account for 80% of ocean plastic pollution, globally. Over 6.5 million tons of litter enter the world’s Ocean each year. 50% is long-lasting plastic that will drift for hundreds of years before it is degraded.
-  Source: <a style="color:#FAFAFA; text-decoration: underline;" href="https://www.worldoceannetwork.org/won-part-6/carem-wod-2014-4/thematic-resources-pollution/" target="_blank">
+  <em>Source:</em> <a style="color:#FAFAFA; text-decoration: underline;" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111913" target="_blank" >https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111913/</a>`,
+  `Coastal land-based human dispersal account for 80% of ocean plastic pollution, globally. Over 6.5 million tons of litter enter the world’s Ocean each year. 50% is long-lasting plastic that will drift for hundreds of years before it is degraded.<br/>
+  <em>Source:</em> <a style="color:#FAFAFA; text-decoration: underline;" href="https://www.worldoceannetwork.org/won-part-6/carem-wod-2014-4/thematic-resources-pollution/" target="_blank">
   https://www.worldoceannetwork.org/won-part-6/carem-wod-2014-4/thematic-resources-pollution/facts-figures-pollution/</a>`,
-  `More than a million seabirds and over 100,000 marine mammals die every year from plastic. Every day, more and more marine creatures are dying and washing ashore full of plastic and trash.   
-  Source: <a style="color:#FAFAFA; text-decoration: underline;" href="http://www.perseus-net.eu/site/content.php?locale=1&sel=517&artid=565" target="_blank">http://www.perseus-net.eu/site/content.php?locale=1&sel=517&artid=565</a>`,
-  `Please view this information and more on <a style="color:#FAFAFA; text-decoration: underline;" href="https://oceanlegacy.ca" target="_blank" >oceanlegacy.ca</a> <br/>
-  We are proud to support Ocean Legacy Foundation in their efforts to solve the global ocean pollution crisis.`,
+  `More than a million seabirds and over 100,000 marine mammals die every year from plastic. Every day, more and more marine creatures are dying and washing ashore full of plastic and trash.<br/>   
+  <em>Source:</em> <a style="color:#FAFAFA; text-decoration: underline;" href="http://www.perseus-net.eu/site/content.php?locale=1&sel=517&artid=565" target="_blank">http://www.perseus-net.eu/site/content.php?locale=1&sel=517&artid=565</a>`,
+  `Please view this information and more on <a style="color:#FAFAFA; text-decoration: underline; font-size: 22px;" href="https://oceanlegacy.ca" target="_blank" >oceanlegacy.ca</a>. We are proud to support Ocean Legacy Foundation in their efforts to solve the global ocean pollution crisis.`,
   `Thanks for your attention to gifting wild,<br/>
   Ben and Steve`
 ]
@@ -59,23 +58,24 @@ const HomeAbout = () => {
       </MobileContainer>
       <Gradient>
         <Grid narrow>
-          <Sticky
-            height="682px"
-            top={140}
-            disableOnMobile
-            render={() => <AboutHeading>Gifting Wild</AboutHeading>}
-          />
           <div>
+          </div>
+          <div>
+            <MainText>
+              GIFTING WILD<br/><span>Giving opportunity for a healthy ocean.</span>
+            </MainText>
             {aboutText.map(text => (
               <TextContainer data-scroll-fade={true}>
                 <Text dangerouslySetInnerHTML={{ __html: text }} />
               </TextContainer>
             ))}
+            <ButtonContainer data-scroll-fade={true}>
                 <ButtonArrow onClick={() => {
                             event.preventDefault()
                             toggleContact()
                           }} text="Get in touch" />
                 <ButtonArrow onClick={() => navigate('/articles')} text="Read our Articles" />
+            </ButtonContainer>
           </div>
         </Grid>
       </Gradient>
@@ -84,6 +84,24 @@ const HomeAbout = () => {
 }
 
 export default HomeAbout
+
+const MainText = styled.h1`
+  font-size: 5rem;
+  font-weight: 700;
+  color: #FEFEFE;
+  line-height: 1.3;
+  margin-bottom: 50px;
+  text-align: center; 
+  margin-bottom: 65px;
+
+  ${mediaqueries.phablet`
+    font-size: 3.2rem;
+  `};
+
+  span {
+    font-weight: 400;
+  }
+`
 
 const Gradient = styled.div`
   position: relative;
@@ -94,8 +112,8 @@ const Gradient = styled.div`
 const Grid = styled(Section)`
   position: relative;
   display: grid;
-  grid-template-columns: 135px 670px;
-  grid-column-gap: 128px;
+  grid-template-columns: 135px 870px;
+  grid-column-gap: 10px;
   padding-top: 100px;
   padding-bottom: 30px;
   z-index: 2;
@@ -110,20 +128,40 @@ const Grid = styled(Section)`
 const TextContainer = styled.div`
   position: relative;
   padding-top: 0;
-  margin-bottom: 145px;
+  margin-bottom: 85px;
   will-change: opacity;
 
+  a {
+    font-size: 2.25rem;
+  }
+
+  em {
+    font-size: 2.45rem;
+  }
+
   ${mediaqueries.tablet`
-    font-size: 22px;
+    a {
+      font-size: 1.45rem;
+    }
+    em {
+      font-size: 1.65rem;
+    }
+    font-size: 1.8rem;
     top: 0;
     margin: 0;
     padding: 0 0 40px 0;
   `};
 `
 
+const ButtonContainer = styled.div`
+  will-change: opacity;
+  padding: 0 10px;
+`
+
 const Text = styled.p`
   font-size: 32px;
   color: #fff;
+  padding: 0 10px;
 
   ${mediaqueries.tablet`
     font-size: 22px;
