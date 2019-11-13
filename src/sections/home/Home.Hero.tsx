@@ -24,7 +24,7 @@ function HomeHero() {
               <ProductListingHero />
             </ProductContainer>
           </ContentContainer>
-           <ButtonContainer data-scroll-fade={true}>
+           <ButtonContainer>
                 <RoundedButtonArrow onClick={() => {
                             event.preventDefault()
                             toggleContact()
@@ -54,6 +54,17 @@ const HomeHeroContainer = styled.div`
 
 const ButtonContainer = styled.div`
   padding: 0 10px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 440px;
+  a {
+    flex-grow: 1;
+    text-align: center;
+    color: #FAFAFA !important;
+  }
 `
 
 const TextContainer = styled.div`
