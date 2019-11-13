@@ -59,12 +59,20 @@ const ButtonContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 440px;
+  max-width: 555px;
+
+
+  ${mediaqueries.tablet`
+    max-width: 440px;
+  `}
+
   a {
     flex-grow: 1;
     text-align: center;
     color: #FAFAFA !important;
   }
+
+
 `
 
 const TextContainer = styled.div`
