@@ -34,7 +34,6 @@ export default LayoutHeroMobile
 
 const Frame = styled.div`
   ${mediaqueries.tablet`
-    height: 50vh;
     min-height: 550px;
     top: 100vh;
     position: static;

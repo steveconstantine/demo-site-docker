@@ -371,14 +371,18 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
   })
 }
 
-const MainText = styled.h1`
+const MainText = styled.a`
   font-size: 3rem;
   font-weight: 700;
   color: #FEFEFE;
   line-height: 0.5;
   text-align: left; 
-  padding-top: 2px; 
+  padding-top: 3px; 
   margin-bottom: 0;
+
+  &:hover {
+    color: #FAFAFA;
+  }
 
   span {
     font-size: 1.5rem;
@@ -671,7 +675,7 @@ const NavAnchor = styled(AniLink)`
     transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.9) ${p => p.delay}ms;
 
   pointer-events: ${p => (p.active ? 'initial' : 'none')};
-  opacity: ${p => (p.active ? (p.disabled ? 0.15 : 1) : 0)};
+  opacity: ${p => (p.active ? (p.disabled ? 0.15 : 0.888) : 0)};
   transform: ${p => (p.active ? 'translateX(0)' : 'translateX(12px)')};
 
   &[data-active='true'] {
@@ -689,7 +693,8 @@ const NavAnchor = styled(AniLink)`
   }
 
   &:hover {
-    opacity: ${p => (p.disabled ? 0.15 : 0.6)};
+    opacity: ${p => (p.disabled ? 0.15 : 1)};
+    color: #FAFAFA !important;
   }
 
   &:focus {
@@ -724,7 +729,7 @@ const ContactNavAnchor = styled(Link)`
     transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.9) ${p => p.delay}ms;
 
   pointer-events: ${p => (p.active ? 'initial' : 'none')};
-  opacity: ${p => (p.active ? (p.disabled ? 0.15 : 1) : 0)};
+  opacity: ${p => (p.active ? (p.disabled ? 0.15 : 0.888) : 0)};
   transform: ${p => (p.active ? 'translateX(0)' : 'translateX(12px)')};
 
   &[data-active='true'] {
@@ -742,7 +747,8 @@ const ContactNavAnchor = styled(Link)`
   }
 
   &:hover {
-    opacity: ${p => (p.disabled ? 0.15 : 0.6)};
+    opacity: ${p => (p.disabled ? 0.15 : 1)};
+    color: #FAFAFA !important;
   }
 
   &:focus {

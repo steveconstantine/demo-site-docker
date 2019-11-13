@@ -103,7 +103,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: ${theme.colors.black};
+    color: #FAFAFA;
   }
 
   a:focus {

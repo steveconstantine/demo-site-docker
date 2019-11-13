@@ -66,7 +66,6 @@ const BackLinkContainer = styled(`div`)`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    max-width: 555px;
   }
 `;
 
@@ -112,7 +111,7 @@ class ProductPage extends Component {
           )}
           <Details>
             <BackLinkContainer>
-              <BackLink vendor={prevUrl}>Back / Previous</BackLink>
+              <BackLink vendor={prevUrl}></BackLink>
             </BackLinkContainer>
             <ProductSpecs donation={donation} product={product} />
             <ProductForm id={product.id} variants={product.variants} />
