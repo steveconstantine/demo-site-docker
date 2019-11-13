@@ -231,7 +231,11 @@ class Navigation extends Component<{}, NavigationState> {
                           <Logo fill={fill} onlySymbol={isMobileOnly} />
                         </LogoContainer>
                       </LogoMask>
-                      <MainText>
+                      <MainText
+                          aria-label="Back home"
+                          data-a11y="false"
+                          fade
+                          to="/">
                         GIFTING WILD<br/><span>Giving opportunity for a healthy ocean.</span>
                       </MainText>
                     </Left>
