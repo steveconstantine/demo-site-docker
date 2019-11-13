@@ -371,7 +371,7 @@ const NavItems = ({ active, handleClick, handleOutsideClick, color }) => {
   })
 }
 
-const MainText = styled.a`
+const MainText = styled(AniLink)`
   font-size: 3rem;
   font-weight: 700;
   color: #FEFEFE;
