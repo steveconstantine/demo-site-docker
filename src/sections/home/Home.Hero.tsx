@@ -94,7 +94,6 @@ const ContentContainer = styled.div`
   ${mediaqueries.phablet`
     min-height: 100%;
     padding: 0;
-    top: -40px;
     display: block !important;
   `};
 
