@@ -25,7 +25,7 @@ function HomeHero() {
             </ProductContainer>
           </ContentContainer>
            <ButtonContainer data-scroll-fade={true}>
-                <ButtonArrow onClick={() => {
+                <RoundedButtonArrow onClick={() => {
                             event.preventDefault()
                             toggleContact()
                           }} text="Get in touch" />
@@ -38,6 +38,12 @@ function HomeHero() {
 }
 
 export default HomeHero
+
+
+const RoundedButtonArrow = styled(ButtonArrow)`
+border: 2px solid white !importat;
+border-radius: 4px !important;
+`;
 
 const HomeHeroContainer = styled.div`
   ${mediaqueries.desktop`
