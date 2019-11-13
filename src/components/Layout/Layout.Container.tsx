@@ -302,11 +302,11 @@ const SiteContainer = styled.div`
       60}ms cubic-bezier(0.52, 0.16, 0.24, 1);
     width: 100vw;
     touch-action: ${p => (p.active ? 'none' : 'initial')};
-    padding-bottom: 165%;
+    padding-bottom: ${p => (p.paddingBottom ? '165%' : '0')};
   `}
 
    ${mediaqueries.phablet`
-    padding-bottom: 0;
+    padding-bottom: ${p => (p.paddingBottom ? '80%' : '5%')};
   `}
 
   &::after {
