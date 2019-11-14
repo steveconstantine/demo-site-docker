@@ -54,7 +54,7 @@ const HomeHeroContainer = styled.div`
 
 const ButtonContainer = styled.div`
   padding: 0 10px;
-  margin: 10px auto;
+  margin: 20px auto 10px auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

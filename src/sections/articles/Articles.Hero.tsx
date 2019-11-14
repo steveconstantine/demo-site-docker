@@ -13,17 +13,7 @@ import mediaqueries from '@styles/media'
 import { Section } from '@components'
 import { startAnimation } from '@utils'
 
-const imageQuery = graphql`
-  query ArticlesHeroQuery {
-    heroImage: file(name: { regex: "/articles-hero-typewriter/" }) {
-      childImageSharp {
-        fluid(maxWidth: 1060, quality: 88) {
-          ...GatsbyImageSharpFluid_noBase64
-        }
-      }
-    }
-  }
-`
+const gwLogo = require('../../assets/logo/logo_331.png');
 
 function ArticlesHero() {
   const [current, setCurrent] = useState(0)
@@ -31,30 +21,7 @@ function ArticlesHero() {
 
   const text = useRef()
 
-  useEffect(() => {
-    if (imageLoaded) {
-      /**
-       * handleTyping Effect
-       * This will initiate the typing life effect we have displayed over the
-       * hero image typewriter. Basically go through the string one char at a time
-       * and udpate the counter until we're out of characters to type!
-       */
-      const sentence = ' help your business take the next step.'
-      const speed = Math.floor(Math.random() * 60) + 30
-
-      setTimeout(() => {
-        if (current < sentence.length && text.current) {
-          text.current.innerHTML += sentence.charAt(current)
-          setCurrent(prevCurrent => prevCurrent + 1)
-        }
-      }, speed)
-    }
-  }, [current, imageLoaded, text])
-
   return (
-    <StaticQuery
-      query={imageQuery}
-      render={({ heroImage }) => (
         <LayoutHeroMobile>
           <HeroSection relative>
             <ContentContainer>
@@ -77,20 +44,13 @@ function ArticlesHero() {
             <HeroImage>
               <Media
                 loading='eager'
-                src={heroImage.childImageSharp.fluid}
+                src={gwLogo}
                 onLoad={() => setImageLoaded(true)}
               />
-              <HeroImageText imageLoaded={imageLoaded}>
-                Gifting-Wild builds brands, websites and products for growth-minded
-                companies. We're a team with senior startup experience here to
-                <Caret ref={text} />
-              </HeroImageText>
             </HeroImage>
           </HeroSection>
         </LayoutHeroMobile>
-      )}
-    />
-  )
+    )
 }
 
 export default ArticlesHero
