@@ -115,6 +115,7 @@ const SocialIconsHeader = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 60px;
+  z-index: 6;
 
   opacity: ${p => (p.active ? 1 : 0)};
   transform: translateY(${p => (p.active ? 0 : -12)}px);
@@ -143,6 +144,7 @@ const HorizontalRule = styled.hr`
 const MobileLinks = styled.div`
   display: flex;
   flex-direction: column;
+  z-index: 6;
 `
 
 const StyledLink = styled(AniLink)`
@@ -152,6 +154,7 @@ const StyledLink = styled(AniLink)`
   display: inline-block;
   margin: 0 auto;
   text-align: center;
+  z-index: 6;
 
   opacity: ${p => (p.active ? 1 : 0)};
   transform: translateY(${p => (p.active ? 0 : -10)}px);
