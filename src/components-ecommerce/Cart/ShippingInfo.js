@@ -58,12 +58,12 @@ const ArrowIcon = styled(MdKeyboardArrowDown)`
   }
 
   ${Intro}:hover & {
-    color: ${colors.accent};
+    color: #000;
   }
 `;
 
 const InfoIcon = styled(MdInfo)`
-  color: ${colors.lilac};
+  color: #000;
   margin-right: ${spacing['2xs']}px;
   vertical-align: middle;
 `;
@@ -91,7 +91,7 @@ class ShippingInfo extends Component {
           Tracking updates may not always show up in real time on your tracking
           link. If you still have not received your order at the end of 6 weeks,
           please let us know by sending an email to{' '}
-          <a href="mailto:team@gatsbyjs.com">team@gatsbyjs.com</a>
+          <a href="mailto:contact@giftingwild.com">contact@giftingwild.com</a>
         </Details>
       </ShippingInfoRoot>
     );
