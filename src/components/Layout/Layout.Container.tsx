@@ -283,6 +283,7 @@ const SiteContainer = styled.div`
   overflow-x: hidden;
   padding-bottom: ${p => (p.paddingBottom == true ? '265%' : '0')};
   min-height: 100vh;
+  z-index: 5;
 
   ${p =>
     p.navOffset &&
