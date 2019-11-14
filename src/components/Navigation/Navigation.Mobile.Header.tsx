@@ -28,44 +28,47 @@ const NavigationMobile = ({
   const isActive = active ? active : undefined
 
   return (
+  <>
+    <InnerFrame active={isActive}/>
     <Frame active={isActive}>
-      <SocialIconsHeader active={isActive}>
-        <SocialLinks fill="#fff" />
-      </SocialIconsHeader>
-      <HorizontalRule active={isActive} />
-      <MobileLinks active={isActive}>
-        {footerLinks.map((link, index) => {
-        if (link.to === "/") {
-          return (
-            <StyledLink
-                active={ link.to === "/" ? isActive : undefined }
-                key={link.to}
-                index={index}
-                to={link.to}
-                onClick={event => navigateOut(event, link.to)}
-                getProps={({ isPartiallyCurrent }) =>
-                  isPartiallyCurrent ? { ['data-active']: 'false' } : null
-                }
-              >{link.text}
-            </StyledLink>
-          )
-        }
-          return (
-            <StyledLink
-                fade
-                active={ isActive ? isActive : undefined}
-                key={link.to}
-                index={index}
-                to={link.to}
-                onClick={event => navigateOut(event, link.to)}
-                getProps={({ isPartiallyCurrent }) =>
-                  isPartiallyCurrent ? { ['data-active']: 'true' } : null
-                }
-              >{link.text}
-            </StyledLink>
-        )})}
-      </MobileLinks>
+        <SocialIconsHeader active={isActive}>
+          <SocialLinks fill="#fff" />
+        </SocialIconsHeader>
+        <HorizontalRule active={isActive} />
+        <MobileLinks active={isActive}>
+          {footerLinks.map((link, index) => {
+          if (link.to === "/") {
+            return (
+              <StyledLink
+                  active={ link.to === "/" ? isActive : undefined }
+                  key={link.to}
+                  index={index}
+                  to={link.to}
+                  onClick={event => navigateOut(event, link.to)}
+                  getProps={({ isPartiallyCurrent }) =>
+                    isPartiallyCurrent ? { ['data-active']: 'false' } : null
+                  }
+                >{link.text}
+              </StyledLink>
+            )
+          }
+            return (
+              <StyledLink
+                  fade
+                  active={ isActive ? isActive : undefined}
+                  key={link.to}
+                  index={index}
+                  to={link.to}
+                  onClick={event => navigateOut(event, link.to)}
+                  getProps={({ isPartiallyCurrent }) =>
+                    isPartiallyCurrent ? { ['data-active']: 'true' } : null
+                  }
+                >{link.text}
+              </StyledLink>
+          )})}
+        </MobileLinks>
     </Frame>
+  </>
   )
 }
 
@@ -93,6 +96,19 @@ const Frame = styled.nav`
     visibility: hidden;
   `}
 `
+
+const InnerFrame = styled.div`
+  position: fixed;
+  left: 0;
+  top: -80px;
+  width: 100%;
+  z-index: 1;
+  padding: 80px 0;
+  height: 100vh;
+  background: #000;
+  opacity: ${p => (p.active ? '0' : '1')};
+  transition: opacity 0.5s ease-in-out;
+`;
 
 const SocialIconsHeader = styled.div`
   display: flex;
