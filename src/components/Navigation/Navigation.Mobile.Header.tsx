@@ -104,7 +104,7 @@ const InnerFrame = styled.div`
   width: 100%;
   z-index: 1;
   padding: 80px 0;
-  height: 100vh;
+  height: calc(100vh + 80px);
   background: #000;
   opacity: ${p => (p.active ? '0' : '1')};
   transition: opacity 0.5s ease-in-out;
