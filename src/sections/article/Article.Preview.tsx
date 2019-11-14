@@ -48,6 +48,11 @@ const GridItem = ({
   const hasOverflow = narrow && article.title.length > 35
 
   const excerpt = JSON.parse(article.excerpt).content[0].content[0].value
+  let readingTime = article.readingTime.text;
+
+  if (readingTime.toString() == '0 minute read') {
+    readingTime = 'less than 1 minute read'
+  }
 
   return (
     <ArticleLink fade to={`/articles/${article.slug}`} data-a11y="false">
@@ -61,7 +66,7 @@ const GridItem = ({
         <Excerpt narrow={narrow} hasOverflow={hasOverflow}>
           {excerpt}
         </Excerpt>
-        <TimeToRead>{article.readingTime.text}</TimeToRead>
+        <TimeToRead>{readingTime}</TimeToRead>
       </Item>
     </ArticleLink>
   )

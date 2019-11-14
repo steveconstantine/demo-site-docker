@@ -184,7 +184,7 @@ const GalleryControl = styled.button`
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 50%;
+  top: 95%;
   transform: translateY(-50%);
   ${p => {
     if (p.left) {
