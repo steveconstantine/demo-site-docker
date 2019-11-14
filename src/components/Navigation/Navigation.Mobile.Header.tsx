@@ -102,7 +102,7 @@ const InnerFrame = styled.div`
   left: 0;
   top: -80px;
   width: 100%;
-  z-index: 1;
+  z-index: 0;
   padding: 80px 0;
   height: calc(100vh + 80px);
   background: #000;
