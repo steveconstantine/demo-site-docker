@@ -167,7 +167,7 @@ const Name = styled(`h1`)`
 const Description = styled(`p`)`
   color: #dddde2;
   flex-grow: 0;
-  height: 55px;
+  height: 15px;
   font-size: 1rem;
   line-height: 1.5;
 `;
@@ -222,7 +222,7 @@ const Incentive = styled('div')`
 
 const CartIcon = styled(`span`)`
   align-items: center;
-  background: white;
+  background: transparent;
   border-radius: ${radius.default}px 0 0 ${radius.default}px;
   display: flex;
   height: 40px;
@@ -240,7 +240,7 @@ const CartIcon = styled(`span`)`
   }
 
   svg {
-    color: black;
+    color: white;
     height: 22px;
     position: relative;
     width: 22px;
@@ -312,7 +312,6 @@ const ProductListingByTagItem = props => {
               </Description>
               <PriceRow>
                 <Price>
-                  <span>USD</span> ${price}
                 </Price>
                 <Incentive>
                   <span>

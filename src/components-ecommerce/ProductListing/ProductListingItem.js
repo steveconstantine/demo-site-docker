@@ -149,7 +149,7 @@ const Name = styled(`h1`)`
   font-size: 1.6rem;
   line-height: 1.2;
   margin: 0;
-  height: 60px;
+  height: 75px;
 `;
 
 const Description = styled(`p`)`

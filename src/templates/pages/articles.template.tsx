@@ -33,13 +33,11 @@ function ArticlesPage({ data, location, pageContext }) {
   }
 
   const footerConfig = {
-    visible: false,
+    visible: true,
   }
 
-  console.log(JSON.parse(articles[0].excerpt))
-
   return (
-    <Layout nav={navConfig} footer={footerConfig}>
+    <Layout nav={navConfig} footer={footerConfig} paddingBottom={false}>
       <>
         <SEO
           title={seo.title}

@@ -28,6 +28,11 @@ const GridItem = ({ article }) => {
 
   const excerpt = JSON.parse(article.excerpt).content[0].content[0].value
 
+  var readingTime = article.readingTime.text
+
+  if (readingTime == '0 minute read')
+      readingTime = 'less than 1 minute read'
+
   return (
     <ArticleLink fade to={`/articles/${article.slug}`}>
       <Item>
