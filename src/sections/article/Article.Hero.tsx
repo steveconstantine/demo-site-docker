@@ -36,7 +36,7 @@ const ArticleHero = ({ article }: { article: IArticleNode }) => {
               </Section>
             </HeroContent>
             <RelativeSection>
-              <ReadingTime>{readingTime}</ReadingTime>
+              <></>
             </RelativeSection>
             <Image>
               <Media loading='eager' src={article.hero.Article__Hero} />

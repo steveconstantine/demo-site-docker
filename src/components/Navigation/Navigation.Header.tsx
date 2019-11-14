@@ -417,14 +417,14 @@ const NavFixedContainer = styled.div`
 const NavContainer = styled.div`
   position: relative;
   z-index: 100;
-  padding-top: 7.5px;
+  padding-top: 5px;
   display: flex;
   height: 50px;
   width: 95%;
   justify-content: space-between;
 
   ${mediaqueries.desktop_medium`
-    padding-top: 7.5px;
+    padding-top: 5px;
   `};
 
   ${mediaqueries.tablet`
@@ -432,7 +432,7 @@ const NavContainer = styled.div`
   `}
 
   @media screen and (max-height: 800px) {
-    padding-top: 10px;
+    padding-top: 5px;
   }
 `
 

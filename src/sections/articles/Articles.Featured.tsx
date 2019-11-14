@@ -80,18 +80,23 @@ const StyledLink = styled(AniLink)`
   width: 100%;
 
   &:hover h3 {
-    color: ${p => p.theme.colors.purple};
+    color: #FAFAFA;
   }
 
   &:focus h3 {
-    color: ${p => p.theme.colors.purple};
+    color: #FAFAFA;
     text-decoration: underline;
   }
 `
 
 const FeaturedTitle = styled(Heading.h3)`
+  color: white;
   margin-bottom: 15px;
   transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: #FAFAFA !important;
+  }
 `
 
 const Left = styled.div`

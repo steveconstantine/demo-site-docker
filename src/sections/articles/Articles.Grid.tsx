@@ -76,6 +76,11 @@ const GridItem = ({ article, narrow }) => {
 
   const excerpt = JSON.parse(article.excerpt).content[0].content[0].value
 
+  var readingTime = article.readingTime.text
+
+  if (readingTime == '0 minute read')
+      readingTime = 'less than 1 minute read'
+
   return (
     <ArticleLink to={`/articles/${article.slug}`} data-a11y="false">
       <Item>
@@ -88,7 +93,7 @@ const GridItem = ({ article, narrow }) => {
         <Excerpt narrow={narrow} hasOverflow={hasOverflow}>
           {excerpt}
         </Excerpt>
-        <TimeToRead>{article.readingTime.text}</TimeToRead>
+        <TimeToRead>{readingTime}</TimeToRead>
       </Item>
     </ArticleLink>
   )
@@ -255,7 +260,8 @@ const ArticleLink = styled(AniLink)`
 
   &:hover h2,
   &:focus h2 {
-    color: ${p => p.theme.colors.purple};
+    color: #FAFAFA;
+    opacity: 0.9;
   }
 
   &[data-a11y='true']:focus::after {
