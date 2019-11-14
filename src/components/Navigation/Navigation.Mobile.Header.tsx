@@ -29,8 +29,8 @@ const NavigationMobile = ({
 
   return (
   <>
-    <InnerFrame active={isActive}/>
     <Frame active={isActive}>
+      <InnerFrame active={isActive}/>
         <SocialIconsHeader active={isActive}>
           <SocialLinks fill="#fff" />
         </SocialIconsHeader>
