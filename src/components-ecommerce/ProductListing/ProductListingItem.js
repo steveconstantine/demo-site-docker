@@ -77,12 +77,7 @@ const Item = styled(`article`)`
   padding: 36px 34px;
 
   @media (max-width: ${breakpoints.tablet}px) {
-    height: 444px;
     padding: 12px 10px;
-  }
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    height: 555px;
   }
 `;
 

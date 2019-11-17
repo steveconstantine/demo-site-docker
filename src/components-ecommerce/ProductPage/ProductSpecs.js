@@ -81,7 +81,7 @@ const ProductSpecs = props => {
         <span>USD</span> ${price}
       </Price>
       <DonationContainer>
-        <DonationForm id={donation.id} variants={donation.variants} />
+        <DonationForm mode={'dark'} text={'Add Donation'} id={donation.id} variants={donation.variants} />
       </DonationContainer>
     </ProductSpecsRoot>
   );

@@ -604,6 +604,7 @@ if (products) {
         id: article.id,
         title: article.title,
         productTag: article.productTag,
+        donation: donation,
         // Add it to our created page. Topups might well be empty if we found enough relateds
         // relateds: [...relateds, ...topups],
         next,

@@ -29,6 +29,8 @@ import ArticleMicrodata from '../../sections/article/Article.Microdata'
 import ArticleShare from '../../sections/article/Article.Share'
 import ArticleHighlight from '../../sections/article/Article.Highlight'
 
+import DonationForm from '../../components-ecommerce/ProductPage/DonationForm'
+
 import ProductListingByTag from '../../components-ecommerce/ProductListingByTag'
 
 import { IDetailPage } from '@typings'
@@ -48,6 +50,7 @@ class Article extends Component<ArticleProps, PostState> {
   article = this.props.pageContext.article
   next = this.props.pageContext.next
   relateds = this.props.pageContext.relateds
+  donation = this.props.pageContext.donation[0].node
 
   state = {
     showProgress: true,
@@ -117,8 +120,9 @@ class Article extends Component<ArticleProps, PostState> {
     const article = this.article
     const author = this.article.author[0]
     const next = this.next
+    const donation = this.donation
 
-    console.log(author.name);
+    console.log(donation);
 
     const navConfig = {
       offset: true,
@@ -155,6 +159,7 @@ class Article extends Component<ArticleProps, PostState> {
         </Content>
         <Gradient>
           <Meta>
+            <DonationForm mode={mode} text={'Donate'} id={donation.id} variants={donation.variants} />
           </Meta>
           <ProductSection fullwidth wide>
             <ProductListing tag={article.productTag} />
@@ -225,6 +230,7 @@ const Meta = styled.div`
   color: ${p => p.theme.mode.text};
   margin-bottom: 80px;
   background: ${p => p.theme.mode.background};
+  text-align: right;
 
   ${mediaqueries.tablet`
     padding: 0 20px;

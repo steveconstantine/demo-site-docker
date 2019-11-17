@@ -30,12 +30,10 @@ function ArticlesHero() {
                 <TextContainer>
                   <Pill text="Articles" />
                   <Heading.h2 styles="h1">
-                    Perspectives on technology, design and business from the
-                    team at Gifting Wild.
+                    Gifting Wild.
                   </Heading.h2>
                   <MainText>
-                    Because the only thing we love more than doing what we do is
-                    sharing what we do.
+                    Read about our mission and goals.
                   </MainText>
                 </TextContainer>
               </Transitions.CSS.FadeIn>

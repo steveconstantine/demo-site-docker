@@ -128,7 +128,7 @@ const CareersImagesContainer = styled.div`
   
   ${mediaqueries.phablet`
       margin-top: 0;
-      height: 400px;
+      height: 380px;
   `};
 `
 
@@ -149,7 +149,7 @@ const CareersImagesContainerMobile = styled.div`
  */
 const ImageContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   font-size: 10rem;
   position: absolute;

@@ -118,7 +118,7 @@ const AddToCartButton = styled(Submit)`
 `;
 
 const AddDonationButton = styled(Button)`
-  color: white;
+  color: ${props => (props.mode =='dark' ? '#FFF' : '#000')};
   font-family: default;
   background: transparent;
   border: 1px solid transparent !important;
@@ -126,13 +126,14 @@ const AddDonationButton = styled(Button)`
   font-weight: 600;
   margin: 0 auto;
   width: 150px;  
-  padding: 10px 28px 10px 14px;
+  padding: 10px 28px 10px 28px;
   height: 40px;
   text-align: right;
-  margin-left: 14px;
+  margin-left: 30px;
   margin-right: 30px;
   font-size: 2.15rem;
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  text-shadow: ${props => (props.mode =='dark' ? '1px 1px 1px black, 0 0 5px black, 0 0 2px darkblue' : '1px 1px 1px white, 0 0 5px white, 0 0 2px lightblue')};
+  align-self: center;
 
   @media all and (max-width: 1000px) {
     margin-right: 14px;
@@ -140,7 +141,7 @@ const AddDonationButton = styled(Button)`
   }
 
   &:hover {
-    color: #FAFAFA;
+    color: ${props => (props.mode =='dark' ? '#FFF' : '#000')};
     border: 1px solid transparent !important;
     font-family: default;
     background: transparent;
@@ -148,7 +149,7 @@ const AddDonationButton = styled(Button)`
   }
 
    &:focus {
-    color: #FAFAFA;
+    color: ${props => (props.mode =='dark' ? '#FFF' : '#000')};
     border: 1px solid transparent !important;
     font-family: default;
     background: transparent;
@@ -269,7 +270,7 @@ class DonationForm extends Component {
   };
 
   render() {
-    const { variants } = this.props;
+    const { variants, text, mode } = this.props;
     const { errors } = this.state;
 
     const hasVariants = variants.length > 1;
@@ -342,7 +343,7 @@ class DonationForm extends Component {
           placement="topRight"
           overlayStyle={{'transformOrigin': '500px 250px'}}
         >
-          <AddDonationButton>Add Donation<AddIcon /></AddDonationButton>
+          <AddDonationButton mode={mode}>{text}<AddIcon fill={mode == 'dark' ? '#FFF' : '#000'}/></AddDonationButton>
         </Popover> 
       </Popover>
     );
@@ -356,14 +357,14 @@ DonationForm.propTypes = {
 
 export default DonationForm;
 
-const AddIcon = ({ fill = '#FFF' }) => (
+const AddIcon = ({ fill }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
     width="16" 
     height="16" 
     viewBox="0 0 28 28"
   >
-    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#FFF" />
+    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill={fill} />
     <path d="M0 0h24v24H0z" fill="none"/>
   </svg>
 )
