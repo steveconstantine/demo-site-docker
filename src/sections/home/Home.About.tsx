@@ -11,16 +11,10 @@ import ButtonArrow from '@components/Button/Button.Arrow'
 import mediaqueries from '@styles/media'
 
 const aboutText = [
-  `More than 5 trillion pieces of plastic, weighing nearly 269,000 tons, are littering the world's oceans according to a study by the scientific journal PLOS One. The study is the first of its kind to gather data from around the world on floating plastic.<br/>
-  <em>Source:</em> <a style="color:#FAFAFA; text-decoration: underline;" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111913" target="_blank" >https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111913/</a>`,
-  `Coastal land-based human dispersal account for 80% of ocean plastic pollution, globally. Over 6.5 million tons of litter enter the world’s Ocean each year. 50% is long-lasting plastic that will drift for hundreds of years before it is degraded.<br/>
-  <em>Source:</em> <a style="color:#FAFAFA; text-decoration: underline;" href="https://www.worldoceannetwork.org/won-part-6/carem-wod-2014-4/thematic-resources-pollution/" target="_blank">
-  https://www.worldoceannetwork.org/won-part-6/carem-wod-2014-4/thematic-resources-pollution/facts-figures-pollution/</a>`,
-  `More than a million seabirds and over 100,000 marine mammals die every year from plastic. Every day, more and more marine creatures are dying and washing ashore full of plastic and trash.<br/>   
-  <em>Source:</em> <a style="color:#FAFAFA; text-decoration: underline;" href="http://www.perseus-net.eu/site/content.php?locale=1&sel=517&artid=565" target="_blank">http://www.perseus-net.eu/site/content.php?locale=1&sel=517&artid=565</a>`,
-  `Please view this information and more on <a style="color:#FAFAFA; text-decoration: underline; font-size: 22px;" href="https://oceanlegacy.ca" target="_blank" >oceanlegacy.ca</a>. We are proud to support Ocean Legacy Foundation in their efforts to solve the global ocean pollution crisis.`,
-  `Thanks for your attention to gifting wild,<br/>
-  Ben and Steve`
+  `More than 5 trillion pieces of plastic, weighing nearly 269,000 tons, are littering the world's oceans according to a study by the scientific journal PLOS One. The study is the first of its kind to gather data from around the world on floating plastic.`,
+  `Read about plastic marine debris below. More can be seen at <a style="color:#FAFAFA; text-decoration: underline; font-size: 22px;" href="https://oceanlegacy.ca" target="_blank" >oceanlegacy.ca</a>. <br/>Please get involved with this EPIC action, the ocean needs all the help we can offer!`,
+  `Coastal land-based human dispersal account for 80% of ocean plastic pollution, globally. Over 6.5 million tons of litter enter the world’s Ocean each year. 50% is long-lasting plastic that will drift for hundreds of years before it is degraded.<br/>`,
+  `More than a million seabirds and over 100,000 marine mammals die every year from plastic. Every day, more and more marine creatures are dying and washing ashore full of plastic and trash.<br/>`
 ]
 
 const imageQuery = graphql`

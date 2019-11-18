@@ -236,7 +236,7 @@ class Navigation extends Component<{}, NavigationState> {
                           data-a11y="false"
                           fade
                           to="/">
-                        GIFTING WILD<br/><span>Giving opportunity for a healthy ocean.</span>
+                        GIFTING WILD<br/><span>In Support of a Resilient Ocean Legacy</span>
                       </MainText>
                     </Left>
                     <Right>
