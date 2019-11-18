@@ -150,13 +150,13 @@ const MobileLinks = styled.div`
 const StyledLink = styled(AniLink)`
   position: relative;
   font-size: 22px;
-  color: #fff;
+  color: ${p => (p.active ? '#FAFAFA' : '#FFF')};
   display: inline-block;
   margin: 0 auto;
   text-align: center;
   z-index: 6;
 
-  opacity: ${p => (p.active ? 1 : 0)};
+  opacity: ${p => (p.active ? 1 : 0.9)};
   transform: translateY(${p => (p.active ? 0 : -10)}px);
   transition: all 0.5s cubic-bezier(0.32, 0.08, 0.24, 1)
     ${p => p.index * 28 + 175}ms;
