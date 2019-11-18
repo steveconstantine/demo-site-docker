@@ -11,8 +11,9 @@ import LayoutHeroMobile from '@components/Layout/Layout.Hero.Mobile'
 import mediaqueries from '@styles/media'
 
 import ProductListingHero from '../../components-ecommerce/ProductListing/ProductListingHero'
+import DonationForm from '../../components-ecommerce/ProductPage/DonationForm'
 
-function HomeHero() {
+const HomeHero = ({ donation }) => {
   const { toggleContact } = useContext(ContactContext)
 
   return (
@@ -31,6 +32,9 @@ function HomeHero() {
                           }} text="Get in touch" />
                 <ButtonArrow onClick={() => navigate('/articles')} text="Read our Articles" />
             </ButtonContainer>
+            <DonationContainer>
+              <DonationForm mode={'dark'} text={'DONATE TO CLEANING THE SEA'} id={donation.id} variants={donation.variants} />
+            </DonationContainer>
         </Section>
       </HomeHeroContainer>
     </LayoutHeroMobile>
@@ -50,6 +54,11 @@ const HomeHeroContainer = styled.div`
     #mirror-mask {
       display: none;
   `}
+`
+
+const DonationContainer = styled.div`
+  align-self: center;
+  text-align: center;
 `
 
 const ButtonContainer = styled.div`

@@ -11,9 +11,9 @@ import ButtonArrow from '@components/Button/Button.Arrow'
 import mediaqueries from '@styles/media'
 
 const aboutText = [
-  `More than 5 trillion pieces of plastic, weighing nearly 269,000 tons, are littering the world's oceans according to a study by the scientific journal PLOS One. The study is the first of its kind to gather data from around the world on floating plastic.`,
   `Read about plastic marine debris below. More can be seen at <a style="color:#FAFAFA; text-decoration: underline; font-size: 22px;" href="https://oceanlegacy.ca" target="_blank" >oceanlegacy.ca</a>. <br/>Please get involved with this EPIC action, the ocean needs all the help we can offer!`,
   `Coastal land-based human dispersal account for 80% of ocean plastic pollution, globally. Over 6.5 million tons of litter enter the world’s Ocean each year. 50% is long-lasting plastic that will drift for hundreds of years before it is degraded.<br/>`,
+  `More than 5 trillion pieces of plastic, weighing nearly 269,000 tons, are littering the world's oceans according to a study by the scientific journal PLOS One. The study is the first of its kind to gather data from around the world on floating plastic.`,
   `More than a million seabirds and over 100,000 marine mammals die every year from plastic. Every day, more and more marine creatures are dying and washing ashore full of plastic and trash.<br/>`
 ]
 

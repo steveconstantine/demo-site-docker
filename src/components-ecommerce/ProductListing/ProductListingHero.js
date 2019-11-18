@@ -59,30 +59,9 @@ const ProductListingHero = () => (
               }
             }
           }
-          donation: allShopifyProduct(
-            filter: { 
-              handle: { eq: "donation" } }
-          ) {
-            edges {
-              node {
-                id
-                handle
-                title
-                description
-                productType
-                variants {
-                  shopifyId
-                  title
-                  price
-                  availableForSale
-              }
-            }
-          }
         }
-      }
       `}
-      render={({ products,
-      donation }) => {
+      render={({ products }) => {
         const pageBackground = 'linear-gradient(180deg, #08080b 50%, #191D23 100%)'
       const navConfig = {
         fixed: true,
@@ -95,9 +74,6 @@ const ProductListingHero = () => (
 
       // const [showScreen, setShowScreen] = useState(false)
 
-      console.log('frontpage donations')
-      console.log(donation);
-
       return (
           <>
             <Section fullwidth narrow>
@@ -108,7 +84,6 @@ const ProductListingHero = () => (
                   ))}
                 </ProductListingSlider>
                 <Spacer/>
-                <DonationForm mode={'dark'} text={'Donate'} id={donation.edges[0].node.id} variants={donation.edges[0].node.variants} />
               </ProductListingContainer>
             </Section>
           </>

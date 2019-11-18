@@ -15,6 +15,8 @@ import HomeServices from '../sections/home/Home.Services'
  */
 function IndexPage({ data, location }) {
   const contentful = data.allContentfulPage.edges[0].node
+  const donation = data.donation.edges[0].node
+
   const navConfig = {
     offset: true,
     fixed: true,
@@ -36,7 +38,7 @@ function IndexPage({ data, location }) {
           image={contentful.seo.image.file.url}
           pathname={location.pathname}
         />
-        <HomeHero />
+        <HomeHero donation={donation} />
         <HomeAbout />
       </>
     </Layout>
@@ -62,5 +64,24 @@ export const pageQuery = graphql`
         }
       }
     }
+  donation: allShopifyProduct(
+    filter: { 
+      handle: { eq: "donation" } }
+  ) {
+    edges {
+      node {
+        id
+        handle
+        title
+        description
+        productType
+        variants {
+          shopifyId
+          title
+          price
+          availableForSale
+      }
+    }
   }
-`
+}
+}`
