@@ -345,7 +345,7 @@ class DonationForm extends Component {
           placement="topRight"
           overlayStyle={{'transformOrigin': '500px 250px'}}
         >
-          <AddDonationButton mode={mode}>{text}<AddIcon fill={mode == 'dark' ? '#FFF' : '#000'}/></AddDonationButton>
+          <AddDonationButton mode={mode}>{text}</AddDonationButton>
         </Popover> 
       </Popover>
     );
