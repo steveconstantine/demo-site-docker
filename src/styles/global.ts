@@ -283,7 +283,7 @@ export const GlobalStyles = createGlobalStyle`
       visibility: hidden;
     }
     .flickity-slider {
-      height: 400px;
+      height: 555px;
     }
   }
 
