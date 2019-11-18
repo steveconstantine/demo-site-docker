@@ -82,7 +82,7 @@ const Frame = styled.nav`
   z-index: 0;
   padding: 80px 0;
   height: 100vh;
-  background: url("http://images.ctfassets.net/j2t3naiy5hbn/5JmhIGLQtNff7f2vX75k00/f1c911fc2db738c1850cfca392743c52/73127235_431656320818214_7937070713712672768_n.jpg?w=1024&h=1377&q=100");
+  background: url("https://images.ctfassets.net/j2t3naiy5hbn/5JmhIGLQtNff7f2vX75k00/f1c911fc2db738c1850cfca392743c52/73127235_431656320818214_7937070713712672768_n.jpg");
   transition: background 0s ${p => (p.active ? '0' : '0.5s')};
   background-size: cover;
   background-position: 40% center;
