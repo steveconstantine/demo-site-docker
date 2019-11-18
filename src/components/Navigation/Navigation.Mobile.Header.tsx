@@ -155,14 +155,16 @@ const StyledLink = styled(AniLink)`
   margin: 0 auto;
   text-align: center;
   z-index: 6;
-
-  opacity: ${p => (p.active ? 1 : 0.9)};
+  opacity: 1;
   transform: translateY(${p => (p.active ? 0 : -10)}px);
   transition: all 0.5s cubic-bezier(0.32, 0.08, 0.24, 1)
     ${p => p.index * 28 + 175}ms;
+  text-shadow: '1px 1px 1px white, 0 0 25px lightblue, 0 0 2px white';
 
   &[data-active='true'] {
-    color: #73737d;
+    opacity: 1;
+    color: #FAFAFA;
+    text-shadow: '1px 1px 1px white, 0 0 25px white, 0 0 2px white';
   }
 
   padding: 15px;

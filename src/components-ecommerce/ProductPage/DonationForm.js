@@ -134,7 +134,7 @@ const AddDonationButton = styled(Button)`
   white-space: normal;
   word-wrap: break-word;
   font-size: 2.15rem;
-  text-shadow: ${props => (props.mode =='dark' ? '1px 1px 1px black, 0 0 5px black, 0 0 2px darkblue' : '1px 1px 1px white, 0 0 5px white, 0 0 2px lightblue')};
+  text-shadow: ${props => (props.mode =='dark' ? '1px 1px 1px black, 0 0 5px black, 0 0 2px darkblue' : '1px 1px 1px white, 0 0 25px lightblue, 0 0 2px white')};
   align-self: center;
 
   @media all and (max-width: 1000px) {
