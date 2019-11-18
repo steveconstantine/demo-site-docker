@@ -369,4 +369,9 @@ export const GlobalStyles = createGlobalStyle`
   .headroom-wrapper { 
     height: 50px !important;
   }
+
+  a:hover {
+    color: #FAFAFA !important;
+    text-shadow: 1px 1px 1px white, 0 0 5px lightblue, 0 0 2px white;
+  }
 `
